@@ -1,0 +1,17 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+
+    <p>text1</p>
+
+    <p *ngIf="showFiller">text.</p>
+
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-icon class="menu-button" (click)="drawer.toggle()">reorder</mat-icon>
+  </div>
+</mat-drawer-container>
