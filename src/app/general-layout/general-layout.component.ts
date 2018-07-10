@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MainMenuComponent } from '../main-menu/main-menu.component';
 
 @Component({
   selector: 'exc-general-layout',
   templateUrl: './general-layout.component.html',
   styleUrls: ['./general-layout.component.scss']
 })
-export class GeneralLayoutComponent implements OnInit {
+export class GeneralLayoutComponent {
+  @ViewChild(MainMenuComponent) mainMenu: MainMenuComponent;
 
-  constructor() { }
-
-  ngOnInit() {
+  onMenuToggled() {
+    this.mainMenu.drawer.toggle();
   }
-
-  onMenuToggled() {}
 
 }

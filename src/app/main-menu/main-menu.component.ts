@@ -1,4 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material';
 
 @Component({
   selector: 'exc-main-menu',
@@ -6,6 +7,8 @@ import {Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./main-menu.component.scss'],
 })
 export class MainMenuComponent implements OnInit {
+  @ViewChild(MatDrawer) drawer: MatDrawer;
+
   showFiller = false;
 
   tests: string[] = ['Запросить тренировочный тест', 'Мои тесты'];
