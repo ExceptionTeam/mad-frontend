@@ -1,13 +1,17 @@
 <mat-toolbar>
-  <div></div>
 
-  <div class="header">
+  <button mat-icon-button >
+    <mat-icon aria-label="Example icon-button with a heart icon">reorder</mat-icon>
+  </button>
+
     <h1>{{title | uppercase}}</h1>
-  </div>
-  <div>
+
+  <div class="icons">
     <app-personal-menu></app-personal-menu>
-    <!--<button class="but">-->
-      <mat-icon class='exit-icon'>exit_to_app</mat-icon>
-    <!--</button>-->
+
+    <button mat-icon-button>
+      <mat-icon aria-label="Example icon-button with a heart icon">exit_to_app</mat-icon>
+    </button>
+
   </div>
 </mat-toolbar>

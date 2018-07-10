@@ -1,0 +1,7 @@
+.toolbar{
+  justify-content: space-between;
+  background: #41454A;
+  color: white;
+  height: 50px;
+  /*position: fixed;*/
+}

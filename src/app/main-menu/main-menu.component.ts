@@ -1,8 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
-/**
- * @title Autosize sidenav
- */
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
@@ -11,8 +8,13 @@ import {Component, OnInit} from '@angular/core';
 export class MainMenuComponent implements OnInit {
   showFiller = false;
 
-  constructor(){}
+  tests: string[] = ['Запросить тренировочный тест', 'Мои тесты'];
+  test = 'Мои тесты';
+  buttons: string[] = ['Мои задачи', 'Материалы'];
 
-  ngOnInit(){
+  constructor() {
+  }
+
+  ngOnInit() {
   }
 }

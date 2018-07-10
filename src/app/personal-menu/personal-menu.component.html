@@ -1,4 +1,8 @@
-<button mat-button class="button-menu" [matMenuTriggerFor]="menu"><mat-icon class="face-icon">face</mat-icon></button>
+<button mat-button class="button-menu" [matMenuTriggerFor]="menu">
+  <button mat-icon-button>
+    <mat-icon aria-label="Example icon-button with a heart icon">face</mat-icon>
+  </button>
+</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item *ngFor="let item of personalMenu">
     {{ item }}
