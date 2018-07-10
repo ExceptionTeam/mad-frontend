@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'exc-header',
@@ -7,6 +7,8 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = 'Student\'s Exception';
+
+  @Output() menuToggled: boolean;
 
   constructor() {
   }

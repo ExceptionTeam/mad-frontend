@@ -13,6 +13,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { PersonalMenuComponent } from './personal-menu/personal-menu.component';
 import { DropDownListComponent } from './common/drop-down-list/drop-down-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { GeneralLayoutComponent } from './general-layout/general-layout.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     PersonalMenuComponent,
     DropDownListComponent,
     FooterComponent,
+    GeneralLayoutComponent,
   ],
   imports: [
     BrowserModule,
