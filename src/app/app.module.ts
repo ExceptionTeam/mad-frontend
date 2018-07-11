@@ -14,6 +14,13 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+import { TabsComponent } from '../common/tabs/tabs.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
+import { InputComponent } from './input/input.component';
+import { MatInputModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
+import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +30,10 @@ import { MatListModule } from '@angular/material/list';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    TabsComponent,
+    AllTasksTeacherComponent,
+    InputComponent,
+    TableMyTasksTeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,10 @@ import { MatListModule } from '@angular/material/list';
     MatMenuModule,
     MatSelectModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
