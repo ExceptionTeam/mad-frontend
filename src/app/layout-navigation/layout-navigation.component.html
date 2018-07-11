@@ -1,10 +1,10 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer class="sidenav" mode="side">
-
-    <button class="button" mat-button *ngFor="let button of buttons">
-      {{ button }}
-    </button>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of links">
+        <a matLine href="#">{{ link }}</a>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-drawer>
-
 </mat-drawer-container>
 

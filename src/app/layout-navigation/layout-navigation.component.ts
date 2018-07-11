@@ -8,10 +8,7 @@ import { MatDrawer } from '@angular/material';
 })
 export class LayoutNavigationComponent implements OnInit {
   @ViewChild(MatDrawer) drawer: MatDrawer;
-
-  showFiller = false;
-
-  buttons: string[] = ['Мои тесты', 'Мои задачи', 'Материалы'];
+  links: string[] = ['Мои тесты', 'Мои задачи', 'Материалы'];
 
   constructor() {
   }

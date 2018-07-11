@@ -14,6 +14,7 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { DropDownListComponent } from './common/drop-down-list/drop-down-list.component';
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing
     MatIconModule,
     MatMenuModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
