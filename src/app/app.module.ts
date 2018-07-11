@@ -15,6 +15,7 @@ import { DropDownListComponent } from './common/drop-down-list/drop-down-list.co
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import {MatListModule} from '@angular/material/list';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatListModule} from '@angular/material/list';
     DropDownListComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
