@@ -8,22 +8,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
-import { PersonalMenuComponent } from './personal-menu/personal-menu.component';
+import { LayoutHeaderComponent } from './layout-header/layout-header.component';
+import { LayoutNavigationComponent } from './layout-navigation/layout-navigation.component';
+import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-personal-menu.component';
 import { DropDownListComponent } from './common/drop-down-list/drop-down-list.component';
-import { FooterComponent } from './footer/footer.component';
-import { GeneralLayoutComponent } from './general-layout/general-layout.component';
+import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
+import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    MainMenuComponent,
-    PersonalMenuComponent,
+    LayoutHeaderComponent,
+    LayoutNavigationComponent,
+    LayoutPersonalMenuComponent,
     DropDownListComponent,
-    FooterComponent,
-    GeneralLayoutComponent,
+    LayoutFooterComponent,
+    LayoutLandingPageComponent,
   ],
   imports: [
     BrowserModule,
