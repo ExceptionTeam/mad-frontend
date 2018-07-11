@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="onMenuToggled()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <h1>{{title | uppercase}}</h1>
+
+  <div>
+    <exc-personal-menu></exc-personal-menu>
+    <button mat-icon-button>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

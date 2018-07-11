@@ -1,0 +1,10 @@
+<button mat-button [matMenuTriggerFor]="menu">
+  <button mat-icon-button>
+    <mat-icon >face</mat-icon>
+  </button>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let item of personalMenu">
+    {{ item }}
+  </button>
+</mat-menu>
