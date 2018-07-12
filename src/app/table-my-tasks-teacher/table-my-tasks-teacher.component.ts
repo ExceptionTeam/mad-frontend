@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./table-my-tasks-teacher.component.scss']
 })
 export class TableMyTasksTeacherComponent {
-
   @Input() tasks: string[];
 
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
