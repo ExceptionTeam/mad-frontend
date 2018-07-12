@@ -14,6 +14,12 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +29,8 @@ import { MatListModule } from '@angular/material/list';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    AssignATaskComponent,
+    DatepickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,9 @@ import { MatListModule } from '@angular/material/list';
     MatMenuModule,
     MatSelectModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
