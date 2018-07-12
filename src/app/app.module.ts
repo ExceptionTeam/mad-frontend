@@ -19,6 +19,7 @@ import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.
 import { MatInputModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { StudentTasksTableComponent } from './student-tasks-table/student-tasks-table.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    StudentTasksTableComponent,
   ],
   imports: [
     BrowserModule,
