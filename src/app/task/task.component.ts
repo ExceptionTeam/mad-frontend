@@ -8,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class TaskComponent implements OnInit {
   constructor() { }
-
+  task: Task = {name: 'Задача', description: 'аннвагагваноен еанвар апго гаганганоагааа агага оаеага',
+   deadline: new Date(), teacher: 'Василенко'};
+  rows: [2 , 2, 1, 1];
   ngOnInit() {
   }
 }
 export interface Task {
-  info: string;
-  type: number;
-  answers: string[];
-  rightAnswer: string;
-  personAnswer: string;
+  name: string;
+  description: string;
+  deadline: Date;
+  teacher: string;
 }

@@ -16,6 +16,10 @@ import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import {MatListModule} from '@angular/material/list';
 import { TaskComponent } from './task/task.component';
+import {MatCardModule} from '@angular/material/card';
+import { FileApploadingComponent } from './file-apploading/file-apploading.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { TaskComponent } from './task/task.component';
     LayoutFooterComponent,
     LayoutLandingPageComponent,
     TaskComponent,
+    FileApploadingComponent,
+    TaskSendingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,9 @@ import { TaskComponent } from './task/task.component';
     MatMenuModule,
     MatSelectModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
