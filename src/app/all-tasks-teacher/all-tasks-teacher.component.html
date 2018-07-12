@@ -1,2 +1,7 @@
-<exc-input [countCaracters]="20" placeholder="Введите название задачи"></exc-input>
+<div class="container">
+  <mat-form-field hintLabel="Максимум 25 символов">
+    <input matInput #input placeholder="Введите название задачи" maxlength=25>
+    <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+  </mat-form-field>
+</div>
 <exc-table-my-tasks-teacher [tasks]="tasks"></exc-table-my-tasks-teacher>

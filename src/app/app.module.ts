@@ -16,7 +16,6 @@ import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
-import { InputComponent } from './input/input.component';
 import { MatInputModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
@@ -30,7 +29,7 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     LayoutFooterComponent,
     LayoutLandingPageComponent,
     AllTasksTeacherComponent,
-    InputComponent,
+    TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
   ],
   imports: [

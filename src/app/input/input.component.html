@@ -1,6 +1,0 @@
-<div class="container">
-  <mat-form-field hintLabel="Максимум {{countCaracters}} символов">
-    <input matInput #input [placeholder]="placeholder" [attr.maxlength]="countCaracters">
-    <mat-hint align="end">{{input.value?.length || 0}}/{{ countCaracters }}</mat-hint>
-  </mat-form-field>
-</div>
