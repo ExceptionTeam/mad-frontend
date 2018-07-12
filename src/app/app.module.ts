@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { LayoutHeaderComponent } from './layout-header/layout-header.component';
 import { LayoutNavigationComponent } from './layout-navigation/layout-navigation.component';
 import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-personal-menu.component';
-import { DropDownListComponent } from './common/drop-down-list/drop-down-list.component';
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import {MatListModule} from '@angular/material/list';
@@ -28,7 +27,6 @@ import {MatChipsModule} from '@angular/material/chips';
     LayoutHeaderComponent,
     LayoutNavigationComponent,
     LayoutPersonalMenuComponent,
-    DropDownListComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
     TaskComponent,
