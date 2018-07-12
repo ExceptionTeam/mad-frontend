@@ -14,6 +14,11 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
+import { MatInputModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
+import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
 import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -29,6 +34,9 @@ import {MatNativeDateModule} from '@angular/material';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    AllTasksTeacherComponent,
+    TableMyTasksTeacherComponent,
+    TableMyTasksTeacherComponent,
     AssignATaskComponent,
     DatepickerComponent,
   ],
@@ -41,6 +49,10 @@ import {MatNativeDateModule} from '@angular/material';
     MatMenuModule,
     MatSelectModule,
     MatButtonModule,
+    MatListModule,
+    MatTabsModule,
+    MatInputModule,
+    MatTableModule
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
