@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface TASK {
+export interface Task {
   _id: number;
   name: string;
   tags: string[];
@@ -14,7 +14,7 @@ export interface TASK {
   styleUrls: ['./all-tasks-teacher.component.scss']
 })
 export class AllTasksTeacherComponent implements OnInit {
-  tasks: TASK[] = [
+  tasks: Task[] = [
     { _id: 0, name: 'Триангуляция', tags: ['рек', 'тег', 'тег'], description: 'жыдфвавлаожфыа', weight: 9 },
     { _id: 12, name: 'Выбрать поднабор', tags: ['рек', 'тег', 'тег'], description: 'жыдфывавлаожфыа', weight: 10 },
     { _id: 4, name: 'Бинарные последовательности', tags: ['рек', 'тег', 'тег'], description: 'жыдфвавлаожфыа', weight: 10 },
@@ -27,7 +27,9 @@ export class AllTasksTeacherComponent implements OnInit {
     { _id: 123, name: 'Блок из единиц', tags: ['рек', 'тег', 'тег'], description: 'жыдвлаожфыа', weight: 10 },
     { _id: 123, name: 'Блок из единиц', tags: ['рек', 'тег', 'тег'], description: 'жыдвлаожфыа', weight: 2 }
   ];
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
