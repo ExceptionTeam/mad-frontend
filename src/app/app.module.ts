@@ -58,7 +58,7 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     MatChipsModule,
     FormsModule,
     HttpModule,
-    MatBadgeModule
+    MatBadgeModule,
     MatTabsModule,
     MatInputModule,
     MatTableModule
