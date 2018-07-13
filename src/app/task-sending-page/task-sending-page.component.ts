@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Http} from '@angular/http';
+/*import {Http} from '@angular/http';*/
 
-export interface DataForPost {
+export interface DataPost {
   taskId: string;
   studentId: string;
 }
@@ -13,8 +13,8 @@ export interface DataForPost {
 })
 export class TaskSendingPageComponent implements OnInit {
   file: File;
-  dataForPost: DataForPost;
-  constructor(public http: Http) { }
+  dataPost: DataPost;
+  constructor(/*public http: Http*/) { }
 
   ngOnInit() {
   }
@@ -23,7 +23,7 @@ export class TaskSendingPageComponent implements OnInit {
     console.log(this.file);
     /*const formData = new FormData();
     formData.append('solutionFile', this.file);
-    formData.append('data', JSON.stringify(this.dataForPost));
+    formData.append('data', JSON.stringify(this.dataPost));
     this.http.post('/smth', formData).subscribe(
       function(response) {
          console.log('Success Response' + response

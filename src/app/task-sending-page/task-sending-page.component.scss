@@ -1,17 +1,17 @@
-.flex{
+.task-sending-area {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-exc-task{
+.task {
   display: flex;
   flex-direction: column;
  text-align: center;
  align-items: center;
 }
 
-.send-button{
+.send-button {
  margin-top: 10px;
  width: 100%;
  text-align: center;

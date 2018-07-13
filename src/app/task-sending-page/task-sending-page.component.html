@@ -1,10 +1,9 @@
-<exc-task></exc-task>
-<div class='flex'>
-    <exc-file-apploading (fileChanged)="onFileChanged($event)">
-       fileChanged
-    </exc-file-apploading>
-    <div class='send-button'>
-      <button mat-flat-button [disabled]="!file" type='submit' (click)='onClick($event)'>
+<exc-task class='task'></exc-task>
+<div class="task-sending-area">
+    <exc-file-uploading (fileChanged)="onFileChanged($event)">
+    </exc-file-uploading>
+    <div class="send-button">
+      <button mat-flat-button [disabled]="!file" type="submit" (click)="onClick($event)">
         Отправить решение
       </button>
     </div>

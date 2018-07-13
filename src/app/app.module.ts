@@ -13,16 +13,17 @@ import { LayoutNavigationComponent } from './layout-navigation/layout-navigation
 import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-personal-menu.component';
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { TaskComponent } from './task/task.component';
 import { MatCardModule } from '@angular/material/card';
-import { FileApploadingComponent } from './file-apploading/file-apploading.component';
+import { FileUploadingComponent } from './file-uploading/file-uploading.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     LayoutFooterComponent,
     LayoutLandingPageComponent,
     TaskComponent,
-    FileApploadingComponent,
+    FileUploadingComponent,
     TaskSendingPageComponent,
   ],
   imports: [
@@ -51,7 +52,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatChipsModule,
     FormsModule,
     HttpModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
