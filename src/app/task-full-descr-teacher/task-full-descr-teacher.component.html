@@ -1,0 +1,25 @@
+<div class="task-teacher">
+
+
+  <h1 class="name-of-the-task">
+    {{task.weight}}: Задача '{{task.name}}'
+  </h1>
+
+
+  <div class="tags">
+    Теги:
+    <ng-container *ngFor="let item of task.tags">
+      {{item}},
+    </ng-container>
+  </div>
+    <p class="task-description">
+      {{task.description}}
+    </p>
+
+  <button mat-button>Изменить задачу</button>
+
+  <p>Входные файлы: ???</p>
+
+
+</div>
+

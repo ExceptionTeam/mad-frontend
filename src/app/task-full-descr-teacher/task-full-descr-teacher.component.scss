@@ -1,0 +1,22 @@
+.name-of-the-task {
+  font-size: x-large;
+}
+
+.task-teacher {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.mat-button{
+  width: 20vh;
+  font-weight: normal;
+  color: gray;
+}
+
+.tags{
+  font-weight: bold;
+}
