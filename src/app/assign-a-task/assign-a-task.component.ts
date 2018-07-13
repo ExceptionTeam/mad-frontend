@@ -13,7 +13,7 @@ export class AssignATaskComponent implements OnInit {
   ngOnInit() {
   }
 
-  public close() {
+  public closeModalWindow() {
     this.matDialogRef.close();
   }
 }
