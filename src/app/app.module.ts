@@ -21,10 +21,9 @@ import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
 import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material';
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -52,13 +51,15 @@ import {MatNativeDateModule} from '@angular/material';
     MatListModule,
     MatTabsModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
     MatListModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatMomentDateModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AssignATaskComponent]
 })
 export class AppModule {
 }
