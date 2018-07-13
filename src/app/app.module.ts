@@ -17,12 +17,17 @@ import {MatListModule} from '@angular/material/list';
 import { TaskComponent } from './task/task.component';
 import { MatCardModule } from '@angular/material/card';
 import { FileApploadingComponent } from './file-apploading/file-apploading.component';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
+import { MatInputModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
+import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +40,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     TaskComponent,
     FileApploadingComponent,
     TaskSendingPageComponent,
+    AllTasksTeacherComponent,
+    TableMyTasksTeacherComponent,
+    TableMyTasksTeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,11 +55,13 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatButtonModule,
     MatListModule,
     MatCardModule,
-    MatGridListModule,
     MatChipsModule,
     FormsModule,
     HttpModule,
     MatBadgeModule
+    MatTabsModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
