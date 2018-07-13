@@ -14,9 +14,26 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+<<<<<<< HEAD
 import { TaskCreationPageComponent } from './task-creation-page/task-creation-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+=======
+import { TaskComponent } from './task/task.component';
+import { MatCardModule } from '@angular/material/card';
+import { FileUploadingComponent } from './file-uploading/file-uploading.component';
+import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
+import { MatTableModule } from '@angular/material/table';
+import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+
+>>>>>>> feat/13/task-sending-page
 
 @NgModule({
   declarations: [
@@ -26,7 +43,16 @@ import { MatInputModule } from '@angular/material';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+<<<<<<< HEAD
     TaskCreationPageComponent,
+=======
+    TaskComponent,
+    FileUploadingComponent,
+    TaskSendingPageComponent,
+    AllTasksTeacherComponent,
+    TableMyTasksTeacherComponent,
+    TableMyTasksTeacherComponent,
+>>>>>>> feat/13/task-sending-page
   ],
   imports: [
     BrowserModule,
@@ -38,8 +64,19 @@ import { MatInputModule } from '@angular/material';
     MatSelectModule,
     MatButtonModule,
     MatListModule,
+<<<<<<< HEAD
     MatFormFieldModule,
     MatInputModule,
+=======
+    MatCardModule,
+    MatChipsModule,
+    FormsModule,
+    HttpModule,
+    MatBadgeModule,
+    MatTabsModule,
+    MatInputModule,
+    MatTableModule
+>>>>>>> feat/13/task-sending-page
   ],
   providers: [],
   bootstrap: [AppComponent]

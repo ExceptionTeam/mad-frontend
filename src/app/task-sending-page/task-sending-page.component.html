@@ -1,0 +1,10 @@
+<exc-task class='task'></exc-task>
+<div class="task-sending-area">
+    <exc-file-uploading (fileChanged)="onFileChanged($event)">
+    </exc-file-uploading>
+    <div class="send-button">
+      <button mat-flat-button [disabled]="!file" type="submit" (click)="onClick($event)">
+        Отправить решение
+      </button>
+    </div>
+<div>
