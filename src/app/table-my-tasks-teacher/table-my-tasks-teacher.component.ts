@@ -16,6 +16,6 @@ export class TableMyTasksTeacherComponent {
   }
 
   public openModal() {
-    this.dialog.open(AssignATaskComponent, { data: { name: 'opened' } });
+    this.dialog.open(AssignATaskComponent);
   }
 }
