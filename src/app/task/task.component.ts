@@ -15,7 +15,6 @@ export interface Task {
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-
 export class TaskComponent implements OnInit {
   task: Task = {
     assId: '1',

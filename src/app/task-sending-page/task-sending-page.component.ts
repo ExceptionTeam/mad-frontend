@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
+
 export interface DataForPost {
   taskId: string;
   studentId: string;
 }
+
 @Component({
   selector: 'exc-task-sending-page',
   templateUrl: './task-sending-page.component.html',
   styleUrls: ['./task-sending-page.component.scss']
 })
 export class TaskSendingPageComponent implements OnInit {
-
   file: File;
   dataForPost: DataForPost;
   constructor(public http: Http) { }

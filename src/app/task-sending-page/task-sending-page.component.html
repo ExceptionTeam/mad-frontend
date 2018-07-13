@@ -3,8 +3,9 @@
     <exc-file-apploading (fileChanged)="onFileChanged($event)">
        fileChanged
     </exc-file-apploading>
-    <div class='send-button'><button mat-flat-button [disabled]="!file" type='submit' (click)='onClick($event)'>
-      Отправить решение
-    </button>
+    <div class='send-button'>
+      <button mat-flat-button [disabled]="!file" type='submit' (click)='onClick($event)'>
+        Отправить решение
+      </button>
     </div>
 <div>
