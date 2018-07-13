@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Group, Student } from './select-student-or-group.types';
 
 @Component({
@@ -6,7 +6,7 @@ import { Group, Student } from './select-student-or-group.types';
   templateUrl: './select-student-or-group.component.html',
   styleUrls: ['./select-student-or-group.component.scss']
 })
-export class SelectStudentOrGroupComponent implements OnInit {
+export class SelectStudentOrGroupComponent {
   indStudents: Student[] = [
     { _id: 2, name: 'Аня Кисель' },
     { _id: 32, name: 'Влад Малиновский' },
@@ -37,11 +37,4 @@ export class SelectStudentOrGroupComponent implements OnInit {
   ];
   isDisabledStudent = false;
   isDisabledGroup = false;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
 }
