@@ -1,5 +1,5 @@
 <h1>
-  {{task.mark}} : {{task.name}}
+  {{task.weight}} : {{task.name}}
 </h1>
 <p>
   {{task.description}}
@@ -8,6 +8,6 @@
   дедлайн: {{task.deadline| date :  "dd.MM.yyyy mm:ss"}}
 </p>
 <p>
-  преподаватель: {{task.teacher}}
+  преподаватель: {{task.teacherName}} {{task.teacherSurname}}
 </p>
 
