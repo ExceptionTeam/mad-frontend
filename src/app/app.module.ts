@@ -20,7 +20,9 @@ import { FileApploadingComponent } from './file-apploading/file-apploading.compo
 import {MatGridListModule} from '@angular/material/grid-list';
 import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
 import {MatChipsModule} from '@angular/material/chips';
-
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,10 @@ import {MatChipsModule} from '@angular/material/chips';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule,
+    HttpModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

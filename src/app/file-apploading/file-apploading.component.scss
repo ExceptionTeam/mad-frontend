@@ -1,0 +1,15 @@
+.flex{
+  display: flex;
+  flex-direction:column;
+  align-content: center;
+}
+span{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width:250px;
+  height: 20px;
+}
+a{
+  margin-bottom: 10px;
+}

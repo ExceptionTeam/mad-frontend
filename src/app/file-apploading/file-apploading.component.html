@@ -1,4 +1,7 @@
-<input [hidden]='true' id='uploadFile' multiple type="file" (change)='onChange($event)' />
-<label for='uploadFile' class='mat-button mat-raised'>
-  <a mat-flat-button>Загрузить файл</a>
-</label>
+<div class='flex'>
+   <input [hidden]='true' id='uploadFile' multiple type="file" (change)='aploadFile($event)'/>
+    <label for='uploadFile' class='mat-button mat-raised'>
+     <a mat-flat-button>Загрузить файл</a>
+    </label>
+   <span *ngIf='file'>Выбранный файл: {{file.name}}</span>
+</div>
