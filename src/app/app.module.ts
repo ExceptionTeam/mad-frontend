@@ -14,6 +14,9 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+import { TaskCreationPageComponent } from './task-creation-page/task-creation-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { MatListModule } from '@angular/material/list';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    TaskCreationPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { MatListModule } from '@angular/material/list';
     MatMenuModule,
     MatSelectModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
