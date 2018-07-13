@@ -20,10 +20,10 @@ import { MatInputModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
 import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     AssignATaskComponent,
-    DatepickerComponent,
+    SelectStudentOrGroupComponent,
   ],
   imports: [
     BrowserModule,

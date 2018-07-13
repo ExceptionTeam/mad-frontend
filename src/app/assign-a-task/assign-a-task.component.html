@@ -1,34 +1,9 @@
-<exc-datepicker></exc-datepicker>
-
-<p>
-  <mat-form-field>
-    <mat-select placeholder="Выберите студента" [disabled]="isDisabledStudent">
-      <mat-option (click)="isDisabledGroup=false">-- None --</mat-option>
-      <mat-optgroup label="Индивидуальные студенты">
-        <mat-option *ngFor="let student of indStudents" (click)="isDisabledGroup=true" [value]="student.name">
-          {{student.name}}
-        </mat-option>
-      </mat-optgroup>
-      <mat-optgroup *ngFor="let group of groups" [label]="group.name">
-        <mat-option *ngFor="let student of group.students" (click)="isDisabledGroup=true" [value]="student.name">
-          {{student.name}}
-        </mat-option>
-      </mat-optgroup>
-    </mat-select>
-  </mat-form-field>
-</p>
-
-<p>
-  <mat-form-field>
-    <mat-select placeholder="Выберите группу" [disabled]="isDisabledGroup">
-      <mat-option (click)="isDisabledStudent=false">-- None --</mat-option>
-      <mat-option *ngFor="let group of groups" (click)="isDisabledStudent=true" value="group.name">
-        {{group.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</p>
-
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Дедлайн">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<exc-select-student-or-group></exc-select-student-or-group>
 <div>
   <button mat-button (click)="close()">
     Назначить
