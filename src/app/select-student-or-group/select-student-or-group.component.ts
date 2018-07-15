@@ -37,4 +37,20 @@ export class SelectStudentOrGroupComponent {
   ];
   isDisabledStudent = false;
   isDisabledGroup = false;
+
+  groupIsNotDisabled() {
+    this.isDisabledGroup = false;
+  }
+
+  groupIsDisabled() {
+    this.isDisabledGroup = true;
+  }
+
+  studentsIsNotDisabled() {
+    this.isDisabledStudent = false;
+  }
+
+  studentsIsDisabled() {
+    this.isDisabledStudent = true;
+  }
 }
