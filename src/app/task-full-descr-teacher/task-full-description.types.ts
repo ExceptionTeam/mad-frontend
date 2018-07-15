@@ -4,4 +4,5 @@ export interface Task {
   tags: string[];
   description: string;
   weight: number;
+  inputFilesUrls: string[];
 }
