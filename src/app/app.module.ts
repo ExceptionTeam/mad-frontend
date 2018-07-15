@@ -19,6 +19,11 @@ import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.
 import { MatInputModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,8 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    AssignATaskComponent,
+    SelectStudentOrGroupComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +51,15 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     MatListModule,
     MatTabsModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AssignATaskComponent]
 })
 export class AppModule {
 }
