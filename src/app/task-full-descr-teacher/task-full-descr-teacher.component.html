@@ -1,25 +1,21 @@
 <div class="task-teacher">
-
-
   <h1 class="name-of-the-task">
     {{task.weight}}: Задача '{{task.name}}'
   </h1>
-
-
   <div class="tags">
     Теги:
     <ng-container *ngFor="let item of task.tags">
       {{item}},
     </ng-container>
   </div>
-    <p class="task-description">
-      {{task.description}}
-    </p>
-
+  <p class="task-description">
+    {{task.description}}
+  </p>
   <button mat-button>Изменить задачу</button>
-
-  <p>Входные файлы: ???</p>
-
-
+  <p>Входные данные:</p>
+  <a class="open-file" *ngFor="let url of task.inputFilesUrls; let i = index" [attr.data-index]="i" [href]="url"
+     target="_blank">
+    Открыть файл {{i+1}}
+  </a>
 </div>
 

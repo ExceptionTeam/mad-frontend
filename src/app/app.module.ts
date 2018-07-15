@@ -17,8 +17,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
 import { MatInputModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    TaskFullDescrTeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +47,12 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     MatListModule,
     MatTabsModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TaskFullDescrTeacherComponent]
 })
 export class AppModule {
 }

@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../types/Task';
+
+export interface Task {
+  _id: string;
+  name: string;
+  tags: string[];
+  description: string;
+  weight: number;
+}
 
 @Component({
   selector: 'exc-all-tasks-teacher',

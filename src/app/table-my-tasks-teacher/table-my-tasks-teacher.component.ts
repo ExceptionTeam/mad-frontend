@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'exc-table-my-tasks-teacher',
@@ -7,6 +9,12 @@ import { Component, Input } from '@angular/core';
 })
 export class TableMyTasksTeacherComponent {
   @Input() tasks: string[];
-
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
+
+  constructor(public dialog: MatDialog) {
+  }
+
+  public onClickName() {
+    this.dialog.open(TaskFullDescrTeacherComponent);
+  }
 }
