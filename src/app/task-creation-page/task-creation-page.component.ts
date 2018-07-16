@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TaskCreationPageComponent implements OnInit {
   name: String;
   description: String;
-  IOfiles: File[] = [];
-  @Input() valid = false;
+  InputOutputFiles: File[] = [];
+  @Input() validFiles = false;
   constructor() { }
 
   ngOnInit() {
@@ -18,11 +18,11 @@ export class TaskCreationPageComponent implements OnInit {
   onSubmit(value) {
     console.log(value.name);
     console.log(value.description);
-    console.log(this.IOfiles);
+    console.log(this.InputOutputFiles);
   }
 
-  chv(event) {
-    console.log(event);
-    this.valid = event;
+  changeValidState(event) {
+    // console.log(event);
+    this.validFiles = event;
   }
 }

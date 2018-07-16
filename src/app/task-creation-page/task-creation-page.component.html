@@ -1,12 +1,13 @@
-<form class="example-form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-  <mat-form-field class="example-full-width">
-    <input matInput #name  ngModel name = 'name' maxlength="20" placeholder="Название" required>
+<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <mat-form-field class="full-width">
+    <input matInput #name ngModel name="name" maxlength="20" placeholder="Название" required>
     <mat-hint align="end">{{name.value.length}} / 20</mat-hint>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Описание" rows="10" #description ngModel name = 'description' required></textarea>
+  <mat-form-field class="full-width">
+    <textarea matInput placeholder="Описание" rows="10" ngModel name='description' required></textarea>
   </mat-form-field>
-  <button type="submit" [disabled]="!form.valid || !valid" mat-button >отправить</button>
+  <exc-input-output-adding class="input-output-adding" [files]="InputOutputFiles" (validFiles)="changeValidState($event)"></exc-input-output-adding>
+  <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>отправить</button>
 </form>
- <exc-input-output-adding class="input-output-adding" [files]="IOfiles" (validFiles)="chv($event)" ></exc-input-output-adding>
+

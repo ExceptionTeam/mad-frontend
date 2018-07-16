@@ -1,5 +1,4 @@
 <p>Добавьте входные/выходные файлы для тестирования задачи:</p>
-
 <ng-container *ngFor="let item of length; let index = index; " class='input-output-files'>
   <exc-file-uploading *ngIf='index%2==0' id={{index}} (fileChanged)="onFileChanged($event, index)">
   </exc-file-uploading>
@@ -9,7 +8,6 @@
         <mat-icon>cancel</mat-icon>
     </button>
 </ng-container>
-
 <button mat-icon-button (click)='onClick($event)'>
     <mat-icon>add</mat-icon>
 </button>
