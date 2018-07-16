@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'exc-footer',
+  selector: 'exc-layout-footer',
   templateUrl: './layout-footer.component.html',
   styleUrls: ['./layout-footer.component.scss']
 })

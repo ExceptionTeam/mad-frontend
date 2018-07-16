@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material';
 
 @Component({
-  selector: 'exc-main-menu',
+  selector: 'exc-layout-navigation',
   templateUrl: './layout-navigation.component.html',
   styleUrls: ['./layout-navigation.component.scss'],
 })
