@@ -14,6 +14,15 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+import { TaskViewSendingComponent } from './task-view-sending/task-view-sending.component';
+import { MatCardModule } from '@angular/material/card';
+import { FileUploadingComponent } from './file-uploading/file-uploading.component';
+import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
 import { MatInputModule, MatPaginator } from '@angular/material';
@@ -29,6 +38,7 @@ import { SelectStudentOrGroupComponent } from './select-student-or-group/select-
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +47,9 @@ import { FormsModule } from '@angular/forms';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    TaskViewSendingComponent,
+    FileUploadingComponent,
+    TaskSendingPageComponent,
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
@@ -55,6 +68,11 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     MatListModule,
+    MatCardModule,
+    MatChipsModule,
+    FormsModule,
+    HttpModule,
+    MatBadgeModule,
     MatTabsModule,
     MatInputModule,
     MatTableModule,
