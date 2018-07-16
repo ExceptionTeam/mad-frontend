@@ -15,8 +15,4 @@ export class TaskCreationPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(event) {
-    // this.testFiles.push();
-      //  console.log(this.testFiles.length);
-  }
 }

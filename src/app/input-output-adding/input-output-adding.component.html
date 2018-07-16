@@ -1,0 +1,5 @@
+<button mat-button (click)='onClick($event)' >добавить</button>
+<exc-file-uploading *ngFor="let item of length; let i = index" (fileChanged)="onInputFileChanged($event,i)">
+</exc-file-uploading>
+
+
