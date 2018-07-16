@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'exc-input-output-adding',
   templateUrl: './input-output-adding.component.html',
   styleUrls: ['./input-output-adding.component.scss']
 })
-export class InputOutputAddingComponent implements OnInit {
+export class InputOutputAddingComponent {
   @Input() files: File[] = [];
   validFile = false;
   @Output() fileChanged = new EventEmitter<File>();
@@ -14,9 +14,6 @@ export class InputOutputAddingComponent implements OnInit {
   counter: number;
   constructor() {
     this.counter = 0;
-  }
-
-  ngOnInit() {
   }
 
   onClick(event) {

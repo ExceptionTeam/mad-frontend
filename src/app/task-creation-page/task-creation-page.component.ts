@@ -1,19 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'exc-task-creation-page',
   templateUrl: './task-creation-page.component.html',
   styleUrls: ['./task-creation-page.component.scss']
 })
-export class TaskCreationPageComponent implements OnInit {
+export class TaskCreationPageComponent {
   name: String;
   description: String;
   InputOutputFiles: File[] = [];
   @Input() validFiles = false;
   constructor() { }
-
-  ngOnInit() {
-  }
 
   onSubmit(value) {
     console.log(value.name);
