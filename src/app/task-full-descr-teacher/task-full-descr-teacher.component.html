@@ -12,6 +12,7 @@
     {{task.description}}
   </p>
   <button mat-button>Изменить задачу</button>
+  <button mat-button>Удалить</button>
   <p>Входные данные:</p>
   <a class="open-file" *ngFor="let url of task.inputFilesUrls; let i = index" [attr.data-index]="i" [href]="url"
      target="_blank">
