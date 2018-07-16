@@ -25,8 +25,17 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
+import { MatInputModule, MatPaginator } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { StudentTasksTableComponent } from './student-tasks-table/student-tasks-table.component';
+import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
+import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 
 
 @NgModule({
@@ -43,6 +52,10 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    StudentTasksTableComponent,
+    AssignATaskComponent,
+    SelectStudentOrGroupComponent,
+    TaskFullDescrTeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,10 +74,17 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     MatBadgeModule,
     MatTabsModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatListModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AssignATaskComponent,
+    TaskFullDescrTeacherComponent]
 })
 export class AppModule {
 }
