@@ -3,7 +3,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatTableDataSource, PageEvent } from '@angular/material';
 import { Task } from '../tasks.service';
 import { TasksService } from '../tasks.service';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'exc-student-tasks-table',
