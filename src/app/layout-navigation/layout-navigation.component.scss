@@ -2,11 +2,9 @@
   width: 100%;
   height: calc(100% - 64px - 64px);
   background: white;
-  overflow-y: scroll;
   position: fixed;
 
   .mat-drawer {
-    //padding: 20px;
     width: 35vh;
   }
 

@@ -22,12 +22,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
-import { MatInputModule, MatPaginator } from '@angular/material';
+import { MatInputModule, MatPaginatorModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
 import { StudentTasksTableComponent } from './student-tasks-table/student-tasks-table.component';
 import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
@@ -36,7 +34,6 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
