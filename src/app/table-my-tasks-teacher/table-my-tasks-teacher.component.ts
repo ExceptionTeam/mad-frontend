@@ -21,15 +21,10 @@ export class TableMyTasksTeacherComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadData();
-  }
-
-  loadData() {
     this.dataSource = new UserDataSource(this.allTasksService, this.paginator);
   }
 
-  onPaginateChange(event) {
-    this.pageEvent = event;
+  onPaginateChange() {
     this.dataSource = new UserDataSource(this.allTasksService, this.paginator);
   }
 
