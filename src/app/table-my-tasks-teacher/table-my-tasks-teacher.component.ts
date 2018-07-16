@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AssignATaskComponent } from '../assign-a-task/assign-a-task.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
@@ -8,12 +8,15 @@ import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-f
   templateUrl: './table-my-tasks-teacher.component.html',
   styleUrls: ['./table-my-tasks-teacher.component.scss']
 })
-export class TableMyTasksTeacherComponent {
+export class TableMyTasksTeacherComponent implements OnInit {
   @Input() tasks: string[];
 
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
 
   constructor(public dialog: MatDialog) {
+  }
+
+  ngOnInit() {
   }
 
   public openModal() {
