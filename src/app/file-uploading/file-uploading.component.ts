@@ -16,5 +16,6 @@ export class FileUploadingComponent implements OnInit {
   uploadFile(event) {
     this.file = event.target.files[0];
     this.fileChanged.emit(this.file);
+    console.log(event.target.closest('exc-file-uploading').id);
   }
 }

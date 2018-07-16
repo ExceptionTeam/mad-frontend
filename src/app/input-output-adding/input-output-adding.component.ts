@@ -28,8 +28,6 @@ export class InputOutputAddingComponent implements OnInit {
   }
 
   onInputFileChanged(file, index) {
-    console.log(index);
-    console.log(this.inputFiles.length);
     if (this.inputFiles.length <= index) {
     this.inputFiles.push(file);
     } else {

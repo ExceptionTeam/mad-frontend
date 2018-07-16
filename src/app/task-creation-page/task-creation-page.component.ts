@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 export interface TestFile {
-   input: File;
-   output: File;
+  input: File;
+  output: File;
 }
 @Component({
   selector: 'exc-task-creation-page',
@@ -15,4 +15,7 @@ export class TaskCreationPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(event) {
+    console.log('kek');
+  }
 }
