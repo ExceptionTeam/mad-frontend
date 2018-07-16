@@ -1,9 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-export interface TestFile {
-  input: File;
-  output: File;
-}
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'exc-input-output-adding',
@@ -11,31 +6,33 @@ export interface TestFile {
   styleUrls: ['./input-output-adding.component.scss']
 })
 export class InputOutputAddingComponent implements OnInit {
-  inputFiles: File[] = [];
-  outputFiles: File[] = [];
+  files: File[] = [];
   length: number[] = [];
-  @Output() inputFileChanged = new EventEmitter<File>();
-  @Output() outputFileChanged = new EventEmitter<File>();
-  constructor() { }
+  counter: number;
+  @Output() fileChanged = new EventEmitter<File>();
+  constructor() {
+    this.counter = 0;
+  }
 
   ngOnInit() {
   }
 
   onClick(event) {
-    console.log(this.inputFiles);
-    console.log(this.outputFiles);
-    this.length.push(1);
+    console.log(this.files);
+    this.length.push(++this.counter);
+    this.length.push(++this.counter);
   }
 
-  onInputFileChanged(file, index) {
-    if (this.inputFiles.length <= index) {
-    this.inputFiles.push(file);
-    } else {
-       this.inputFiles[index] = file;
-    }
+  onDelete(event, index) {
+    console.log(index);
+    console.log(this.files);
+    this.files.splice(index - 1, 2);
+    this.length.splice(index - 1, 2);
+    console.log(this.files);
   }
 
-  onOutputFileChanged(file) {
-    this.outputFiles.push(file);
+  onFileChanged(file, index) {
+    this.files[index] = file;
+    console.log(this.files);
   }
 }
