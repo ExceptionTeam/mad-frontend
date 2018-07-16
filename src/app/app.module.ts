@@ -16,9 +16,11 @@ import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatPaginator } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { StudentTasksTableComponent } from './student-tasks-table/student-tasks-table.component';
 import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -37,6 +39,7 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    StudentTasksTableComponent,
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
     TaskFullDescrTeacherComponent,
@@ -54,6 +57,7 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     MatTabsModule,
     MatInputModule,
     MatTableModule,
+    MatPaginatorModule,
     MatListModule,
     MatDatepickerModule,
     MatMomentDateModule,
