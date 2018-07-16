@@ -6,16 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-tasks-teacher.component.scss']
 })
 export class AllTasksTeacherComponent implements OnInit {
-  inputStr: string;
-
   constructor() {
   }
 
   ngOnInit() {
   }
-
-  onClickSearch() {
-    console.log(this.inputStr);
-  }
-
 }
