@@ -11,11 +11,11 @@ export interface Task {
 }
 
 @Component({
-  selector: 'exc-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  selector: 'exc-task-view-sending',
+  templateUrl: './task-view-sending.component.html',
+  styleUrls: ['./task-view-sending.component.scss']
 })
-export class TaskComponent implements OnInit {
+export class TaskViewSendingComponent implements OnInit {
   task: Task = {
     assId: '1',
     name: 'Задача',

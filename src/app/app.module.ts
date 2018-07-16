@@ -14,7 +14,7 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
-import { TaskComponent } from './task/task.component';
+import { TaskViewSendingComponent } from './task-view-sending/task-view-sending.component';
 import { MatCardModule } from '@angular/material/card';
 import { FileUploadingComponent } from './file-uploading/file-uploading.component';
 import { TaskSendingPageComponent } from './task-sending-page/task-sending-page.component';
@@ -37,7 +37,7 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
-    TaskComponent,
+    TaskViewSendingComponent,
     FileUploadingComponent,
     TaskSendingPageComponent,
     AllTasksTeacherComponent,
