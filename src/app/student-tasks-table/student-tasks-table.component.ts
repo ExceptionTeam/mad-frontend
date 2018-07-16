@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
-import {Task} from '../tasks.service';
-import {TasksService} from '../tasks.service';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
+import { MatPaginator, MatTableDataSource, PageEvent } from '@angular/material';
+import { Task } from '../tasks.service';
+import { TasksService } from '../tasks.service';
+import { Observable} from 'rxjs';
 
 @Component({
   selector: 'exc-student-tasks-table',
@@ -10,21 +11,34 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./student-tasks-table.component.scss']
 })
 export class StudentTasksTableComponent implements OnInit {
-
-  dataSource = new UserDataSource (this.tasksService);
   displayedColumns: string[] = ['name', 'file', 'tests', 'teacher', 'mark'];
-  constructor(private tasksService: TasksService) {}
-
-  ngOnInit() {}
-
+  dataSource: UserDataSource| null;
+  pageEvent: PageEvent;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  constructor(private tasksService: TasksService) {
+  }
+  ngOnInit() {
+    this.loadData();
+  }
+  loadData() {
+    this.dataSource = new UserDataSource(this.tasksService, this.paginator);
+  }
+  onPaginateChange(event) {
+  const startIndex = event.pageIndex * event.pageSize;
+  this.dataSource = new UserDataSource(this.tasksService, this.paginator);
+  }
+  getLength() {
+  return this.tasksService.getLength();
+  }
 }
 
 export class UserDataSource extends DataSource<any> {
-  constructor(private tasksService: TasksService) {
+  constructor(private tasksService: TasksService, private paginator: MatPaginator) {
     super();
   }
   connect(): Observable<Task[]> {
-    return this.tasksService.getTasks();
+  const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    return (this.tasksService.getTasks(startIndex, startIndex + this.paginator.pageSize));
   }
   disconnect() {}
 }

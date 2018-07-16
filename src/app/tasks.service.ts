@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of} from 'rxjs';
 
 export interface Task {
   name: string;
@@ -11,6 +11,8 @@ export interface Task {
 }
 
   export const tasks: Task[] = [
+  {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'lol', mark: 9},
+  {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'lol', mark: 9},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
@@ -19,7 +21,9 @@ export interface Task {
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
-  {name: 'Лолецкий', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
+  {name: 'Кратчайший путь', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
+  {name: 'Кратчайший путь', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
+  {name: 'Кратчайший путь', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
  ];
 
 @Injectable({
@@ -27,9 +31,13 @@ export interface Task {
 })
 export class TasksService {
 
-  constructor() { }
+   constructor() { }
 
-  getTasks(): Observable<Task[]> {
-    return of(tasks);
-}
+  getTasks(startIndex, pageSize): Observable<Task[]> {
+    return of (tasks.slice(startIndex, pageSize));
+  }
+  getLength(): number {
+    return tasks.length;
+  }
+
 }
