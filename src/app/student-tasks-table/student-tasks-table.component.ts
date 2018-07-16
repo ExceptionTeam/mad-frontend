@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator, MatTableDataSource, PageEvent } from '@angular/material';
+import { MatPaginator, PageEvent } from '@angular/material';
 import { Task } from '../tasks.service';
 import { TasksService } from '../tasks.service';
 import { Observable } from 'rxjs';
@@ -12,33 +12,46 @@ import { Observable } from 'rxjs';
 })
 export class StudentTasksTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'file', 'tests', 'teacher', 'mark'];
-  dataSource: UserDataSource| null;
+  dataSource: UserDataSource | null;
   pageEvent: PageEvent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private tasksService: TasksService) {
-  }
+
+  constructor(private tasksService: TasksService) {}
+
   ngOnInit() {
     this.loadData();
   }
+
   loadData() {
     this.dataSource = new UserDataSource(this.tasksService, this.paginator);
   }
+
   onPaginateChange(event) {
-  const startIndex = event.pageIndex * event.pageSize;
-  this.dataSource = new UserDataSource(this.tasksService, this.paginator);
+    this.dataSource = new UserDataSource(this.tasksService, this.paginator);
   }
+
   getLength() {
-  return this.tasksService.getLength();
+    return this.tasksService.getLength();
+  }
+
+  pEvent(value) {
+    this.pageEvent = value;
   }
 }
 
 export class UserDataSource extends DataSource<any> {
-  constructor(private tasksService: TasksService, private paginator: MatPaginator) {
+  constructor(
+    private tasksService: TasksService,
+    private paginator: MatPaginator
+  ) {
     super();
   }
   connect(): Observable<Task[]> {
-  const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-    return (this.tasksService.getTasks(startIndex, startIndex + this.paginator.pageSize));
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    return this.tasksService.getTasks(
+      startIndex,
+      startIndex + this.paginator.pageSize
+    );
   }
   disconnect() {}
 }

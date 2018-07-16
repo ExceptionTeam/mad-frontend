@@ -9,7 +9,7 @@ export interface Task {
   mark: number;
 }
 
-  export const tasks: Task[] = [
+export const tasks: Task[] = [
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'lol', mark: 9},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'lol', mark: 9},
   {name: 'Скрудж Макдак', file: 'main.java', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7},
@@ -29,14 +29,13 @@ export interface Task {
   providedIn: 'root'
 })
 export class TasksService {
-
-   constructor() { }
+  constructor() {}
 
   getTasks(startIndex, pageSize): Observable<Task[]> {
-    return of (tasks.slice(startIndex, pageSize));
+    return of(tasks.slice(startIndex, pageSize));
   }
+
   getLength(): number {
     return tasks.length;
   }
-
 }

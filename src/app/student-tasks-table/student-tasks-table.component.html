@@ -34,6 +34,6 @@
   [pageIndex]="0"
   [pageSize]="10"
   [pageSizeOptions]="[5, 10, 25, 100]"
-  (page)="pageEvent = $event; onPaginateChange($event)">
+  (page)="pEvent($event); onPaginateChange($event)">
 </mat-paginator>
 </div>
