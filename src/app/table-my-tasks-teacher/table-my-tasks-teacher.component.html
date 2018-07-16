@@ -1,5 +1,5 @@
 <div class="table-all-tasks">
-  <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Название</th>
@@ -26,7 +26,11 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
-<div class="div-show-more">
-  <button mat-button class="show-more">Еще</button>
-</div>
+<mat-paginator #pagination
+               [length]="getLength()"
+               [pageIndex]="0"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="onPaginateChange($event)">
+</mat-paginator>
 
