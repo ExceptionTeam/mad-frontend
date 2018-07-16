@@ -27,15 +27,12 @@ export class StudentTasksTableComponent implements OnInit {
   }
 
   onPaginateChange(event) {
+    this.pageEvent = event;
     this.dataSource = new UserDataSource(this.tasksService, this.paginator);
   }
 
   getLength() {
     return this.tasksService.getLength();
-  }
-
-  pEvent(value) {
-    this.pageEvent = value;
   }
 }
 
@@ -53,5 +50,5 @@ export class UserDataSource extends DataSource<any> {
       startIndex + this.paginator.pageSize
     );
   }
-  disconnect() {}
+  disconnect() { }
 }
