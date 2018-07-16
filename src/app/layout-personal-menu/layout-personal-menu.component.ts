@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutPersonalMenuComponent implements OnInit {
   personalMenu: string[] = ['Мои оповещения', 'Статистика', 'Смена пароля'];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
