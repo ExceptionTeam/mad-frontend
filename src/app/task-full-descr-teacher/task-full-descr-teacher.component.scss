@@ -24,3 +24,17 @@
 .open-file {
   padding-top: 2vh;
 }
+
+.files{
+  width: 40%;
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.input, .output{
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}

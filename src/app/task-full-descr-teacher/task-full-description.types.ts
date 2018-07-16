@@ -5,4 +5,5 @@ export interface Task {
   description: string;
   weight: number;
   inputFilesUrls: string[];
+  outputFilesUrls: string[];
 }

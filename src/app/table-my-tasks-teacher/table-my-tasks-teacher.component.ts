@@ -21,6 +21,8 @@ export class TableMyTasksTeacherComponent {
   }
 
   public onClickName() {
-    this.dialog.open(TaskFullDescrTeacherComponent);
+    this.dialog.open(TaskFullDescrTeacherComponent, {
+      height: '450px'
+    });
   }
 }

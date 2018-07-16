@@ -19,7 +19,16 @@ export class TaskFullDescrTeacherComponent {
     weight: 10,
     inputFilesUrls: ['https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
       'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg']
+      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
+      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
+      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
+    ],
+    outputFilesUrls: ['https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
+      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
+      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
+      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
+      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
+    ]
   };
 
   constructor(private matDialogRef: MatDialogRef<TaskFullDescrTeacherComponent>) {
