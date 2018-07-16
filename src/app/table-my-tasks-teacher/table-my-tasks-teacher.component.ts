@@ -17,6 +17,10 @@ export class TableMyTasksTeacherComponent {
   }
 
   public openModal() {
-    this.dialog.open(AssignATaskComponent, TaskFullDescrTeacherComponent);
+    this.dialog.open(AssignATaskComponent);
+  }
+
+  public onClickName() {
+    this.dialog.open(TaskFullDescrTeacherComponent);
   }
 }
