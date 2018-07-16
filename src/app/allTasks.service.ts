@@ -29,7 +29,8 @@ const tasks: Task[] = [
   providedIn: 'root'
 })
 export class AllTasksService {
-  constructor() {}
+  constructor() {
+  }
 
   getTasks(startIndex, pageSize): Observable<Task[]> {
     return of(tasks.slice(startIndex, pageSize));

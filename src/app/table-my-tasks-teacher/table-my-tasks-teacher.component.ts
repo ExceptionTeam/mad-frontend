@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatPaginator, PageEvent } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatPaginator } from '@angular/material';
 import { AssignATaskComponent } from '../assign-a-task/assign-a-task.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
 import { AllTasksService, Task } from '../allTasks.service';
@@ -12,10 +12,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./table-my-tasks-teacher.component.scss']
 })
 export class TableMyTasksTeacherComponent implements OnInit {
-  dataSource: UserDataSource | null;
-  pageEvent: PageEvent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
+  dataSource: UserDataSource | null;
 
   constructor(public dialog: MatDialog, private allTasksService: AllTasksService) {
   }
