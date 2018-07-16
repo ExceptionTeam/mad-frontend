@@ -7,11 +7,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class InputOutputAddingComponent implements OnInit {
   @Input() files: File[] = [];
+  validFile = false;
+  @Output() fileChanged = new EventEmitter<File>();
+  @Output() validFiles = new EventEmitter<File>();
   length: number[] = [];
   counter: number;
   amountFiles = 0;
-  @Input() validFile = false;
-  @Output() fileChanged = new EventEmitter<File>();
   constructor() {
     this.counter = 0;
   }
@@ -54,5 +55,6 @@ export class InputOutputAddingComponent implements OnInit {
      } else {
        this.validFile = false;
      }
+     this.validFiles.emit(this.validFile);
   }
 }

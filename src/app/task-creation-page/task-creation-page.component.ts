@@ -9,7 +9,7 @@ export class TaskCreationPageComponent implements OnInit {
   name: String;
   description: String;
   IOfiles: File[] = [];
-  valid = false;
+  @Input() valid = false;
   constructor() { }
 
   ngOnInit() {
@@ -19,5 +19,10 @@ export class TaskCreationPageComponent implements OnInit {
     console.log(value.name);
     console.log(value.description);
     console.log(this.IOfiles);
+  }
+
+  chv(event) {
+    console.log(event);
+    this.valid = event;
   }
 }

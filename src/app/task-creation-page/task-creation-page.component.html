@@ -7,7 +7,6 @@
   <mat-form-field class="example-full-width">
     <textarea matInput placeholder="Описание" rows="10" #description ngModel name = 'description' required></textarea>
   </mat-form-field>
-  <button type="submit" [disabled]="!form.valid" mat-button >{{valid}} fyy</button>
+  <button type="submit" [disabled]="!form.valid || !valid" mat-button >отправить</button>
 </form>
- <exc-input-output-adding class="input-output-adding" [files]="IOfiles" [validFile]="valid" ></exc-input-output-adding>
-<p>{{valid}}</p>
+ <exc-input-output-adding class="input-output-adding" [files]="IOfiles" (validFiles)="chv($event)" ></exc-input-output-adding>
