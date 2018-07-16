@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task} from './task-full-description.types';
+import { Task } from './task-full-description.types';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
