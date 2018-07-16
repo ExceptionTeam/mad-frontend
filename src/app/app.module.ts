@@ -17,9 +17,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.component';
 import { MatInputModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 
 @NgModule({
@@ -33,6 +37,8 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    AssignATaskComponent,
+    SelectStudentOrGroupComponent,
     TaskFullDescrTeacherComponent,
   ],
   imports: [
@@ -48,11 +54,15 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     MatTabsModule,
     MatInputModule,
     MatTableModule,
+    MatListModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [TaskFullDescrTeacherComponent]
+  entryComponents: [AssignATaskComponent,
+    TaskFullDescrTeacherComponent]
 })
 export class AppModule {
 }
