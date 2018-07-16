@@ -12,5 +12,4 @@ export class LayoutLandingPageComponent {
   onMenuToggled() {
     this.mainMenu.drawer.toggle();
   }
-
 }

@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./table-my-tasks-teacher.component.scss']
 })
 export class TableMyTasksTeacherComponent implements OnInit {
-  @Input() tasks: string[];
   dataSource: UserDataSource | null;
   pageEvent: PageEvent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
