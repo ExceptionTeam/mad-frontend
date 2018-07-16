@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 export interface Task {
   assId: string;
@@ -15,7 +15,7 @@ export interface Task {
   templateUrl: './task-view-sending.component.html',
   styleUrls: ['./task-view-sending.component.scss']
 })
-export class TaskViewSendingComponent implements OnInit {
+export class TaskViewSendingComponent {
   task: Task = {
     assId: '1',
     name: 'Задача',
@@ -25,7 +25,4 @@ export class TaskViewSendingComponent implements OnInit {
     teacherSurname: 'Василенко',
     weight: 4
   };
-
-  ngOnInit() {
-  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'exc-file-uploading',
@@ -6,12 +6,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./file-uploading.component.scss']
 })
 
-export class FileUploadingComponent implements OnInit {
+export class FileUploadingComponent {
   @Output() fileChanged = new EventEmitter<File>();
   file: File;
-
-  ngOnInit() {
-  }
 
   uploadFile(event) {
     this.file = event.target.files[0];
