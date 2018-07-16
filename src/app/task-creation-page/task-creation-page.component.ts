@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-export interface TestFile {
-  input: File;
-  output: File;
-}
+import { Component, OnInit, Input } from '@angular/core';
+
 @Component({
   selector: 'exc-task-creation-page',
   templateUrl: './task-creation-page.component.html',
   styleUrls: ['./task-creation-page.component.scss']
 })
 export class TaskCreationPageComponent implements OnInit {
-  testFiles: TestFile[];
+  name: String;
+  description: String;
+  IOfiles: File[] = [];
+  valid = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClick(event) {
-    console.log('kek');
+  onSubmit(value) {
+    console.log(value.name);
+    console.log(value.description);
+    console.log(this.IOfiles);
   }
 }
