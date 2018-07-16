@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
+import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SelectStudentOrGroupComponent } from './select-student-or-group/select-
     TableMyTasksTeacherComponent,
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
+    TaskFullDescrTeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { SelectStudentOrGroupComponent } from './select-student-or-group/select-
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [AssignATaskComponent]
+  entryComponents: [AssignATaskComponent,
+    TaskFullDescrTeacherComponent]
 })
 export class AppModule {
 }

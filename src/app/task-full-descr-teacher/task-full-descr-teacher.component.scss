@@ -1,0 +1,40 @@
+.name-of-the-task {
+  font-size: x-large;
+}
+
+.task-teacher {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.mat-button {
+  width: 20vh;
+  font-weight: normal;
+  color: gray;
+}
+
+.tags {
+  font-weight: bold;
+}
+
+.open-file {
+  padding-top: 2vh;
+}
+
+.files {
+  width: 40%;
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.input, .output {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
