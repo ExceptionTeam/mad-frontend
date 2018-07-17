@@ -1,6 +1,6 @@
 <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
   <mat-form-field class="full-width">
-    <input matInput #name ngModel name="name" maxlength="20" placeholder="Название" required>
+    <input matInput class="input" #name ngModel name="name" maxlength="20" placeholder="Название" required>
     <mat-hint align="end">{{name.value.length}} / 20</mat-hint>
   </mat-form-field>
 
