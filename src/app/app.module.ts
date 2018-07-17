@@ -14,6 +14,8 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
+import { TaskCreationPageComponent } from './task-creation-page/task-creation-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { TaskViewSendingComponent } from './task-view-sending/task-view-sending.component';
 import { MatCardModule } from '@angular/material/card';
 import { FileUploadingComponent } from './file-uploading/file-uploading.component';
@@ -27,6 +29,7 @@ import { AllTasksTeacherComponent } from './all-tasks-teacher/all-tasks-teacher.
 import { MatInputModule, MatPaginatorModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher/table-my-tasks-teacher.component';
+import { InputOutputAddingComponent } from './input-output-adding/input-output-adding.component';
 import { StudentTasksTableComponent } from './student-tasks-table/student-tasks-table.component';
 import { AssignATaskComponent } from './assign-a-task/assign-a-task.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -34,7 +37,6 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
-
 
 @NgModule({
   declarations: [
@@ -44,12 +46,14 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
+    TaskCreationPageComponent,
     TaskViewSendingComponent,
     FileUploadingComponent,
     TaskSendingPageComponent,
     AllTasksTeacherComponent,
     TableMyTasksTeacherComponent,
     TableMyTasksTeacherComponent,
+    InputOutputAddingComponent,
     StudentTasksTableComponent,
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
@@ -65,6 +69,8 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     MatSelectModule,
     MatButtonModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatCardModule,
     MatChipsModule,
     FormsModule,

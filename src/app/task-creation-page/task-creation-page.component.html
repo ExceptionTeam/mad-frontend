@@ -1,0 +1,12 @@
+<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <mat-form-field class="full-width">
+    <input matInput class="input" #name ngModel name="name" maxlength="20" placeholder="Название" required>
+    <mat-hint align="end">{{name.value.length}} / 20</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <textarea class="description-textarea" matInput placeholder="Описание" rows="10" ngModel name="description" required></textarea>
+  </mat-form-field>
+  <exc-input-output-adding [files]="InputOutputFiles" (validFiles)="changeValidState($event)"></exc-input-output-adding>
+  <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>отправить</button>
+</form>
