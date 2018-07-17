@@ -1,6 +1,27 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.mat-form-field {
+  width: 90%;
+}
+
+.search-button, .add-button {
+  height: 100%;
+  margin-left: 1%;
+}
+
+.add-button {
+  margin-left: 2%;
+}
+
+.div-show-more {
+  text-align: center;
+  color: gray;
+  font-style: normal;
+  margin-top: 1%;
 }
