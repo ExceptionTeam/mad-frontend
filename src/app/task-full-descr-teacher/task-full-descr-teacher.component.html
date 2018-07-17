@@ -1,0 +1,39 @@
+<div class="task-teacher">
+  <h1 class="name-of-the-task">
+    {{task.weight}}: Задача '{{task.name}}'
+  </h1>
+  <div class="tags">
+    Теги:
+    <ng-container *ngFor="let item of task.tags">
+      {{item}},
+    </ng-container>
+  </div>
+  <p class="task-description">
+    {{task.description}}
+  </p>
+  <div>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="files">
+    <div class="input">
+      <p>Входные файлы: </p>
+      <a class="open-file" *ngFor="let url of task.inputFilesUrls; let i = index" [attr.data-index]="i" [href]="url"
+         target="_blank">
+        Открыть файл {{i+1}}
+      </a>
+    </div>
+    <div class="output">
+      <p>Выходные файлы:</p>
+      <a class="open-file" *ngFor="let url of task.outputFilesUrls; let i = index" [attr.data-index]="i" [href]="url"
+         target="_blank">
+        Открыть файл {{i+1}}
+      </a>
+    </div>
+  </div>
+</div>
+
