@@ -1,11 +1,13 @@
-<p>Добавьте входные/выходные файлы для тестирования задачи:</p>
-<div *ngFor="let item of length; let index = index; " class='input-output-files-upload'>
-  <exc-file-uploading class='file-uploading' id={{index}} (fileChanged)="onFileChanged($event, index)">
-  </exc-file-uploading>
-  <button mat-icon-button (click)='onDelete($event,index)' *ngIf='index%2==1'>
+<div class="input-output-adding">
+  <p>Добавьте входные/выходные файлы для тестирования задачи:</p>
+  <div *ngFor="let item of length; let index = index; " class="input-output-files-upload">
+    <exc-file-uploading id={{index}} (fileChanged)="onFileChanged($event, index)">
+    </exc-file-uploading>
+    <button mat-icon-button (click)='onDelete($event,index)' *ngIf='index%2==1'>
         <mat-icon>cancel</mat-icon>
     </button>
-</div>
-<button mat-icon-button (click)='onClick($event)'>
+  </div>
+  <button mat-icon-button (click)='onClick($event)'>
     <mat-icon>add</mat-icon>
 </button>
+</div>
