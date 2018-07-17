@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'exc-header',
+  selector: 'exc-layout-header',
   templateUrl: './layout-header.component.html',
   styleUrls: ['./layout-header.component.scss']
 })
