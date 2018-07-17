@@ -27,7 +27,6 @@ export class LayoutHeaderComponent {
     { name: 'Смена пароля', link: '' }
   ];
 
-
   onMenuToggled() {
     this.menuToggled.emit();
   }
