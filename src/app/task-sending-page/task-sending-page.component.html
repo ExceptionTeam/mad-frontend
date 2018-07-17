@@ -3,8 +3,8 @@
   <exc-file-uploading (fileChanged)="onFileChanged($event)">
   </exc-file-uploading>
   <div class="send-button">
-    <button mat-flat-button [disabled]="!file" type="submit" (click)="onClick($event)">
-        Отправить решение
-      </button>
+    <button mat-flat-button [disabled]="!file" type="submit" (click)="onClick($event)" routerLink="../tasks-student">
+      Отправить решение
+    </button>
   </div>
-  <div>
+</div>

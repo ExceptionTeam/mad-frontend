@@ -16,6 +16,14 @@ export class LayoutLandingPageComponent {
     { name: 'Материлы', link: '' },
   ];
 
+  teacherNavMenu: NavigationMenuField[] = [
+    { name: 'Вопросы', link: '' },
+    { name: 'Тесты', link: '' },
+    { name: 'Задачи', link: 'tasks-teacher' },
+    { name: 'Мои студенты', link: '' },
+    { name: 'Материалы', link: '' },
+  ];
+
   adminNavMenu: NavigationMenuField[] = [
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
@@ -28,13 +36,6 @@ export class LayoutLandingPageComponent {
     { name: 'Материалы', link: '' },
   ];
 
-  teacherNavMenu: NavigationMenuField[] = [
-    { name: 'Вопросы', link: '' },
-    { name: 'Тесты', link: '' },
-    { name: 'Задачи', link: 'tasks-teacher' },
-    { name: 'Мои студенты', link: '' },
-    { name: 'Материалы', link: '' },
-  ];
 
   onMenuToggled() {
     this.mainMenu.drawer.toggle();

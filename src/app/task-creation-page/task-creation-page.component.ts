@@ -11,7 +11,8 @@ export class TaskCreationPageComponent {
   description: String;
   InputOutputFiles: File[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   onSubmit(value) {
     console.log(value.name);
@@ -21,5 +22,9 @@ export class TaskCreationPageComponent {
 
   changeValidState(event) {
     this.validFiles = event;
+  }
+
+  onClickSend() {
+    alert('Зачада успешно добавлена');
   }
 }
