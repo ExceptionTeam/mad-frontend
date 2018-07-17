@@ -11,13 +11,10 @@ export interface DataPost {
   templateUrl: './task-sending-page.component.html',
   styleUrls: ['./task-sending-page.component.scss']
 })
-export class TaskSendingPageComponent implements OnInit {
+export class TaskSendingPageComponent {
   file: File;
   dataPost: DataPost;
   constructor(/*public http: Http*/) { }
-
-  ngOnInit() {
-  }
 
   onClick(event) {
     console.log(this.file);
