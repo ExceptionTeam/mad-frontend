@@ -6,10 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./task-creation-page.component.scss']
 })
 export class TaskCreationPageComponent {
+  @Input() validFiles = false;
   name: String;
   description: String;
   InputOutputFiles: File[] = [];
-  @Input() validFiles = false;
+
   constructor() { }
 
   onSubmit(value) {
@@ -19,7 +20,6 @@ export class TaskCreationPageComponent {
   }
 
   changeValidState(event) {
-    // console.log(event);
     this.validFiles = event;
   }
 }

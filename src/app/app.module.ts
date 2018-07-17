@@ -16,8 +16,6 @@ import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing
 import { MatListModule } from '@angular/material/list';
 import { TaskCreationPageComponent } from './task-creation-page/task-creation-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
-import { TaskComponent } from './task/task.component';
 import { TaskViewSendingComponent } from './task-view-sending/task-view-sending.component';
 import { MatCardModule } from '@angular/material/card';
 import { FileUploadingComponent } from './file-uploading/file-uploading.component';
@@ -50,7 +48,6 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     LayoutFooterComponent,
     LayoutLandingPageComponent,
     TaskCreationPageComponent,
-    TaskComponent,
     TaskViewSendingComponent,
     FileUploadingComponent,
     TaskSendingPageComponent,
@@ -62,7 +59,6 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
     TaskFullDescrTeacherComponent,
-
   ],
   imports: [
     BrowserModule,

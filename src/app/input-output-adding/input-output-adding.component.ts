@@ -7,17 +7,17 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 })
 export class InputOutputAddingComponent {
   @Input() files: File[] = [];
-  validFile = false;
   @Output() fileChanged = new EventEmitter<File>();
   @Output() validFiles = new EventEmitter<boolean>();
+  validFile = false;
   length: number[] = [];
   counter: number;
+
   constructor() {
     this.counter = 0;
   }
 
   onClick(event) {
-    // console.log(this.files);
     this.length.push(++this.counter);
     this.length.push(++this.counter);
     this.files.length += 2;
@@ -26,20 +26,14 @@ export class InputOutputAddingComponent {
   }
 
   onDelete(event, index) {
-    // console.log(index);
-    // console.log(this.files);
     this.files.splice(index - 1, 2);
     this.length.splice(index - 1, 2);
-    // console.log(this.files);
     this.checkValid();
-    // console.log(this.validFile);
   }
 
   onFileChanged(file, index) {
     this.files[index] = file;
-    // console.log(this.files);
     this.checkValid();
-    // console.log(this.validFile);
   }
 
   checkValid() {
