@@ -1,4 +1,4 @@
-export interface NavigationMenuField {
+export interface FieldsOfMenu {
   name: string;
   link: string;
 }

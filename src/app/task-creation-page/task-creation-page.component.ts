@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'exc-task-creation-page',
@@ -11,7 +12,7 @@ export class TaskCreationPageComponent {
   description: String;
   InputOutputFiles: File[] = [];
 
-  constructor() {
+  constructor(public snackBar: MatSnackBar) {
   }
 
   onSubmit(value) {
@@ -24,7 +25,7 @@ export class TaskCreationPageComponent {
     this.validFiles = event;
   }
 
-  onClickSend() {
-    alert('Зачада успешно добавлена');
+  openSnackbar() {
+    this.snackBar.open('Задача добавлена успешно!', 'Ок');
   }
 }

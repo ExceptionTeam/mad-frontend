@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { LayoutNavigationComponent } from '../layout-navigation/layout-navigation.component';
-import { NavigationMenuField } from './layout-landing-page.types';
+import { FieldsOfMenu } from './layout-landing-page.types';
 
 @Component({
   selector: 'exc-layout-landing-page',
@@ -10,13 +10,13 @@ import { NavigationMenuField } from './layout-landing-page.types';
 export class LayoutLandingPageComponent {
   @ViewChild(LayoutNavigationComponent) mainMenu: LayoutNavigationComponent;
 
-  studentNavMenu: NavigationMenuField[] = [
+  studentNavMenu: FieldsOfMenu[] = [
     { name: 'Мои тесты', link: '' },
     { name: 'Мои задачи', link: 'tasks-student' },
     { name: 'Материлы', link: '' },
   ];
 
-  teacherNavMenu: NavigationMenuField[] = [
+  teacherNavMenu: FieldsOfMenu[] = [
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
     { name: 'Задачи', link: 'tasks-teacher' },
@@ -24,7 +24,7 @@ export class LayoutLandingPageComponent {
     { name: 'Материалы', link: '' },
   ];
 
-  adminNavMenu: NavigationMenuField[] = [
+  adminNavMenu: FieldsOfMenu[] = [
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
     { name: 'Задачи', link: 'tasks-teacher' },
@@ -35,7 +35,6 @@ export class LayoutLandingPageComponent {
     { name: 'Лента активности', link: '' },
     { name: 'Материалы', link: '' },
   ];
-
 
   onMenuToggled() {
     this.mainMenu.drawer.toggle();

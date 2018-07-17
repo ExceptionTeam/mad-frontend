@@ -38,6 +38,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +88,8 @@ import { AppRoutingModule } from './/app-routing.module';
     MatMomentDateModule,
     MatDialogModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

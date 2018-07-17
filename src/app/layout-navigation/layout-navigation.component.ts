@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material';
-import { NavigationMenuField } from '../layout-landing-page/layout-landing-page.types';
+import { FieldsOfMenu } from '../layout-landing-page/layout-landing-page.types';
 
 @Component({
   selector: 'exc-layout-navigation',
@@ -9,7 +9,7 @@ import { NavigationMenuField } from '../layout-landing-page/layout-landing-page.
 })
 export class LayoutNavigationComponent implements OnInit {
   @ViewChild(MatDrawer) drawer: MatDrawer;
-  @Input() fields: NavigationMenuField[];
+  @Input() fields: FieldsOfMenu[];
 
   constructor() {
   }

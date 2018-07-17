@@ -9,7 +9,7 @@
               required></textarea>
   </mat-form-field>
   <exc-input-output-adding [files]="InputOutputFiles" (validFiles)="changeValidState($event)"></exc-input-output-adding>
-  <button type="submit" [disabled]="!form.valid || !validFiles" mat-button (click)="onClickSend()"
+  <button type="submit" [disabled]="!form.valid || !validFiles" mat-button (click) = "openSnackbar()"
           routerLink="../tasks-teacher">
     добавить
   </button>
