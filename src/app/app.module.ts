@@ -39,6 +39,8 @@ import { SelectStudentOrGroupComponent } from './select-student-or-group/select-
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TaskComponent } from './task/task.component';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
     TaskFullDescrTeacherComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     FormsModule,
     AppRoutingModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent],
