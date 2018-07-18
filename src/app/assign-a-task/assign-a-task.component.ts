@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material';
 })
 export class AssignATaskComponent implements OnInit {
   isSelectedLists: boolean;
+  isGroupSelected: boolean;
   selectedId: string;
 
   constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>) {
@@ -28,8 +29,12 @@ export class AssignATaskComponent implements OnInit {
     this.selectedId = event;
   }
 
+  isItGroup(event) {
+    this.isGroupSelected = event;
+    console.log('isGroupSelected ', this.isGroupSelected);
+  }
+
   onSubmit(value) {
     console.log(value.inputDate._d.getTime());
   }
-
 }

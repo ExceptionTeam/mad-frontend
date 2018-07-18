@@ -15,6 +15,7 @@ export class TableMyTasksTeacherComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
+  chosenValue: string;
 
   constructor(public dialog: MatDialog, private allTasksService: AllTasksService) {
   }

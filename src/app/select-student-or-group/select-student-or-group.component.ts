@@ -9,6 +9,8 @@ import { Group, Student } from './select-student-or-group.types';
 export class SelectStudentOrGroupComponent {
   @Output() idOfSelected = new EventEmitter<string>();
   @Output() isSelEvent = new EventEmitter<boolean>();
+  @Output() isGroupSelected = new EventEmitter<boolean>();
+  isGroup: boolean;
   id: string;
   isSelected: boolean;
   selectedValue: string;
@@ -56,6 +58,8 @@ export class SelectStudentOrGroupComponent {
     this.isSelEvent.emit(this.isSelected);
     this.id = selectedId;
     this.idOfSelected.emit(this.id);
+    this.isGroup = false;
+    this.isGroupSelected.emit(this.isGroup);
   }
 
   studentsIsNotDisabled() {
@@ -70,5 +74,7 @@ export class SelectStudentOrGroupComponent {
     this.isSelEvent.emit(this.isSelected);
     this.id = selectedId;
     this.idOfSelected.emit(this.id);
+    this.isGroup = true;
+    this.isGroupSelected.emit(this.isGroup);
   }
 }
