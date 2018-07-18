@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
 
 @Component({
   selector: 'exc-input-output-adding',
@@ -6,40 +7,52 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./input-output-adding.component.scss']
 })
 export class InputOutputAddingComponent {
-  @Input() files: File[] = [];
-  @Output() fileChanged = new EventEmitter<File>();
+  files: InputOutputFiles [] = [] ;
+  @Input() editFiles = [];
+  @Output() fileChanged = new EventEmitter<InputOutputFiles[]>();
   @Output() validFiles = new EventEmitter<boolean>();
+  @Output() editFilesChanged = new EventEmitter<string[]>();
   validFile = false;
-  length: number[] = [];
-  counter: number;
+  counter = 0;
+  in = 'input';
+  out = 'output';
 
   constructor() {
     this.counter = 0;
   }
 
   onClick(event) {
-    this.length.push(++this.counter);
-    this.length.push(++this.counter);
-    this.files.length += 2;
+    this.files.push({input: null, output: null});
     this.validFile = false;
     this.validFiles.emit(this.validFile);
   }
 
   onDelete(event, index) {
-    this.files.splice(index - 1, 2);
-    this.length.splice(index - 1, 2);
+    this.files.splice(index - 1, 1);
+    this.fileChanged.emit(this.files);
     this.checkValid();
   }
 
-  onFileChanged(file, index) {
-    this.files[index] = file;
+  onDeleteEdit(event, index) {
+    this.editFiles.splice(index - 1, 1);
+    this.editFilesChanged.emit(this.editFiles);
+  }
+
+  onFileChanged(file, index, types) {
+    if (types === 'input') {
+      this.files[index].input = file;
+    } else {
+      this.files[index].output = file;
+    }
+    this.fileChanged.emit(this.files);
     this.checkValid();
   }
 
   checkValid() {
+    console.log(this.files);
     if (this.files.length - this.files.filter(function (x) {
-      return typeof x !== 'undefined';
-    }).length <= 0) {
+      return x.input !== null && x.output !== null;
+    }).length <= 0)  {
       this.validFile = true;
     } else {
       this.validFile = false;
