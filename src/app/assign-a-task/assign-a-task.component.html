@@ -4,7 +4,8 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-  <exc-select-student-or-group (isSelEvent)="changeValidState($event)"></exc-select-student-or-group>
+  <exc-select-student-or-group (isSelEvent)="changeValidState($event)"
+                               (idOfSelected)="assignmentOfSelectedId($event)"></exc-select-student-or-group>
   <div>
     <button type="submit" mat-button (click)="closeModalWindow()" [disabled]="!form.valid || !isSelectedLists">
       Назначить

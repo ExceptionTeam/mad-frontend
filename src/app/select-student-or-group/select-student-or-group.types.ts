@@ -1,10 +1,10 @@
 export interface Student {
-  _id: number;
+  _id: string;
   name: string;
 }
 
 export interface Group {
-  _id: number;
+  _id: string;
   name: string;
   students: Student[];
 }

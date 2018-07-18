@@ -7,8 +7,8 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./assign-a-task.component.scss']
 })
 export class AssignATaskComponent implements OnInit {
-  inputStr: string;
   isSelectedLists: boolean;
+  selectedId: string;
 
   constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>) {
   }
@@ -20,11 +20,18 @@ export class AssignATaskComponent implements OnInit {
     this.matDialogRef.close();
   }
 
-  onSubmit(value) {
-    console.log(value.inputDate);
-  }
 
   changeValidState(event) {
     this.isSelectedLists = event;
   }
+
+  assignmentOfSelectedId(event) {
+    this.selectedId = event;
+    console.log('selected id from page! ', event);
+  }
+
+  onSubmit(value) {
+    console.log(value.inputDate);
+  }
+
 }
