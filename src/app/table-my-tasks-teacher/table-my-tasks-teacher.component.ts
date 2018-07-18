@@ -37,7 +37,7 @@ export class TableMyTasksTeacherComponent implements OnInit {
 
   public onClickName() {
     this.dialog.open(TaskFullDescrTeacherComponent, {
-      height: '450px'
+      height: '500px'
     });
   }
 }

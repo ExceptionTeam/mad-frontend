@@ -37,6 +37,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,7 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     StudentTasksTableComponent,
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
-    TaskFullDescrTeacherComponent,
+    TaskFullDescrTeacherComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,10 @@ import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-fu
     MatDatepickerModule,
     MatMomentDateModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    MatSnackBarModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent],
