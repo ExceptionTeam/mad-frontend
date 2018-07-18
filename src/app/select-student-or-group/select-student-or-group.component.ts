@@ -25,7 +25,7 @@ export class SelectStudentOrGroupComponent {
 
   groups: Group[] = [
     {
-      _id: '2', name: '5 группа', students:
+      _id: '97652', name: '5 группа', students:
         [{ _id: '2', name: 'Аня Кисель' },
           { _id: '32', name: 'Влад Малиновский' },
           { _id: '32', name: 'Лиля Одинец' },

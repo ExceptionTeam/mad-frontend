@@ -20,18 +20,16 @@ export class AssignATaskComponent implements OnInit {
     this.matDialogRef.close();
   }
 
-
   changeValidState(event) {
     this.isSelectedLists = event;
   }
 
   assignmentOfSelectedId(event) {
     this.selectedId = event;
-    console.log('selected id from page! ', event);
   }
 
   onSubmit(value) {
-    console.log(value.inputDate);
+    console.log(value.inputDate._d.getTime());
   }
 
 }
