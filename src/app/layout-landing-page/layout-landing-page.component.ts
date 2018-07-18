@@ -12,14 +12,14 @@ export class LayoutLandingPageComponent {
 
   studentNavMenu: FieldsOfMenu[] = [
     { name: 'Мои тесты', link: '' },
-    { name: 'Мои задачи', link: 'tasks-student' },
+    { name: 'Мои задачи', link: 'task/table-student' },
     { name: 'Материлы', link: '' },
   ];
 
   teacherNavMenu: FieldsOfMenu[] = [
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
-    { name: 'Задачи', link: 'tasks-teacher' },
+    { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои студенты', link: '' },
     { name: 'Материалы', link: '' },
   ];
@@ -27,7 +27,7 @@ export class LayoutLandingPageComponent {
   adminNavMenu: FieldsOfMenu[] = [
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
-    { name: 'Задачи', link: 'tasks-teacher' },
+    { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Статистика по ученикам', link: '' },
     { name: 'Статистика по учителям', link: '' },
     { name: 'Статистика по тестам', link: '' },

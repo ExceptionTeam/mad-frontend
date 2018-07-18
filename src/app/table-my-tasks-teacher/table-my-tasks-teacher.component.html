@@ -4,7 +4,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Название</th>
       <td mat-cell *matCellDef="let element">
-        <a matLine href="#" routerLink="/tasks-teacher" (click)="onClickName()">
+        <a matLine href="#" routerLink="../table-teacher" (click)="onClickName()">
           {{element.name}}
         </a>
       </td>
@@ -18,7 +18,7 @@
     <ng-container matColumnDef="appoint">
       <th mat-header-cell class="appoint" *matHeaderCellDef> Назначить</th>
       <td mat-cell class="appoint-button" *matCellDef="let element">
-        <button mat-button routerLink="/tasks-teacher" (click)="openModal()">Назначить</button>
+        <button mat-button routerLink="../table-teacher" (click)="openModal()">Назначить</button>
       </td>
     </ng-container>
 
