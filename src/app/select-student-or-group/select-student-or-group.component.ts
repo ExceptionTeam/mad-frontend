@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Group, Student } from './select-student-or-group.types';
 
 @Component({
@@ -7,6 +7,8 @@ import { Group, Student } from './select-student-or-group.types';
   styleUrls: ['./select-student-or-group.component.scss']
 })
 export class SelectStudentOrGroupComponent {
+  @Output() isSelEvent = new EventEmitter<boolean>();
+  isSelected: boolean;
   indStudents: Student[] = [
     { _id: 2, name: 'Аня Кисель' },
     { _id: 32, name: 'Влад Малиновский' },
@@ -40,17 +42,27 @@ export class SelectStudentOrGroupComponent {
 
   groupIsNotDisabled() {
     this.isDisabledGroup = false;
+    this.isSelected = false;
+    this.isSelEvent.emit(this.isSelected);
+
   }
 
   groupIsDisabled() {
     this.isDisabledGroup = true;
+    this.isSelected = true;
+    this.isSelEvent.emit(this.isSelected);
   }
 
   studentsIsNotDisabled() {
     this.isDisabledStudent = false;
+    this.isSelected = false;
+    this.isSelEvent.emit(this.isSelected);
+
   }
 
   studentsIsDisabled() {
     this.isDisabledStudent = true;
+    this.isSelected = true;
+    this.isSelEvent.emit(this.isSelected);
   }
 }

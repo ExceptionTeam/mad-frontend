@@ -1,6 +1,6 @@
 <p>
   <mat-form-field>
-    <mat-select placeholder="Выберите студента" [disabled]="isDisabledStudent">
+    <mat-select placeholder="Выберите студента" [disabled]="isDisabledStudent" required>
       <mat-option (click)="groupIsNotDisabled()">-- None --</mat-option>
       <mat-optgroup label="Индивидуальные студенты">
         <mat-option *ngFor="let student of indStudents" (click)="groupIsDisabled()" [value]="student.name">
@@ -18,7 +18,7 @@
 
 <p>
   <mat-form-field>
-    <mat-select placeholder="Выберите группу" [disabled]="isDisabledGroup">
+    <mat-select placeholder="Выберите группу" [disabled]="isDisabledGroup" required>
       <mat-option (click)="studentsIsNotDisabled()">-- None --</mat-option>
       <mat-option *ngFor="let group of groups" (click)="studentsIsDisabled()" value="group.name">
         {{group.name}}
