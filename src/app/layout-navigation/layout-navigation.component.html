@@ -1,12 +1,12 @@
 <mat-drawer-container>
   <mat-drawer mode="side">
     <mat-nav-list>
-      <mat-list-item *ngFor="let link of links">
-        <a matLine href="#">{{ link }}</a>
+      <mat-list-item [routerLink]="field.link" (click)="drawer.toggle()" *ngFor="let field of fields">
+        <a matLine>{{ field.name }}</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
   <mat-card>
-
+    <router-outlet></router-outlet>
   </mat-card>
 </mat-drawer-container>
