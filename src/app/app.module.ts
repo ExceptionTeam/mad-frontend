@@ -39,7 +39,6 @@ import { SelectStudentOrGroupComponent } from './select-student-or-group/select-
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TaskComponent } from './task/task.component';
 import { TaskModule } from './task/task.module';
 
 @NgModule({
@@ -61,8 +60,7 @@ import { TaskModule } from './task/task.module';
     StudentTasksTableComponent,
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
-    TaskFullDescrTeacherComponent,
-    TaskComponent
+    TaskFullDescrTeacherComponent
   ],
   imports: [
     BrowserModule,
