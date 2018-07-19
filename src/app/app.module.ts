@@ -40,6 +40,9 @@ import { TaskEditPageComponent } from './task-edit-create-page/task-edit-create-
 import { AfterSendingTaskPageComponent } from './after-sending-task-page/after-sending-task-page.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TablePassedTestsInfoComponent } from './table-passed-tests-info/table-passed-tests-info.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,8 @@ import { TablePassedTestsInfoComponent } from './table-passed-tests-info/table-p
     TaskFullDescrTeacherComponent,
     TaskEditPageComponent,
     AfterSendingTaskPageComponent,
-    TablePassedTestsInfoComponent
+    TablePassedTestsInfoComponent,
+    TaskFullDescrTeacherComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +94,10 @@ import { TablePassedTestsInfoComponent } from './table-passed-tests-info/table-p
     MatMomentDateModule,
     MatDialogModule,
     FormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    AppRoutingModule,
+    MatSnackBarModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent],
