@@ -41,7 +41,6 @@ export class TaskFullDescrTeacherComponent {
 
   openSnackbar() {
     const snackBar = this.snackBar.open('Задача удалена', 'Отмена', { duration: 1500 });
-    // setTimeout(snackBar.dismiss.bind(snackBar), 1500);
     this.location.back();
   }
 }
