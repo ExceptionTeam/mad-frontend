@@ -41,7 +41,7 @@ import { TaskCreationModule } from '../task-creation-page/task-creation.module';
     LayoutPersonalMenuComponent,
     LayoutNavigationComponent
   ],
-  exports: [LayoutNavigationComponent, LayoutLandingPageComponent],
+  exports: [LayoutLandingPageComponent],
   providers: [],
 })
 export class LayoutModule { }
