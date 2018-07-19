@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material';
+import { MatInputModule, MatPaginatorModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,6 @@ import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
 import { AllTasksTeacherComponent } from '../all-tasks-teacher/all-tasks-teacher.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component';
-import {MatInputModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -33,4 +32,5 @@ import {MatInputModule} from '@angular/material';
   providers: [],
   entryComponents: [TaskFullDescrTeacherComponent]
 })
-export class TeacherTasksModule { }
+export class TeacherTasksModule {
+}

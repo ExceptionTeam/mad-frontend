@@ -31,4 +31,5 @@ import { SelectStudentOrGroupComponent } from '../select-student-or-group/select
   providers: [],
   entryComponents: [AssignATaskComponent]
 })
-export class AssigningTaskModule { }
+export class AssigningTaskModule {
+}
