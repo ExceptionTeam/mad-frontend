@@ -14,7 +14,6 @@ import { LayoutPersonalMenuComponent } from './layout-personal-menu/layout-perso
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { LayoutLandingPageComponent } from './layout-landing-page/layout-landing-page.component';
 import { MatListModule } from '@angular/material/list';
-import { TaskCreationPageComponent } from './task-creation-page/task-creation-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TaskViewSendingComponent } from './task-view-sending/task-view-sending.component';
 import { MatCardModule } from '@angular/material/card';
@@ -37,6 +36,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
+import { TaskEditPageComponent } from './task-edit-create-page/task-edit-create-page.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TaskModule } from './task/task.module';
@@ -49,7 +49,6 @@ import { TaskModule } from './task/task.module';
     LayoutPersonalMenuComponent,
     LayoutFooterComponent,
     LayoutLandingPageComponent,
-    TaskCreationPageComponent,
     TaskViewSendingComponent,
     FileUploadingComponent,
     TaskSendingPageComponent,
@@ -60,6 +59,8 @@ import { TaskModule } from './task/task.module';
     StudentTasksTableComponent,
     AssignATaskComponent,
     SelectStudentOrGroupComponent,
+    TaskFullDescrTeacherComponent,
+    TaskEditPageComponent,
     TaskFullDescrTeacherComponent
   ],
   imports: [

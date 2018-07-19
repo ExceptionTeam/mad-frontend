@@ -5,8 +5,25 @@
 }
 
 .input-output-adding {
-  min-width: 150px;
-  max-width: 300px;
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
 }
+
+p {
+  margin-bottom: 0;
+}
+
+.buttons-plus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-files-item {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
