@@ -4,7 +4,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Название</th>
       <td mat-cell *matCellDef="let element">
-        <a matLine href='#' routerLink="/task/table-teacher" (click)="onClickName();false;">
+        <a matLine routerLink="/task/table-teacher/{{element._id}}">
           {{element.name}}
         </a>
       </td>
