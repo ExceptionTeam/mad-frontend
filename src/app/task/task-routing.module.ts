@@ -5,6 +5,7 @@ import { StudentTasksTableComponent } from '../student-tasks-table/student-tasks
 import { TaskEditPageComponent } from '../task-edit-create-page/task-edit-create-page.component';
 import { TaskSendingPageComponent } from '../task-sending-page/task-sending-page.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
+import { AfterSendingTaskPageComponent } from '../after-sending-task-page/after-sending-task-page.component';
 
 const taskRoutes: Routes = [
   {
@@ -29,6 +30,10 @@ const taskRoutes: Routes = [
       {
         path: 'send-task',
         component: TaskSendingPageComponent
+      },
+      {
+        path: 'sended-task',
+        component: AfterSendingTaskPageComponent
       }
     ]
   }

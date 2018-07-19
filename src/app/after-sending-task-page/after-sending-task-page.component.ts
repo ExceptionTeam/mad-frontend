@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
 
 @Component({
@@ -7,7 +7,7 @@ import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
   styleUrls: ['./after-sending-task-page.component.scss']
 })
 export class AfterSendingTaskPageComponent {
-  panelOpenState = false;
+  // panelOpenState = false;
   taskName = 'myTask';
   files: TaskSolvingInfo[] = [
     {

@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
-import { MatTableDataSource } from '@angular/material';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'exc-table-passed-tests-info',

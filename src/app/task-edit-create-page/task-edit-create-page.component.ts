@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'exc-task-edit-create-page',
@@ -13,7 +14,7 @@ export class TaskEditPageComponent {
   description = 'gyufihshidjshaebfkdshfkeashfoels';
   InputOutputFiles: InputOutputFiles[] = [];
 
-  constructor() {
+  constructor(private location: Location) {
   }
 
   onSubmit(value) {
@@ -21,6 +22,7 @@ export class TaskEditPageComponent {
     console.log(value.description);
     console.log(this.InputOutputFiles);
     console.log(this.editFiles);
+    this.location.back();
   }
 
   changeValidState(event) {
