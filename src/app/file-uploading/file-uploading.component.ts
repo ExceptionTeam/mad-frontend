@@ -19,8 +19,6 @@ export class FileUploadingComponent {
     this.file = event.target.files[0];
     this.fileChanged.emit(this.file);
     event.target.value = null;
-    // console.log(event.target.closest('input'));
-    // console.log(this.file);
   }
 }
 
