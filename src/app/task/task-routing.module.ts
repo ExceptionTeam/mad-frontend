@@ -24,17 +24,17 @@ const taskRoutes: Routes = [
         component: StudentTasksTableComponent
       },
       {
+        path: 'table-student/:id',
+        component: TaskSendingPageComponent
+      },
+      {
         path: 'add-task',
         component: TaskEditPageComponent
       },
       {
-        path: 'send-task',
-        component: TaskSendingPageComponent
-      },
-      {
         path: 'sended-task',
         component: AfterSendingTaskPageComponent
-      }
+      },
     ]
   }
 ];

@@ -7,8 +7,7 @@ import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
   styleUrls: ['./after-sending-task-page.component.scss']
 })
 export class AfterSendingTaskPageComponent {
-  // panelOpenState = false;
-  taskName = 'myTask';
+  taskName = 'Название Задачи';
   files: TaskSolvingInfo[] = [
     {
       file: 'fghfghjkdfghjfghjk.java',
