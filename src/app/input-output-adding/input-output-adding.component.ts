@@ -7,11 +7,11 @@ import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
   styleUrls: ['./input-output-adding.component.scss']
 })
 export class InputOutputAddingComponent {
-  files: InputOutputFiles [] = [] ;
   @Input() editFiles = [];
   @Output() fileChanged = new EventEmitter<InputOutputFiles[]>();
   @Output() validFiles = new EventEmitter<boolean>();
   @Output() editFilesChanged = new EventEmitter<string[]>();
+  files: InputOutputFiles [] = [] ;
   validFile = false;
   counter = 0;
   in = 'input';
