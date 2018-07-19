@@ -7,7 +7,7 @@ import { TaskEditInfo } from 'src/app/TaskEditInfo.type';
   templateUrl: './task-edit-create-page.component.html',
   styleUrls: ['./task-edit-create-page.component.scss']
 })
-export class TaskEditPageComponent {
+export class TaskEditCreatePageComponent {
   @Input() validFiles: boolean;
   @Input() taskInfo: TaskEditInfo;
   InputOutputFiles: InputOutputFiles [];
