@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
+import { TaskEditInfo } from 'src/app/TaskEditInfo.type';
 
 @Component({
   selector: 'exc-task-edit-create-page',
@@ -7,12 +8,9 @@ import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
   styleUrls: ['./task-edit-create-page.component.scss']
 })
 export class TaskEditPageComponent {
-  validFiles  = true;
-  editFiles = [{input: 'inp1', output: 'out1'}];
-  name = 'Task12';
-  description = 'gyufihshidjshaebfkdshfkeashfoels';
-  InputOutputFiles: InputOutputFiles[] = [];
-
+  @Input() validFiles: boolean;
+  @Input() taskInfo: TaskEditInfo;
+  InputOutputFiles: InputOutputFiles [];
   constructor() {
   }
 
@@ -20,7 +18,7 @@ export class TaskEditPageComponent {
     console.log(value.name);
     console.log(value.description);
     console.log(this.InputOutputFiles);
-    console.log(this.editFiles);
+    console.log(this.taskInfo.editFiles);
   }
 
   changeValidState(event) {
@@ -29,7 +27,7 @@ export class TaskEditPageComponent {
   }
 
   onDelete(event, i) {
-    this.editFiles.splice(i, 1);
+    this.taskInfo.editFiles.splice(i, 1);
   }
 
   changeFiles(files) {
@@ -37,6 +35,6 @@ export class TaskEditPageComponent {
   }
 
   changeEditFiles(files) {
-    this.editFiles = files;
+    this.taskInfo.editFiles = files;
   }
 }
