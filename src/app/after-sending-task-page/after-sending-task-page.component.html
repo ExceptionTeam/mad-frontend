@@ -1,0 +1,19 @@
+<h1>{{taskName}}</h1>
+<mat-accordion multi="true">
+  <mat-expansion-panel *ngFor="let item of files">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <a href={{item.href}} (click)="clickHref($event)" download>
+          {{item.file}}
+        </a>
+      </mat-panel-title>
+      <mat-panel-description>
+        {{item.passedTests}} / {{item.tests.length}}
+      </mat-panel-description>
+      <mat-panel-description>
+        оценка: {{item.mark}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <exc-table-passed-tests-info [dataSource]="item.tests"></exc-table-passed-tests-info>
+  </mat-expansion-panel>
+</mat-accordion>
