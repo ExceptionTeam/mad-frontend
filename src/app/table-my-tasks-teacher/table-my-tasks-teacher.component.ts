@@ -36,10 +36,12 @@ export class TableMyTasksTeacherComponent implements OnInit {
     this.dialog.open(AssignATaskComponent);
   }
 
-  public onClickName() {
+  public onClickName(id) {
     this.dialog.open(TaskFullDescrTeacherComponent, {
       height: '500px'
     });
+    this.chosenValue = id;
+    console.log('look at id: ' + this.chosenValue);
   }
 }
 
