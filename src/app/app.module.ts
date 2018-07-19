@@ -8,6 +8,7 @@ import { StudentTasksModule } from './student-tasks-table/student-tasks.module';
 import { TaskSendingModule } from './task-sending-page/task-sending.module';
 import { AssigningTaskModule } from './assign-a-task/assigning-task.module';
 import { TaskEditCreateModule } from './task-edit-create-page/task-edit-create-page.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TaskEditCreateModule } from './task-edit-create-page/task-edit-create-p
     StudentTasksModule,
     TaskSendingModule,
     AssigningTaskModule,
-    TaskEditCreateModule
+    TaskEditCreateModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

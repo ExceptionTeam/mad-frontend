@@ -18,6 +18,7 @@ import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
 import { TaskModule } from '../task/task.module';
+import {AppRoutingModule} from '../app-routing.module';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { TaskModule } from '../task/task.module';
     AssigningTaskModule,
     TaskSendingModule,
     TaskEditCreateModule,
-    TaskModule
+    TaskModule,
+    AppRoutingModule
   ],
   declarations: [
     LayoutFooterComponent,
@@ -46,4 +48,5 @@ import { TaskModule } from '../task/task.module';
   exports: [LayoutLandingPageComponent],
   providers: [],
 })
-export class LayoutModule { }
+export class LayoutModule {
+}

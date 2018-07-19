@@ -10,6 +10,7 @@ import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
 import { AllTasksTeacherComponent } from '../all-tasks-teacher/all-tasks-teacher.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component
     MatIconModule,
     MatFormFieldModule,
     MatDialogModule,
-    AssigningTaskModule
+    AssigningTaskModule,
+    MatInputModule
   ],
   declarations: [
     AllTasksTeacherComponent,
