@@ -7,7 +7,7 @@ import { TeacherTasksModule } from './table-my-tasks-teacher/teacher-tasks.modul
 import { StudentTasksModule } from './student-tasks-table/student-tasks.module';
 import { TaskSendingModule } from './task-sending-page/task-sending.module';
 import { AssigningTaskModule } from './assign-a-task/assigning-task.module';
-import { TaskCreationModule } from './task-creation-page/task-creation.module';
+import { TaskEditCreateModule } from './task-edit-create-page/task-edit-create-page.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { TaskCreationModule } from './task-creation-page/task-creation.module';
     StudentTasksModule,
     TaskSendingModule,
     AssigningTaskModule,
-    TaskCreationModule
+    TaskEditCreateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
