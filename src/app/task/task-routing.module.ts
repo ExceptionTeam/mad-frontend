@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllTasksTeacherComponent } from '../all-tasks-teacher/all-tasks-teacher.component';
 import { StudentTasksTableComponent } from '../student-tasks-table/student-tasks-table.component';
+import { TaskEditPageComponent } from '../task-edit-create-page/task-edit-create-page.component';
 import { TaskSendingPageComponent } from '../task-sending-page/task-sending-page.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
-import { TaskEditPageComponent } from '../task-edit-create-page/task-edit-create-page.component';
 
 const taskRoutes: Routes = [
   {
