@@ -40,9 +40,9 @@ export class TaskFullDescrTeacherComponent {
   }
 
   openSnackbar() {
-    this.snackBar.open('Задача удалена', 'Отмена');
+    const snackBar = this.snackBar.open('Задача удалена', 'Отмена', {duration: 1500});
+    // setTimeout(snackBar.dismiss.bind(snackBar), 1500);
     this.location.back();
-    // setTimeout(this.snackBar.dismiss(), 2000 );
   }
 }
 
