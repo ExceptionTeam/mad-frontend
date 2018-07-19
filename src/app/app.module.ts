@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { TaskModule } from './task/task.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
 @NgModule({
   declarations: [
     AppComponent

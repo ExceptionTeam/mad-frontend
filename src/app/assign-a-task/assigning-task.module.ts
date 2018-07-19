@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { AssignATaskComponent } from './assign-a-task.component';
 import { SelectStudentOrGroupComponent } from '../select-student-or-group/select-student-or-group.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { SelectStudentOrGroupComponent } from '../select-student-or-group/select
     MatSelectModule,
     MatDialogModule,
     MatIconModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    FormsModule,
+    AppRoutingModule
   ],
   declarations: [
     AssignATaskComponent,

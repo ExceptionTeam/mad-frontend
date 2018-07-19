@@ -28,4 +28,5 @@ import { TaskEditPageComponent } from './task-edit-create-page.component';
   exports: [TaskEditPageComponent],
   providers: [],
 })
-export class TaskEditCreateModule { }
+export class TaskEditCreateModule {
+}
