@@ -6,13 +6,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TaskViewSendingComponent } from '../task-view-sending/task-view-sending.component';
 import { FileUploadingComponent } from '../file-uploading/file-uploading.component';
 import { TaskSendingPageComponent } from './task-sending-page.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    AppRoutingModule
   ],
   declarations: [
     TaskSendingPageComponent,
@@ -22,5 +24,6 @@ import { TaskSendingPageComponent } from './task-sending-page.component';
   exports: [TaskSendingPageComponent, FileUploadingComponent],
   providers: [],
 })
-export class TaskSendingModule { }
+export class TaskSendingModule {
+}
 

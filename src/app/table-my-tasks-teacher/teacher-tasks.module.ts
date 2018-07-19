@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material';
+import { MatInputModule, MatPaginatorModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,7 +20,8 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component
     MatIconModule,
     MatFormFieldModule,
     MatDialogModule,
-    AssigningTaskModule
+    AssigningTaskModule,
+    MatInputModule
   ],
   declarations: [
     AllTasksTeacherComponent,
@@ -31,4 +32,5 @@ import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component
   providers: [],
   entryComponents: [TaskFullDescrTeacherComponent]
 })
-export class TeacherTasksModule { }
+export class TeacherTasksModule {
+}
