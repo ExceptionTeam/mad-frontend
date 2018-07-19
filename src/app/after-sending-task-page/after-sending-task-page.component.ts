@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'exc-after-sending-task-page',
@@ -32,7 +33,9 @@ export class AfterSendingTaskPageComponent {
     }
   ];
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute) {
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log('id: ', id);
   }
 
   clickHref(event) {

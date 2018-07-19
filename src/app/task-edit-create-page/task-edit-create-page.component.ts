@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
-import { TaskEditInfo } from 'src/app/TaskEditInfo.type';
-import {Location} from '@angular/common';
+import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
+import { TaskEditInfo } from 'src/app/task-edit-create-page/TaskEditInfo.type';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'exc-task-edit-create-page',
@@ -12,7 +13,17 @@ export class TaskEditPageComponent {
   @Input() validFiles: boolean;
   @Input() taskInfo: TaskEditInfo;
   InputOutputFiles: InputOutputFiles [];
-  constructor(private location: Location) {
+
+  constructor(private activatedRoute: ActivatedRoute, private location: Location) {
+    this.validFiles = this.validFiles || false;
+    this.taskInfo = this.taskInfo || {
+      type: '',
+      editFiles: '',
+      name: '',
+      description: ''
+    };
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log('id: ', id);
   }
 
   onSubmit(value) {

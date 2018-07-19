@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
+import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 
 @Component({
   selector: 'exc-input-output-adding',

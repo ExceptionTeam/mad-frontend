@@ -35,6 +35,14 @@ const taskRoutes: Routes = [
         path: 'sended-task',
         component: AfterSendingTaskPageComponent
       },
+      {
+        path: 'edit-task/:id',
+        component: TaskEditPageComponent
+      },
+      {
+        path: 'attempts/:id',
+        component: AfterSendingTaskPageComponent
+      }
     ]
   }
 ];
