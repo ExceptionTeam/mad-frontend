@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Task } from './task-full-description.types';
-import { MatDialogRef } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
+import { Location } from '@angular/common';
+import { timeout } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'exc-task-full-descr-teacher',
@@ -31,8 +34,15 @@ export class TaskFullDescrTeacherComponent {
     ]
   };
 
-  constructor(private matDialogRef: MatDialogRef<TaskFullDescrTeacherComponent>) {
+  constructor(private activatedRoute: ActivatedRoute, private location: Location, public snackBar: MatSnackBar) {
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log('id: ' + id);
   }
 
+  openSnackbar() {
+    this.snackBar.open('Задача удалена', 'Отмена');
+    this.location.back();
+    // setTimeout(this.snackBar.dismiss(), 2000 );
+  }
 }
 

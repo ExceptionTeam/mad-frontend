@@ -9,6 +9,7 @@ import { TaskSendingModule } from './task-sending-page/task-sending.module';
 import { AssigningTaskModule } from './assign-a-task/assigning-task.module';
 import { TaskEditCreateModule } from './task-edit-create-page/task-edit-create-page.module';
 import { AppRoutingModule } from './app-routing.module';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
     AssigningTaskModule,
     TaskEditCreateModule,
     AppRoutingModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
