@@ -37,6 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 import { TaskEditPageComponent } from './task-edit-create-page/task-edit-create-page.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { TaskEditPageComponent } from './task-edit-create-page/task-edit-create-
     SelectStudentOrGroupComponent,
     TaskFullDescrTeacherComponent,
     TaskEditPageComponent,
+    TaskFullDescrTeacherComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +88,10 @@ import { TaskEditPageComponent } from './task-edit-create-page/task-edit-create-
     MatDatepickerModule,
     MatMomentDateModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    MatSnackBarModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent],

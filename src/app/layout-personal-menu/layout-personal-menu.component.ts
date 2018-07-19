@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FieldsOfMenu } from '../layout-landing-page/layout-landing-page.types';
 
 @Component({
   selector: 'exc-layout-personal-menu',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout-personal-menu.component.scss']
 })
 export class LayoutPersonalMenuComponent implements OnInit {
-  personalMenu: string[] = ['Мои оповещения', 'Статистика', 'Смена пароля'];
+  @Input() fields: FieldsOfMenu[];
 
   constructor() {
   }
