@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { Moment } from 'moment';
 
 @Component({
   selector: 'exc-assign-a-task',
@@ -35,6 +36,6 @@ export class AssignATaskComponent implements OnInit {
   }
 
   onSubmit(value) {
-    console.log(value.inputDate._d.getTime());
+    console.log(value.inputDate.valueOf());
   }
 }
