@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+td.mat-cell:last-child {
+  text-align: right;
+}
+
+td.mat-cell:first-child {
+  text-align: left;
+}
