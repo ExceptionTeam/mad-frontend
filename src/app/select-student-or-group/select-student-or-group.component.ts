@@ -20,7 +20,7 @@ export class SelectStudentOrGroupComponent {
   indStudents: Student[] = [
     { _id: '2', name: 'Аня Кисель' },
     { _id: '32', name: 'Влад Малиновский' },
-    { _id: '32', name: 'Лиля Одинец' },
+    { _id: '32', name: 'Лиля Оданец' },
     { _id: '43', name: 'Леша Мухарский' },
     { _id: '14', name: 'Артем Германенко' },
   ];
@@ -30,7 +30,7 @@ export class SelectStudentOrGroupComponent {
       _id: '97652', name: '5 группа', students:
         [{ _id: '2', name: 'Аня Кисель' },
           { _id: '32', name: 'Влад Малиновский' },
-          { _id: '32', name: 'Лиля Одинец' },
+          { _id: '32', name: 'Лиля Оданец' },
           { _id: '43', name: 'Леша Мухарский' },
           { _id: '14', name: 'Артем Германенко' },
         ]
@@ -39,7 +39,7 @@ export class SelectStudentOrGroupComponent {
       _id: '3', name: '6 группа', students:
         [{ _id: '2', name: 'Аня Кисель' },
           { _id: '32', name: 'Влад Малиновский' },
-          { _id: '32', name: 'Лиля Одинец' },
+          { _id: '32', name: 'Лиля Оданец' },
           { _id: '43', name: 'Леша Мухарский' },
           { _id: '14', name: 'Артем Германенко' },
         ]
