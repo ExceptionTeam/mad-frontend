@@ -37,6 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SelectStudentOrGroupComponent } from './select-student-or-group/select-student-or-group.component';
 import { TaskFullDescrTeacherComponent } from './task-full-descr-teacher/task-full-descr-teacher.component';
 import { TaskEditPageComponent } from './task-edit-create-page/task-edit-create-page.component';
+import { AfterSendingTaskPageComponent } from './after-sending-task-page/after-sending-task-page.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { TablePassedTestsInfoComponent } from './table-passed-tests-info/table-passed-tests-info.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TaskModule } from './task/task.module';
@@ -61,6 +64,8 @@ import { TaskModule } from './task/task.module';
     SelectStudentOrGroupComponent,
     TaskFullDescrTeacherComponent,
     TaskEditPageComponent,
+    AfterSendingTaskPageComponent,
+    TablePassedTestsInfoComponent,
     TaskFullDescrTeacherComponent
   ],
   imports: [
@@ -89,6 +94,7 @@ import { TaskModule } from './task/task.module';
     MatMomentDateModule,
     MatDialogModule,
     FormsModule,
+    MatExpansionModule,
     AppRoutingModule,
     MatSnackBarModule,
     TaskModule
