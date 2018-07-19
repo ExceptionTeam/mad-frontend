@@ -1,13 +1,26 @@
 <div class="input-output-adding">
-  <p>Добавьте входные/выходные файлы для тестирования задачи:</p>
-  <div *ngFor="let item of length; let index = index; " class="input-output-files-upload">
-    <exc-file-uploading id={{index}} (fileChanged)="onFileChanged($event, index)">
-    </exc-file-uploading>
-    <button mat-icon-button (click)='onDelete($event,index)' *ngIf='index%2==1'>
+  <div class="edit-files">
+    <div class="edit-files-item" *ngFor="let file of editFiles; let i=index">
+      <p>{{file.input}}, {{file.output}}</p>
+      <button mat-icon-button (click)='onDeleteEdit($event,i)' type="button">
+          <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="buttons-plus">
+    <div class="buttons">
+      <div *ngFor="let item of files; let i = index" class="input-output-files-upload">
+        <exc-file-uploading [id]="i" [type]="in" (fileChanged)="onFileChanged($event,i,in)">
+        </exc-file-uploading>
+        <exc-file-uploading [id]="i" [type]="out" (fileChanged)="onFileChanged($event,i,out)">
+        </exc-file-uploading>
+        <button mat-icon-button (click)='onDelete($event,i+1)'>
         <mat-icon>cancel</mat-icon>
     </button>
-  </div>
-  <button mat-icon-button (click)='onClick($event)'>
+      </div>
+    </div>
+    <button mat-icon-button type="button" (click)="onClick($event)">
     <mat-icon>add</mat-icon>
 </button>
+  </div>
 </div>
