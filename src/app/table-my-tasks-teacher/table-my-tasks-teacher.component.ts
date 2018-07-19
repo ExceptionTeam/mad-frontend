@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator } from '@angular/material';
 import { AssignATaskComponent } from '../assign-a-task/assign-a-task.component';
-import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
 import { AllTasksService, Task } from '../allTasks.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
@@ -15,7 +14,6 @@ export class TableMyTasksTeacherComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
-  chosenValue: string;
 
   constructor(public dialog: MatDialog, private allTasksService: AllTasksService) {
   }
@@ -34,14 +32,6 @@ export class TableMyTasksTeacherComponent implements OnInit {
 
   public openModal() {
     this.dialog.open(AssignATaskComponent);
-  }
-
-  public onClickName(id) {
-    this.dialog.open(TaskFullDescrTeacherComponent, {
-      height: '500px'
-    });
-    this.chosenValue = id;
-    console.log('look at id: ' + this.chosenValue);
   }
 }
 

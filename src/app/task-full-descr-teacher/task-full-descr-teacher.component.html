@@ -23,14 +23,14 @@
     <div class="input">
       <p>Входные файлы: </p>
       <a class="open-file" *ngFor="let url of task.inputFilesUrls; let i = index" [attr.data-index]="i" [href]="url"
-         target="_blank">
+         target="_blank" download>
         Открыть файл {{i+1}}
       </a>
     </div>
     <div class="output">
       <p>Выходные файлы:</p>
       <a class="open-file" *ngFor="let url of task.outputFilesUrls; let i = index" [attr.data-index]="i" [href]="url"
-         target="_blank">
+         target="_blank" download>
         Открыть файл {{i+1}}
       </a>
     </div>

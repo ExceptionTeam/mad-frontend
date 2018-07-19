@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from './task-full-description.types';
-import { MatDialogRef } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'exc-task-full-descr-teacher',
@@ -31,7 +31,9 @@ export class TaskFullDescrTeacherComponent {
     ]
   };
 
-  constructor(private matDialogRef: MatDialogRef<TaskFullDescrTeacherComponent>) {
+  constructor(private activatedRoute: ActivatedRoute) {
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log('id: ' + id);
   }
 
 }

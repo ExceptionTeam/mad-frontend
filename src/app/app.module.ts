@@ -94,8 +94,7 @@ import { TaskModule } from './task/task.module';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [AssignATaskComponent,
-    TaskFullDescrTeacherComponent]
+  entryComponents: [AssignATaskComponent]
 })
 export class AppModule {
 }
