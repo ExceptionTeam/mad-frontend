@@ -10,7 +10,6 @@ import { AssigningTaskModule } from './assign-a-task/assigning-task.module';
 import { TaskEditCreateModule } from './task-edit-create-page/task-edit-create-page.module';
 import { AppRoutingModule } from './app-routing.module';
 import { TaskModule } from './task/task.module';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AssigningTaskModule,
     TaskEditCreateModule,
     AppRoutingModule,
-    MatSnackBarModule,
     TaskModule
   ],
   providers: [],
