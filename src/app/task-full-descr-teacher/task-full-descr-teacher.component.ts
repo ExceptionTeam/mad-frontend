@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from './task-full-description.types';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'exc-task-full-descr-teacher',
@@ -31,10 +32,13 @@ export class TaskFullDescrTeacherComponent {
     ]
   };
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, public snackBar: MatSnackBar) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ' + id);
   }
 
+  openSnackbar() {
+    this.snackBar.open('Задача удалена', 'Отмена');
+  }
 }
 
