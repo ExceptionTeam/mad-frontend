@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/InputOutputFiles.type';
-
-export interface TaskEditInfo {
-  type: string;
-  editFiles: InputOutputFiles [];
-  name: string;
-  description: string;
-}
+import { TaskEditInfo } from 'src/app/TaskEditInfo.type';
 
 @Component({
   selector: 'exc-task-edit-create-page',
@@ -14,11 +8,6 @@ export interface TaskEditInfo {
   styleUrls: ['./task-edit-create-page.component.scss']
 })
 export class TaskEditPageComponent {
-  // validFiles = true;
-  // editFiles = [{input: 'inp1', output: 'out1'}];
-  // name = 'Task12';
-  // description = 'gyufihshidjshaebfkdshfkeashfoels';
-  // InputOutputFiles: InputOutputFiles[] = [];
   @Input() validFiles: boolean;
   @Input() taskInfo: TaskEditInfo;
   InputOutputFiles: InputOutputFiles [];
