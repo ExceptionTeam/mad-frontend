@@ -33,7 +33,7 @@ export class TaskFullDescrTeacherComponent {
       'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
     ]
   };
-  deleteStatus: boolean;
+  private deleteStatus: boolean;
   constructor(private activatedRoute: ActivatedRoute, private location: Location, public snackBar: MatSnackBar) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ' + id);
