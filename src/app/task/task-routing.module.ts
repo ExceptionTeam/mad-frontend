@@ -37,7 +37,7 @@ const taskRoutes: Routes = [
       },
       {
         path: 'edit-task/:id',
-        component: TaskEditPageComponent
+        component: TaskEditCreatePageComponent
       },
       {
         path: 'attempts/:id',
