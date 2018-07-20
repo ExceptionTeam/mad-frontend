@@ -10,7 +10,7 @@ import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
 import { AllTasksTeacherComponent } from '../all-tasks-teacher/all-tasks-teacher.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
 import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -23,7 +23,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatDialogModule,
     AssigningTaskModule,
     MatInputModule,
-    AppRoutingModule
+    RouterModule
   ],
   declarations: [
     AllTasksTeacherComponent,

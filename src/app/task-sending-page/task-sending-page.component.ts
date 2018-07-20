@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 /*import {Http} from '@angular/http';*/
 
 export interface DataPost {
@@ -14,10 +16,15 @@ export interface DataPost {
 export class TaskSendingPageComponent {
   file: File;
   dataPost: DataPost;
-  constructor(/*public http: Http*/) { }
+
+  constructor(/*public http: Http*/
+              private activatedRoute: ActivatedRoute) {
+  }
 
   onClick(event) {
     console.log(this.file);
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log('id: ', id);
     /*const formData = new FormData();
     formData.append('solutionFile', this.file);
     formData.append('data', JSON.stringify(this.dataPost));

@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 
-export interface Task {
-  assId: string;
+export interface TaskId {
   name: string;
   description: string;
+  weight: Number;
+}
+
+export interface TeacherId {
+  name: string;
+  surname: string;
+}
+
+export interface Task {
+  assId: string;
+  taskId: TaskId;
   deadline: Date;
-  teacherName: string;
-  teacherSurname: string;
-  weight: number;
+  teacherId: TeacherId;
 }
 
 @Component({
@@ -17,12 +25,18 @@ export interface Task {
 })
 export class TaskViewSendingComponent {
   task: Task = {
-    assId: '1',
-    name: 'Задача',
-    description: 'аннвагагваноенго гаганганоагааа агага оаеагааннвагагваноен еанвар апго гаганганоагааа агага оагааа',
+    assId: '123d',
+    taskId: {
+      name: 'Название задачи',
+      description: 'Чёрный ящик организован наподобие примитивной базы данных. Он может хранить набор целых чисел и имеет' +
+      'выделенную переменную i. В начальный момент времени чёрный ящик пуст, а значение переменной i равно нулю. Чёрный ящик' +
+      ' обрабатывает последовательность поступающих команд (запросов).',
+      weight: 10
+    },
     deadline: new Date(),
-    teacherName: 'ЖВ',
-    teacherSurname: 'Василенко',
-    weight: 4
+    teacherId: {
+      name: 'Ж В',
+      surname: 'Василенко',
+    }
   };
 }

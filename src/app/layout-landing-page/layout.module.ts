@@ -9,16 +9,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutFooterComponent } from '../layout-footer/layout-footer.component';
 import { LayoutHeaderComponent } from '../layout-header/layout-header.component';
-import { LayoutLandingPageComponent } from '../layout-landing-page/layout-landing-page.component';
+import { LayoutLandingPageComponent } from './layout-landing-page.component';
 import { LayoutPersonalMenuComponent } from '../layout-personal-menu/layout-personal-menu.component';
-import { LayoutNavigationComponent } from './layout-navigation.component';
+import { LayoutNavigationComponent } from '../layout-navigation/layout-navigation.component';
 import { StudentTasksModule } from '../student-tasks-table/student-tasks.module';
 import { TeacherTasksModule } from '../table-my-tasks-teacher/teacher-tasks.module';
 import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
-import { TaskModule } from '../task/task.module';
-import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -35,8 +34,7 @@ import { AppRoutingModule } from '../app-routing.module';
     AssigningTaskModule,
     TaskSendingModule,
     TaskEditCreateModule,
-    TaskModule,
-    AppRoutingModule
+    RouterModule
   ],
   declarations: [
     LayoutFooterComponent,
