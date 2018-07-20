@@ -30,6 +30,9 @@ export class TaskEditCreatePageComponent {
     }
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
+    if (id !== undefined) {
+      // Еще один запрос на описание задачи
+    }
   }
 
   onSubmit(value) {
@@ -44,10 +47,6 @@ export class TaskEditCreatePageComponent {
   changeValidState(event) {
     console.log(event);
     this.validFiles = event;
-  }
-
-  onDelete(event, i) {
-    this.taskInfo.editFiles.splice(i, 1);
   }
 
   changeFiles(files) {
