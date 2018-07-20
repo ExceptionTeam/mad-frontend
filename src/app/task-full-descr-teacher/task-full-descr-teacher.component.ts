@@ -41,14 +41,15 @@ export class TaskFullDescrTeacherComponent {
   }
 
   openSnackbar() {
-    const snack = this.snackBar.open(this.deleteStatus ? 'Задача удалена' : 'Задача не удалена',
-      this.deleteStatus ? 'Отмена' : '', { duration: 1500 });
+    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 1500 }];
+    const argsArrayNotDeleted = [ 'Задача не удалена', '', { duration: 1500 }];
+    const snack = this.snackBar.open.apply(this.snackBar, this.deleteStatus ? argsArrayDeleted : argsArrayNotDeleted);
     if (this.deleteStatus) {
       snack.afterDismissed().subscribe(info => {
         if (info.dismissedByAction === true) {
-          console.log('отмена');
+          console.log('запрос на отмену удаления задачи');
         } else {
-          console.log('wow');
+          console.log('все ок');
         }
       });
       this.location.back();
