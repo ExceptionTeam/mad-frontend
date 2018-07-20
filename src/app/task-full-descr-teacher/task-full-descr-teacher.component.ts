@@ -33,16 +33,27 @@ export class TaskFullDescrTeacherComponent {
       'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
     ]
   };
-
+  private deleteStatus: boolean;
   constructor(private activatedRoute: ActivatedRoute, private location: Location, public snackBar: MatSnackBar) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ' + id);
+    this.deleteStatus = true;
   }
 
   openSnackbar() {
-    this.snackBar.open('Задача удалена', 'Отмена');
-    this.location.back();
-    // setTimeout(this.snackBar.dismiss(), 2000 );
+    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 1500 }];
+    const argsArrayNotDeleted = [ 'Задача не удалена', '', { duration: 1500 }];
+    const snack = this.snackBar.open.apply(this.snackBar, this.deleteStatus ? argsArrayDeleted : argsArrayNotDeleted);
+    if (this.deleteStatus) {
+      snack.afterDismissed().subscribe(info => {
+        if (info.dismissedByAction === true) {
+          console.log('запрос на отмену удаления задачи');
+        } else {
+          console.log('все ок');
+        }
+      });
+      this.location.back();
+    }
   }
 }
 
