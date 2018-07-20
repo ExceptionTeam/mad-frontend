@@ -18,7 +18,7 @@
     <ng-container matColumnDef="appoint">
       <th mat-header-cell class="appoint" *matHeaderCellDef> Назначить</th>
       <td mat-cell class="appoint-button" *matCellDef="let element">
-        <button mat-button routerLink="/task/table-teacher" (click)="openModal()">Назначить</button>
+        <button mat-button routerLink="/task/table-teacher" (click)="openModal(element._id)">Назначить</button>
       </td>
     </ng-container>
 

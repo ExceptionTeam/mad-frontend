@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
-import { Moment } from 'moment';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'exc-assign-a-task',
@@ -12,7 +11,7 @@ export class AssignATaskComponent implements OnInit {
   isGroupSelected: boolean;
   selectedId: string;
 
-  constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>) {
+  constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {
@@ -36,6 +35,7 @@ export class AssignATaskComponent implements OnInit {
   }
 
   onSubmit(value) {
+    console.log('id from assign a task! ', this.data._id);
     console.log(value.inputDate.valueOf());
   }
 }

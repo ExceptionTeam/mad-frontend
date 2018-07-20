@@ -13,6 +13,7 @@ export class TaskEditPageComponent {
   @Input() validFiles: boolean;
   @Input() taskInfo: TaskEditInfo;
   InputOutputFiles: InputOutputFiles [];
+  buttonName: string;
 
   constructor(private activatedRoute: ActivatedRoute, private location: Location) {
     this.validFiles = this.validFiles || false;
@@ -22,6 +23,11 @@ export class TaskEditPageComponent {
       name: '',
       description: ''
     };
+    if (this.taskInfo.description === '') {
+      this.buttonName = 'Добавить';
+    } else {
+      this.buttonName = 'Изменить';
+    }
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
   }

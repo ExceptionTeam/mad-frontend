@@ -30,8 +30,12 @@ export class TableMyTasksTeacherComponent implements OnInit {
     return this.allTasksService.getLength();
   }
 
-  public openModal() {
-    this.dialog.open(AssignATaskComponent);
+  public openModal(id) {
+    this.dialog.open(AssignATaskComponent,{
+      data: {
+      _id: id
+    }
+  });
   }
 }
 
