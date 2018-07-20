@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material';
-import { Task } from '../tasks.service';
-import { TasksService } from '../tasks.service';
+import { Task } from '../allTasksStudent.service';
+import { AllTasksStudentService } from '../allTasksStudent.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ export class StudentTasksTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'file', 'tests', 'teacher', 'mark'];
   dataSource: UserDataSource | null;
 
-  constructor(private tasksService: TasksService) {
+  constructor(private tasksService: AllTasksStudentService) {
   }
 
   ngOnInit() {
@@ -33,7 +33,7 @@ export class StudentTasksTableComponent implements OnInit {
 
 export class UserDataSource extends DataSource<any> {
   constructor(
-    private tasksService: TasksService,
+    private tasksService: AllTasksStudentService,
     private paginator: MatPaginator
   ) {
     super();

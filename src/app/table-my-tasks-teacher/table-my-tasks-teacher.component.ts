@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator } from '@angular/material';
 import { AssignATaskComponent } from '../assign-a-task/assign-a-task.component';
-import { AllTasksService, Task } from '../allTasks.service';
+import { AllTasksTeacherService, Task } from '../allTasksTeacher.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 
@@ -15,7 +15,7 @@ export class TableMyTasksTeacherComponent implements OnInit {
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
 
-  constructor(public dialog: MatDialog, private allTasksService: AllTasksService) {
+  constructor(public dialog: MatDialog, private allTasksService: AllTasksTeacherService) {
   }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class TableMyTasksTeacherComponent implements OnInit {
 
 export class UserDataSource extends DataSource<any> {
   constructor(
-    private allTasksService: AllTasksService,
+    private allTasksService: AllTasksTeacherService,
     private paginator: MatPaginator
   ) {
     super();

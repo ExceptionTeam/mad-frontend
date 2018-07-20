@@ -28,7 +28,7 @@ export const tasks: Task[] = [
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService {
+export class AllTasksStudentService {
   constructor() {
   }
 
