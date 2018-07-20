@@ -2,40 +2,44 @@
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Название </th>
+      <th mat-header-cell *matHeaderCellDef> Название</th>
       <td mat-cell *matCellDef="let element">
-        <a matLine routerLink="/task/send-task">{{element.name}}</a>
+        <a matLine routerLink="/task/table-student/{{element._id}}">{{element.name}}</a>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="file">
-      <th mat-header-cell *matHeaderCellDef> Исходный код </th>
-      <td mat-cell *matCellDef="let element"><a matLine href="#">{{element.file}}</a></td>
+      <th mat-header-cell *matHeaderCellDef> Исходный код</th>
+      <td mat-cell *matCellDef="let element">
+        <a matLine href="#" routerLink="/task/attempts/{{element._id}}">
+          Просмотр
+        </a>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="tests">
-      <th mat-header-cell *matHeaderCellDef> Тесты </th>
-      <td mat-cell *matCellDef="let element"> {{element.tests}} </td>
+      <th mat-header-cell *matHeaderCellDef> Тесты</th>
+      <td mat-cell *matCellDef="let element"> {{element.tests}}</td>
     </ng-container>
 
     <ng-container matColumnDef="teacher">
-      <th mat-header-cell *matHeaderCellDef> Преподаватель </th>
-      <td mat-cell *matCellDef="let element"> {{element.teacher}} </td>
+      <th mat-header-cell *matHeaderCellDef> Преподаватель</th>
+      <td mat-cell *matCellDef="let element"> {{element.teacher}}</td>
     </ng-container>
 
     <ng-container matColumnDef="mark">
-      <th mat-header-cell *matHeaderCellDef> Оценка </th>
-      <td mat-cell *matCellDef="let element"> {{element.mark}} </td>
+      <th mat-header-cell *matHeaderCellDef> Оценка</th>
+      <td mat-cell *matCellDef="let element"> {{element.mark}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator #pagination
-  [length]="getLength()"
-  [pageIndex]="0"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25, 100]"
-  (page)="onPaginateChange($event)">
-</mat-paginator>
+                 [length]="getLength()"
+                 [pageIndex]="0"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="onPaginateChange($event)">
+  </mat-paginator>
 </div>

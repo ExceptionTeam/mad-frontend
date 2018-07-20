@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'exc-after-sending-task-page',
@@ -7,8 +8,7 @@ import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
   styleUrls: ['./after-sending-task-page.component.scss']
 })
 export class AfterSendingTaskPageComponent {
-  panelOpenState = false;
-  taskName = 'myTask';
+  taskName = 'Название Задачи';
   files: TaskSolvingInfo[] = [
     {
       file: 'fghfghjkdfghjfghjk.java',
@@ -33,7 +33,9 @@ export class AfterSendingTaskPageComponent {
     }
   ];
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute) {
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log('id: ', id);
   }
 
   clickHref(event) {

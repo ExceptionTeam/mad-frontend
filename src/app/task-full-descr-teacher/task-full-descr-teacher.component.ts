@@ -3,7 +3,6 @@ import { Task } from './task-full-description.types';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { Location } from '@angular/common';
-import { timeout } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'exc-task-full-descr-teacher',
@@ -12,7 +11,7 @@ import { timeout } from 'rxjs/internal/operators';
 })
 export class TaskFullDescrTeacherComponent {
   task: Task = {
-    _id: '2n2n2',
+    _id: this.activatedRoute.snapshot.params.id,
     name: 'Название задачи',
     tags: ['тег', 'тег', 'тег'],
     description: 'Задана система дорог, определяемая набором пар городов. Каждая такая пара { i, j } указывает, ' +
@@ -20,31 +19,31 @@ export class TaskFullDescrTeacherComponent {
     'города a в заданный город b таким образом, чтобы посетить город c, не проезжать ни по какой дороге более одного раза ' +
     'и не заезжать ни в какой город более одного раза.',
     weight: 10,
-    inputFilesUrls: ['https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
-      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
+    inputFilesUrls: [{ link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'input1.txt' },
+      { link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'input2.txt' },
+      { link: 'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg', name: 'input3.txt' },
+      { link: 'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg', name: 'input4.txt' },
+      { link: 'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg', name: 'input5.txt' },
     ],
-    outputFilesUrls: ['https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
-      'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg',
-      'https://sun9-4.userapi.com/c7001/v7001950/4b499/eAKxv9RVmrQ.jpg',
-    ]
+    outputFilesUrls: [{ link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'ouput1.txt' },
+      { link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'output2.txt' },
+      { link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'output3.txt' },
+      { link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'output4.txt' },
+      { link: 'https://pp.userapi.com/c845523/v845523795/91587/8MVvxQHQ8yA.jpg', name: 'output5.txt' },
+    ],
+    additAbility: true
   };
-  private deleteStatus: boolean;
+
   constructor(private activatedRoute: ActivatedRoute, private location: Location, public snackBar: MatSnackBar) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ' + id);
-    this.deleteStatus = true;
   }
 
   openSnackbar() {
-    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 1500 }];
-    const argsArrayNotDeleted = [ 'Задача не удалена', '', { duration: 1500 }];
-    const snack = this.snackBar.open.apply(this.snackBar, this.deleteStatus ? argsArrayDeleted : argsArrayNotDeleted);
-    if (this.deleteStatus) {
+    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 3000 }];
+    const argsArrayNotDeleted = ['Задача не удалена', '', { duration: 3000 }];
+    const snack = this.snackBar.open.apply(this.snackBar, this.task.additAbility ? argsArrayDeleted : argsArrayNotDeleted);
+    if (this.task.additAbility) {
       snack.afterDismissed().subscribe(info => {
         if (info.dismissedByAction === true) {
           console.log('запрос на отмену удаления задачи');

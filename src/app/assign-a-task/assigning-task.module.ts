@@ -11,7 +11,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { AssignATaskComponent } from './assign-a-task.component';
 import { SelectStudentOrGroupComponent } from '../select-student-or-group/select-student-or-group.component';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatIconModule,
     MatMomentDateModule,
     FormsModule,
-    AppRoutingModule
+    RouterModule
   ],
   declarations: [
     AssignATaskComponent,
