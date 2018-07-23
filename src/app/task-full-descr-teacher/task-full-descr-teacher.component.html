@@ -12,10 +12,10 @@
     {{task?.description}}
   </p>
   <div>
-    <button mat-icon-button routerLink="/task/edit-task/{{id}}" [disabled]="!additAbility">
+    <button mat-icon-button routerLink="/task/edit-task/{{id}}" [disabled]="!task?.editable">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button routerLink="/task/table-teacher" (click)="openSnackbar()" [disabled]="!additAbility">
+    <button mat-icon-button routerLink="/task/table-teacher" (click)="openSnackbar()" [disabled]="!task?.editable">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

@@ -12,7 +12,6 @@ import { TaskService } from '../task.service';
 export class TaskFullDescrTeacherComponent {
   task: Partial<Task>;
   id: string;
-  additAbility: boolean;
   role = 'teacher';
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -27,7 +26,6 @@ export class TaskFullDescrTeacherComponent {
         // запрос полн информации для админа
       }
     }
-    this.additAbility = true;
   }
 
   openSnackbar() {

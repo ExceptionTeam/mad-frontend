@@ -10,4 +10,5 @@ export interface Task {
   tags: string[];
   inputFilesId: File[];
   outputFilesId: File[];
+  editable: boolean;
 }
