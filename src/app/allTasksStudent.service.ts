@@ -10,9 +10,9 @@ export interface Task {
 }
 
 export const tasks: Task[] = [
-  { _id: 'sdf', name: 'Скрудж Макдак', tests: '15/15', teacher: 'lol', mark: 9 },
-  { _id: 'sdf', name: 'Скрудж Макдак', tests: '15/15', teacher: 'lol', mark: 9 },
-  { _id: 'sdf', name: 'Скрудж Макдак', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7 },
+  { _id: '5b4e0549b1900619b486a5aa', name: 'Скрудж Макдак', tests: '15/15', teacher: 'lol', mark: 9 },
+  { _id: '5b4e0549b1900619b486a5aa', name: 'Скрудж Макдак', tests: '15/15', teacher: 'lol', mark: 9 },
+  { _id: '5b4e0549b1900619b486a5aa', name: 'Скрудж Макдак', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7 },
   { _id: 'sdf', name: 'Скрудж Макдак', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7 },
   { _id: 'sdf', name: 'Скрудж Макдак', tests: '15/15', teacher: 'Vasilkov D.D.', mark: 7 },
   { _id: 'sdf', name: 'Задача о кольцах', tests: '10/15', teacher: 'Vasilkov D.D.', mark: 4 },

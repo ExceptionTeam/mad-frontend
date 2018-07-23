@@ -8,8 +8,8 @@ export interface Task {
 }
 
 const tasks: Task[] = [
-  { _id: 'io', name: 'Триангуляция', weight: 9 },
-  { _id: 'wl', name: 'Выбрать поднабор', weight: 10 },
+  { _id: '5b48a324c051c519f8477f85', name: 'Триангуляция', weight: 9 },
+  { _id: '5b48a324c051c519f8477f85', name: 'Выбрать поднабор', weight: 10 },
   { _id: 'd', name: 'Бинарные последовательности', weight: 10 },
   { _id: 'adf', name: 'Пробирки', weight: 6 },
   { _id: 'f', name: 'Игра', weight: 10 },
