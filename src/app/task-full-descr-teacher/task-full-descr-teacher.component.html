@@ -1,28 +1,28 @@
 <div class="task-teacher">
   <h1 class="name-of-the-task">
-    {{task.weight}}: Задача '{{task.name}}'
+    {{task?.weight}}: Задача '{{task?.name}}'
   </h1>
   <div class="tags">
     Теги:
-    <ng-container *ngFor="let item of task.tags">
+    <ng-container *ngFor="let item of task?.tags">
       {{item}},
     </ng-container>
   </div>
   <p class="task-description">
-    {{task.description}}
+    {{task?.description}}
   </p>
   <div>
-    <button mat-icon-button routerLink="/task/edit-task/{{task._id}}" [disabled]="!task.additAbility">
+    <button mat-icon-button routerLink="/task/edit-task/{{id}}" [disabled]="!additAbility">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button (click)="openSnackbar()" [disabled]="!task.additAbility">
+    <button mat-icon-button routerLink="/task/table-teacher" (click)="openSnackbar()" [disabled]="!additAbility">
       <mat-icon>delete</mat-icon>
     </button>
   </div>
   <div class="files">
     <div class="input">
       <p>Входные файлы: </p>
-      <a class="open-file" *ngFor="let file of task.inputFilesUrls; let i = index" [attr.data-index]="i"
+      <a class="open-file" *ngFor="let file of task?.inputFilesId; let i = index" [attr.data-index]="i"
          [href]="file.link"
          target="_blank" download>
         {{file.name}}
@@ -30,7 +30,7 @@
     </div>
     <div class="output">
       <p>Выходные файлы:</p>
-      <a class="open-file" *ngFor="let file of task.outputFilesUrls; let i = index" [attr.data-index]="i"
+      <a class="open-file" *ngFor="let file of task?.outputFilesId; let i = index" [attr.data-index]="i"
          [href]="file.link"
          target="_blank" download>
         {{file.name}}

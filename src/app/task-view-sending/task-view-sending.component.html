@@ -1,13 +1,13 @@
 <h1>
-  {{task.taskId.weight}} : {{task.taskId.name}}
+  {{task?.taskId.weight}} : {{task?.taskId?.name}}
 </h1>
 <p>
-  {{task.taskId.description}}
+  {{task?.taskId.description}}
 </p>
 <p>
-  дедлайн: {{task.deadline| date :  "dd.MM.yyyy mm:ss"}}
+  дедлайн: {{task?.deadline | date : "dd.MM.yyyy H:m:s"}}
 </p>
 <p>
-  преподаватель: {{task.teacherId.name}} {{task.teacherId.surname}}
+  преподаватель: {{task?.teacherId?.name}} {{task?.teacherId?.surname}}
 </p>
 

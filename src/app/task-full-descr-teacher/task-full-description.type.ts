@@ -4,12 +4,10 @@ export interface File {
 }
 
 export interface Task {
-  _id: string;
   name: string;
-  tags: string[];
   description: string;
   weight: number;
-  inputFilesUrls: File[];
-  outputFilesUrls: File[];
-  additAbility: boolean;
+  tags: string[];
+  inputFilesId: File[];
+  outputFilesId: File[];
 }

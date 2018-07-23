@@ -1,22 +1,5 @@
-import { Component } from '@angular/core';
-
-export interface TaskId {
-  name: string;
-  description: string;
-  weight: Number;
-}
-
-export interface TeacherId {
-  name: string;
-  surname: string;
-}
-
-export interface Task {
-  assId: string;
-  taskId: TaskId;
-  deadline: Date;
-  teacherId: TeacherId;
-}
+import { Component, Input } from '@angular/core';
+import { TaskFullDStudent } from '../task-sending-page/task-sending-page.type';
 
 @Component({
   selector: 'exc-task-view-sending',
@@ -24,7 +7,12 @@ export interface Task {
   styleUrls: ['./task-view-sending.component.scss']
 })
 export class TaskViewSendingComponent {
-  task: Task = {
+  @Input() task: TaskFullDStudent;
+
+  constructor() {
+  }
+
+  /*task: TaskFullDStudent = {
     assId: '123d',
     taskId: {
       name: 'Название задачи',
@@ -38,5 +26,5 @@ export class TaskViewSendingComponent {
       name: 'Ж В',
       surname: 'Василенко',
     }
-  };
+  };*/
 }

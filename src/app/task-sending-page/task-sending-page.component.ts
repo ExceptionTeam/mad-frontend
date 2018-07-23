@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TaskService } from '../task.service';
+import { TaskFullDStudent } from './task-sending-page.type';
 
 /*import {Http} from '@angular/http';*/
 
@@ -16,9 +18,16 @@ export interface DataPost {
 export class TaskSendingPageComponent {
   file: File;
   dataPost: DataPost;
+  task: TaskFullDStudent;
 
   constructor(/*public http: Http*/
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private taskService: TaskService) {
+    const id = this.activatedRoute.snapshot.params.id;
+    this.taskService.getStudentFullDescription(id).subscribe(task => {
+      this.task = task;
+      this.task.deadline = new Date(this.task.deadline);
+    });
   }
 
   onClick(event) {

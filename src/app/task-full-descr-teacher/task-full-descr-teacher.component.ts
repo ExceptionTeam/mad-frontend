@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from './task-full-description.type';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { Location } from '@angular/common';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -12,29 +11,42 @@ import { TaskService } from '../task.service';
 })
 export class TaskFullDescrTeacherComponent {
   task: Partial<Task>;
+  id: string;
+  additAbility: boolean;
+  role = 'teacher';
 
   constructor(private activatedRoute: ActivatedRoute,
-              private location: Location,
               public snackBar: MatSnackBar,
-              private taskService: TaskService) {
-    const id = this.activatedRoute.snapshot.params.id;
-    this.taskService.getTeacherFullDescription(id).subscribe(task => this.task = task);
+              private taskService: TaskService,
+              public router: Router) {
+    this.id = this.activatedRoute.snapshot.params.id;
+    if (this.role === 'teacher') {
+      this.taskService.getTeacherFullDescription(this.id).subscribe(task => this.task = task);
+    } else {
+      if (this.role === 'admin') {
+        // запрос полн информации для админа
+      }
+    }
+    this.additAbility = true;
   }
 
   openSnackbar() {
-    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 3000 }];
-    const argsArrayNotDeleted = ['Задача не удалена', '', { duration: 3000 }];
-    const snack = this.snackBar.open.apply(this.snackBar, this.task.additAbility ? argsArrayDeleted : argsArrayNotDeleted);
-    if (this.task.additAbility) {
+    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 5000 }];
+    const argsArrayNotDeleted = ['Задача не удалена', '', { duration: 5000 }];
+
+    this.taskService.deleteTask(this.id).subscribe(isDeleted => {
+      console.log('isDeleted: ', isDeleted);
+      const snack = this.snackBar.open.apply(this.snackBar, argsArrayDeleted);
       snack.afterDismissed().subscribe(info => {
         if (info.dismissedByAction === true) {
           console.log('запрос на отмену удаления задачи');
-        } else {
-          console.log('все ок');
+          this.taskService.activateTask(this.id).subscribe();
+          // this.router.navigate([`/task/table-teacher/${id}`]);
         }
       });
-      this.location.back();
-    }
+    }, error => {
+      this.snackBar.open.apply(this.snackBar, argsArrayNotDeleted);
+    });
   }
 }
 
