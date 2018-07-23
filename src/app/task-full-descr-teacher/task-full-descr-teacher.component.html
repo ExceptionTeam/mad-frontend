@@ -23,7 +23,7 @@
     <div class="input">
       <p>Входные файлы: </p>
       <a class="open-file" *ngFor="let file of task?.inputFilesId; let i = index" [attr.data-index]="i"
-         [href]="file.link"
+         [href]="file.url"
          target="_blank" download>
         {{file.name}}
       </a>
@@ -31,7 +31,7 @@
     <div class="output">
       <p>Выходные файлы:</p>
       <a class="open-file" *ngFor="let file of task?.outputFilesId; let i = index" [attr.data-index]="i"
-         [href]="file.link"
+         [href]="file.url"
          target="_blank" download>
         {{file.name}}
       </a>

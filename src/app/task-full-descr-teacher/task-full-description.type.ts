@@ -1,5 +1,5 @@
 export interface File {
-  link: string;
+  url: string;
   name: string;
 }
 
