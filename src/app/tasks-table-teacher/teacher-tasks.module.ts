@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TasksTeacherPageComponent } from '../tasks-teacher-page/tasks-teacher-page.component';
 import { TasksTableTeacherComponent } from './tasks-table-teacher.component';
 import { RouterModule } from '@angular/router';
+import { MatTooltipModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    RouterModule
+    RouterModule,
+    MatTooltipModule
   ],
   declarations: [
     TasksTeacherPageComponent,

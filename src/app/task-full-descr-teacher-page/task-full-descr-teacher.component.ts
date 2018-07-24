@@ -12,7 +12,7 @@ import { TaskService } from '../task.service';
 export class TaskFullDescrTeacherComponent {
   task: Partial<TaskFullInfo>;
   id: string;
-  role = 'admin';
+  role = 'teacher';
 
   constructor(private activatedRoute: ActivatedRoute,
               public snackBar: MatSnackBar,
