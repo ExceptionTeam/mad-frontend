@@ -43,3 +43,17 @@
 .output {
   width: 55%;
 }
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  margin-top: 4%;
+}
+
+.edit-icons {
+  display: flex;
+  flex-direction: row;
+}

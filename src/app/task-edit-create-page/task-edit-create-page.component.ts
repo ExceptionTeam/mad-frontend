@@ -34,7 +34,7 @@ export class TaskEditCreatePageComponent {
     this.id = this.activatedRoute.snapshot.params.id;
     // console.log('id: ', this.id);
     if (this.id !== undefined) {
-      tasksService.getInfoEditTask(this.id).subscribe(data => {
+      tasksService.getTaskFullInfoTeacher(this.id).subscribe(data => {
           this.taskInfo = data;
         }
       );

@@ -12,7 +12,7 @@ import { TaskService } from '../task.service';
 export class TaskFullDescrTeacherComponent {
   task: Partial<TaskFullInfo>;
   id: string;
-  role = 'teacher';
+  role = 'admin';
 
   constructor(private activatedRoute: ActivatedRoute,
               public snackBar: MatSnackBar,
@@ -20,15 +20,13 @@ export class TaskFullDescrTeacherComponent {
               public router: Router) {
     this.id = this.activatedRoute.snapshot.params.id;
     if (this.role === 'teacher') {
-      this.taskService.getTeacherFullDescription(this.id).subscribe(task => this.task = task);
+      this.taskService.getTaskFullInfoTeacher(this.id).subscribe(task => this.task = task);
     } else {
-      if (this.role === 'admin') {
-        // запрос полн информации для админа
-      }
+      this.taskService.getTaskFullInfoAdmin(this.id).subscribe(task => this.task = task);
     }
   }
 
-  openSnackbar() {
+  deleteTask() {
     const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 5000 }];
     const argsArrayNotDeleted = ['Задача не удалена', '', { duration: 5000 }];
 
@@ -45,6 +43,15 @@ export class TaskFullDescrTeacherComponent {
     }, error => {
       this.snackBar.open.apply(this.snackBar, argsArrayNotDeleted);
     });
+  }
+
+  activateTask() {
+    this.taskService.activateTask(this.id).subscribe();
+    const snack = this.snackBar.open.apply(this.snackBar, ['Задача восстановлена', '', { duration: 5000 }]);
+  }
+
+  isAdmin() {
+    return this.role === 'admin';
   }
 }
 
