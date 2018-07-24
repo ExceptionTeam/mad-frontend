@@ -8,7 +8,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TaskAssigningModule } from '../task-assigning-window/task-assigning.module';
 import { TasksTeacherPageComponent } from '../tasks-teacher-page/tasks-teacher-page.component';
-import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher-page/task-full-descr-teacher.component';
 import { TasksTableTeacherComponent } from './tasks-table-teacher.component';
 import { RouterModule } from '@angular/router';
 
@@ -27,12 +26,11 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     TasksTeacherPageComponent,
-    TaskFullDescrTeacherComponent,
     TasksTableTeacherComponent
   ],
   exports: [TasksTableTeacherComponent],
   providers: [],
-  entryComponents: [TaskFullDescrTeacherComponent]
+  entryComponents: []
 })
 export class TeacherTasksModule {
 }
