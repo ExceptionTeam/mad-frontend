@@ -5,15 +5,16 @@ import { HttpHeaders } from '@angular/common/http';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
-import { TaskEditInfo } from 'src/app/Types/TaskEditInfo.type';
+import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksTeacherService {
-  headers = new HttpHeaders();
+  private headers;
 
   constructor(private http: HttpClient) {
+    this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
   }
@@ -45,9 +46,9 @@ export class TasksTeacherService {
       { headers: this.headers });
   }
 
-  getInfoEditTask(serviceUrl): Observable<TaskEditInfo> {
+  getInfoEditTask(serviceUrl): Observable<TaskFullInfo> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<TaskEditInfo>('http://localhost:3000/teacher/task/full-info' +
+    return this.http.get<TaskFullInfo>('http://localhost:3000/teacher/task/full-info' +
       '/' + '5b48b577914ce718d8d5831b',
       { headers: this.headers });
   }

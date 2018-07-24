@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
-import { TaskEditInfo } from 'src/app/Types/TaskEditInfo.type';
+import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { TasksTeacherService } from 'src/app/tasks.service';
@@ -13,7 +13,7 @@ import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
 })
 export class TaskEditCreatePageComponent {
   @Input() validFiles: boolean;
-  @Input() taskInfo: TaskEditInfo;
+  @Input() taskInfo: TaskFullInfo;
   InputOutputFiles: InputOutputFiles[];
   buttonName: string;
   marks = [4, 5, 6, 7, 8, 9, 10];
