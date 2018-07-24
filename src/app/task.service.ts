@@ -5,7 +5,7 @@ import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 import { Task } from './task-full-descr-teacher/task-full-description.type';
-import { TaskFullDStudent } from './task-sending-page/task-sending-page.type';
+import { TaskFullDStudent } from './Types/TaskFullDStudent.type';
 
 @Injectable({
   providedIn: 'root'
@@ -59,11 +59,11 @@ export class TaskService {
       { headers: this.headers });
   }
 
-  getTeacherFullDescription(id: string): Observable<Task> {
+  getTeacherFullDescription(id: string): Observable<TaskFullInfo> {
     const headers = new HttpHeaders();
     headers.append('Access-Control-Allow-Methods', 'GET');
     console.log(`http://localhost:3000/teacher/task/full-info/${id}`);
-    return this.http.get<Task>(`http://localhost:3000/teacher/task/full-info/${id}`, { headers: headers });
+    return this.http.get<TaskFullInfo>(`http://localhost:3000/teacher/task/full-info/${id}`, { headers: headers });
   }
 
   getStudentFullDescription(assId: string): Observable<TaskFullDStudent> {

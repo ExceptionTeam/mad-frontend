@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TaskFullDStudent } from '../task-sending-page/task-sending-page.type';
+import { TaskFullDStudent } from '../Types/TaskFullDStudent.type';
 
 @Component({
   selector: 'exc-task-view-sending',

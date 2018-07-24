@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from '../task-full-descr-teacher/task-full-description.type';
+import { TaskFullInfo } from '../Types/TaskFullInfo.type';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { TaskService } from '../task.service';
@@ -10,7 +10,7 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-full-descr-teacher.component.scss']
 })
 export class TaskFullDescrTeacherComponent {
-  task: Partial<Task>;
+  task: Partial<TaskFullInfo>;
   id: string;
   role = 'teacher';
 

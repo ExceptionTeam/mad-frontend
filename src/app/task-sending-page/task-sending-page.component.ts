@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../task.service';
-import { TaskFullDStudent } from './task-sending-page.type';
+import { TaskFullDStudent } from '../Types/TaskFullDStudent.type';
 
 /*import {Http} from '@angular/http';*/
 
