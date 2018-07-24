@@ -10,6 +10,7 @@ import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { InputOutputAddingComponent } from '../input-output-adding/input-output-adding.component';
 import { TaskEditCreatePageComponent } from './task-edit-create-page.component';
 import { MatSnackBarModule } from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { MatSnackBarModule } from '@angular/material';
     MatIconModule,
     TaskSendingModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ],
   declarations: [
     InputOutputAddingComponent,

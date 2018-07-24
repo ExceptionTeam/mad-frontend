@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { TaskSolvingInfo } from 'src/app/TaskSolvingInfo.type';
+import { TaskSolvingInfo } from 'src/app/Types/TaskSolvingInfo.type';
 import { ActivatedRoute } from '@angular/router';
+import { TasksTeacherService } from 'src/app/tasks.service';
 
 @Component({
   selector: 'exc-after-sending-task-page',
@@ -9,33 +10,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AfterSendingTaskPageComponent {
   taskName = 'Название Задачи';
-  files: TaskSolvingInfo[] = [
-    {
-      file: 'fghfghjkdfghjfghjk.java',
-      href: 'http://media.comicbook.com/2017/12/pepe-1066712.png',
-      tests: [true, false, true, true],
-      passedTests: 3,
-      mark: 4
-    },
-    {
-      file: 'ggu.java',
-      href: 'http://media.comicbook.com/2017/12/pepe-1066712.png',
-      tests: [true, true, false, true],
-      passedTests: 3,
-      mark: 10
-    },
-    {
-      file: 'lol.java',
-      href: 'http://media.comicbook.com/2017/12/pepe-1066712.png',
-      tests: [true, false, true, true],
-      passedTests: 3,
-      mark: 4
-    }
-  ];
-
-  constructor(private activatedRoute: ActivatedRoute) {
+  files: TaskSolvingInfo[] = [];
+  passedTests: number[] = [];
+  constructor(private activatedRoute: ActivatedRoute, private tasksService: TasksTeacherService) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
+    tasksService.getInfoTaskTry(id).subscribe(files => {
+      this.files = files;
+      console.log(files);
+      this.files.forEach((item, index) => {
+        console.log(item);
+        this.passedTests[index] = 0;
+        item.tests.forEach(value => {
+          if (value === true) {
+            this.passedTests[index] += 1;
+          }
+        });
+      });
+    });
   }
 
   clickHref(event) {

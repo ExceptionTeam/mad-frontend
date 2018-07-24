@@ -6,5 +6,5 @@ export interface Student {
 export interface Group {
   _id: string;
   name: string;
-  students: Student[];
+  groupStudents: Student[];
 }

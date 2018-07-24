@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './task/task.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { TaskModule } from './task/task.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    TaskModule
+    TaskModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
