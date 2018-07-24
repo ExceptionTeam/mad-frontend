@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { LayoutModule } from '../layout-landing-page/layout.module';
 import { TeacherTasksModule } from '../table-my-tasks-teacher/teacher-tasks.module';
 import { StudentTasksModule } from '../student-tasks-table/student-tasks.module';
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
@@ -12,7 +11,6 @@ import { AfterSendingTaskModule } from '../after-sending-task-page/after-sending
 @NgModule({
   imports: [
     TaskRoutingModule,
-    LayoutModule,
     TeacherTasksModule,
     StudentTasksModule,
     TaskSendingModule,
@@ -21,7 +19,7 @@ import { AfterSendingTaskModule } from '../after-sending-task-page/after-sending
     AppRoutingModule,
     AfterSendingTaskModule
   ],
-  exports: [LayoutModule],
+  exports: [],
   declarations: [],
 })
 export class TaskModule {

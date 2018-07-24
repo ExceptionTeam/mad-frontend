@@ -5,7 +5,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskSolvingInfo } from 'src/app/Types/TaskSolvingInfo.type';
-import { TaskEditInfoServer } from 'src/app/Types/TaskEditInfo.type';
+import { TaskEditInfo } from 'src/app/Types/TaskEditInfo.type';
 
 @Injectable({
   providedIn: 'root'
@@ -45,9 +45,9 @@ export class TasksTeacherService {
       { headers: this.headers });
   }
 
-  getInfoEditTask(serviceUrl): Observable<TaskEditInfoServer> {
+  getInfoEditTask(serviceUrl): Observable<TaskEditInfo> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<TaskEditInfoServer>('http://localhost:3000/teacher/task/full-info' +
+    return this.http.get<TaskEditInfo>('http://localhost:3000/teacher/task/full-info' +
       '/' + '5b48b577914ce718d8d5831b',
       { headers: this.headers });
   }
