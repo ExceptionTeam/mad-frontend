@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
-import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
+import { Task } from './task-full-descr-teacher/task-full-description.type';
+import { TaskFullDStudent } from './Types/TaskFullDStudent.type';
 
 @Injectable({
   providedIn: 'root'
@@ -46,10 +46,9 @@ export class TaskService {
       { headers: this.headers });
   }
 
-  getInfoEditTask(serviceUrl): Observable<TaskFullInfo> {
+  getInfoEditTask(id): Observable<TaskFullInfo> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<TaskFullInfo>('http://localhost:3000/teacher/task/full-info' +
-      '/' + '5b48b577914ce718d8d5831b',
+    return this.http.get<TaskFullInfo>(`http://localhost:3000/teacher/task/full-info/${id}`,
       { headers: this.headers });
   }
 
@@ -60,4 +59,29 @@ export class TaskService {
       { headers: this.headers });
   }
 
+  getTeacherFullDescription(id: string): Observable<TaskFullInfo> {
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Methods', 'GET');
+    console.log(`http://localhost:3000/teacher/task/full-info/${id}`);
+    return this.http.get<TaskFullInfo>(`http://localhost:3000/teacher/task/full-info/${id}`, { headers: headers });
+  }
+
+  getStudentFullDescription(assId: string): Observable<TaskFullDStudent> {
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Methods', 'GET');
+    console.log(`http://localhost:3000/student/task/full-info/${assId}`);
+    return this.http.get<TaskFullDStudent>(`http://localhost:3000/student/task/full-info/${assId}`, { headers: headers });
+  }
+
+  deleteTask(id: string): Observable<boolean> {
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Methods', 'DELETE');
+    return this.http.delete<boolean>(`http://localhost:3000/teacher/task/delete/${id}`, { headers: headers });
+  }
+
+  activateTask(id: string): Observable<any> {
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<any>(`http://localhost:3000/admin/task/activate/${id}`, {}, { headers: headers });
+  }
 }

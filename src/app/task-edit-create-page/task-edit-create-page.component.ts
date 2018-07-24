@@ -4,7 +4,6 @@ import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
-import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
 
 @Component({
   selector: 'exc-task-edit-create-page',
@@ -18,8 +17,9 @@ export class TaskEditCreatePageComponent {
   buttonName: string;
   marks = [4, 5, 6, 7, 8, 9, 10];
   private id;
+
   constructor(private activatedRoute: ActivatedRoute, private location: Location,
-    private tasksService: TaskService
+              private tasksService: TaskService
   ) {
     this.validFiles = this.validFiles || false;
     this.taskInfo = this.taskInfo || {
@@ -32,13 +32,12 @@ export class TaskEditCreatePageComponent {
     };
     this.buttonName = 'Добавить';
     this.id = this.activatedRoute.snapshot.params.id;
-    console.log('id: ', this.id);
+    // console.log('id: ', this.id);
     if (this.id !== undefined) {
-      tasksService.getInfoEditTask(this.id).
-        subscribe(data => {
+      tasksService.getInfoEditTask(this.id).subscribe(data => {
           this.taskInfo = data;
         }
-        );
+      );
       this.buttonName = 'Изменить';
       this.validFiles = true;
     }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from '../task.service';
+import { TaskFullDStudent } from '../Types/TaskFullDStudent.type';
+
+/*import {Http} from '@angular/http';*/
 
 export interface DataPost {
   taskId: string;
@@ -15,9 +18,16 @@ export interface DataPost {
 export class TaskSendingPageComponent {
   file: File;
   dataPost: DataPost;
+  task: TaskFullDStudent;
 
-  constructor(private tasksService: TaskService,
-              private activatedRoute: ActivatedRoute) {
+  constructor(/*public http: Http*/
+              private activatedRoute: ActivatedRoute,
+              private taskService: TaskService) {
+    const id = this.activatedRoute.snapshot.params.id;
+    this.taskService.getStudentFullDescription(id).subscribe(task => {
+      this.task = task;
+      this.task.deadline = new Date(this.task.deadline);
+    });
   }
 
   onClick(event) {

@@ -1,14 +1,15 @@
 <div class="form-div">
   <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <mat-form-field class="full-width">
-      <input matInput class="input" matInput #message [ngModel]="taskInfo.name" name="name" maxlength="20" placeholder="Название"
-        required>
+      <input matInput class="input" #message [ngModel]="taskInfo.name" name="name" maxlength="20"
+             placeholder="Название" required>
       <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <textarea class="description-textarea" matInput placeholder="Описание" rows="10" [ngModel]="taskInfo.description" name="description"
-        required></textarea>
+      <textarea class="description-textarea" matInput placeholder="Описание" rows="10" [ngModel]="taskInfo.description"
+                name="description"
+                required></textarea>
     </mat-form-field>
 
     <mat-form-field class="full-width">
