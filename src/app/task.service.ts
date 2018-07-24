@@ -46,10 +46,9 @@ export class TaskService {
       { headers: this.headers });
   }
 
-  getInfoEditTask(serviceUrl): Observable<TaskFullInfo> {
+  getInfoEditTask(id): Observable<TaskFullInfo> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<TaskFullInfo>('http://localhost:3000/teacher/task/full-info' +
-      '/' + '5b48b577914ce718d8d5831b',
+    return this.http.get<TaskFullInfo>(`http://localhost:3000/teacher/task/full-info/${id}`,
       { headers: this.headers });
   }
 
