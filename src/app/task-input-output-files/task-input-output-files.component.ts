@@ -8,14 +8,9 @@ import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
   templateUrl: './task-input-output-files.component.html',
   styleUrls: ['./task-input-output-files.component.scss']
 })
-<<<<<<< HEAD:src/app/input-output-adding/input-output-adding.component.ts
-export class InputOutputAddingComponent {
+export class TaskInputOutputFilesComponent {
   @Input() editInputFiles;
   @Input() editOutputFiles;
-=======
-export class TaskInputOutputFilesComponent {
-  @Input() editFiles = [];
->>>>>>> master:src/app/task-input-output-files/task-input-output-files.component.ts
   @Output() fileChanged = new EventEmitter<InputOutputFiles[]>();
   @Output() validFiles = new EventEmitter<boolean>();
   @Output() editFilesChanged = new EventEmitter<InputOutputEditFiles>();

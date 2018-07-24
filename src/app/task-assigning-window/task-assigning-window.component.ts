@@ -13,13 +13,9 @@ export class TaskAssigningWindowComponent implements OnInit {
   isGroupSelected: boolean;
   selectedId: string;
   minDate = new Date();
-<<<<<<< HEAD:src/app/assign-a-task/assign-a-task.component.ts
-  constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private tasksService: TaskService) {
-=======
-  constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
->>>>>>> master:src/app/task-assigning-window/task-assigning-window.component.ts
+  constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>,
+     @Inject(MAT_DIALOG_DATA) public data: any,
+     private tasksService: TaskService) {
   }
 
   ngOnInit() {

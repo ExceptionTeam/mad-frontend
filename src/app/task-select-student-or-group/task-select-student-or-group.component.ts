@@ -1,10 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-<<<<<<< HEAD:src/app/select-student-or-group/select-student-or-group.component.ts
-import { Group, Student } from './select-student-or-group.types';
-import { TaskService } from 'src/app/task.service';
-=======
 import { Group, Student } from './task-select-student-or-group.types';
->>>>>>> master:src/app/task-select-student-or-group/task-select-student-or-group.component.ts
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'exc-task-select-student-or-group',

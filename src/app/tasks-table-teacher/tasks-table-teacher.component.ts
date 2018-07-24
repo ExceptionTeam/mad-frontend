@@ -35,11 +35,7 @@ export class TasksTableTeacherComponent implements OnInit {
   }
 
   public openModal(id) {
-<<<<<<< HEAD:src/app/table-my-tasks-teacher/table-my-tasks-teacher.component.ts
-    this.dialog.open(AssignATaskComponent, {
-=======
-    this.dialog.open(TaskAssigningWindowComponent,{
->>>>>>> master:src/app/tasks-table-teacher/tasks-table-teacher.component.ts
+    this.dialog.open(TaskAssigningWindowComponent, {
       data: {
         _id: id
       }
