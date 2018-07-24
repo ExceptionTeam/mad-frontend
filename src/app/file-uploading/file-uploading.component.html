@@ -1,7 +1,11 @@
 <div class="input-file">
-  <input [hidden]="true" id="{{id}}+{{type}}" multiple type="file" (change)="uploadFile($event)" />
+  <input [hidden]="true" id="{{id}}+{{type}}" multiple type="file" (change)="uploadFile($event)"/>
   <label for="{{id}}+{{type}}" class="mat-button mat-raised">
+<<<<<<< HEAD
      <a mat-raised-button >Загрузить файл {{type}}</a>
+=======
+    <a mat-flat-button>Загрузить файл {{type}}</a>
+>>>>>>> master
   </label>
   <span *ngIf="file">Выбранный файл: {{file.name}}</span>
 </div>

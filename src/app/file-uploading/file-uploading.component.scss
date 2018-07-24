@@ -1,13 +1,17 @@
 .input-file {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
 
 span {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+<<<<<<< HEAD
   width:160px;
+=======
+  width: 250px;
+>>>>>>> master
   height: 20px;
   margin: auto;
 }

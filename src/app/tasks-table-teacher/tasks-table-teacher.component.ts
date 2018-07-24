@@ -1,17 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator } from '@angular/material';
-import { AssignATaskComponent } from '../assign-a-task/assign-a-task.component';
+import { TaskAssigningWindowComponent } from '../task-assigning-window/task-assigning-window.component';
 import { AllTasksTeacherService, Task } from '../allTasksTeacher.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { TaskService } from 'src/app/task.service';
 
 @Component({
-  selector: 'exc-table-my-tasks-teacher',
-  templateUrl: './table-my-tasks-teacher.component.html',
-  styleUrls: ['./table-my-tasks-teacher.component.scss']
+  selector: 'exc-tasks-table-teacher',
+  templateUrl: './tasks-table-teacher.component.html',
+  styleUrls: ['./tasks-table-teacher.component.scss']
 })
-export class TableMyTasksTeacherComponent implements OnInit {
+export class TasksTableTeacherComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
@@ -35,7 +35,11 @@ export class TableMyTasksTeacherComponent implements OnInit {
   }
 
   public openModal(id) {
+<<<<<<< HEAD:src/app/table-my-tasks-teacher/table-my-tasks-teacher.component.ts
     this.dialog.open(AssignATaskComponent, {
+=======
+    this.dialog.open(TaskAssigningWindowComponent,{
+>>>>>>> master:src/app/tasks-table-teacher/tasks-table-teacher.component.ts
       data: {
         _id: id
       }

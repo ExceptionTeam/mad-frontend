@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material';
-import { StudentTasksTableComponent } from './student-tasks-table.component';
+import { TasksStudentPageComponent } from './tasks-student-page.component';
 import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
@@ -13,10 +13,10 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule
   ],
   declarations: [
-    StudentTasksTableComponent
+    TasksStudentPageComponent
   ],
-  exports: [StudentTasksTableComponent],
+  exports: [TasksStudentPageComponent],
   providers: [],
 })
-export class StudentTasksModule {
+export class TasksStudentModule {
 }

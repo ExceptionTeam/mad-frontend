@@ -24,8 +24,14 @@
     </mat-form-field>
     <p>Входные/выходные файлы для тестирования задачи:</p>
 
+<<<<<<< HEAD
     <exc-input-output-adding (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)" [editInputFiles]="taskInfo.inputFilesId"
       [editOutputFiles]="taskInfo.outputFilesId" (validFiles)="changeValidState($event)"></exc-input-output-adding>
+=======
+    <exc-input-output-files (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)"
+                            [editFiles]="taskInfo.editFiles"
+                            (validFiles)="changeValidState($event)"></exc-input-output-files>
+>>>>>>> master
     <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>{{buttonName}}</button>
   </form>
 </div>

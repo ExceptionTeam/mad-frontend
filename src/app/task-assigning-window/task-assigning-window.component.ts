@@ -4,18 +4,22 @@ import { TaskService } from 'src/app/task.service';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 
 @Component({
-  selector: 'exc-assign-a-task',
-  templateUrl: './assign-a-task.component.html',
-  styleUrls: ['./assign-a-task.component.scss']
+  selector: 'exc-task-assigning-window',
+  templateUrl: './task-assigning-window.component.html',
+  styleUrls: ['./task-assigning-window.component.scss']
 })
-export class AssignATaskComponent implements OnInit {
+export class TaskAssigningWindowComponent implements OnInit {
   isSelectedLists: boolean;
   isGroupSelected: boolean;
   selectedId: string;
   minDate = new Date();
+<<<<<<< HEAD:src/app/assign-a-task/assign-a-task.component.ts
   constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private tasksService: TaskService) {
+=======
+  constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+>>>>>>> master:src/app/task-assigning-window/task-assigning-window.component.ts
   }
 
   ngOnInit() {
