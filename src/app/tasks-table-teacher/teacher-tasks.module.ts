@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TaskAssigningModule } from '../task-assigning-window/task-assigning.module';
 import { TasksTeacherPageComponent } from '../tasks-teacher-page/tasks-teacher-page.component';
 import { TasksTableTeacherComponent } from './tasks-table-teacher.component';
 import { RouterModule } from '@angular/router';
@@ -20,7 +19,6 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatFormFieldModule,
     MatDialogModule,
-    TaskAssigningModule,
     MatInputModule,
     RouterModule
   ],
