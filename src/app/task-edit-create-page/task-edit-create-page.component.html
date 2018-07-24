@@ -1,7 +1,7 @@
 <div class="form-div">
   <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <mat-form-field class="full-width">
-      <input matInput class="input" matInput #message [ngModel]="taskInfo.name" name="name" maxlength="20"
+      <input matInput class="input" #message [ngModel]="taskInfo.name" name="name" maxlength="20"
              placeholder="Название" required>
       <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
     </mat-form-field>
@@ -13,9 +13,9 @@
     </mat-form-field>
     <p>Входные/выходные файлы для тестирования задачи:</p>
 
-    <exc-input-output-adding (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)"
-                             [editFiles]="taskInfo.editFiles"
-                             (validFiles)="changeValidState($event)"></exc-input-output-adding>
+    <exc-input-output-files (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)"
+                            [editFiles]="taskInfo.editFiles"
+                            (validFiles)="changeValidState($event)"></exc-input-output-files>
     <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>{{buttonName}}</button>
   </form>
 </div>

@@ -2,11 +2,11 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 
 @Component({
-  selector: 'exc-input-output-adding',
-  templateUrl: './input-output-adding.component.html',
-  styleUrls: ['./input-output-adding.component.scss']
+  selector: 'exc-input-output-files',
+  templateUrl: './task-input-output-files.component.html',
+  styleUrls: ['./task-input-output-files.component.scss']
 })
-export class InputOutputAddingComponent {
+export class TaskInputOutputFilesComponent {
   @Input() editFiles = [];
   @Output() fileChanged = new EventEmitter<InputOutputFiles[]>();
   @Output() validFiles = new EventEmitter<boolean>();

@@ -2,16 +2,16 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
-  selector: 'exc-assign-a-task',
-  templateUrl: './assign-a-task.component.html',
-  styleUrls: ['./assign-a-task.component.scss']
+  selector: 'exc-task-assigning-window',
+  templateUrl: './task-assigning-window.component.html',
+  styleUrls: ['./task-assigning-window.component.scss']
 })
-export class AssignATaskComponent implements OnInit {
+export class TaskAssigningWindowComponent implements OnInit {
   isSelectedLists: boolean;
   isGroupSelected: boolean;
   selectedId: string;
   minDate = new Date();
-  constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {

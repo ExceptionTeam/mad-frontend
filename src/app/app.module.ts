@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './task/task.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LayoutModule } from './layout-landing-page/layout.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     TaskModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

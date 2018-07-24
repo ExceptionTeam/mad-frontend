@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { TablePassedTestsInfoComponent } from '../table-passed-tests-info/table-passed-tests-info.component';
-import { AfterSendingTaskPageComponent } from './after-sending-task-page.component';
+import { TaskPassedTestsComponent } from '../task-passed-tests/task-passed-tests.component';
+import { TaskAfterSendingPageComponent } from './task-after-sending-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -18,11 +18,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
     // RouterModule
   ],
   declarations: [
-    TablePassedTestsInfoComponent,
-    AfterSendingTaskPageComponent
+    TaskPassedTestsComponent,
+    TaskAfterSendingPageComponent
   ],
   exports: [],
   providers: [],
 })
-export class AfterSendingTaskModule {
+export class TaskAfterSendingPage {
 }
