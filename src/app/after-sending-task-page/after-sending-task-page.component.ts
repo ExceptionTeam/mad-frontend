@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { ActivatedRoute } from '@angular/router';
-import { TasksTeacherService } from 'src/app/tasks.service';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'exc-after-sending-task-page',
@@ -13,7 +13,7 @@ export class AfterSendingTaskPageComponent {
   files: TaskSubmition[] = [];
   passedTests: number[] = [];
   constructor(private activatedRoute: ActivatedRoute,
-    private tasksService: TasksTeacherService) {
+    private tasksService: TaskService) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
     tasksService.getInfoTaskTry(id).subscribe(files => {

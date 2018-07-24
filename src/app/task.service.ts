@@ -10,7 +10,7 @@ import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 @Injectable({
   providedIn: 'root'
 })
-export class TasksTeacherService {
+export class TaskService {
   private headers;
 
   constructor(private http: HttpClient) {

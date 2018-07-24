@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { TasksTeacherService } from 'src/app/tasks.service';
+import { TaskService } from 'src/app/task.service';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 
 @Component({
@@ -15,7 +15,7 @@ export class AssignATaskComponent implements OnInit {
   minDate = new Date();
   constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private tasksService: TasksTeacherService) {
+    private tasksService: TaskService) {
   }
 
   ngOnInit() {

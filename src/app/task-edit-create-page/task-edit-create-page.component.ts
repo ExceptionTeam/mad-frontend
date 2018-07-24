@@ -3,7 +3,7 @@ import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { TasksTeacherService } from 'src/app/tasks.service';
+import { TaskService } from 'src/app/task.service';
 import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
 
 @Component({
@@ -19,7 +19,7 @@ export class TaskEditCreatePageComponent {
   marks = [4, 5, 6, 7, 8, 9, 10];
   private id;
   constructor(private activatedRoute: ActivatedRoute, private location: Location,
-    private tasksService: TasksTeacherService
+    private tasksService: TaskService
   ) {
     this.validFiles = this.validFiles || false;
     this.taskInfo = this.taskInfo || {

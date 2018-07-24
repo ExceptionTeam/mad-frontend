@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TasksTeacherService } from 'src/app/tasks.service';
+import { TaskService } from 'src/app/task.service';
 
 export interface DataPost {
   taskId: string;
@@ -16,7 +16,7 @@ export class TaskSendingPageComponent {
   file: File;
   dataPost: DataPost;
 
-  constructor(private tasksService: TasksTeacherService,
+  constructor(private tasksService: TaskService,
               private activatedRoute: ActivatedRoute) {
   }
 

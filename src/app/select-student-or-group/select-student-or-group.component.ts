@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Group, Student } from './select-student-or-group.types';
-import { TasksTeacherService } from 'src/app/tasks.service';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'exc-select-student-or-group',
@@ -19,7 +19,7 @@ export class SelectStudentOrGroupComponent {
   isDisabledGroup = false;
   indStudents: Student[] = [];
   groups: Group[] = [];
-  constructor(private tasksService: TasksTeacherService) {
+  constructor(private tasksService: TaskService) {
     this.tasksService.getStudentsAndGroups(this.id).
     subscribe(item => {this.indStudents = item.individualStudents;
     this.groups = item.groups;

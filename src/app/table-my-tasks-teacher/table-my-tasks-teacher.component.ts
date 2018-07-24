@@ -4,7 +4,7 @@ import { AssignATaskComponent } from '../assign-a-task/assign-a-task.component';
 import { AllTasksTeacherService, Task } from '../allTasksTeacher.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
-import { TasksTeacherService } from 'src/app/tasks.service';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'exc-table-my-tasks-teacher',
@@ -18,7 +18,7 @@ export class TableMyTasksTeacherComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     private allTasksService: AllTasksTeacherService,
-    private tasksService: TasksTeacherService
+    private tasksService: TaskService
   ) {
   }
 
