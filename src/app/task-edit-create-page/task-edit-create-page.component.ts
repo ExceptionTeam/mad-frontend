@@ -32,7 +32,6 @@ export class TaskEditCreatePageComponent {
     };
     this.buttonName = 'Добавить';
     this.id = this.activatedRoute.snapshot.params.id;
-    // console.log('id: ', this.id);
     if (this.id !== undefined) {
       tasksService.getInfoEditTask(this.id).subscribe(data => {
         this.taskInfo = data;
@@ -67,7 +66,6 @@ export class TaskEditCreatePageComponent {
   }
 
   changeValidState(event) {
-    console.log(event);
     this.validFiles = event;
   }
 

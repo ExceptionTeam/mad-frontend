@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
-import { Task } from './task-full-descr-teacher/task-full-description.type';
 import { TaskFullDStudent } from './Types/TaskFullDStudent.type';
 
 @Injectable({

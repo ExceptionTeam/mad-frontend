@@ -13,6 +13,9 @@
       <mat-panel-description>
         оценка: {{item.mark}}
       </mat-panel-description>
+      <mat-panel-description>
+        {{item.submitTime | date : "MM.dd.yy, hh:mm" }}
+      </mat-panel-description>
     </mat-expansion-panel-header>
     <exc-task-passed-tests [dataSource]="item.tests"></exc-task-passed-tests>
   </mat-expansion-panel>
