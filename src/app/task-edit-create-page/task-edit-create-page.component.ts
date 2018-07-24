@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
-import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
 
@@ -18,9 +17,8 @@ export class TaskEditCreatePageComponent {
   marks = [4, 5, 6, 7, 8, 9, 10];
   private id;
 
-  constructor(private activatedRoute: ActivatedRoute, private location: Location,
-    private tasksService: TaskService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private tasksService: TaskService) {
     this.validFiles = this.validFiles || false;
     this.taskInfo = this.taskInfo || {
       name: '',
@@ -33,9 +31,9 @@ export class TaskEditCreatePageComponent {
     this.buttonName = 'Добавить';
     this.id = this.activatedRoute.snapshot.params.id;
     if (this.id !== undefined) {
-      tasksService.getInfoEditTask(this.id).subscribe(data => {
-        this.taskInfo = data;
-      }
+      tasksService.getTaskFullInfoTeacher(this.id).subscribe(data => {
+          this.taskInfo = data;
+        }
       );
       this.buttonName = 'Изменить';
       this.validFiles = true;

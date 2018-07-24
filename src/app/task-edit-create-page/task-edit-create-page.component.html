@@ -13,7 +13,8 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <textarea class="tags-textarea" matInput placeholder="тэг1,тэг2,тэг3" rows="2" [ngModel]="taskInfo.tags" name="tags"></textarea>
+      <textarea class="tags-textarea" matInput placeholder="тэг1,тэг2,тэг3" rows="2" [ngModel]="taskInfo.tags"
+                name="tags"></textarea>
     </mat-form-field>
 
     <mat-form-field>
@@ -25,8 +26,10 @@
     </mat-form-field>
     <p>Входные/выходные файлы для тестирования задачи:</p>
 
-    <exc-input-output-files (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)" [editInputFiles]="taskInfo.inputFilesId"
-      [editOutputFiles]="taskInfo.outputFilesId" (validFiles)="changeValidState($event)"></exc-input-output-files>
+    <exc-input-output-files (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)"
+                            [editInputFiles]="taskInfo.inputFilesId"
+                            [editOutputFiles]="taskInfo.outputFilesId"
+                            (validFiles)="changeValidState($event)"></exc-input-output-files>
     <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>{{buttonName}}</button>
   </form>
 </div>

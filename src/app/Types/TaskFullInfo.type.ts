@@ -7,4 +7,7 @@ export interface TaskFullInfo {
   inputFilesId: FileInfo[];
   outputFilesId: FileInfo[];
   tags: string;
+  attempts?: Number;
+  successfulAttempts?: Number;
+  active?: boolean;
 }
