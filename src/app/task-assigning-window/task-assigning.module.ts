@@ -8,8 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { AssignATaskComponent } from './assign-a-task.component';
-import { SelectStudentOrGroupComponent } from '../select-student-or-group/select-student-or-group.component';
+import { TaskAssigningWindowComponent } from './task-assigning-window.component';
+import { TaskSelectStudentOrGroupComponent } from '../task-select-student-or-group/task-select-student-or-group.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -28,12 +28,12 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [
-    AssignATaskComponent,
-    SelectStudentOrGroupComponent
+    TaskAssigningWindowComponent,
+    TaskSelectStudentOrGroupComponent
   ],
-  exports: [AssignATaskComponent],
+  exports: [TaskAssigningWindowComponent],
   providers: [],
-  entryComponents: [AssignATaskComponent]
+  entryComponents: [TaskAssigningWindowComponent]
 })
-export class AssigningTaskModule {
+export class TaskAssigningModule {
 }

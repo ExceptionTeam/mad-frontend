@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
 
 @Component({
-  selector: 'exc-after-sending-task-page',
-  templateUrl: './after-sending-task-page.component.html',
-  styleUrls: ['./after-sending-task-page.component.scss']
+  selector: 'exc-task-after-sending-page',
+  templateUrl: './task-after-sending-page.component.html',
+  styleUrls: ['./task-after-sending-page.component.scss']
 })
-export class AfterSendingTaskPageComponent {
+export class TaskAfterSendingPageComponent {
   taskName = 'Название Задачи';
   files: TaskSubmition[] = [];
   passedTests: number[] = [];

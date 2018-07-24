@@ -4,11 +4,11 @@ import { FileInfo } from 'src/app/Types/FileInfo.type';
 import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
 
 @Component({
-  selector: 'exc-input-output-adding',
-  templateUrl: './input-output-adding.component.html',
-  styleUrls: ['./input-output-adding.component.scss']
+  selector: 'exc-input-output-files',
+  templateUrl: './task-input-output-files.component.html',
+  styleUrls: ['./task-input-output-files.component.scss']
 })
-export class InputOutputAddingComponent {
+export class TaskInputOutputFilesComponent {
   @Input() editInputFiles;
   @Input() editOutputFiles;
   @Output() fileChanged = new EventEmitter<InputOutputFiles[]>();

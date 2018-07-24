@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllTasksTeacherComponent } from '../all-tasks-teacher/all-tasks-teacher.component';
-import { StudentTasksTableComponent } from '../student-tasks-table/student-tasks-table.component';
+import { TasksTeacherPageComponent } from '../tasks-teacher-page/tasks-teacher-page.component';
+import { TasksStudentPageComponent } from '../tasks-student-page/tasks-student-page.component';
 import { TaskEditCreatePageComponent } from '../task-edit-create-page/task-edit-create-page.component';
 import { TaskSendingPageComponent } from '../task-sending-page/task-sending-page.component';
-import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
-import { AfterSendingTaskPageComponent } from '../after-sending-task-page/after-sending-task-page.component';
+import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher-page/task-full-descr-teacher.component';
+import { TaskAfterSendingPageComponent } from '../task-after-sending-page/task-after-sending-page.component';
 
 const taskRoutes: Routes = [
   {
@@ -13,7 +13,7 @@ const taskRoutes: Routes = [
     children: [
       {
         path: 'table-teacher',
-        component: AllTasksTeacherComponent
+        component: TasksTeacherPageComponent
       },
       {
         path: 'table-teacher/:id',
@@ -21,7 +21,7 @@ const taskRoutes: Routes = [
       },
       {
         path: 'table-student',
-        component: StudentTasksTableComponent
+        component: TasksStudentPageComponent
       },
       {
         path: 'table-student/:id',
@@ -33,7 +33,7 @@ const taskRoutes: Routes = [
       },
       {
         path: 'sended-task',
-        component: AfterSendingTaskPageComponent
+        component: TaskAfterSendingPageComponent
       },
       {
         path: 'edit-task/:id',
@@ -41,7 +41,7 @@ const taskRoutes: Routes = [
       },
       {
         path: 'attempts/:id',
-        component: AfterSendingTaskPageComponent
+        component: TaskAfterSendingPageComponent
       }
     ]
   }

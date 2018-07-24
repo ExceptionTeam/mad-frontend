@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material';
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
-import { InputOutputAddingComponent } from '../input-output-adding/input-output-adding.component';
+import { TaskInputOutputFilesComponent } from '../task-input-output-files/task-input-output-files.component';
 import { TaskEditCreatePageComponent } from './task-edit-create-page.component';
 import { MatSnackBarModule } from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
@@ -26,7 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule
   ],
   declarations: [
-    InputOutputAddingComponent,
+    TaskInputOutputFilesComponent,
     TaskEditCreatePageComponent
   ],
   exports: [TaskEditCreatePageComponent ],
