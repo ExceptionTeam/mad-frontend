@@ -28,11 +28,10 @@ export class TaskEditCreatePageComponent {
       inputFilesId: [],
       outputFilesId: [],
       weight: 10,
-      tags: []
+      tags: ''
     };
     this.buttonName = 'Добавить';
     this.id = this.activatedRoute.snapshot.params.id;
-    // console.log('id: ', this.id);
     if (this.id !== undefined) {
       tasksService.getTaskFullInfoTeacher(this.id).subscribe(data => {
           this.taskInfo = data;
@@ -57,16 +56,16 @@ export class TaskEditCreatePageComponent {
         formData.append('editOutput ', item.id);
       });
     }
-    this.InputOutputFiles.forEach(function (item, i) {
-      formData.set('input' + (i + 1), item.input);
-      formData.set('output' + (i + 1), item.output);
-    });
-    console.log(formData.get('input' + 1));
+    if (this.InputOutputFiles) {
+      this.InputOutputFiles.forEach(function (item, i) {
+        formData.set('input' + (i + 1), item.input);
+        formData.set('output' + (i + 1), item.output);
+      });
+    }
     // this.tasksService.postEditTaskTeacher(formData).subscribe();
   }
 
   changeValidState(event) {
-    console.log(event);
     this.validFiles = event;
   }
 

@@ -4,6 +4,7 @@ export interface TaskSubmition {
   srcFileId: FileInfo;
   href: string;
   tests: boolean[];
+  submitTime?: number;
   passedTests: number;
   mark: number;
 }

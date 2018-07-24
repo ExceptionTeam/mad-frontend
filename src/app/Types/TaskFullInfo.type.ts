@@ -6,7 +6,7 @@ export interface TaskFullInfo {
   weight: number;
   inputFilesId: FileInfo[];
   outputFilesId: FileInfo[];
-  tags: string[];
+  tags: string;
   attempts?: Number;
   successfulAttempts?: Number;
   active?: boolean;
