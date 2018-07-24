@@ -6,5 +6,5 @@ export interface TaskFullInfo {
   weight: number;
   inputFilesId: FileInfo[];
   outputFilesId: FileInfo[];
-  tags: string[];
+  tags: string;
 }
