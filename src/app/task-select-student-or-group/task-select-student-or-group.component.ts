@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Group, Student } from './task-select-student-or-group.types';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'exc-task-select-student-or-group',
@@ -16,35 +17,15 @@ export class TaskSelectStudentOrGroupComponent {
   selectedValue: string;
   isDisabledStudent = false;
   isDisabledGroup = false;
-
-  indStudents: Student[] = [
-    { _id: '2', name: 'Аня Кисель' },
-    { _id: '32', name: 'Влад Малиновский' },
-    { _id: '32', name: 'Лиля Оданец' },
-    { _id: '43', name: 'Леша Мухарский' },
-    { _id: '14', name: 'Артем Германенко' },
-  ];
-
-  groups: Group[] = [
-    {
-      _id: '97652', name: '5 группа', students:
-        [{ _id: '2', name: 'Аня Кисель' },
-          { _id: '32', name: 'Влад Малиновский' },
-          { _id: '32', name: 'Лиля Оданец' },
-          { _id: '43', name: 'Леша Мухарский' },
-          { _id: '14', name: 'Артем Германенко' },
-        ]
-    },
-    {
-      _id: '3', name: '6 группа', students:
-        [{ _id: '2', name: 'Аня Кисель' },
-          { _id: '32', name: 'Влад Малиновский' },
-          { _id: '32', name: 'Лиля Оданец' },
-          { _id: '43', name: 'Леша Мухарский' },
-          { _id: '14', name: 'Артем Германенко' },
-        ]
+  indStudents: Student[] = [];
+  groups: Group[] = [];
+  constructor(private tasksService: TaskService) {
+    this.tasksService.getStudentsAndGroups(this.id).
+    subscribe(item => {this.indStudents = item.individualStudents;
+    this.groups = item.groups;
     }
-  ];
+    );
+  }
 
   groupIsNotDisabled() {
     this.isDisabledGroup = false;
