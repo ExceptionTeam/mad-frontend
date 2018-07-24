@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Group, Student } from './select-student-or-group.types';
+import { Group, Student } from './task-select-student-or-group.types';
 
 @Component({
-  selector: 'exc-select-student-or-group',
-  templateUrl: './select-student-or-group.component.html',
-  styleUrls: ['./select-student-or-group.component.scss']
+  selector: 'exc-task-select-student-or-group',
+  templateUrl: './task-select-student-or-group.component.html',
+  styleUrls: ['./task-select-student-or-group.component.scss']
 })
-export class SelectStudentOrGroupComponent {
+export class TaskSelectStudentOrGroupComponent {
   @Output() idOfSelected = new EventEmitter<string>();
   @Output() isSelEvent = new EventEmitter<boolean>();
   @Output() isGroupSelected = new EventEmitter<boolean>();

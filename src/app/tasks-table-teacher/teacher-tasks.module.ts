@@ -6,10 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
-import { AllTasksTeacherComponent } from '../all-tasks-teacher/all-tasks-teacher.component';
-import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher/task-full-descr-teacher.component';
-import { TableMyTasksTeacherComponent } from './table-my-tasks-teacher.component';
+import { TasksTeacherPageComponent } from '../tasks-teacher-page/tasks-teacher-page.component';
+import { TasksTableTeacherComponent } from './tasks-table-teacher.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -21,18 +19,16 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatFormFieldModule,
     MatDialogModule,
-    AssigningTaskModule,
     MatInputModule,
     RouterModule
   ],
   declarations: [
-    AllTasksTeacherComponent,
-    TaskFullDescrTeacherComponent,
-    TableMyTasksTeacherComponent
+    TasksTeacherPageComponent,
+    TasksTableTeacherComponent
   ],
-  exports: [TableMyTasksTeacherComponent],
+  exports: [TasksTableTeacherComponent],
   providers: [],
-  entryComponents: [TaskFullDescrTeacherComponent]
+  entryComponents: []
 })
 export class TeacherTasksModule {
 }

@@ -6,11 +6,11 @@ import { AllTasksStudentService } from '../allTasksStudent.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'exc-student-tasks-table',
-  templateUrl: './student-tasks-table.component.html',
-  styleUrls: ['./student-tasks-table.component.scss']
+  selector: 'exc-tasks-student-page',
+  templateUrl: './tasks-student-page.component.html',
+  styleUrls: ['./tasks-student-page.component.scss']
 })
-export class StudentTasksTableComponent implements OnInit {
+export class TasksStudentPageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'file', 'tests', 'teacher', 'mark'];
   dataSource: UserDataSource | null;
