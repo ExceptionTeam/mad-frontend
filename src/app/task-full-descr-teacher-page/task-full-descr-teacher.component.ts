@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from './task-full-description.type';
+import { Task } from '../task-full-descr-teacher/task-full-description.type';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { TaskService } from '../task.service';
