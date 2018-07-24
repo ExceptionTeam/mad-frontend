@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-/*import {Http} from '@angular/http';*/
+import { TaskService } from 'src/app/task.service';
 
 export interface DataPost {
   taskId: string;
@@ -17,7 +16,7 @@ export class TaskSendingPageComponent {
   file: File;
   dataPost: DataPost;
 
-  constructor(/*public http: Http*/
+  constructor(private tasksService: TaskService,
               private activatedRoute: ActivatedRoute) {
   }
 
@@ -25,21 +24,10 @@ export class TaskSendingPageComponent {
     console.log(this.file);
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
-    /*const formData = new FormData();
+    const formData = new FormData();
     formData.append('solutionFile', this.file);
-    formData.append('data', JSON.stringify(this.dataPost));
-    this.http.post('/smth', formData).subscribe(
-      function(response) {
-         console.log('Success Response' + response
-        );
-    },
-      function(error) {
-         console.log('Error happened' + error);
-    },
-      function() {
-         console.log('the subscription is completed');
-    }
-    );*/
+    formData.append('id', id);
+    // this.tasksService.postSendTaskStudent(formData).subscribe();
   }
 
   onFileChanged(event) {

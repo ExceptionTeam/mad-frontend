@@ -1,14 +1,14 @@
 <h1>{{taskName}}</h1>
 <mat-accordion multi="true">
-  <mat-expansion-panel *ngFor="let item of files">
+  <mat-expansion-panel *ngFor="let item of files; let i = index">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <a href={{item.href}} (click)="clickHref($event)" download>
-          {{item.file}}
+        <a href={{item.file?.url}} (click)="clickHref($event)" download>
+          {{item.file?.name}}
         </a>
       </mat-panel-title>
       <mat-panel-description>
-        {{item.passedTests}} / {{item.tests.length}}
+        {{passedTests[i]}} / {{item.tests?.length}}
       </mat-panel-description>
       <mat-panel-description>
         оценка: {{item.mark}}

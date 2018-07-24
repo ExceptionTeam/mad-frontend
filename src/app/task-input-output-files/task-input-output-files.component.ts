@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
+import { FileInfo } from 'src/app/Types/FileInfo.type';
+import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
 
 @Component({
   selector: 'exc-input-output-files',
@@ -7,11 +9,12 @@ import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
   styleUrls: ['./task-input-output-files.component.scss']
 })
 export class TaskInputOutputFilesComponent {
-  @Input() editFiles = [];
+  @Input() editInputFiles;
+  @Input() editOutputFiles;
   @Output() fileChanged = new EventEmitter<InputOutputFiles[]>();
   @Output() validFiles = new EventEmitter<boolean>();
-  @Output() editFilesChanged = new EventEmitter<string[]>();
-  files: InputOutputFiles [] = [] ;
+  @Output() editFilesChanged = new EventEmitter<InputOutputEditFiles>();
+  files: InputOutputFiles[] = [];
   validFile = false;
   counter = 0;
   in = 'input';
@@ -22,7 +25,7 @@ export class TaskInputOutputFilesComponent {
   }
 
   onClick(event) {
-    this.files.push({input: null, output: null});
+    this.files.push({ input: null, output: null });
     this.validFile = false;
     this.validFiles.emit(this.validFile);
   }
@@ -34,8 +37,12 @@ export class TaskInputOutputFilesComponent {
   }
 
   onDeleteEdit(event, index) {
-    this.editFiles.splice(index - 1, 1);
-    this.editFilesChanged.emit(this.editFiles);
+    this.editInputFiles.splice(index - 1, 1);
+    this.editOutputFiles.splice(index - 1, 1);
+    this.editFilesChanged.emit({
+      inputFilesId: this.editInputFiles,
+      outputFilesId: this.editOutputFiles
+    });
   }
 
   onFileChanged(file, index, types) {
@@ -52,7 +59,7 @@ export class TaskInputOutputFilesComponent {
     console.log(this.files);
     if (this.files.length - this.files.filter(function (x) {
       return x.input !== null && x.output !== null;
-    }).length <= 0)  {
+    }).length <= 0) {
       this.validFile = true;
     } else {
       this.validFile = false;

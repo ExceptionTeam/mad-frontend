@@ -4,6 +4,7 @@ import { TaskAssigningWindowComponent } from '../task-assigning-window/task-assi
 import { AllTasksTeacherService, Task } from '../allTasksTeacher.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'exc-tasks-table-teacher',
@@ -15,7 +16,10 @@ export class TasksTableTeacherComponent implements OnInit {
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
 
-  constructor(public dialog: MatDialog, private allTasksService: AllTasksTeacherService) {
+  constructor(public dialog: MatDialog,
+    private allTasksService: AllTasksTeacherService,
+    private tasksService: TaskService
+  ) {
   }
 
   ngOnInit() {
@@ -31,11 +35,11 @@ export class TasksTableTeacherComponent implements OnInit {
   }
 
   public openModal(id) {
-    this.dialog.open(TaskAssigningWindowComponent,{
+    this.dialog.open(TaskAssigningWindowComponent, {
       data: {
-      _id: id
-    }
-  });
+        _id: id
+      }
+    });
   }
 }
 

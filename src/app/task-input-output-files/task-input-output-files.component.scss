@@ -1,29 +1,24 @@
 .input-output-files-upload {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
 }
 
 .input-output-adding {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 
-p {
-  margin-bottom: 0;
-}
-
-.buttons-plus {
+.buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .edit-files-item {
   display: flex;
   flex-direction: row;
-  align-content: center;
+  align-items: center;
 }
 

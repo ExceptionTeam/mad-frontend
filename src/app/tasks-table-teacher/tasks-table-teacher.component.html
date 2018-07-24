@@ -26,11 +26,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
-<mat-paginator #pagination
-               [length]="getLength()"
-               [pageIndex]="0"
-               [pageSize]="10"
-               [pageSizeOptions]="[5, 10, 25, 100]"
-               (page)="onPaginateChange()">
+<mat-paginator #pagination [length]="getLength()" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPaginateChange()">
 </mat-paginator>
-

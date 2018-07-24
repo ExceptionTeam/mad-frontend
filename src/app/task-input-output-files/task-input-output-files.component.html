@@ -1,23 +1,22 @@
 <div class="input-output-adding">
   <div class="edit-files">
-    <div class="edit-files-item" *ngFor="let file of editFiles; let i=index">
-      <p>{{file.input}}, {{file.output}}</p>
+    <div class="edit-files-item" *ngFor="let file of editInputFiles; let i=index">
+      <p>{{file.name}}, {{editOutputFiles[i].name}} </p>
       <button mat-icon-button (click)='onDeleteEdit($event,i)' type="button">
           <mat-icon>cancel</mat-icon>
       </button>
     </div>
   </div>
-  <div class="buttons-plus">
-    <div class="buttons">
-      <div *ngFor="let item of files; let i = index" class="input-output-files-upload">
-        <exc-file-uploading [id]="i" [type]="in" (fileChanged)="onFileChanged($event,i,in)">
-        </exc-file-uploading>
-        <exc-file-uploading [id]="i" [type]="out" (fileChanged)="onFileChanged($event,i,out)">
-        </exc-file-uploading>
-        <button mat-icon-button (click)='onDelete($event,i+1)'>
+
+  <div class="buttons">
+    <div *ngFor="let item of files; let i = index" class="input-output-files-upload">
+      <exc-file-uploading [id]="i" [type]="in" (fileChanged)="onFileChanged($event,i,in)">
+      </exc-file-uploading>
+      <exc-file-uploading [id]="i" [type]="out" (fileChanged)="onFileChanged($event,i,out)">
+      </exc-file-uploading>
+      <button mat-icon-button (click)='onDelete($event,i+1)'>
         <mat-icon>cancel</mat-icon>
     </button>
-      </div>
     </div>
     <button mat-icon-button type="button" (click)="onClick($event)">
     <mat-icon>add</mat-icon>
