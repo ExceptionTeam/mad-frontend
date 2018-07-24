@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TaskSolvingInfo } from 'src/app/Types/TaskSolvingInfo.type';
+import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { ActivatedRoute } from '@angular/router';
 import { TasksTeacherService } from 'src/app/tasks.service';
 
@@ -10,9 +10,10 @@ import { TasksTeacherService } from 'src/app/tasks.service';
 })
 export class AfterSendingTaskPageComponent {
   taskName = 'Название Задачи';
-  files: TaskSolvingInfo[] = [];
+  files: TaskSubmition[] = [];
   passedTests: number[] = [];
-  constructor(private activatedRoute: ActivatedRoute, private tasksService: TasksTeacherService) {
+  constructor(private activatedRoute: ActivatedRoute,
+    private tasksService: TasksTeacherService) {
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
     tasksService.getInfoTaskTry(id).subscribe(files => {

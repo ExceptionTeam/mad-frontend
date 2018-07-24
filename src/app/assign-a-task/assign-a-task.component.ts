@@ -13,7 +13,8 @@ export class AssignATaskComponent implements OnInit {
   isGroupSelected: boolean;
   selectedId: string;
   minDate = new Date();
-  constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
+  constructor(private matDialogRef: MatDialogRef<AssignATaskComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private tasksService: TasksTeacherService) {
   }
 

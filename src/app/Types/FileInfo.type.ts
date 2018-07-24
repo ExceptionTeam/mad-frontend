@@ -1,5 +1,5 @@
 export interface FileInfo {
-  link: string;
+  url: string;
   name: string;
-  id: string;
+  id?: string;
 }

@@ -16,7 +16,8 @@ export class TableMyTasksTeacherComponent implements OnInit {
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
 
-  constructor(public dialog: MatDialog, private allTasksService: AllTasksTeacherService,
+  constructor(public dialog: MatDialog,
+    private allTasksService: AllTasksTeacherService,
     private tasksService: TasksTeacherService
   ) {
   }
