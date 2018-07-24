@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'exc-table-passed-tests-info',
-  templateUrl: './table-passed-tests-info.component.html',
-  styleUrls: ['./table-passed-tests-info.component.scss']
+  selector: 'exc-task-passed-tests',
+  templateUrl: './task-passed-tests.component.html',
+  styleUrls: ['./task-passed-tests.component.scss']
 })
-export class TablePassedTestsInfoComponent {
+export class TaskPassedTestsComponent {
   @Input() dataSource;
   displayedColumns: string[] = ['fileName', 'status'];
 

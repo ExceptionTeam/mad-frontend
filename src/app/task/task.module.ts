@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
-import { TeacherTasksModule } from '../table-my-tasks-teacher/teacher-tasks.module';
-import { StudentTasksModule } from '../student-tasks-table/student-tasks.module';
+import { TeacherTasksModule } from '../tasks-table-teacher/teacher-tasks.module';
+import { TasksStudentModule } from '../tasks-student-page/tasks-student.module';
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
-import { AssigningTaskModule } from '../assign-a-task/assigning-task.module';
+import { TaskAssigningModule } from '../task-assigning-window/task-assigning.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { TaskRoutingModule } from './task-routing.module';
-import { AfterSendingTaskModule } from '../after-sending-task-page/after-sending-task.module';
+import { TaskAfterSendingPage } from '../task-after-sending-page/task-after-sending-page';
 
 @NgModule({
   imports: [
     TaskRoutingModule,
     TeacherTasksModule,
-    StudentTasksModule,
+    TasksStudentModule,
     TaskSendingModule,
-    AssigningTaskModule,
+    TaskAssigningModule,
     TaskEditCreateModule,
     AppRoutingModule,
-    AfterSendingTaskModule
+    TaskAfterSendingPage
   ],
   exports: [],
   declarations: [],
