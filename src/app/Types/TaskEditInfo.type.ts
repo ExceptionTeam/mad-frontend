@@ -1,8 +1,4 @@
-export interface FileInfo {
-  link: string;
-  name: string;
-  id: string;
-}
+import { FileInfo } from 'src/app/Types/FileInfo.type';
 
 export interface TaskEditInfo {
   name: string;

@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
-import { FileInfo } from 'src/app/Types/TaskEditInfo.type';
+import { FileInfo } from 'src/app/Types/FileInfo.type';
 import { InputOutputEditFiles } from 'src/app/Types/InputOutputEditFiles.type';
 
 @Component({
