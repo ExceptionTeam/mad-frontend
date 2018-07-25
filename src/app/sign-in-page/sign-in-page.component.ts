@@ -10,6 +10,7 @@ export class SignInPageComponent implements OnInit {
   email: string;
   password: string;
   form: FormGroup;
+  hide = true;
 
   constructor(private fb: FormBuilder) {
     this.password = '';

@@ -1,32 +1,30 @@
 <div class="content">
   <mat-card class="sign-in">
     <div class="title">
-      <mat-icon>
-        home
-      </mat-icon>
       <div class="enter">Вход</div>
     </div>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="photo-post-form">
       <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="Email" [(ngModel)]="email"
-               formControlName="email" required>
-        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
-          <mat-icon>close</mat-icon>
+        <input matInput type="text" placeholder="Введите email" [(ngModel)]="email"
+               formControlName="email">
+        <button mat-button *ngIf="email" matTooltip="Удалить" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+          <mat-icon class="close">close</mat-icon>
         </button>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput type="password" placeholder="Пароль" [(ngModel)]="password"
-               formControlName="password" required>
-        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
-          <mat-icon>close</mat-icon>
+        <input matInput placeholder="Введите пароль" formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix>
+          <mat-icon class="visibility" matSuffix (click)="hide = !hide" [matTooltip]="hide ? 'Показать пароль' : 'Скрыть пароль'">{{hide ?
+            'visibility' : 'visibility_off'}}
+          </mat-icon>
         </button>
       </mat-form-field>
     </form>
 
     <div class="forgot">
-      <a href="#">забыли пароль?</a>
+      <a href="#">Забыли пароль?</a>
     </div>
     <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">
       Войти

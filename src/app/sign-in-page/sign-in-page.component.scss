@@ -1,29 +1,30 @@
 .content {
   display: flex;
   justify-content: center;
+  padding-top: 10vh;
+  height: 100%;
 }
 
 .sign-in {
-  padding: 0 0 20px;
   text-align: center;
   width: 350px;
-  height: max-content;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
 .title {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
   padding: 5% 0;
   align-content: center;
   text-align: center;
-  background-color: cornflowerblue;
   width: 100%;
 }
 
 .mat-icon {
-  font-size: xx-large;
+  font-size: medium;
 }
 
 .form {
@@ -40,13 +41,13 @@
 
 .forgot {
   font-size: small;
-  width: 75%;
+  width: 80%;
   text-align: left;
+  margin-top: 3%;
 }
 
 .mat-form-field-wrapper {
   width: 200px;
-  //margin-top: 20vh;
 }
 
 .mat-form-field {
@@ -56,4 +57,8 @@
 
 .mat-button {
   margin-top: 4%;
+}
+
+.lock {
+
 }
