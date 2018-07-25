@@ -18,6 +18,7 @@ import { TaskAssigningModule } from '../task-assigning-window/task-assigning.mod
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
 import { RouterModule } from '@angular/router';
+import { SignInModule} from '../sign-in-page/sign-in.module';
 
 @NgModule({
   imports: [
@@ -34,14 +35,15 @@ import { RouterModule } from '@angular/router';
     TaskAssigningModule,
     TaskSendingModule,
     TaskEditCreateModule,
-    RouterModule
+    RouterModule,
+    SignInModule
   ],
   declarations: [
     LayoutFooterComponent,
     LayoutHeaderComponent,
     LayoutLandingPageComponent,
     LayoutPersonalMenuComponent,
-    LayoutNavigationComponent
+    LayoutNavigationComponent,
   ],
   exports: [LayoutLandingPageComponent],
   providers: [],
