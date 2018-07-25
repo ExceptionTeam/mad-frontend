@@ -8,7 +8,7 @@
       <mat-form-field class="full-width">
         <input matInput type="text" placeholder="Введите email" formControlName="email">
         <button mat-button *ngIf="form.value.email" matTooltip="Удалить" matSuffix mat-icon-button aria-label="Clear"
-                (click)="onClick()">
+                (click)="deleteInputValue()">
           <mat-icon class="close">close</mat-icon>
         </button>
       </mat-form-field>

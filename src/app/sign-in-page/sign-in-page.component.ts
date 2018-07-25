@@ -7,14 +7,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-in-page.component.scss']
 })
 export class SignInPageComponent implements OnInit {
-  email: string;
-  password: string;
   form: FormGroup;
   hide = true;
 
   constructor(private fb: FormBuilder) {
-    this.password = '';
-    this.email = '';
     this.form = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
@@ -29,7 +25,7 @@ export class SignInPageComponent implements OnInit {
     console.log(this.form.value.password);
   }
 
-  onClick() {
+  deleteInputValue() {
     this.form.patchValue({ email: '' });
     // console.log(this.form.value.email);
   }
