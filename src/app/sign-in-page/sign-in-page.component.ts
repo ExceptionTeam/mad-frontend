@@ -16,15 +16,11 @@ export class SignInPageComponent implements OnInit {
     this.email = '';
     this.form = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.compose([Validators.required,  Validators.minLength(6)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     });
   }
 
   ngOnInit() {
-  }
-
-  getValue() {
-    console.log('email: ', this.email);
   }
 
   onSubmit() {
