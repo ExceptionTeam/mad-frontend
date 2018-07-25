@@ -1,0 +1,36 @@
+<div class="content">
+  <mat-card class="sign-in">
+    <div class="title">
+      <mat-icon>
+        home
+      </mat-icon>
+      <div class="enter">Вход</div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="photo-post-form">
+      <mat-form-field class="full-width">
+        <input matInput type="text" placeholder="Email" [(ngModel)]="email"
+               formControlName="email" required>
+        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Пароль" [(ngModel)]="password"
+               formControlName="password" required>
+        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+    <div class="forgot">
+      <a href="#">забыли пароль?</a>
+    </div>
+    <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">
+      Войти
+    </button>
+
+  </mat-card>
+</div>
