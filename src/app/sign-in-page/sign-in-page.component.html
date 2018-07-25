@@ -1,4 +1,4 @@
-<div class="content">
+<div class="sign-in-content">
   <mat-card class="sign-in">
     <div class="title">
       <div class="enter">Вход</div>
@@ -6,9 +6,10 @@
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="photo-post-form">
       <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="Введите email" [(ngModel)]="email"
+        <input matInput type="text" placeholder="Введите email" [(ngModel)]="form.value.email"
                formControlName="email">
-        <button mat-button *ngIf="email" matTooltip="Удалить" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+        <button mat-button *ngIf="form.value.email" matTooltip="Удалить" matSuffix mat-icon-button aria-label="Clear"
+                (click)="form.value.email=''">
           <mat-icon class="close">close</mat-icon>
         </button>
       </mat-form-field>
@@ -16,7 +17,8 @@
       <mat-form-field class="full-width">
         <input matInput placeholder="Введите пароль" formControlName="password" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix>
-          <mat-icon class="visibility" matSuffix (click)="hide = !hide" [matTooltip]="hide ? 'Показать пароль' : 'Скрыть пароль'">{{hide ?
+          <mat-icon class="visibility" matSuffix (click)="hide = !hide"
+                    [matTooltip]="hide ? 'Показать пароль' : 'Скрыть пароль'">{{hide ?
             'visibility' : 'visibility_off'}}
           </mat-icon>
         </button>

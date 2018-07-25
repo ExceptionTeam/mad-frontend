@@ -25,7 +25,7 @@ export class SignInPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.email);
-    console.log(this.password);
+    console.log(this.form.value.email);
+    console.log(this.form.value.password);
   }
 }
