@@ -6,10 +6,9 @@
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="photo-post-form">
       <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="Введите email" [(ngModel)]="form.value.email"
-               formControlName="email">
+        <input matInput type="text" placeholder="Введите email" formControlName="email">
         <button mat-button *ngIf="form.value.email" matTooltip="Удалить" matSuffix mat-icon-button aria-label="Clear"
-                (click)="form.value.email=''">
+                (click)="onClick()">
           <mat-icon class="close">close</mat-icon>
         </button>
       </mat-form-field>
@@ -18,8 +17,7 @@
         <input matInput placeholder="Введите пароль" formControlName="password" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix>
           <mat-icon class="visibility" matSuffix (click)="hide = !hide"
-                    [matTooltip]="hide ? 'Показать пароль' : 'Скрыть пароль'">{{hide ?
-            'visibility' : 'visibility_off'}}
+                    [matTooltip]="hide ? 'Показать пароль' : 'Скрыть пароль'">{{hide ? 'visibility' : 'visibility_off'}}
           </mat-icon>
         </button>
       </mat-form-field>

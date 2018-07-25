@@ -14,13 +14,7 @@
 }
 
 .title {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
   padding: 5% 0;
-  align-content: center;
-  text-align: center;
-  width: 100%;
 }
 
 .mat-icon {
@@ -56,9 +50,5 @@
 }
 
 .mat-button {
-  margin-top: 4%;
-}
-
-.lock {
-
+  margin-top: 2vh;
 }

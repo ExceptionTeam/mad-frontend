@@ -28,4 +28,9 @@ export class SignInPageComponent implements OnInit {
     console.log(this.form.value.email);
     console.log(this.form.value.password);
   }
+
+  onClick() {
+    this.form.patchValue({ email: '' });
+    // console.log(this.form.value.email);
+  }
 }
