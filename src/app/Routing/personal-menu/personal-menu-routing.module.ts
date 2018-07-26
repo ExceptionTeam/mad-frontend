@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditPasswordComponent } from '../edit-password/edit-password.component';
-import { MyGroupsTeacherPageComponent } from '../my-groups-teacher-page/my-groups-teacher-page.component';
+import { EditPasswordComponent } from '../../edit-password/edit-password.component';
+import { MyGroupsTeacherPageComponent } from '../../my-groups-teacher-page/my-groups-teacher-page.component';
 
 
 const routes: Routes = [

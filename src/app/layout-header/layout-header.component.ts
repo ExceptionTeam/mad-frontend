@@ -18,7 +18,6 @@ export class LayoutHeaderComponent {
 
   teacherPersonalMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '' },
-    { name: 'Мои группы', link: '/personal-menu/my-groups' },
     { name: 'Смена пароля', link: '/personal-menu/edit-password' }
   ];
 

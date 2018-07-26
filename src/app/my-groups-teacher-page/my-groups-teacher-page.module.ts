@@ -6,6 +6,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MyGroupsRoutingModule } from './my-groups-routing.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MyGroupsRoutingModule
   ],
   declarations: [
     MyGroupsTeacherPageComponent
