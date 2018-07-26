@@ -21,7 +21,12 @@ const routes: Routes = [
   {
     path: 'my-groups',
     component: MyGroupsTeacherPageComponent
-  }
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

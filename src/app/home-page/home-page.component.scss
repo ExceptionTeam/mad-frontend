@@ -1,0 +1,61 @@
+.full-information {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 3vh;
+  width: 60%;
+}
+
+.mat-list {
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-icon {
+  font-size: xx-small;
+  height: auto;
+}
+
+.mat-card {
+  min-width: 32%;
+  max-width: 35%;
+  padding: 0;
+  height: 20%;
+  margin: 2%;
+}
+
+.title-rating {
+  margin: 3%;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.mat-list-item {
+  padding: 0;
+}
+
+.auto-system {
+  font-weight: bold;
+  font-size: xx-large;
+  margin: 2vh;
+}
+
+.mat-toolbar {
+  height: 50px;
+  font-size: medium;
+}
+
+.mat-card {
+  width: auto;
+  height: auto;
+}
