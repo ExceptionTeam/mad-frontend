@@ -6,7 +6,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomePageRoutingModule } from './home-page-routing.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
