@@ -5,9 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './task/task.module';
 import { LayoutModule } from './layout-landing-page/layout.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationPageModule } from './registration-page/registration-page.module';
 import { HomePageModule } from './home-page/home-page.module';
-import { EditPasswordModule} from './edit-password/edit-password.module';
+import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
+import { MyGroupsTeacherPageModule } from './my-groups-teacher-page/my-groups-teacher-page.module';
+import { EditPasswordModule } from './edit-password/edit-password.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,9 @@ import { EditPasswordModule} from './edit-password/edit-password.module';
     HttpClientModule,
     LayoutModule,
     HttpClientModule,
-    RegistrationPageModule,
     HomePageModule,
+    RegistrationAuthorizationModule,
+    MyGroupsTeacherPageModule,
     EditPasswordModule
   ],
   providers: [],
