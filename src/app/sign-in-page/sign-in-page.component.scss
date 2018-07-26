@@ -36,7 +36,8 @@
 .forgot {
   font-size: small;
   width: 80%;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
   margin-top: 3%;
 }
 
@@ -52,3 +53,4 @@
 .mat-button {
   margin-top: 2vh;
 }
+

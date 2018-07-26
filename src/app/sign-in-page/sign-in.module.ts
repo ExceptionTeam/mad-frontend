@@ -6,6 +6,7 @@ import { MatButtonModule, MatIconModule, MatTooltipModule } from '@angular/mater
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatTooltipModule
+    MatTooltipModule,
+    RouterModule
   ],
   declarations: [SignInPageComponent],
   exports: [SignInPageComponent],
