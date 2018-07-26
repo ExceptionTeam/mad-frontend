@@ -15,11 +15,12 @@ export class RegistrationPageComponent {
   universityFormGroup: FormGroup;
   options: string[] = ['БГУ', 'БНТУ', 'БГУИР'];
   filteredOptions: Observable<string[]>;
+
   constructor(private _formBuilder: FormBuilder) {
     this.nameSurnameFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      address: ['', Validators.compose([Validators.required, Validators.email])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       role: ['', Validators.required]
     });
     this.universityFormGroup = this._formBuilder.group({

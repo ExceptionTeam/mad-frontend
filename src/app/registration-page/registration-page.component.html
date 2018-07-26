@@ -9,7 +9,7 @@
         <input matInput placeholder="Фамилия" formControlName="surname">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Адрес эл.почты" formControlName="address">
+        <input matInput placeholder="Адрес эл.почты" formControlName="email">
       </mat-form-field>
       <mat-radio-group formControlName="role" class="full-width" (change)="changeRole($event);">
         <mat-radio-button value="STUDENT">ученик</mat-radio-button>
@@ -54,7 +54,7 @@
       <mat-card>
         <p> статус: {{nameSurnameForm.value.role}}</p>
         <p>имя фамилия: {{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
-        <p>mail: {{nameSurnameForm.value.address}}</p>
+        <p>mail: {{nameSurnameForm.value.email}}</p>
         <p>вуз/место работы: {{universityForm.value.university}}</p>
         <ng-container *ngIf="universityForm.value.role=='STUDENT'">
           <p>факультет: {{universityForm.value.faculty}}</p>
