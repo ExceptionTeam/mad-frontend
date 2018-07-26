@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { TaskRoutingModule } from './task-routing.module';
 import { TaskAfterSendingPage } from '../task-after-sending-page/task-after-sending-page';
 import { FullDescriptionPageModule } from '../task-full-descr-teacher-page/full-description-page.module';
+import { RegistrationPageModule } from '../registration-page/registration-page.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { FullDescriptionPageModule } from '../task-full-descr-teacher-page/full-
     TaskEditCreateModule,
     AppRoutingModule,
     TaskAfterSendingPage,
-    FullDescriptionPageModule
+    FullDescriptionPageModule,
+    RegistrationPageModule
   ],
   exports: [],
   declarations: [],
