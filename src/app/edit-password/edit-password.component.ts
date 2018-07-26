@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'exc-sign-in-page',
-  templateUrl: './sign-in-page.component.html',
-  styleUrls: ['./sign-in-page.component.scss']
+  selector: 'exc-edit-password',
+  templateUrl: './edit-password.component.html',
+  styleUrls: ['./edit-password.component.scss']
 })
-export class SignInPageComponent implements OnInit {
+export class EditPasswordComponent implements OnInit {
   form: FormGroup;
   hide: boolean;
 
   constructor(private fb: FormBuilder) {
     this.hide = true;
     this.form = this.fb.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     });
+
   }
 
   ngOnInit() {
@@ -26,8 +26,4 @@ export class SignInPageComponent implements OnInit {
     console.log(this.form.value.password);
   }
 
-  deleteInputValue() {
-    this.form.patchValue({ email: '' });
-    // console.log(this.form.value.email);
-  }
 }

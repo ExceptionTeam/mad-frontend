@@ -7,6 +7,7 @@ import { LayoutModule } from './layout-landing-page/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationPageModule } from './registration-page/registration-page.module';
 import { HomePageModule } from './home-page/home-page.module';
+import { EditPasswordModule} from './edit-password/edit-password.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomePageModule } from './home-page/home-page.module';
     LayoutModule,
     HttpClientModule,
     RegistrationPageModule,
-    HomePageModule
+    HomePageModule,
+    EditPasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]
