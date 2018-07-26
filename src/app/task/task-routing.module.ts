@@ -6,7 +6,6 @@ import { TaskEditCreatePageComponent } from '../task-edit-create-page/task-edit-
 import { TaskSendingPageComponent } from '../task-sending-page/task-sending-page.component';
 import { TaskFullDescrTeacherComponent } from '../task-full-descr-teacher-page/task-full-descr-teacher.component';
 import { TaskAfterSendingPageComponent } from '../task-after-sending-page/task-after-sending-page.component';
-import { RegistrationPageComponent } from '../registration-page/registration-page.component';
 
 const taskRoutes: Routes = [
   {
