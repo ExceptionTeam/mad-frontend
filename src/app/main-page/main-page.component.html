@@ -1,0 +1,28 @@
+<div class="content">
+
+  <div class="full-information">
+    <p class="auto-system">Система автоматического тестирования</p>
+    <div>
+      <p>
+        Данный портал предназначен для контроля знаний со стороны преподавателя и самообучения студентов различных
+        университетов Беларуси.
+      </p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <mat-card *ngFor="let rate of ratings">
+      <mat-toolbar color="primary">
+        <p>{{rate.title}}</p>
+      </mat-toolbar>
+      <mat-list>
+        <mat-list-item *ngFor="let item of rate.list">
+          <mat-icon>lens</mat-icon>
+          {{item.name}} {{item.surname}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+
+</div>
