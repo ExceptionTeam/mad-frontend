@@ -24,11 +24,13 @@
     </form>
 
     <div class="forgot">
-      <a href="#">Забыли пароль?</a>
+      <a routerLink="/forgot-password">Забыли пароль?</a>
+      <a routerLink="/registration"> Регистрация</a>
     </div>
     <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">
       Войти
     </button>
+
 
   </mat-card>
 </div>

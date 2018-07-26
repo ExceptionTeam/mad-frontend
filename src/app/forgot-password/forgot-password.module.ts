@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { EditPasswordComponent } from './edit-password.component';
+import { ForgotPasswordComponent } from './forgot-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatTooltipModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
@@ -18,9 +18,9 @@ import { MatInputModule } from '@angular/material/input';
     MatDividerModule,
     MatTooltipModule
   ],
-  declarations: [EditPasswordComponent],
-  exports: [EditPasswordComponent],
+  declarations: [ForgotPasswordComponent],
+  exports: [ForgotPasswordComponent],
   providers: []
 })
-export class EditPasswordModule {
+export class ForgotPasswordModule {
 }

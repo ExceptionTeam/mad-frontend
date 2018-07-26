@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'exc-edit-password',
-  templateUrl: './edit-password.component.html',
-  styleUrls: ['./edit-password.component.scss']
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
 })
-export class EditPasswordComponent {
+export class ForgotPasswordComponent {
   form: FormGroup;
   showTextMessage: boolean;
   everythingIsOk: boolean;

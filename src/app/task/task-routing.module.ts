@@ -43,10 +43,6 @@ const taskRoutes: Routes = [
       {
         path: 'attempts/:id',
         component: TaskAfterSendingPageComponent
-      },
-      {
-        path: 'registrate',
-        component: RegistrationPageComponent
       }
     ]
   }
