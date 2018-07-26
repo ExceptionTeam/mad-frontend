@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -30,15 +30,14 @@ export class RegistrationPageComponent {
       year: ['', Validators.required],
     }
     );
-    if (this.universityFormGroup.get('university').value) {
-      this.filteredOptions = this.universityFormGroup.get('university').valueChanges.pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
-    }
+    this.filteredOptions = this.universityFormGroup.get('university').valueChanges.pipe(
+      startWith(''),
+      map(value => typeof value === 'string' ? this._filter(value) : this.options)
+    );
   }
 
   private _filter(value: string): string[] {
+    console.log(value);
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
