@@ -11,6 +11,11 @@ export class MainPageComponent {
     { name: 'Леша', surname: 'Мухарский' },
     { name: 'Аня', surname: 'Кисель' },
     { name: 'Артем', surname: 'Германенко' },
+    { name: 'Валера', surname: 'Стребко' },
+    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Влад', surname: 'Малиновский' },
     { name: 'Влад', surname: 'Малиновский' },
   ];
 
@@ -19,6 +24,11 @@ export class MainPageComponent {
     { name: 'Леша', surname: 'Мухарский' },
     { name: 'Аня', surname: 'Кисель' },
     { name: 'Артем', surname: 'Германенко' },
+    { name: 'Валера', surname: 'Стребко' },
+    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Влад', surname: 'Малиновский' },
     { name: 'Влад', surname: 'Малиновский' },
   ];
 
