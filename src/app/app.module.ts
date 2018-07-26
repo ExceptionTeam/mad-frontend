@@ -7,6 +7,7 @@ import { LayoutModule } from './layout-landing-page/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './home-page/home-page.module';
 import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
+import { MyGroupsTeacherPageModule } from './my-groups-teacher-page/my-groups-teacher-page.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegistrationAuthorizationModule } from './registration-authorization/re
     LayoutModule,
     HttpClientModule,
     HomePageModule,
-    RegistrationAuthorizationModule
+    RegistrationAuthorizationModule,
+    MyGroupsTeacherPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

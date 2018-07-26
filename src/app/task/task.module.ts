@@ -8,7 +8,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { TaskRoutingModule } from './task-routing.module';
 import { TaskAfterSendingPage } from '../task-after-sending-page/task-after-sending-page';
 import { FullDescriptionPageModule } from '../task-full-descr-teacher-page/full-description-page.module';
-import { MyGroupsTeacherPageModule } from 'src/app/my-groups-teacher-page/my-groups-teacher-page.module';
 
 @NgModule({
   imports: [
@@ -21,7 +20,6 @@ import { MyGroupsTeacherPageModule } from 'src/app/my-groups-teacher-page/my-gro
     AppRoutingModule,
     TaskAfterSendingPage,
     FullDescriptionPageModule,
-    MyGroupsTeacherPageModule
   ],
   exports: [],
   declarations: [],
