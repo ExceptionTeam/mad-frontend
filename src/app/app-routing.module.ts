@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   {
@@ -19,9 +18,10 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
-    path: 'main-page',
-    component: MainPageComponent
-  }
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
