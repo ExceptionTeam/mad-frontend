@@ -1,10 +1,7 @@
 <div class="container">
   <mat-form-field>
-    <input matInput placeholder="Введите название задачи или тега">
+    <input matInput placeholder="Введите название задачи или тега" (keyup)="onSearch($event.target.value)">
   </mat-form-field>
-  <button mat-icon-button class="search-button">
-    <mat-icon matTooltip="Поиск">search</mat-icon>
-  </button>
   <button mat-icon-button class="add-button" routerLink="/task/add-task">
     <mat-icon matTooltip="Добавить задачу">add</mat-icon>
   </button>
