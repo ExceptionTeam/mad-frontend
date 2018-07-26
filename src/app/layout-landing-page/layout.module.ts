@@ -18,6 +18,7 @@ import { TaskAssigningModule } from '../task-assigning-window/task-assigning.mod
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
 import { RouterModule } from '@angular/router';
+import { SignInModule} from '../sign-in-page/sign-in.module';
 import { EditPasswordModule} from '../edit-password/edit-password.module';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { EditPasswordModule} from '../edit-password/edit-password.module';
     TaskSendingModule,
     TaskEditCreateModule,
     RouterModule,
+    SignInModule,
     EditPasswordModule
   ],
   declarations: [
