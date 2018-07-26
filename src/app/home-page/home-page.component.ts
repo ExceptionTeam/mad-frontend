@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'exc-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss']
 })
-export class MainPageComponent {
+export class HomePageComponent {
   StudentsRating = [
     { name: 'Лиля', surname: 'Оданец' },
     { name: 'Леша', surname: 'Мухарский' },

@@ -6,7 +6,7 @@ import { TaskModule } from './task/task.module';
 import { LayoutModule } from './layout-landing-page/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationPageModule } from './registration-page/registration-page.module';
-import { MainPageModule } from './main-page/main-page.module';
+import { HomePageModule } from './home-page/home-page.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { MainPageModule } from './main-page/main-page.module';
     LayoutModule,
     HttpClientModule,
     RegistrationPageModule,
-    MainPageModule
+    HomePageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

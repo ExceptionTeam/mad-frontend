@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule, MatIconModule } from '@angular/material';
-import { MainPageComponent } from './main-page.component';
+import { HomePageComponent } from './home-page.component';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MainPageRoutingModule } from './main-page-routing.module';
+import { HomePageRoutingModule } from './home-page-routing.module';
 
 
 @NgModule({
@@ -14,12 +14,12 @@ import { MainPageRoutingModule } from './main-page-routing.module';
     MatCardModule,
     MatListModule,
     MatToolbarModule,
-    MainPageRoutingModule
+    HomePageRoutingModule
   ],
-  declarations: [MainPageComponent],
-  exports: [MainPageComponent],
+  declarations: [HomePageComponent],
+  exports: [HomePageComponent],
   providers: [],
   bootstrap: []
 })
-export class MainPageModule {
+export class HomePageModule {
 }
