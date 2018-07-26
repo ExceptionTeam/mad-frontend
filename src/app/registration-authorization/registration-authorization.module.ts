@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RegistrationAuthorizationRoutingModule } from './registration-authorization-routing.module';
 import { RegistrationPageModule } from '../registration-page/registration-page.module';
@@ -8,7 +7,6 @@ import { ForgotPasswordModule } from '../forgot-password/forgot-password.module'
 @NgModule({
   declarations: [],
   imports: [
-    BrowserModule,
     RegistrationAuthorizationRoutingModule,
     RegistrationPageModule,
     SignInModule,
