@@ -5,8 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './task/task.module';
 import { LayoutModule } from './layout-landing-page/layout.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationPageModule } from './registration-page/registration-page.module';
 import { HomePageModule } from './home-page/home-page.module';
+import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
+import { MyGroupsTeacherPageModule } from './my-groups-teacher-page/my-groups-teacher-page.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { HomePageModule } from './home-page/home-page.module';
     HttpClientModule,
     LayoutModule,
     HttpClientModule,
-    RegistrationPageModule,
-    HomePageModule
+    HomePageModule,
+    RegistrationAuthorizationModule,
+    MyGroupsTeacherPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
