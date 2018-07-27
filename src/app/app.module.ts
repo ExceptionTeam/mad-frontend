@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './home-page/home-page.module';
 import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
 import { EditPasswordModule } from './edit-password/edit-password.module';
-import { PersonalMenuModule} from './Routing/personal-menu/personal-menu.module';
+import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module';
+import { NotificationsAdminModule } from './notifications-admin/notifications-admin.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PersonalMenuModule} from './Routing/personal-menu/personal-menu.module'
     HomePageModule,
     RegistrationAuthorizationModule,
     EditPasswordModule,
-    PersonalMenuModule
+    PersonalMenuModule,
+    NotificationsAdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -28,6 +28,7 @@ export class LayoutLandingPageComponent {
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
     { name: 'Задачи', link: 'task/table-teacher' },
+    { name: 'Мои группы', link: '/my-groups' },
     { name: 'Статистика по ученикам', link: '' },
     { name: 'Статистика по учителям', link: '' },
     { name: 'Статистика по тестам', link: '' },

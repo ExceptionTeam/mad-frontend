@@ -12,8 +12,8 @@
         <input matInput placeholder="Адрес эл.почты" formControlName="email">
       </mat-form-field>
       <mat-radio-group formControlName="role" class="full-width" (change)="changeRole($event);">
-        <mat-radio-button value="STUDENT">ученик</mat-radio-button>
-        <mat-radio-button value="TEACHER">учитель</mat-radio-button>
+        <mat-radio-button value="student">ученик</mat-radio-button>
+        <mat-radio-button value="teacher">учитель</mat-radio-button>
       </mat-radio-group>
       <div>
         <button mat-button type="button" matStepperNext>Дальше</button>
@@ -23,7 +23,7 @@
   <mat-step [stepControl]="universityFormGroup">
     <form class="step-form" [formGroup]="universityFormGroup" #universityForm="ngForm">
       <ng-template matStepLabel>Второй шаг</ng-template>
-      <ng-container *ngIf="nameSurnameForm.value.role==='STUDENT'">
+      <ng-container *ngIf="nameSurnameForm.value.role==='student'">
         <mat-form-field>
           <input matInput placeholder="Факультет" formControlName="faculty">
         </mat-form-field>
@@ -56,7 +56,7 @@
         <p>имя фамилия: {{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
         <p>mail: {{nameSurnameForm.value.email}}</p>
         <p>вуз/место работы: {{universityForm.value.university}}</p>
-        <ng-container *ngIf="universityForm.value.role=='STUDENT'">
+        <ng-container *ngIf="universityForm.value.role=='student'">
           <p>факультет: {{universityForm.value.faculty}}</p>
           <p>год окончания: {{universityForm.value.year}}</p>
         </ng-container>
