@@ -5,7 +5,8 @@ import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 import { TaskFullDStudent } from './Types/TaskFullDStudent.type';
-import { Task, TeacherTask } from './Types/TeacherTasks.type';
+import { TeacherTask, Task } from './Types/TeacherTasks.type';
+import { StudentTask } from './Types/StudentTasks.type';
 
 const teacherTaskUrl = 'http://localhost:3000/teacher/task/abbreviated-info';
 const adminTaskUrl = 'http://localhost:3000/admin/task/abbreviated-info';
@@ -16,6 +17,7 @@ const adminTaskUrl = 'http://localhost:3000/admin/task/abbreviated-info';
 export class TaskService {
   private headers;
   public bSubject$: BehaviorSubject<Task[]> = new BehaviorSubject([]);
+  public studentTasks$: BehaviorSubject<StudentTask[]> = new BehaviorSubject([]);
 
   paginationParams = {
     pageIndex: 0,
@@ -78,11 +80,17 @@ export class TaskService {
       });
   }
 
-  getInfoTaskTry(serviceUrl): Observable<TaskSubmition[]> {
+  getInfoTaskTry(id): Observable<TaskSubmition[]> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskSubmition[]>('http://localhost:3000/student/task/submissions' +
-      '/' + '5b4e0549b1900619b486a5aa',
+      '/' + id,
       { headers: this.headers });
+  }
+
+  getStudentTasks(id) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<StudentTask[]>(`http://localhost:3000/student/task/tasks-list/${id}`, { headers: this.headers
+     }).subscribe(value => this.studentTasks$.next(value));
   }
 
   getStudentFullDescription(assId): Observable<TaskFullDStudent> {
@@ -96,11 +104,11 @@ export class TaskService {
   }
 
   loadTasks(role: string) {
-    this.getTeacherAdminAllTasks(
-      this.paginationParams.pageIndex * this.paginationParams.pageSize,
-      this.paginationParams.pageSize,
-      this.searchParams.query, role === 'admin' ? adminTaskUrl : teacherTaskUrl
-    );
+      this.getTeacherAdminAllTasks(
+        this.paginationParams.pageIndex * this.paginationParams.pageSize,
+        this.paginationParams.pageSize,
+        this.searchParams.query, role === 'admin' ? adminTaskUrl : teacherTaskUrl
+      );
   }
 
   deleteTask(id): Observable<boolean> {

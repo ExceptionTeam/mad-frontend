@@ -15,7 +15,6 @@ export class TaskAfterSendingPageComponent {
   constructor(private activatedRoute: ActivatedRoute,
     private tasksService: TaskService) {
     const id = this.activatedRoute.snapshot.params.id;
-    console.log('id: ', id);
     tasksService.getInfoTaskTry(id).subscribe(files => {
       this.files = files;
       this.files.forEach((item, index) => {
