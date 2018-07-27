@@ -24,7 +24,7 @@
 
     <ng-container matColumnDef="tests">
       <th mat-header-cell *matHeaderCellDef> Количество успешных попыток</th>
-      <td mat-cell *matCellDef="let element">{{countTrueSolutions(element.submission?.tests)}}/{{countAllSolutions(element.submission.tests)}}</td>
+      <td mat-cell *matCellDef="let element">{{countTrueSolutions(element.submission.tests)}}/{{countAllSolutions(element.submission.tests)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="teacher">
