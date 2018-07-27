@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatDialog, MatPaginator } from '@angular/material';
 import { TaskAssigningWindowComponent } from '../task-assigning-window/task-assigning-window.component';
 import { Task } from '../Types/TeacherTasks.type';
@@ -16,6 +16,7 @@ export class TasksTableTeacherComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'weight', 'appoint'];
   dataSource: UserDataSource | null;
+  @Input() role: string;
 
   constructor(public dialog: MatDialog,
     private taskService: TaskService
@@ -23,13 +24,16 @@ export class TasksTableTeacherComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new UserDataSource(this.taskService);
+    if (this.role === 'admin') {
+      this.displayedColumns.splice(2, 0, 'status');
+    }
+    this.dataSource = new UserDataSource(this.taskService, this.role);
   }
 
   public changePaginationParams() {
     this.taskService.paginationParams.pageIndex = this.paginator.pageIndex;
     this.taskService.paginationParams.pageSize = this.paginator.pageSize;
-    this.taskService.loadTasks();
+    this.taskService.loadTasks(this.role);
   }
 
   public getPaginationParams() {
@@ -47,10 +51,11 @@ export class TasksTableTeacherComponent implements OnInit {
 
 export class UserDataSource extends DataSource<any> {
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private role: string
   ) {
     super();
-    this.taskService.loadTasks();
+    this.taskService.loadTasks(this.role);
   }
 
   connect(): Observable<Task[]> {

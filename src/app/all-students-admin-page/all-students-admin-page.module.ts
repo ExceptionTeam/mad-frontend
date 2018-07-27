@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MyGroupsTeacherPageComponent } from 'src/app/my-groups-teacher-page/my-groups-teacher-page.component';
+import { AllStudentsTableComponent } from 'src/app/all-students-table/all-students-table.component';
 import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { MyGroupsRoutingModule } from './my-groups-routing.module';
+import { AllStudentsRoutingModule } from './all-students-routing.module';
+import { AllStudentsAdminPageComponent } from './all-students-admin-page.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -16,14 +19,17 @@ import { MyGroupsRoutingModule } from './my-groups-routing.module';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-    MyGroupsRoutingModule
+    AllStudentsRoutingModule,
+    MatPaginatorModule,
+    MatInputModule
   ],
   declarations: [
-    MyGroupsTeacherPageComponent
+    AllStudentsTableComponent,
+    AllStudentsAdminPageComponent
   ],
   exports: [],
   providers: [],
 })
 
-export class MyGroupsTeacherPageModule {
+export class AllStudentsAdminPageModule {
 }

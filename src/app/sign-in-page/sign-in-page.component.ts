@@ -8,9 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignInPageComponent implements OnInit {
   form: FormGroup;
-  hide = true;
+  hide: boolean;
 
   constructor(private fb: FormBuilder) {
+    this.hide = true;
     this.form = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],

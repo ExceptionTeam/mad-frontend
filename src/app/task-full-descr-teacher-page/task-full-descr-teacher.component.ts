@@ -32,12 +32,12 @@ export class TaskFullDescrTeacherComponent {
 
     this.taskService.deleteTask(this.id).subscribe(isDeleted => {
       console.log('isDeleted: ', isDeleted);
+      this.router.navigate([`/task/table-teacher`]);
       const snack = this.snackBar.open.apply(this.snackBar, argsArrayDeleted);
       snack.afterDismissed().subscribe(info => {
         if (info.dismissedByAction === true) {
           console.log('запрос на отмену удаления задачи');
-          this.taskService.activateTask(this.id).subscribe();
-          // this.router.navigate([`/task/table-teacher/${id}`]);
+          this.taskService.activateTask(this.id).subscribe(() => this.taskService.loadTasks('teacher'));
         }
       });
     }, error => {

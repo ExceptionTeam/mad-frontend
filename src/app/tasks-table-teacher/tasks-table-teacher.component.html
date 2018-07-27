@@ -22,6 +22,11 @@
       </td>
     </ng-container>
 
+    <ng-container *ngIf="role==='admin'" matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Статус</th>
+      <td mat-cell *matCellDef="let element"> {{element.active ? "активная" : "не активная"}}</td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
