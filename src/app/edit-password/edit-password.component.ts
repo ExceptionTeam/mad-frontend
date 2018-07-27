@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+const passwordMatch = (form: FormGroup) =>
+  form.get('newPassword').value === form.get('repeatPassword').value
+    ? null
+    : { NotEqual: true };
 
 @Component({
   selector: 'exc-edit-password',
@@ -19,17 +23,9 @@ export class EditPasswordComponent implements OnInit {
     this.hideRepeat = true;
     this.form = this.fb.group({
       oldPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      newPassword: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        // this.passwordMatch.bind(this)
-      ])],
-      repeatPassword: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        // this.passwordMatch.bind(this)
-      ])]
-    });
+      newPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      repeatPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+    }, { validator: passwordMatch });
   }
 
   ngOnInit() {
@@ -41,16 +37,10 @@ export class EditPasswordComponent implements OnInit {
 
   isWrongRepeat() {
     console.log(this.form.get('newPassword').dirty &&
-      (this.form.get('repeatPassword').dirty)
+      this.form.get('repeatPassword').dirty
       && this.form.hasError('NotEqual'));
     return this.form.get('newPassword').dirty &&
       this.form.get('repeatPassword').dirty
       && this.form.hasError('NotEqual');
-  }
-
-  private passwordMatch() {
-    return this.form && this.form.get('newPassword').value === this.form.get('repeatPassword').value
-      ? null
-      : { NotEqual: true };
   }
 }
