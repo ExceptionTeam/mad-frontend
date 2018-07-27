@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator } from '@angular/material';
 import { TaskAssigningWindowComponent } from '../task-assigning-window/task-assigning-window.component';
-import { AllTasksTeacherService, Task } from '../allTasksTeacher.service';
+import { Task } from '../Types/TeacherTasks.type';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { TaskService } from 'src/app/task.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'exc-tasks-table-teacher',
@@ -17,21 +18,22 @@ export class TasksTableTeacherComponent implements OnInit {
   dataSource: UserDataSource | null;
 
   constructor(public dialog: MatDialog,
-    private allTasksService: AllTasksTeacherService,
-    private tasksService: TaskService
+    private taskService: TaskService
   ) {
   }
 
   ngOnInit() {
-    this.dataSource = new UserDataSource(this.allTasksService, this.paginator);
+    this.dataSource = new UserDataSource(this.taskService);
   }
 
-  onPaginateChange() {
-    this.dataSource = new UserDataSource(this.allTasksService, this.paginator);
+  public changePaginationParams() {
+    this.taskService.paginationParams.pageIndex = this.paginator.pageIndex;
+    this.taskService.paginationParams.pageSize = this.paginator.pageSize;
+    this.taskService.loadTasks();
   }
 
-  getLength() {
-    return this.allTasksService.getLength();
+  public getPaginationParams() {
+    return this.taskService.paginationParams;
   }
 
   public openModal(id) {
@@ -45,18 +47,14 @@ export class TasksTableTeacherComponent implements OnInit {
 
 export class UserDataSource extends DataSource<any> {
   constructor(
-    private allTasksService: AllTasksTeacherService,
-    private paginator: MatPaginator
+    private taskService: TaskService
   ) {
     super();
+    this.taskService.loadTasks();
   }
 
   connect(): Observable<Task[]> {
-    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-    return this.allTasksService.getTasks(
-      startIndex,
-      startIndex + this.paginator.pageSize
-    );
+    return this.taskService.bSubject$.pipe(tap(console.log));
   }
 
   disconnect() {
