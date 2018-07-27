@@ -8,6 +8,7 @@ import { TaskFullDStudent } from './Types/TaskFullDStudent.type';
 import { Task, TeacherTask } from './Types/TeacherTasks.type';
 
 const teacherTaskUrl = 'http://localhost:3000/teacher/task/abbreviated-info';
+const adminTaskUrl = 'http://localhost:3000/admin/task/abbreviated-info';
 
 @Injectable({
   providedIn: 'root'
@@ -65,10 +66,10 @@ export class TaskService {
       { headers: this.headers });
   }
 
-  getTeacherAllTasks(skip: number, top: number, query) {
+  getTeacherAdminAllTasks(skip: number, top: number, query, url) {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     this.http
-      .post<TeacherTask>(`${teacherTaskUrl}?skip=${skip}&top=${top}`, query, {
+      .post<TeacherTask>(`${url}?skip=${skip}&top=${top}`, query, {
         headers: this.headers
       })
       .subscribe(value => {
@@ -94,14 +95,13 @@ export class TaskService {
     return this.http.get<TaskFullInfo>(`http://localhost:3000/admin/task/full-info/${id}`, { headers: this.headers });
   }
 
-  loadTasks() {
-    // console.log('load');
+  loadTasks(role: string) {
+      this.getTeacherAdminAllTasks(
+        this.paginationParams.pageIndex * this.paginationParams.pageSize,
+        this.paginationParams.pageSize,
+        this.searchParams.query, role === 'ADMIN' ? adminTaskUrl : teacherTaskUrl
+      );
 
-    this.getTeacherAllTasks(
-      this.paginationParams.pageIndex * this.paginationParams.pageSize,
-      this.paginationParams.pageSize,
-      this.searchParams.query
-    );
   }
 
   deleteTask(id): Observable<boolean> {

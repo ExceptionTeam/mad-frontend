@@ -7,6 +7,7 @@ export interface Task {
   _id: string;
   name: string;
   weight: number;
+  active?: boolean;
 }
 
 export interface Pagination {
