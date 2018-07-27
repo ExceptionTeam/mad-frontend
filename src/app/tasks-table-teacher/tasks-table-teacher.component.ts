@@ -24,8 +24,8 @@ export class TasksTableTeacherComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.role === 'ADMIN') {
-      this.displayedColumns.push('status');
+    if (this.role === 'admin') {
+      this.displayedColumns.splice(2, 0, 'status');
     }
     this.dataSource = new UserDataSource(this.taskService, this.role);
   }

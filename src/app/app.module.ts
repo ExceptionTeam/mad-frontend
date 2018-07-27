@@ -9,10 +9,11 @@ import { HomePageModule } from './home-page/home-page.module';
 import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
 import { EditPasswordModule } from './edit-password/edit-password.module';
 import { PersonalMenuModule} from './Routing/personal-menu/personal-menu.module';
+import { AllStudentsAdminPageModule } from './all-students-admin-page/all-students-admin-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,8 @@ import { PersonalMenuModule} from './Routing/personal-menu/personal-menu.module'
     HomePageModule,
     RegistrationAuthorizationModule,
     EditPasswordModule,
-    PersonalMenuModule
+    PersonalMenuModule,
+    AllStudentsAdminPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

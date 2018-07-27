@@ -37,7 +37,7 @@ export class TaskFullDescrTeacherComponent {
       snack.afterDismissed().subscribe(info => {
         if (info.dismissedByAction === true) {
           console.log('запрос на отмену удаления задачи');
-          this.taskService.activateTask(this.id).subscribe(() => this.taskService.loadTasks());
+          this.taskService.activateTask(this.id).subscribe(() => this.taskService.loadTasks('teacher'));
         }
       });
     }, error => {

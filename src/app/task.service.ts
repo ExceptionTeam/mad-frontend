@@ -99,7 +99,7 @@ export class TaskService {
       this.getTeacherAdminAllTasks(
         this.paginationParams.pageIndex * this.paginationParams.pageSize,
         this.paginationParams.pageSize,
-        this.searchParams.query, role === 'ADMIN' ? adminTaskUrl : teacherTaskUrl
+        this.searchParams.query, role === 'admin' ? adminTaskUrl : teacherTaskUrl
       );
 
   }
