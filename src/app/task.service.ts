@@ -1,16 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 import { TaskSubmition } from 'src/app/Types/TaskSubmition.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
 import { TaskFullDStudent } from './Types/TaskFullDStudent.type';
+import { TeacherTask, Task } from './Types/TeacherTasks.type';
+
+const teacherTaskUrl = 'http://localhost:3000/teacher/task/abbreviated-info';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
   private headers;
+  public bSubject$: BehaviorSubject<Task[]> = new BehaviorSubject([]);
+
+  paginationParams = {
+    pageIndex: 0,
+    pageSize: 10,
+    length: 0
+  };
+  searchParams = {
+    query: [],
+    paging: this.paginationParams
+  };
 
   constructor(private http: HttpClient) {
     this.headers = new HttpHeaders();
@@ -51,6 +65,18 @@ export class TaskService {
       { headers: this.headers });
   }
 
+  getTeacherAllTasks(skip: number, top: number, query) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    this.http
+      .post<TeacherTask>(`${teacherTaskUrl}?skip=${skip}&top=${top}`, query, {
+        headers: this.headers
+      })
+      .subscribe(value => {
+        this.bSubject$.next(value.data);
+        this.paginationParams.length = value.pagination.filtered;
+      });
+  }
+
   getInfoTaskTry(serviceUrl): Observable<TaskSubmition[]> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskSubmition[]>('http://localhost:3000/student/task/submissions' +
@@ -66,6 +92,14 @@ export class TaskService {
   getTaskFullInfoAdmin(id) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskFullInfo>(`http://localhost:3000/admin/task/full-info/${id}`, { headers: this.headers });
+  }
+
+  loadTasks() {
+    this.getTeacherAllTasks(
+      this.paginationParams.pageIndex * this.paginationParams.pageSize,
+      this.paginationParams.pageSize,
+      this.searchParams.query
+    );
   }
 
   deleteTask(id): Observable<boolean> {
