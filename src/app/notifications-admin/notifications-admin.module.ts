@@ -5,9 +5,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { ConfirmRoleComponent } from '../confirm-role/confirm-role.component';
-import { MatIconModule } from '@angular/material';
-import { MatButtonModule} from '@angular/material';
-import { RouterModule} from '@angular/router';
+import { MatButtonModule, MatIconModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { MatPaginatorModule } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { RouterModule} from '@angular/router';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatPaginatorModule
   ],
   declarations: [NotificationsAdminComponent,
     ConfirmRoleComponent],
