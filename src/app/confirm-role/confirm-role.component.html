@@ -1,0 +1,14 @@
+<mat-list>
+  <mat-list-item *ngFor="let request of requests">
+    <p matLine>{{request.surname}} {{request.name}}</p>
+    <p mat-line>{{request.email}} </p>
+    <p mat-line>{{request.placeOfWork}}</p>
+    <button mat-icon-button>
+      <mat-icon matListIcon class="done">done</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon class="clear">clear</mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

@@ -96,12 +96,11 @@ export class TaskService {
   }
 
   loadTasks(role: string) {
-      this.getTeacherAdminAllTasks(
-        this.paginationParams.pageIndex * this.paginationParams.pageSize,
-        this.paginationParams.pageSize,
-        this.searchParams.query, role === 'ADMIN' ? adminTaskUrl : teacherTaskUrl
-      );
-
+    this.getTeacherAdminAllTasks(
+      this.paginationParams.pageIndex * this.paginationParams.pageSize,
+      this.paginationParams.pageSize,
+      this.searchParams.query, role === 'admin' ? adminTaskUrl : teacherTaskUrl
+    );
   }
 
   deleteTask(id): Observable<boolean> {
