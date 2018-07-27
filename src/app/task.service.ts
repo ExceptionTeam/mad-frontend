@@ -80,10 +80,10 @@ export class TaskService {
       });
   }
 
-  getInfoTaskTry(serviceUrl): Observable<TaskSubmition[]> {
+  getInfoTaskTry(id): Observable<TaskSubmition[]> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskSubmition[]>('http://localhost:3000/student/task/submissions' +
-      '/' + '5b4e0549b1900619b486a5aa',
+      '/' + id,
       { headers: this.headers });
   }
 
