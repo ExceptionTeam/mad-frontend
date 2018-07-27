@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material';
   templateUrl: './confirm-role.component.html',
   styleUrls: ['./confirm-role.component.scss']
 })
-export class ConfirmRoleComponent implements OnInit {
+export class ConfirmRoleComponent {
   requests = [
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
@@ -33,9 +33,6 @@ export class ConfirmRoleComponent implements OnInit {
   onPaginateChange() {
     this.req = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
-  }
-
-  ngOnInit() {
   }
 
   constructor() {
