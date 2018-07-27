@@ -18,12 +18,12 @@
         <mat-icon matTooltip="Редактировать">edit</mat-icon>
       </button>
       <div *ngIf="!isAdmin()">
-        <button mat-icon-button routerLink="/task/table-teacher" (click)="deleteTask()" [disabled]="!task?.editable">
+        <button mat-icon-button (click)="deleteTask()" [disabled]="!task?.editable">
           <mat-icon matTooltip="Удалить">delete</mat-icon>
         </button>
       </div>
       <div *ngIf="isAdmin()">
-        <button *ngIf="task?.active" mat-icon-button routerLink="/task/table-teacher"
+        <button *ngIf="task?.active" mat-icon-button
                 (click)="deleteTask()" [disabled]="!task?.editable">
           <mat-icon matTooltip="Удалить">delete</mat-icon>
         </button>

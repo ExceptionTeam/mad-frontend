@@ -95,6 +95,8 @@ export class TaskService {
   }
 
   loadTasks() {
+    console.log('load');
+
     this.getTeacherAllTasks(
       this.paginationParams.pageIndex * this.paginationParams.pageSize,
       this.paginationParams.pageSize,
