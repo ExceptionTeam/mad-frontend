@@ -19,11 +19,15 @@ export class TaskSelectStudentOrGroupComponent {
   isDisabledGroup = false;
   indStudents: Student[] = [];
   groups: Group[] = [];
+
   constructor(private tasksService: TaskService) {
-    this.tasksService.getStudentsAndGroups(this.id).
-    subscribe(item => {this.indStudents = item.individualStudents;
-    this.groups = item.groups;
-    }
+    console.log(this.id);
+    this.tasksService.getStudentsAndGroups(this.id).subscribe(item => {
+        this.indStudents = item.individualStudents;
+        console.log(this.indStudents);
+        this.groups = item.groups;
+        console.log(this.groups);
+      }
     );
   }
 
@@ -38,6 +42,7 @@ export class TaskSelectStudentOrGroupComponent {
     this.isSelected = true;
     this.isSelEvent.emit(this.isSelected);
     this.id = selectedId;
+    console.log('id: ' + this.id);
     this.idOfSelected.emit(this.id);
     this.isGroup = false;
     this.isGroupSelected.emit(this.isGroup);

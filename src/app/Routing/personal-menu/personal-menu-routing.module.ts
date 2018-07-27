@@ -11,10 +11,6 @@ const routes: Routes = [
       {
         path: 'edit-password',
         component: EditPasswordComponent
-      },
-      {
-        path: 'my-groups',
-        component: MyGroupsTeacherPageComponent
       }
     ]
   }
