@@ -20,7 +20,7 @@ export class LayoutLandingPageComponent {
     { name: 'Вопросы', link: '' },
     { name: 'Тесты', link: '' },
     { name: 'Задачи', link: 'task/table-teacher' },
-    { name: 'Мои студенты', link: '' },
+    { name: 'Мои группы', link: '/my-groups' },
     { name: 'Материалы', link: '' },
   ];
 

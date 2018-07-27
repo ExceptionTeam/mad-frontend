@@ -13,18 +13,17 @@ export class LayoutHeaderComponent {
   studentPersMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '' },
     { name: 'Статистика', link: '' },
-    { name: 'Смена пароля', link: '' }
+    { name: 'Смена пароля', link: '/personal-menu/edit-password' }
   ];
 
   teacherPersonalMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '' },
-    { name: 'Мои группы', link: '' },
-    { name: 'Смена пароля', link: '' }
+    { name: 'Смена пароля', link: '/personal-menu/edit-password' }
   ];
 
   adminPersonalMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '' },
-    { name: 'Смена пароля', link: '' }
+    { name: 'Смена пароля', link: 'personal-menu/edit-password' }
   ];
 
   onMenuToggled() {
