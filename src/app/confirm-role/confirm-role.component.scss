@@ -1,0 +1,16 @@
+.content{
+  display: flex;
+  justify-content: space-between;
+
+  >span {
+    display: flex;
+  }
+}
+
+.done {
+  color: green;
+}
+
+.clear {
+  color: red;
+}

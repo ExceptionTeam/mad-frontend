@@ -109,7 +109,6 @@ export class TaskService {
         this.paginationParams.pageSize,
         this.searchParams.query, role === 'admin' ? adminTaskUrl : teacherTaskUrl
       );
-
   }
 
   deleteTask(id): Observable<boolean> {
