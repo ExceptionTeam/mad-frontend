@@ -9,7 +9,7 @@ import { TaskService } from '../task.service';
 export class TasksTeacherPageComponent implements OnInit {
   role: string;
   constructor(private taskService: TaskService) {
-    this.role = 'ADMIN';
+    this.role = 'admin';
   }
 
   onSearch(query: string) {
