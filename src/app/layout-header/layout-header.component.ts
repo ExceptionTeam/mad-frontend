@@ -22,7 +22,7 @@ export class LayoutHeaderComponent {
   ];
 
   adminPersonalMenu: FieldsOfMenu[] = [
-    { name: 'Мои оповещения', link: '' },
+    { name: 'Мои оповещения', link: '/personal-menu/notifications/confirm-role' },
     { name: 'Смена пароля', link: 'personal-menu/edit-password' }
   ];
 

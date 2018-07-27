@@ -25,8 +25,7 @@ import { NotificationsAdminModule } from './notifications-admin/notifications-ad
     HomePageModule,
     RegistrationAuthorizationModule,
     EditPasswordModule,
-    PersonalMenuModule,
-    NotificationsAdminModule
+    PersonalMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
