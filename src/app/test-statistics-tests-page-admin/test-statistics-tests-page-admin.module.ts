@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TestStatisticsTestsPageAdminRouting } from './test-statistics-tests-page-admin-routing.module';
 import { MatPaginatorModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import { MatPaginatorModule } from '@angular/material';
     MatIconModule,
     MatExpansionModule,
     TestStatisticsTestsPageAdminRouting,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     TestStatisticsTestsPageAdminComponent
