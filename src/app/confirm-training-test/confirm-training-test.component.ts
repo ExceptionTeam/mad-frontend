@@ -49,8 +49,6 @@ export class ConfirmTrainingTestComponent {
   }
 
   getRequests(skip: number, top: number) {
-    console.log(this.requests);
-
     return this.requests.slice(skip, top);
   }
 
