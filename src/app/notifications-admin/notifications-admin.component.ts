@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notifications-admin.component.scss']
 })
 export class NotificationsAdminComponent implements OnInit {
-  role = 'teacher';
+  role = 'admin';
   links;
 
   navLinksAdmin = [
