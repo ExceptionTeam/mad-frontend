@@ -11,32 +11,32 @@ export class ConfirmTrainingTestComponent {
   requestsTest = [
     {
       _id: '1',
-      UserId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      SectionId: { _id: '12', name: 'Многопоточность' },
+      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
+      sectionId: { _id: '12', name: 'Многопоточность' },
       status: 'PENDING'
     },
     {
       _id: '2',
-      UserId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      SectionId: { _id: '12', name: 'Многопоточность' },
+      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
+      sectionId: { _id: '12', name: 'Многопоточность' },
       status: 'PENDING'
     },
     {
       _id: '3',
-      UserId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      SectionId: { _id: '12', name: 'Многопоточность' },
+      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
+      sectionId: { _id: '12', name: 'Многопоточность' },
       status: 'PENDING'
     },
     {
       _id: '4',
-      UserId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      SectionId: { _id: '12', name: 'Многопоточность' },
+      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
+      sectionId: { _id: '12', name: 'Многопоточность' },
       status: 'PENDING'
     },
     {
       _id: '5',
-      UserId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      SectionId: { _id: '12', name: 'Многопоточность' },
+      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
+      sectionId: { _id: '12', name: 'Многопоточность' },
       status: 'PENDING'
     }
   ];

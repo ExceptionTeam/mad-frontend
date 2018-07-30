@@ -1,13 +1,13 @@
 <mat-list>
   <mat-list-item *ngFor="let request of onDisplay; let index = index">
-    <p matLine>{{request.UserId.name}} {{request.UserId.surname}}</p>
-    <p mat-line>Раздел: {{request.SectionId.name}} </p>
+    <span mat-line class="title">{{request.userId.name}} {{request.userId.surname}}</span>
+    <p mat-line>Раздел: {{request.sectionId.name}} </p>
     <ng-container *ngIf="request.display">
-      <button mat-icon-button>
-        <mat-icon matListIcon class="done" (click)="onclickConfirm(request)">done</mat-icon>
+      <button mat-icon-button (click)="onclickConfirm(request)">
+        <mat-icon matListIcon class="done">done</mat-icon>
       </button>
-      <button mat-icon-button>
-        <mat-icon class="clear" (click)="onclickConfirm(request)">clear</mat-icon>
+      <button mat-icon-button (click)="onclickConfirm(request)">
+        <mat-icon class="clear">clear</mat-icon>
       </button>
     </ng-container>
     <ng-container *ngIf="!request.display">
