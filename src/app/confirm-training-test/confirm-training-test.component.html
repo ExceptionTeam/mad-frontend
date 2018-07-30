@@ -1,0 +1,23 @@
+<mat-list>
+  <mat-list-item *ngFor="let request of onDisplay; let index = index">
+    <p matLine>{{request.UserId.name}} {{request.UserId.surname}}</p>
+    <p mat-line>Раздел: {{request.SectionId.name}} </p>
+    <ng-container *ngIf="request.display">
+      <button mat-icon-button>
+        <mat-icon matListIcon class="done" (click)="onclickConfirm(request)">done</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="clear" (click)="onclickConfirm(request)">clear</mat-icon>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="!request.display">
+      Готово
+    </ng-container>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-paginator [length]="requestsTest.length"
+                 [pageSize]="10"
+                 [pageIndex]="0"
+                 (page)="onPaginateChange()">
+  </mat-paginator>
+</mat-list>
