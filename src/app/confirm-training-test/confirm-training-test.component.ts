@@ -43,6 +43,11 @@ export class ConfirmTrainingTestComponent {
   onDisplay;
   requests;
 
+  constructor() {
+    this.requests = this.requestsTest.map(request => ({ ...request, display: true }));
+    this.onDisplay = this.getRequests(0, 10);
+  }
+
   getRequests(skip: number, top: number) {
     console.log(this.requests);
 
@@ -52,11 +57,6 @@ export class ConfirmTrainingTestComponent {
   onPaginateChange() {
     this.onDisplay = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
-  }
-
-  constructor() {
-    this.requests = this.requestsTest.map(request => ({ ...request, display: true }));
-    this.onDisplay = this.getRequests(0, 10);
   }
 
   onclickConfirm(request) {
