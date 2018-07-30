@@ -1,6 +1,6 @@
 <mat-list>
   <mat-list-item *ngFor="let request of onDisplay">
-    <span mat-line>{{request.userId.name}} {{request.userId.surname}}</span>
+    <span mat-line>{{request.userId.surname}} {{request.userId.name}}</span>
     <span mat-line class="wrap" *ngIf="request.isTestChecked">
         Проверен тест по теме: "{{request.sectionId.name}}"
       </span>
