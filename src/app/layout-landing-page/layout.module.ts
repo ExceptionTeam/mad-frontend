@@ -17,6 +17,7 @@ import { TeacherTasksModule } from '../tasks-table-teacher/teacher-tasks.module'
 import { TaskAssigningModule } from '../task-assigning-window/task-assigning.module';
 import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
+import { AdminActivityModule } from '../admin-activity/admin-activity.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -34,6 +35,7 @@ import { RouterModule } from '@angular/router';
     TaskAssigningModule,
     TaskSendingModule,
     TaskEditCreateModule,
+    AdminActivityModule,
     RouterModule
   ],
   declarations: [

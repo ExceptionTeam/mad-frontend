@@ -1,0 +1,12 @@
+<mat-list>
+  <mat-list-item *ngFor="let activity of array">
+    <h4 mat-line>{{activity.student}}</h4>
+    <a mat-line> {{activity.activity}} </a>
+    <p mat-line> {{activity.date| date: 'medium'}} </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+<mat-paginator [length]="length"
+               [pageIndex]="getPaginationParams().pageIndex"
+               [pageSize]="getPaginationParams().pageSize"
+               (page)=onPaginateChange()>
