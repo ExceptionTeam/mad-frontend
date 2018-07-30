@@ -1,0 +1,21 @@
+<mat-list>
+  <mat-list-item *ngFor="let request of onDisplay">
+    <span mat-line>{{request.userId.name}} {{request.userId.surname}}</span>
+    <span mat-line class="wrap" *ngIf="request.isTestChecked">
+        Проверен тест по теме: "{{request.sectionId.name}}"
+      </span>
+    <span mat-line *ngIf="request.isTestChecked">Оценка: {{request.mark}}</span>
+    <span mat-line class="wrap" *ngIf="!request.isTestChecked">
+        Тренировочный тест по теме: "{{request.sectionId.name}}" доступен к прохождению
+      </span>
+    <button mat-button *ngIf="!request.isTestChecked" (click)="passTheTest(request)">Пройти</button>
+    <span mat-line>{{request.date | date : "MM.dd.yy, hh:mm"}}</span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-paginator [length]="checkAnswer.length"
+                 [pageSize]="10"
+                 [pageIndex]="0"
+                 (page)="onPaginateChange()">
+  </mat-paginator>
+
+</mat-list>
