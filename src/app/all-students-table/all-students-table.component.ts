@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material'; '';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'exc-all-students-table',
