@@ -1,13 +1,5 @@
-export interface UserId {
-  _id: string;
-  name: string;
-  surname: string;
-}
-
-export interface SectionId {
-  _id: string;
-  name: string;
-}
+import { UserId } from '../Types/UserId.type';
+import { SectionId } from '../Types/SectionId.type';
 
 export interface ConfirmTestInfo {
   _id: string;
