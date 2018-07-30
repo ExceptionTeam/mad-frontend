@@ -7,7 +7,6 @@ import { ConfirmTrainingTestComponent } from '../../confirm-training-test/confir
 import { CheckAnswerPageComponent } from '../../check-answer-page/check-answer-page.component';
 import { NotificationsPageStudentComponent } from '../../notifications-page-student/notifications-page-student.component';
 
-
 const routes: Routes = [
   {
     path: 'personal-menu',
