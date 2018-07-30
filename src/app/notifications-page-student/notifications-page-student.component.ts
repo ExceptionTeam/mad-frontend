@@ -79,6 +79,11 @@ export class NotificationsPageStudentComponent {
   onDisplay;
   requests;
 
+  constructor() {
+    this.requests = this.checkAnswer.map(request => ({ ...request, display: true }));
+    this.onDisplay = this.getRequests(0, 10);
+  }
+
   getRequests(skip: number, top: number) {
     return this.requests.slice(skip, top);
   }
@@ -88,10 +93,6 @@ export class NotificationsPageStudentComponent {
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
   }
 
-  constructor() {
-    this.requests = this.checkAnswer.map(request => ({ ...request, display: true }));
-    this.onDisplay = this.getRequests(0, 10);
-  }
 
   passTheTest(request) {
     console.log(request._id);
