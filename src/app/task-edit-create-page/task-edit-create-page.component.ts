@@ -18,7 +18,7 @@ export class TaskEditCreatePageComponent {
   private id;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private tasksService: TaskService) {
+    private tasksService: TaskService) {
     this.validFiles = this.validFiles || false;
     this.taskInfo = this.taskInfo || {
       name: '',
@@ -32,8 +32,8 @@ export class TaskEditCreatePageComponent {
     this.id = this.activatedRoute.snapshot.params.id;
     if (this.id !== undefined) {
       tasksService.getTaskFullInfoTeacher(this.id).subscribe(data => {
-          this.taskInfo = data;
-        }
+        this.taskInfo = data;
+      }
       );
       this.buttonName = 'Изменить';
       this.validFiles = true;
@@ -46,7 +46,7 @@ export class TaskEditCreatePageComponent {
     formData.append('description', value.description);
     formData.append('tags', value.tags);
     formData.append('weight', value.weight);
-    if (this.id === undefined) {
+    if (this.id !== undefined) {
       this.taskInfo.inputFilesId.forEach(function (item) {
         formData.append('editInput ', item.id);
       });
@@ -60,7 +60,9 @@ export class TaskEditCreatePageComponent {
         formData.set('output' + (i + 1), item.output);
       });
     }
-    // this.tasksService.postEditTaskTeacher(formData).subscribe();
+    if (this.id === undefined) {
+      this.tasksService.postAddTaskTeacher(formData, this.InputOutputFiles.length).subscribe();
+    }
   }
 
   changeValidState(event) {
