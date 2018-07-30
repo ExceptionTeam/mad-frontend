@@ -29,7 +29,7 @@ export class LayoutLandingPageComponent {
     { name: 'Тесты', link: '' },
     { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Статистика по ученикам', link: '' },
+    { name: 'Статистика по ученикам', link: '/all-students' },
     { name: 'Статистика по учителям', link: '' },
     { name: 'Статистика по тестам', link: '' },
     { name: 'Статистика по задачам', link: '' },

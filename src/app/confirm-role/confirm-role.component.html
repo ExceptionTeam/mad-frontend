@@ -3,12 +3,17 @@
     <p matLine>{{request.surname}} {{request.name}}</p>
     <p mat-line>{{request.email}} </p>
     <p mat-line>{{request.placeOfWork}}</p>
-    <button mat-icon-button>
-      <mat-icon matListIcon class="done">done</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon class="clear">clear</mat-icon>
-    </button>
+    <ng-container *ngIf="request.display">
+      <button mat-icon-button>
+        <mat-icon matListIcon class="done" (click)="onclickConfirm(request)">done</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon class="clear" (click)="onclickConfirm(request)">clear</mat-icon>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="!request.display">
+      Готово
+    </ng-container>
     <mat-divider></mat-divider>
   </mat-list-item>
   <mat-paginator [length]="requests.length"

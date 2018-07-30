@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class NotificationsAdminComponent implements OnInit {
   navLinks = [
     { path: '/personal-menu/notifications/confirm-role', label: 'Подтвердить роль' },
-    { path: '', label: 'Запрос теста' },
-    { path: '', label: 'Проверить тесты' }
+    { path: '/personal-menu/notifications/confirm-test', label: 'Запрос теста' },
+    { path: '/personal-menu/notifications/check-answer', label: 'Проверить тесты' }
   ];
 
   constructor() {

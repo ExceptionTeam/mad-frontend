@@ -7,7 +7,8 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./confirm-role.component.scss']
 })
 export class ConfirmRoleComponent {
-  requests = [
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  requestsRole = [
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
@@ -23,8 +24,7 @@ export class ConfirmRoleComponent {
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' }
   ];
   req;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  requests;
 
   getRequests(skip: number, top: number) {
     return this.requests.slice(skip, top);
@@ -36,6 +36,11 @@ export class ConfirmRoleComponent {
   }
 
   constructor() {
+    this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
     this.req = this.getRequests(0, 10);
+  }
+
+  onclickConfirm(request) {
+    request.display = false;
   }
 }
