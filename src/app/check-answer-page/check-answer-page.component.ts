@@ -104,8 +104,6 @@ export class CheckAnswerPageComponent {
   requests;
 
   getRequests(skip: number, top: number) {
-    console.log(this.requests);
-
     return this.requests.slice(skip, top);
   }
 
