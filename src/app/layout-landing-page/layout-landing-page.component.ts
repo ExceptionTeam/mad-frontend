@@ -13,6 +13,7 @@ export class LayoutLandingPageComponent {
   studentNavMenu: FieldsOfMenu[] = [
     { name: 'Мои тесты', link: '' },
     { name: 'Мои задачи', link: 'task/table-student' },
+    { name: 'Статистика', link: '' },
     { name: 'Материлы', link: '' },
   ];
 

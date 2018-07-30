@@ -9,7 +9,6 @@ import { FieldsOfMenu } from '../layout-landing-page/layout-landing-page.types';
 export class LayoutPersonalMenuComponent implements OnInit {
   studentPersonalMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '/personal-menu/notifications/tests' },
-    { name: 'Статистика', link: '' },
     { name: 'Смена пароля', link: '/personal-menu/edit-password' }
   ];
 
