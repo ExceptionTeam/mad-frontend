@@ -37,11 +37,10 @@ export class EditPasswordComponent implements OnInit {
 
   isWrongRepeat() {
     console.log(this.form.get('newPassword').dirty &&
-      (this.form.get('repeatPassword').dirty)
+      this.form.get('repeatPassword').dirty
       && this.form.hasError('NotEqual'));
     return this.form.get('newPassword').dirty &&
       this.form.get('repeatPassword').dirty
       && this.form.hasError('NotEqual');
   }
-
 }

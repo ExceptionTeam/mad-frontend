@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { TaskService } from '../task.service';
 })
 export class TasksTeacherPageComponent implements OnInit {
   role: string;
+
   constructor(private taskService: TaskService) {
     this.role = 'admin';
   }

@@ -1,0 +1,20 @@
+<mat-list>
+  <mat-list-item *ngFor="let request of req">
+    <p matLine>{{request.surname}} {{request.name}}</p>
+    <p mat-line>{{request.email}} </p>
+    <p mat-line>{{request.placeOfWork}}</p>
+    <button mat-icon-button>
+      <mat-icon matListIcon class="done">done</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon class="clear">clear</mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-paginator [length]="requests.length"
+                 [pageSize]="10"
+                 [pageIndex]="0"
+                 (page)="onPaginateChange()">
+  </mat-paginator>
+
+</mat-list>
