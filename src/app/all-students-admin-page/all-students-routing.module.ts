@@ -4,7 +4,7 @@ import { AllStudentsAdminPageComponent } from './all-students-admin-page.compone
 
 const routes: Routes = [
   {
-    path: 'admin/students',
+    path: 'all-students',
     component: AllStudentsAdminPageComponent
   }
 ];

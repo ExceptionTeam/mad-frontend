@@ -10,22 +10,6 @@ export class LayoutHeaderComponent {
   @Output() menuToggled = new EventEmitter<void>();
   title = 'Student\'s Exception';
 
-  studentPersMenu: FieldsOfMenu[] = [
-    { name: 'Мои оповещения', link: '' },
-    { name: 'Статистика', link: '' },
-    { name: 'Смена пароля', link: '/personal-menu/edit-password' }
-  ];
-
-  teacherPersonalMenu: FieldsOfMenu[] = [
-    { name: 'Мои оповещения', link: '' },
-    { name: 'Смена пароля', link: '/personal-menu/edit-password' }
-  ];
-
-  adminPersonalMenu: FieldsOfMenu[] = [
-    { name: 'Мои оповещения', link: '/personal-menu/notifications/confirm-role' },
-    { name: 'Смена пароля', link: 'personal-menu/edit-password' }
-  ];
-
   onMenuToggled() {
     this.menuToggled.emit();
   }

@@ -1,8 +1,7 @@
 <mat-list>
-  <mat-list-item *ngFor="let request of onDisplay">
-    <span mat-line class="title">{{request.name}} {{request.surname}}</span>
-    <p mat-line>{{request.email}} </p>
-    <p mat-line>{{request.placeOfWork}}</p>
+  <mat-list-item *ngFor="let request of onDisplay; let index = index">
+    <span mat-line class="title">{{request.userId.name}} {{request.userId.surname}}</span>
+    <p mat-line>Раздел: {{request.sectionId.name}} </p>
     <ng-container *ngIf="request.display">
       <button mat-icon-button (click)="onclickConfirm(request)">
         <mat-icon matListIcon class="done">done</mat-icon>
@@ -16,10 +15,9 @@
     </ng-container>
     <mat-divider></mat-divider>
   </mat-list-item>
-  <mat-paginator [length]="requests.length"
+  <mat-paginator [length]="requestsTest.length"
                  [pageSize]="10"
                  [pageIndex]="0"
                  (page)="onPaginateChange()">
   </mat-paginator>
-
 </mat-list>
