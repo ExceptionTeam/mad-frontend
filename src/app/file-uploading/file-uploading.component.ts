@@ -26,7 +26,6 @@ export class FileUploadingComponent {
 
   isDisable() {
     const deadlineNum = new Date(this.deadline).getTime();
-    console.log(this.now - this.deadline);
     return this.now - deadlineNum > 0;
   }
 }

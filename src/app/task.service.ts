@@ -42,12 +42,12 @@ export class TaskService {
       body, { headers: this.headers });
   }*/
 
-  /*postEditTaskTeacher(body): Observable<TaskEditInfoServer> {
+  postAddTaskTeacher(body, length): Observable<FormData> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     console.log(body);
-    return this.http.post<TaskEditInfoServer>('http://localhost:3000/teacher/task/assign',
+    return this.http.post<FormData>('http://localhost:3000/teacher/task/upload-task?length=' + length,
       body, { headers: this.headers });
-  }*/
+  }
 
   postAssignTask(body): Observable<AssignRequestData> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
@@ -89,8 +89,9 @@ export class TaskService {
 
   getStudentTasks(id) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<StudentTask[]>(`http://localhost:3000/student/task/tasks-list/${id}`, { headers: this.headers
-     }).subscribe(value => this.studentTasks$.next(value));
+    return this.http.get<StudentTask[]>(`http://localhost:3000/student/task/tasks-list/${id}`, {
+      headers: this.headers
+    }).subscribe(value => this.studentTasks$.next(value));
   }
 
   getStudentFullDescription(assId): Observable<TaskFullDStudent> {
