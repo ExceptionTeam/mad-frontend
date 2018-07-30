@@ -93,7 +93,6 @@ export class NotificationsPageStudentComponent {
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
   }
 
-
   passTheTest(request) {
     console.log(request._id);
   }
