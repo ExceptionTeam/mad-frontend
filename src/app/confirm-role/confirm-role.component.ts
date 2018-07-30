@@ -23,7 +23,7 @@ export class ConfirmRoleComponent {
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' }
   ];
-  req;
+  onDisplay;
   requests;
 
   getRequests(skip: number, top: number) {
@@ -31,13 +31,13 @@ export class ConfirmRoleComponent {
   }
 
   onPaginateChange() {
-    this.req = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
+    this.onDisplay = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
   }
 
   constructor() {
     this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
-    this.req = this.getRequests(0, 10);
+    this.onDisplay = this.getRequests(0, 10);
   }
 
   onclickConfirm(request) {
