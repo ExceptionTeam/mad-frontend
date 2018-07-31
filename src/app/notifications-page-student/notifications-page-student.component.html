@@ -8,7 +8,6 @@
       Тренировочный тест по теме: "{{request.sectionId.name}}" доступен к прохождению
       </span>
     <button mat-button *ngIf="!request.isTestChecked" (click)="passTheTest(request)">Пройти</button>
-    <span mat-line>{{request.userId.surname}} {{request.userId.name}}</span>
     <span mat-line>{{request.date | date : "MM.dd.yy, hh:mm"}}</span>
 
     <mat-divider></mat-divider>
