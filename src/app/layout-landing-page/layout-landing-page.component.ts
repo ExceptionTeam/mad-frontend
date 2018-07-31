@@ -27,13 +27,11 @@ export class LayoutLandingPageComponent {
 
   adminNavMenu: FieldsOfMenu[] = [
     { name: 'Вопросы', link: '' },
-    { name: 'Тесты', link: '' },
     { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Статистика по ученикам', link: '/all-students' },
-    { name: 'Статистика по учителям', link: '' },
-    { name: 'Статистика по тестам', link: '' },
-    { name: 'Статистика по задачам', link: '' },
+    { name: 'Ученики', link: 'test/statistics-students' },
+    { name: 'Учителя', link: '' },
+    { name: 'Тесты', link: 'test/statistics-tests' },
     { name: 'Лента активности', link: '' },
     { name: 'Материалы', link: '' },
   ];

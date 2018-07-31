@@ -8,9 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './home-page/home-page.module';
 import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
 import { EditPasswordModule } from './edit-password/edit-password.module';
-import { AllStudentsAdminPageModule } from './all-students-admin-page/all-students-admin-page.module';
 import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module';
-import { TestStatisticsTestsPageAdminModule } from './test-statistics-tests-page-admin/test-statistics-tests-page-admin.module';
+import { TestModule } from './Routing/test/test.module';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { TestStatisticsTestsPageAdminModule } from './test-statistics-tests-page
     RegistrationAuthorizationModule,
     EditPasswordModule,
     PersonalMenuModule,
-    AllStudentsAdminPageModule,
-    TestStatisticsTestsPageAdminModule
+    TestModule
   ],
   providers: [],
   bootstrap: [AppComponent]

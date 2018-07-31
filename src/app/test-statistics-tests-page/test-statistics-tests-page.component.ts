@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: 'exc-test-statistics-tests-page-admin',
+  selector: 'exc-test-statistics-tests-page',
   templateUrl: './test-statistics-tests-page.component.html',
   styleUrls: ['./test-statistics-tests-page.component.scss']
 })

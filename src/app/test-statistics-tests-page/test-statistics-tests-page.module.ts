@@ -5,7 +5,6 @@ import { TestStatisticsTestsPageComponent } from './test-statistics-tests-page.c
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { TestStatisticsTestsPageAdminRouting } from './test-statistics-tests-page-admin-routing.module';
 import { MatPaginatorModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
@@ -17,7 +16,6 @@ import { MatInputModule } from '@angular/material';
     MatTableModule,
     MatIconModule,
     MatExpansionModule,
-    TestStatisticsTestsPageAdminRouting,
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule
