@@ -1,15 +1,5 @@
-export interface UserId {
-  _id: string;
-  name: string;
-  surname: string;
-}
-
-export interface SectionId {
-  _id: string;
-  name: string;
-  question: string;
-  answer: string;
-}
+import { SectionId } from '../Types/SectionId.type';
+import { UserId } from '../Types/UserId.type';
 
 export interface CheckQuestion {
   _id: string;

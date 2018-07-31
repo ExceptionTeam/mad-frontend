@@ -1,7 +1,6 @@
 <mat-list>
   <mat-list-item *ngFor="let request of onDisplay">
     <span mat-line class="title">{{request.userId.name}} {{request.userId.surname}}</span>
-    <p mat-line><span class="title">Раздел:</span> {{request.sectionId.name}} </p>
     <p mat-line class="wrap"><span class="title">Вопрос:</span> {{request.sectionId.question}} </p>
 
     <p mat-line class="wrap">

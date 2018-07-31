@@ -5,7 +5,7 @@ import { NotificationsAdminComponent } from '../../notifications-admin/notificat
 import { ConfirmRoleComponent } from '../../confirm-role/confirm-role.component';
 import { ConfirmTrainingTestComponent } from '../../confirm-training-test/confirm-training-test.component';
 import { CheckAnswerPageComponent } from '../../check-answer-page/check-answer-page.component';
-
+import { NotificationsPageStudentComponent } from '../../notifications-page-student/notifications-page-student.component';
 
 const routes: Routes = [
   {
@@ -30,6 +30,15 @@ const routes: Routes = [
           {
             path: 'check-answer',
             component: CheckAnswerPageComponent
+          },
+        ]
+      },
+      {
+        path: 'notifications',
+        children: [
+          {
+            path: 'tests',
+            component: NotificationsPageStudentComponent
           }
         ]
       }
