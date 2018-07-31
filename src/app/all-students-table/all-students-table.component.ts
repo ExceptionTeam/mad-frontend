@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'exc-all-students-table',
@@ -7,10 +7,12 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
   styleUrls: ['./all-students-table.component.scss']
 })
 export class AllStudentsTableComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'university'];
-  @Input() dataSource;
-  constructor() { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @Input() dataSource;
+  displayedColumns: string[] = ['name', 'university'];
+
+  constructor() {
+  }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;

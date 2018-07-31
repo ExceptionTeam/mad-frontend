@@ -6,8 +6,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { AllStudentsRoutingModule } from './all-students-routing.module';
-import { AllStudentsAdminPageComponent } from './all-students-admin-page.component';
+import { TestStatisticsUsersPageComponent } from './test-statistics-users-page.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material';
 
@@ -19,17 +18,16 @@ import { MatInputModule } from '@angular/material';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-    AllStudentsRoutingModule,
     MatPaginatorModule,
     MatInputModule
   ],
   declarations: [
     AllStudentsTableComponent,
-    AllStudentsAdminPageComponent
+    TestStatisticsUsersPageComponent
   ],
   exports: [],
   providers: [],
 })
 
-export class AllStudentsAdminPageModule {
+export class TestStatisticsUsersPageModule {
 }
