@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { TestStatisticsTestsPageAdminComponent } from './test-statistics-tests-page-admin.component';
+import { TestStatisticsTestsPageComponent } from './test-statistics-tests-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -23,10 +23,10 @@ import { MatInputModule } from '@angular/material';
     MatInputModule
   ],
   declarations: [
-    TestStatisticsTestsPageAdminComponent
+    TestStatisticsTestsPageComponent
   ],
   exports: [],
   providers: [],
 })
-export class TestStatisticsTestsPageAdminModule {
+export class TestStatisticsTestsPageModule {
 }
