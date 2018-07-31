@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material'; '';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'exc-test-statistics-users-page',
@@ -14,7 +14,9 @@ export class TestStatisticsUsersPageComponent implements OnInit {
     { name: 'dfs', surname: 'fesf', university: 'fefwe' },
     { name: 'dfs', surname: 'fesf', university: 'fefwe' },
   ]);
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

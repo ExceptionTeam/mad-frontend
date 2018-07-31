@@ -14,6 +14,10 @@ const taskRoutes: Routes = [
       {
         path: 'statistics-students',
         component: TestStatisticsUsersPageComponent
+      },
+      {
+        path: 'statistics-teachers',
+        component: TestStatisticsUsersPageComponent
       }]
   }];
 
