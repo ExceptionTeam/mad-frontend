@@ -30,6 +30,6 @@
                             [editInputFiles]="taskInfo.inputFilesId"
                             [editOutputFiles]="taskInfo.outputFilesId"
                             (validFiles)="changeValidState($event)"></exc-input-output-files>
-    <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>{{buttonName}}</button>
+    <button type="submit" [disabled]="!form.valid || !validFiles"  mat-button>{{buttonName}}</button>
   </form>
 </div>

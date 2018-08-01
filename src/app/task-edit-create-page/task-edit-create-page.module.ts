@@ -22,7 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
     TaskSendingModule,
     MatInputModule,
     MatSnackBarModule,
-    MatSelectModule,
+    MatSelectModule
   ],
   declarations: [
     TaskInputOutputFilesComponent,

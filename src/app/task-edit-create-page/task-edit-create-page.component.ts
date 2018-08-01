@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
 
 @Component({
@@ -18,7 +18,9 @@ export class TaskEditCreatePageComponent {
   private id;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private tasksService: TaskService) {
+    private tasksService: TaskService,
+    private router: Router
+  ) {
     this.validFiles = this.validFiles || false;
     this.taskInfo = this.taskInfo || {
       name: '',
@@ -64,9 +66,13 @@ export class TaskEditCreatePageComponent {
       counter += this.InputOutputFiles.length;
     }
     if (this.id === undefined) {
-      this.tasksService.postAddTaskTeacher(formData, this.InputOutputFiles.length).subscribe();
+      this.tasksService.postAddTaskTeacher(formData, this.InputOutputFiles.length).subscribe(
+        data => this.router.navigate([`/task/table-teacher`])
+      );
     } else {
-      this.tasksService.postEditTaskTeacher(formData, '5b5efe3293d0e018e441a021', counter).subscribe();
+      this.tasksService.postEditTaskTeacher(formData, this.id, counter).subscribe(
+        data => this.router.navigate([`/task/table-teacher`])
+      );
     }
   }
 
