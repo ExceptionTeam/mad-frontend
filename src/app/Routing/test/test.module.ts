@@ -4,6 +4,7 @@ import { TestStatisticsTestsPageModule } from '../../test-statistics-tests-page/
 import { TestRoutingModule } from './test-routing.module';
 import { TestPassingPageModule } from '../../test-passing-page/test-passing-page.module';
 import { TestAllTestsStudentsModule } from '../../test-all-tests-student/test-all-tests-student.module';
+import { TestAssignModule } from '../../test-assign-page/test-assign-page.module';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { TestAllTestsStudentsModule } from '../../test-all-tests-student/test-al
     TestStatisticsTestsPageModule,
     TestRoutingModule,
     TestPassingPageModule,
-    TestAllTestsStudentsModule
+    TestAllTestsStudentsModule,
+    TestAssignModule
   ],
   exports: [],
   declarations: [],
