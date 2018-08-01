@@ -1,0 +1,3 @@
+<mat-radio-group class="radioGroupAnswers" *ngFor="let answer of answers; let i=index" [ngModel]="studentAnswer" (change)="changeValue($event)">
+  <mat-radio-button [value]="i">{{answer}}</mat-radio-button>
+</mat-radio-group>
