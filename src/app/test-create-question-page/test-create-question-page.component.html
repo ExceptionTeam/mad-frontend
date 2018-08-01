@@ -55,6 +55,9 @@
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
         </mat-form-field>
 
+        <button mat-button type="button" (click)="onclickBack()">
+          Назад
+        </button>
         <button mat-button type="button" (click)="onSubmitWithVariants()" [disabled]="!variantForm.valid">
           Добавить
         </button>
@@ -84,6 +87,9 @@
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
         </mat-form-field>
 
+        <button mat-button type="button" (click)="onclickBack()">
+          Назад
+        </button>
         <button mat-button type="button" (click)="onSubmitAnsWord()" [disabled]="!wordForm.valid">
           Добавить
         </button>
@@ -108,6 +114,9 @@
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
         </mat-form-field>
 
+        <button mat-button type="button" (click)="onclickBack()">
+          Назад
+        </button>
         <button mat-button type="button" (click)="onSubmitLongAnswer()" [disabled]="!longAnsForm.valid">
           Добавить
         </button>

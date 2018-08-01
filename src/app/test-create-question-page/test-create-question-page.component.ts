@@ -114,6 +114,12 @@ export class TestCreateQuestionPageComponent {
     this.value = 50;
   }
 
+  onclickBack() {
+    this.showSecondPart = false;
+    this.value = 0;
+
+  }
+
   onSubmitWithVariants() {
     console.log(this.variantForm.value);
     console.log('tags:', this.variantForm.get('tags').value.split(/[\s]+/));

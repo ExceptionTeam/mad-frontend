@@ -13,7 +13,7 @@ import { TestModule } from './Routing/test/test.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
