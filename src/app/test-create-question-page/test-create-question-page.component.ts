@@ -3,6 +3,27 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 
 const reg = /^[^,.'"?!@:;\/]+$/;
 
+const everythigIsOkkkk = (array) => {
+  let countCheck = 0;
+  let countAns = 0;
+  const res = array.every(item => {
+    if (item.ans.length === 0 && item.rightAns) {
+      return false;
+    }
+    if (item.rightAns) {
+      countCheck++;
+    }
+    if (item.ans.length !== 0) {
+      countAns++;
+    }
+    return true;
+  });
+  if (countCheck === 0 || countAns === 0) {
+    return false;
+  }
+  return res;
+};
+
 @Component({
   selector: 'exc-test-create-question-page',
   templateUrl: './test-create-question-page.component.html',
@@ -13,18 +34,19 @@ export class TestCreateQuestionPageComponent {
   variantForm: FormGroup;
   wordForm: FormGroup;
   longAnsForm: FormGroup;
-  // variants = [];
   sections: string[];
   value: number;
   showSecondPart: boolean;
 
 
   constructor(private fb: FormBuilder) {
-    this.sections = ['многопоточность', 'еще раздел',
+    this.sections = [
       'многопоточность', 'еще раздел',
       'многопоточность', 'еще раздел',
       'многопоточность', 'еще раздел',
-      'многопоточность', 'еще раздел'];
+      'многопоточность', 'еще раздел',
+      'многопоточность', 'еще раздел'
+    ];
     this.showSecondPart = false;
     this.value = 0;
     this.firstForm = this.fb.group({
@@ -32,16 +54,18 @@ export class TestCreateQuestionPageComponent {
     });
     this.variantForm = this.fb.group({
       question: ['', Validators.required],
+
       variants: new FormArray([
         new FormGroup({ ans: new FormControl(''), rightAns: new FormControl(false) }),
         new FormGroup({ ans: new FormControl(''), rightAns: new FormControl(false) }),
-      ]),
+      ], this.ansVariantsValidator),
+
       section: ['', Validators.required],
       tags: ['', Validators.compose([this.tagsValidator, Validators.required])]
     });
     this.wordForm = this.fb.group({
       question: ['', Validators.required],
-      answer: ['', Validators.compose([this.ansValidator, Validators.required])],
+      answer: ['', Validators.compose([this.ansWordValidator, Validators.required])],
       section: ['', Validators.required],
       tags: ['', Validators.compose([this.tagsValidator, Validators.required])]
     });
@@ -57,10 +81,18 @@ export class TestCreateQuestionPageComponent {
   }
 
   addVariant() {
-    console.log(this.variants.controls.values());
     this.variants.push(new FormGroup(
       { ans: new FormControl(''), rightAns: new FormControl(false) }
     ));
+  }
+
+  ansVariantsValidator(control: AbstractControl) {
+    if (!everythigIsOkkkk(control.value)) {
+      return {
+        validVariants: true
+      };
+    }
+    return null;
   }
 
   tagsValidator(control: AbstractControl) {
@@ -70,16 +102,11 @@ export class TestCreateQuestionPageComponent {
     return null;
   }
 
-  ansValidator(control: AbstractControl) {
+  ansWordValidator(control: AbstractControl) {
     if (control.value.search(/[\s]+/) !== -1) {
       return { validAns: true };
     }
     return null;
-  }
-
-  addAnswer() {
-    // this.variants.push('');
-    // console.log(this.variants);
   }
 
   onFirstSubmit() {
