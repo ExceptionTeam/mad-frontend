@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestStatisticsTestsPageComponent } from '../../test-statistics-tests-page/test-statistics-tests-page.component';
 import { TestStatisticsUsersPageComponent } from '../../test-statistics-users-page/test-statistics-users-page.component';
 import { TestPassingPageComponent } from '../../test-passing-page/test-passing-page.component';
+import { TestAllTestsStudentComponent } from '../../test-all-tests-student/test-all-tests-student.component';
 import { TestAssignPageComponent } from '../../test-assign-page/test-assign-page.component';
 
 const taskRoutes: Routes = [
@@ -10,20 +11,29 @@ const taskRoutes: Routes = [
     path: 'test',
     children: [
       {
-        path: 'statistics-tests',
-        component: TestStatisticsTestsPageComponent
+        path: 'statistics',
+        children: [
+          {
+            path: '',
+            component: TestStatisticsTestsPageComponent
+          },
+          {
+            path: 'students',
+            component: TestStatisticsUsersPageComponent
+          },
+          {
+            path: 'teachers',
+            component: TestStatisticsUsersPageComponent
+          },
+        ]
       },
       {
-        path: 'statistics-students',
-        component: TestStatisticsUsersPageComponent
-      },
-      {
-        path: 'statistics-teachers',
-        component: TestStatisticsUsersPageComponent
-      },
-      {
-        path: 'test',
+        path: 'passing',
         component: TestPassingPageComponent
+      },
+      {
+        path: 'tests-table',
+        component: TestAllTestsStudentComponent
       },
       {
         path: 'assign',
