@@ -49,6 +49,12 @@ export class TaskService {
       body, { headers: this.headers });
   }
 
+  postEditTaskTeacher(body, id, length): Observable<FormData> {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<FormData>(`http://localhost:3000/teacher/task/edit-task/${id}/${length}`,
+    body, { headers: this.headers });
+  }
+
   postAssignTask(body): Observable<AssignRequestData> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     return this.http.post<AssignRequestData>('http://localhost:3000/teacher/task/assign',
