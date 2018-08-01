@@ -8,10 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './home-page/home-page.module';
 import { RegistrationAuthorizationModule } from './registration-authorization/registration-authorization.module';
 import { EditPasswordModule } from './edit-password/edit-password.module';
-import { AllStudentsAdminPageModule } from './all-students-admin-page/all-students-admin-page.module';
 import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module';
+<<<<<<< HEAD
 import { TestStatisticsTestsPageAdminModule } from './test-statistics-tests-page-admin/test-statistics-tests-page-admin.module';
 import { TestPassingPageModule } from './test-passing-page/test-passing-page.module';
+=======
+import { TestModule } from './Routing/test/test.module';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -28,9 +31,13 @@ import { TestPassingPageModule } from './test-passing-page/test-passing-page.mod
     RegistrationAuthorizationModule,
     EditPasswordModule,
     PersonalMenuModule,
+<<<<<<< HEAD
     AllStudentsAdminPageModule,
     TestStatisticsTestsPageAdminModule,
     TestPassingPageModule
+=======
+    TestModule
+>>>>>>> master
   ],
   providers: [],
   bootstrap: [AppComponent]

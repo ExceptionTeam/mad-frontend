@@ -7,7 +7,8 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./confirm-role.component.scss']
 })
 export class ConfirmRoleComponent {
-  requests = [
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  requestsRole = [
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
@@ -22,20 +23,24 @@ export class ConfirmRoleComponent {
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
     { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' }
   ];
-  req;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  onDisplay;
+  requests;
 
   getRequests(skip: number, top: number) {
     return this.requests.slice(skip, top);
   }
 
   onPaginateChange() {
-    this.req = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
+    this.onDisplay = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
   }
 
   constructor() {
-    this.req = this.getRequests(0, 10);
+    this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
+    this.onDisplay = this.getRequests(0, 10);
+  }
+
+  onclickConfirm(request) {
+    request.display = false;
   }
 }
