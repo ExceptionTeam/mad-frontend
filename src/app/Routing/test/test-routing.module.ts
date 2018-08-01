@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestStatisticsTestsPageComponent } from '../../test-statistics-tests-page/test-statistics-tests-page.component';
 import { TestStatisticsUsersPageComponent } from '../../test-statistics-users-page/test-statistics-users-page.component';
 import { TestPassingPageComponent } from '../../test-passing-page/test-passing-page.component';
+import { TestAssignPageComponent } from '../../test-assign-page/test-assign-page.component';
 
 const taskRoutes: Routes = [
   {
@@ -23,6 +24,10 @@ const taskRoutes: Routes = [
       {
         path: 'test',
         component: TestPassingPageComponent
+      },
+      {
+        path: 'assign',
+        component: TestAssignPageComponent
       }
     ]
   }];

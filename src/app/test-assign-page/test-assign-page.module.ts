@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { TaskAssigningModule } from '../task-assigning-window/task-assigning.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TestAssignPageComponent } from '../test-assign-page/test-assign-page.component';
+import { TestTagsValidator } from '../test-tags-validator/test-tags-validator.directive';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { TestAssignPageComponent } from '../test-assign-page/test-assign-page.co
     ReactiveFormsModule
   ],
   declarations: [
-    TestAssignPageComponent
+    TestAssignPageComponent,
+    TestTagsValidator
    ],
   exports: [TestAssignPageComponent],
   providers: [],
