@@ -24,28 +24,7 @@
   width: 80vw;
 }
 
-::ng-deep .mat-paginator-icon {
-  min-width: 60px;
-}
-
-::ng-deep .mat-paginator-range-label {
-  width: 70px;
-  margin: 20px 0 0 0 !important;
-  font-size: initial;
-}
-
-::ng-deep .mat-paginator-container {
-  width: 65px;
-}
-
-.paginator {
-  display: flex;
-  flex-direction: row;
-  width: 4%;
-}
-
 .mat-button {
   margin-top: 20px;
-  margin-left: 10px;
   padding: 0;
 }

@@ -25,12 +25,10 @@
     </mat-card-content>
 
   </mat-card>
-  <div class="paginator">
     <mat-paginator [length]="questions.length"
                    [pageSize]="1"
                    [hidePageSize]="true"
                    (page)="onPaginateChange()">
     </mat-paginator>
     <button mat-button>Отправить</button>
-  </div>
 </div>
