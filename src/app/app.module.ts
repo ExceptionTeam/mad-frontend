@@ -10,6 +10,7 @@ import { RegistrationAuthorizationModule } from './registration-authorization/re
 import { EditPasswordModule } from './edit-password/edit-password.module';
 import { AllStudentsAdminPageModule } from './all-students-admin-page/all-students-admin-page.module';
 import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module';
+import { TestAssignModule } from './test-assign-page/test-assign-page.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module
     RegistrationAuthorizationModule,
     EditPasswordModule,
     PersonalMenuModule,
-    AllStudentsAdminPageModule
+    AllStudentsAdminPageModule,
+    TestAssignModule
   ],
   providers: [],
   bootstrap: [AppComponent]

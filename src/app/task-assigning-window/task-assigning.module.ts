@@ -31,7 +31,7 @@ import { RouterModule } from '@angular/router';
     TaskAssigningWindowComponent,
     TaskSelectStudentOrGroupComponent
   ],
-  exports: [TaskAssigningWindowComponent],
+  exports: [TaskAssigningWindowComponent, TaskSelectStudentOrGroupComponent],
   providers: [],
   entryComponents: [TaskAssigningWindowComponent]
 })
