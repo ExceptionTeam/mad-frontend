@@ -1,0 +1,34 @@
+<div class="test">
+  <p class="timer">Осталось: {{this.timer}}</p>
+  <mat-card>
+    <mat-card-content>
+      <p>{{req.description}}</p>
+      <section *ngIf="req.type==='severalAnswer'">
+        <exc-test-several-answer [answers]="req.answers" [(studentCheckboxAnswers)]="req.studentCheckboxAnswers">
+        </exc-test-several-answer>
+      </section>
+
+      <section *ngIf="req.type==='oneAnswer'">
+        <exc-test-one-answer [answers]="req.answers" [(studentAnswer)]="req.studentAnswer">
+        </exc-test-one-answer>
+      </section>
+
+      <section *ngIf="req.type==='wordAnswer'">
+        <exc-test-word-answer [(studentAnswer)]="req.studentAnswer">
+        </exc-test-word-answer>
+      </section>
+
+      <section *ngIf="req.type==='severalWordAnswer'">
+        <exc-test-several-word-answer [(studentAnswer)]="req.studentAnswer">
+        </exc-test-several-word-answer>
+      </section>
+    </mat-card-content>
+
+  </mat-card>
+    <mat-paginator [length]="questions.length"
+                   [pageSize]="1"
+                   [hidePageSize]="true"
+                   (page)="onPaginateChange()">
+    </mat-paginator>
+    <button mat-button>Отправить</button>
+</div>

@@ -5,10 +5,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { ConfirmRoleComponent } from '../confirm-role/confirm-role.component';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatPaginatorModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
-import { MatPaginatorModule } from '@angular/material';
-
+import { ConfirmTrainingTestComponent } from '../confirm-training-test/confirm-training-test.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { CheckAnswerPageComponent } from '../check-answer-page/check-answer-page.component';
 
 @NgModule({
   imports: [
@@ -19,12 +20,19 @@ import { MatPaginatorModule } from '@angular/material';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatBadgeModule
   ],
   declarations: [NotificationsAdminComponent,
-    ConfirmRoleComponent],
+    ConfirmRoleComponent,
+    ConfirmTrainingTestComponent,
+    CheckAnswerPageComponent
+  ],
   exports: [NotificationsAdminComponent,
-    ConfirmRoleComponent],
+    ConfirmRoleComponent,
+    ConfirmTrainingTestComponent,
+    CheckAnswerPageComponent
+  ],
   providers: []
 })
 export class NotificationsAdminModule {
