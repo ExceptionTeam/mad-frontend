@@ -27,8 +27,7 @@ import { TestModule } from './Routing/test/test.module';
     RegistrationAuthorizationModule,
     EditPasswordModule,
     PersonalMenuModule,
-    AllStudentsAdminPageModule,
-    TestAssignModule
+    TestAssignModule,
     TestModule
   ],
   providers: [],
