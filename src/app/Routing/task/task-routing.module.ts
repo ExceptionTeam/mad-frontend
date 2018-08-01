@@ -6,6 +6,7 @@ import { TaskEditCreatePageComponent } from '../../task-edit-create-page/task-ed
 import { TaskSendingPageComponent } from '../../task-sending-page/task-sending-page.component';
 import { TaskFullDescrTeacherComponent } from '../../task-full-descr-teacher-page/task-full-descr-teacher.component';
 import { TaskAfterSendingPageComponent } from '../../task-after-sending-page/task-after-sending-page.component';
+import { TestPassingPageComponent } from '../../test-passing-page/test-passing-page.component';
 
 const taskRoutes: Routes = [
   {
@@ -42,6 +43,10 @@ const taskRoutes: Routes = [
       {
         path: 'attempts/:id',
         component: TaskAfterSendingPageComponent
+      },
+      {
+        path: 'test',
+        component: TestPassingPageComponent
       }
     ]
   }

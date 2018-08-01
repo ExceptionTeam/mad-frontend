@@ -11,6 +11,7 @@ import { EditPasswordModule } from './edit-password/edit-password.module';
 import { AllStudentsAdminPageModule } from './all-students-admin-page/all-students-admin-page.module';
 import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module';
 import { TestStatisticsTestsPageAdminModule } from './test-statistics-tests-page-admin/test-statistics-tests-page-admin.module';
+import { TestPassingPageModule } from './test-passing-page/test-passing-page.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TestStatisticsTestsPageAdminModule } from './test-statistics-tests-page
     EditPasswordModule,
     PersonalMenuModule,
     AllStudentsAdminPageModule,
-    TestStatisticsTestsPageAdminModule
+    TestStatisticsTestsPageAdminModule,
+    TestPassingPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
