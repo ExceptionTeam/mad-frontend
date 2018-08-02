@@ -33,8 +33,13 @@ const taskRoutes: Routes = [
         component: TestPassingPageComponent
       },
       {
+        path: 'student',
+        children: [
+          {
         path: 'tests-table',
         component: TestAllTestsStudentComponent
+          }
+        ]
       },
       {
         path: 'assign',
