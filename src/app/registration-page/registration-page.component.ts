@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
-import { TaskService } from 'src/app/task.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'exc-registration-page',
@@ -18,7 +18,7 @@ export class RegistrationPageComponent {
   filteredOptions: Observable<string[]>;
 
   constructor(private _formBuilder: FormBuilder,
-    private taskService: TaskService
+    private userService: UserService
   ) {
     this.nameSurnameFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
@@ -61,8 +61,7 @@ export class RegistrationPageComponent {
       primarySkill: this.universityFormGroup.value.primarySkill,
       account: acc
     };
-    console.log(body);
-    this.taskService.postRegistrate(body).subscribe();
+    this.userService.registrate(body).subscribe();
   }
 
   changeRole(role) {
