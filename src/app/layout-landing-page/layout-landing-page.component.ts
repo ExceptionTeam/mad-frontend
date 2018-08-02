@@ -11,7 +11,7 @@ export class LayoutLandingPageComponent {
   @ViewChild(LayoutNavigationComponent) mainMenu: LayoutNavigationComponent;
 
   studentNavMenu: FieldsOfMenu[] = [
-    { name: 'Мои тесты', link: 'test/student/tests-table' },
+    { name: 'Мои тесты', link: 'test/tests-table' },
     { name: 'Мои задачи', link: 'task/table-student' },
     { name: 'Статистика', link: '' },
     { name: 'Материлы', link: '' },
@@ -19,7 +19,7 @@ export class LayoutLandingPageComponent {
 
   teacherNavMenu: FieldsOfMenu[] = [
     { name: 'Вопросы', link: '' },
-    { name: 'Тесты', link: 'test/teacher/assigned-tests' },
+    { name: 'Тесты', link: 'test/assigned-tests' },
     { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои группы', link: '/my-groups' },
     { name: 'Материалы', link: '' },
@@ -29,10 +29,10 @@ export class LayoutLandingPageComponent {
     { name: 'Вопросы', link: '' },
     { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Ученики', link: 'test/statistics-students' },
-    { name: 'Учителя', link: 'test/statistics-teachers' },
-    { name: 'Тесты', link: 'test/statistics-tests' },
-    { name: 'Лента активности', link: '' },
+    { name: 'Ученики', link: 'test/statistics/students' },
+    { name: 'Учителя', link: 'test/statistics/teachers' },
+    { name: 'Тесты', link: 'test/statistics' },
+    { name: 'Лента активности', link: 'activity' },
     { name: 'Материалы', link: '' },
   ];
 
