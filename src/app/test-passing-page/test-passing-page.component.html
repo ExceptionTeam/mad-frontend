@@ -1,0 +1,33 @@
+<div class="test">
+  <p class="timer" *ngIf="timer">Осталось: {{timer}}</p>
+  <mat-card>
+    <mat-card-content>
+      <section *ngIf="req.type==='severalAnswer'">
+        <exc-test-several-answer [question]="req.description" [answers]="req.answers" [(studentAnswer)]="req.studentAnswer" [disabled]="disabled">
+        </exc-test-several-answer>
+      </section>
+
+      <section *ngIf="req.type==='oneAnswer'">
+        <exc-test-one-answer [question]="req.description" [answers]="req.answers" [(studentAnswer)]="req.studentAnswer" [disabled]="disabled">
+        </exc-test-one-answer>
+      </section>
+
+      <section *ngIf="req.type==='wordAnswer'">
+        <exc-test-word-answer [question]="req.description" [(studentAnswer)]="req.studentAnswer" [disabled]="disabled">
+        </exc-test-word-answer>
+      </section>
+
+      <section *ngIf="req.type==='severalWordAnswer'">
+        <exc-test-several-word-answer [question]="req.description" [(studentAnswer)]="req.studentAnswer" [disabled]="disabled">
+        </exc-test-several-word-answer>
+      </section>
+    </mat-card-content>
+
+  </mat-card>
+    <mat-paginator [length]="questions.length"
+                   [pageSize]="1"
+                   [hidePageSize]="true"
+                   (page)="onPaginateChange()">
+    </mat-paginator>
+    <button mat-button>{{buttonType}}</button>
+</div>

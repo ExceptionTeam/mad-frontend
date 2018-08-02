@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TestStatisticsTestsPageComponent } from '../../test-statistics-tests-page/test-statistics-tests-page.component';
 import { TestStatisticsUsersPageComponent } from '../../test-statistics-users-page/test-statistics-users-page.component';
+import { TestPassingPageComponent } from '../../test-passing-page/test-passing-page.component';
+import { TestAllTestsStudentComponent } from '../../test-all-tests-student/test-all-tests-student.component';
+import { TestAssignPageComponent } from '../../test-assign-page/test-assign-page.component';
+import { TestAllAssignedTestsPageComponent } from 'src/app/test-all-assigned-tests-page/test-all-assigned-tests-page.component';
 import { TestCreateQuestionPageComponent } from '../../test-create-question-page/test-create-question-page.component';
 
 const taskRoutes: Routes = [
@@ -9,21 +13,53 @@ const taskRoutes: Routes = [
     path: 'test',
     children: [
       {
-        path: 'statistics-tests',
-        component: TestStatisticsTestsPageComponent
+        path: 'statistics',
+        children: [
+          {
+            path: '',
+            component: TestStatisticsTestsPageComponent
+          },
+          {
+            path: 'students',
+            component: TestStatisticsUsersPageComponent
+          },
+          {
+            path: 'teachers',
+            component: TestStatisticsUsersPageComponent
+          },
+        ]
       },
       {
-        path: 'statistics-students',
-        component: TestStatisticsUsersPageComponent
+        path: 'passing/:id',
+        component: TestPassingPageComponent
       },
       {
-        path: 'statistics-teachers',
-        component: TestStatisticsUsersPageComponent
+        path: 'student',
+        children: [
+          {
+        path: 'tests-table',
+        component: TestAllTestsStudentComponent
+          }
+        ]
+      },
+      {
+        path: 'assign',
+        component: TestAssignPageComponent
+      },
+      {
+        path: 'teacher',
+        children: [
+          {
+            path: 'assigned-tests',
+            component: TestAllAssignedTestsPageComponent
+          }
+        ]
       },
       {
         path: 'add-question',
         component: TestCreateQuestionPageComponent
-      }]
+      }
+    ]
   }];
 
 @NgModule({

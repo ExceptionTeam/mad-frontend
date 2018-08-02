@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { InputOutputFiles } from 'src/app/Types/InputOutputFiles.type';
 import { TaskFullInfo } from 'src/app/Types/TaskFullInfo.type';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
 
 @Component({
@@ -18,7 +18,9 @@ export class TaskEditCreatePageComponent {
   private id;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private tasksService: TaskService) {
+    private tasksService: TaskService,
+    private router: Router
+  ) {
     this.validFiles = this.validFiles || false;
     this.taskInfo = this.taskInfo || {
       name: '',
@@ -33,6 +35,7 @@ export class TaskEditCreatePageComponent {
     if (this.id !== undefined) {
       tasksService.getTaskFullInfoTeacher(this.id).subscribe(data => {
         this.taskInfo = data;
+        console.log(this.taskInfo);
       }
       );
       this.buttonName = 'Изменить';
@@ -42,26 +45,34 @@ export class TaskEditCreatePageComponent {
 
   onSubmit(value) {
     const formData = new FormData();
+    let counter = this.taskInfo.inputFilesId ? this.taskInfo.inputFilesId.length : 0;
     formData.append('name', value.name);
     formData.append('description', value.description);
     formData.append('tags', value.tags);
     formData.append('weight', value.weight);
     if (this.id !== undefined) {
-      this.taskInfo.inputFilesId.forEach(function (item) {
-        formData.append('editInput ', item.id);
+      this.taskInfo.inputFilesId.forEach(function (item, i) {
+        formData.set('input' + (i + 1), item._id);
       });
-      this.taskInfo.outputFilesId.forEach(function (item) {
-        formData.append('editOutput ', item.id);
+      this.taskInfo.outputFilesId.forEach(function (item, i) {
+        formData.set('output' + (i + 1), item._id);
       });
     }
     if (this.InputOutputFiles) {
       this.InputOutputFiles.forEach(function (item, i) {
-        formData.set('input' + (i + 1), item.input);
-        formData.set('output' + (i + 1), item.output);
+        formData.set('input' + (i + 1 + counter), item.input);
+        formData.set('output' + (i + 1 + counter), item.output);
       });
+      counter += this.InputOutputFiles.length;
     }
     if (this.id === undefined) {
-      this.tasksService.postAddTaskTeacher(formData, this.InputOutputFiles.length).subscribe();
+      this.tasksService.postAddTaskTeacher(formData, this.InputOutputFiles.length).subscribe(
+        data => this.router.navigate([`/task/table-teacher`])
+      );
+    } else {
+      this.tasksService.postEditTaskTeacher(formData, this.id, counter).subscribe(
+        data => this.router.navigate([`/task/table-teacher`])
+      );
     }
   }
 

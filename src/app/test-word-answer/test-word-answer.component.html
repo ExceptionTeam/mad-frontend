@@ -1,0 +1,8 @@
+<p>{{question}}</p>
+<mat-form-field>
+    <input matInput placeholder="Введите ответ:"
+           maxlength="30"
+           [ngModel]="studentAnswer"
+           (change)="changeAnswer($event)"
+           [disabled]="disabled">
+  </mat-form-field>
