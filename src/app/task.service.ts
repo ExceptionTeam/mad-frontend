@@ -89,12 +89,13 @@ export class TaskService {
   getInfoTaskTry(id): Observable<TaskSubmition[]> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskSubmition[]>('http://localhost:3000/student/task/submissions' +
-      '/' + id,
+      '/' + '5b521258d933542744b8b090',
       { headers: this.headers });
   }
 
   getStudentTasks(id) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
+    id = '5b520791fdbcf907d07ac183';
     return this.http.get<StudentTask[]>(`http://localhost:3000/student/task/tasks-list/${id}`, {
       headers: this.headers
     }).subscribe(value => this.studentTasks$.next(value));
@@ -113,7 +114,6 @@ export class TaskService {
   downloadTaskStudent(id) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     // this.headers.append('Content-type', 'text/plain');
-    // this.headers.append('Accept', 'text/plain ');
     // this.headers.append('Content-type', 'text/plain charset=utf-8');
     return this.http.get(`http://localhost:3000/student/task/download/${id}`, { headers: this.headers });
   }
