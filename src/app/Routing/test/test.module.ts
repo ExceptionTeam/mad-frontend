@@ -16,7 +16,7 @@ import { TestCreateQuestionModule } from '../../test-create-question-page/test-c
     TestPassingPageModule,
     TestAllTestsStudentsModule,
     TestAssignModule,
-    AllAssignedTestsModule
+    AllAssignedTestsModule,
     TestRoutingModule,
     TestCreateQuestionModule
   ],
