@@ -3,7 +3,6 @@
 <ng-container *ngIf="!showSecondPart">
   <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="first-form">
     <div class="add-question-content">
-
       <mat-slide-toggle>Тренировочный вопрос</mat-slide-toggle>
       <span class="types">Типы вопросов:</span>
       <mat-radio-group formControlName="type">
@@ -16,10 +15,10 @@
       </button>
     </div>
   </form>
-
 </ng-container>
 
 <ng-container *ngIf="showSecondPart">
+
   <ng-container *ngIf="firstForm.value.type==='variants'">
     <form [formGroup]="variantForm" (ngSubmit)="onSubmitWithVariants()">
       <div class="add-question-content">
@@ -70,7 +69,6 @@
 
       </div>
     </form>
-
   </ng-container>
 
   <ng-container *ngIf="firstForm.value.type==='word'">
@@ -93,7 +91,6 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-
 
         <mat-form-field>
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
