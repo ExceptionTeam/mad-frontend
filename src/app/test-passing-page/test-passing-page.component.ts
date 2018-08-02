@@ -4,6 +4,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs';
 import { timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'exc-test-passing-page',
@@ -19,7 +20,7 @@ export class TestPassingPageComponent implements OnInit {
   stopTime = 121;
   buttonType: string;
 
-  constructor() {
+  constructor(private router: Router) {
     this.role = 'student';
     if (this.role === 'student') {
       this.disabled = false;
@@ -30,7 +31,7 @@ export class TestPassingPageComponent implements OnInit {
           this.timer = (`0${Math.floor((this.stopTime - tick) / 60)}`).slice(-2) + ':' +
             (`0${(this.stopTime - tick - 1) % 60}`).slice(-2);
           if (this.timer === '0:0') {
-            console.log('kek');
+            this.router.navigate([`/test/student/tests-table`]);
           }
         })
       ).subscribe();
@@ -68,5 +69,9 @@ export class TestPassingPageComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onClick() {
+    this.router.navigate([`/test/student/tests-table`]);
   }
 }

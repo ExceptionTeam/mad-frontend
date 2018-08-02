@@ -40,7 +40,6 @@ export class RegistrationPageComponent {
   }
 
   private _filter(value: string): string[] {
-    console.log(value);
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
@@ -61,8 +60,7 @@ export class RegistrationPageComponent {
       primarySkill: this.universityFormGroup.value.primarySkill,
       account: acc
     };
-    console.log(body);
-   // this.userService.registrate(body).subscribe();
+    this.userService.registrate(body).subscribe();
   }
 
   changeRole(role) {
