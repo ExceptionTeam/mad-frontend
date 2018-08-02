@@ -24,7 +24,7 @@ export class RegistrationPageComponent {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      isStudent: ['', Validators.required]
+      isStudent: [null, Validators.required]
     });
     this.universityFormGroup = this._formBuilder.group({
       university: ['', Validators.required],
@@ -46,7 +46,7 @@ export class RegistrationPageComponent {
   }
 
   submitRegistration() {
-    const acc = this.nameSurnameFormGroup.value.isStudent === 'student' ? {
+    const acc = this.nameSurnameFormGroup.value.isStudent ? {
       university: this.universityFormGroup.value.university,
       year: this.universityFormGroup.value.year,
       faculty: this.universityFormGroup.value.faculty
@@ -57,11 +57,12 @@ export class RegistrationPageComponent {
       name: this.nameSurnameFormGroup.value.name,
       surname: this.nameSurnameFormGroup.value.surname,
       email: this.nameSurnameFormGroup.value.email,
-      isStudent:  this.nameSurnameFormGroup.value.isStudent === 'student' ? true : false,
+      isStudent:  this.nameSurnameFormGroup.value.isStudent,
       primarySkill: this.universityFormGroup.value.primarySkill,
       account: acc
     };
-    this.userService.registrate(body).subscribe();
+    console.log(body);
+   // this.userService.registrate(body).subscribe();
   }
 
   changeRole(role) {

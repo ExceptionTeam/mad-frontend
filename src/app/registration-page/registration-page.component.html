@@ -2,69 +2,75 @@
   <mat-step [stepControl]="nameSurnameFormGroup">
     <form [formGroup]="nameSurnameFormGroup" class="step-form" #nameSurnameForm="ngForm">
       <ng-template matStepLabel>Первый шаг</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Имя" formControlName="name">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Фамилия" formControlName="surname">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Адрес эл.почты" formControlName="email">
-      </mat-form-field>
-      <mat-radio-group formControlName="isStudent" class="full-width" (change)="changeRole($event);">
-        <mat-radio-button value="student">ученик</mat-radio-button>
-        <mat-radio-button value="teacher">учитель</mat-radio-button>
-      </mat-radio-group>
-      <div>
-        <button mat-button type="button" matStepperNext>Дальше</button>
-      </div>
+      <mat-card>
+        <mat-form-field>
+          <input matInput placeholder="Имя" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Фамилия" formControlName="surname">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Адрес эл.почты" formControlName="email">
+        </mat-form-field>
+        <mat-radio-group formControlName="isStudent" class="full-width" (change)="changeRole($event);">
+          <mat-radio-button [value]="true">ученик</mat-radio-button>
+          <mat-radio-button [value]="false">учитель</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button type="button" matStepperNext>Дальше</button>
+        </div>
+      </mat-card>
     </form>
   </mat-step>
   <mat-step [stepControl]="universityFormGroup">
     <form class="step-form" [formGroup]="universityFormGroup" #universityForm="ngForm">
       <ng-template matStepLabel>Второй шаг</ng-template>
-      <ng-container *ngIf="nameSurnameForm.value.isStudent==='student'">
+      <mat-card>
         <mat-form-field>
-          <input matInput placeholder="Факультет" formControlName="faculty">
+          <input type="text" placeholder="Выберите вуз" aria-label="Number" matInput [matAutocomplete]="auto" matInput formControlName="university">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
+        <ng-container *ngIf="nameSurnameForm.value.isStudent">
+          <mat-form-field>
+            <input matInput placeholder="Факультет" formControlName="faculty">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="text" pattern="\d*" maxlength="4" matInput placeholder="Год окончания" formControlName="year">
+          </mat-form-field>
+        </ng-container>
         <mat-form-field>
-          <input type="text" pattern="\d*" maxlength="4" matInput placeholder="Год окончания" formControlName="year">
+          <input matInput placeholder="Мои навыки" formControlName="primarySkill">
         </mat-form-field>
-      </ng-container>
-      <mat-form-field>
-        <input type="text" placeholder="Выберите вуз" aria-label="Number" matInput [matAutocomplete]="auto" matInput formControlName="university">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="primarySkill" formControlName="primarySkill">
-      </mat-form-field>
-      <div>
-        <button mat-button type="button" matStepperPrevious>Назад</button>
-        <button mat-button type="button" matStepperNext>Дальше</button>
-      </div>
+        <div>
+          <button mat-button type="button" matStepperPrevious>Назад</button>
+          <button mat-button type="button" matStepperNext>Дальше</button>
+        </div>
+      </mat-card>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Регистрация завершена</ng-template>
-    <div>
-      <mat-card>
-        <p> статус: {{nameSurnameForm.value.role}}</p>
-        <p>имя фамилия: {{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
+    <mat-card class="step-form">
+      <mat-card-content>
+        <p> статус: {{nameSurnameForm.value.isStudent ? "ученик" : "учитель"}}</p>
+        <p>имя, фамилия: {{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
         <p>mail: {{nameSurnameForm.value.email}}</p>
         <p>вуз/место работы: {{universityForm.value.university}}</p>
-        <ng-container *ngIf="universityForm.value.role=='student'">
+        <ng-container *ngIf="nameSurnameForm.value.isStudent">
           <p>факультет: {{universityForm.value.faculty}}</p>
           <p>год окончания: {{universityForm.value.year}}</p>
         </ng-container>
         <p>primarySkill: {{universityForm.value.primarySkill}}</p>
-      </mat-card>
+      </mat-card-content>
+      <div>
       <button mat-button matStepperPrevious>Назад</button>
       <button mat-button (click)="stepper.reset();">Отмена</button>
       <button mat-button (click)="submitRegistration();">Зарегистрироваться</button>
-    </div>
+      </div>
+    </mat-card>
   </mat-step>
 </mat-horizontal-stepper>
