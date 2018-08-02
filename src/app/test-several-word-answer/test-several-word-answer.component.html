@@ -1,7 +1,9 @@
+<p>{{question}}</p>
 <mat-form-field>
     <textarea matInput placeholder="Введите ответ:"
               maxlength="200"
               rows="3"
               [ngModel]="studentAnswer"
-              (change)="changeAnswer($event)"></textarea>
+              (change)="changeAnswer($event)"
+              [disabled]="disabled"></textarea>
   </mat-form-field>

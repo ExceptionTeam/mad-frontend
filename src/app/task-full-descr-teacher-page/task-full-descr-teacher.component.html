@@ -4,8 +4,9 @@
   </h1>
   <div class="tags">
     Теги:
-    <ng-container *ngFor="let item of task?.tags">
-      {{item}},
+    <ng-container *ngFor="let item of task?.tags; last as isLast">
+      {{item}}
+      <span *ngIf="!isLast">,</span>
     </ng-container>
   </div>
   <p class="task-description">

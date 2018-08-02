@@ -10,7 +10,7 @@ export class TasksTeacherPageComponent implements OnInit {
   role: string;
 
   constructor(private taskService: TaskService) {
-    this.role = 'admin';
+    this.role = 'teacher';
   }
 
   onSearch(query: string) {
