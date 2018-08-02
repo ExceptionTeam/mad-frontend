@@ -61,9 +61,9 @@ export class TaskService {
       body, { headers: this.headers });
   }
 
-  postRegistrate(body): Observable<AssignRequestData> {
+  postRegistrate(body): Observable<object> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
-    return this.http.post<AssignRequestData>('http://localhost:3000/register',
+    return this.http.post('http://localhost:3000/register',
       body, { headers: this.headers });
   }
 

@@ -46,21 +46,23 @@ export class RegistrationPageComponent {
   }
 
   submitRegistration() {
+    const acc = this.nameSurnameFormGroup.value.isStudent === 'student' ? {
+      university: this.universityFormGroup.value.university,
+      year: this.universityFormGroup.value.year,
+      faculty: this.universityFormGroup.value.faculty
+      } : {
+        university: this.universityFormGroup.value.university
+      };
     const body = {
       name: this.nameSurnameFormGroup.value.name,
       surname: this.nameSurnameFormGroup.value.surname,
       email: this.nameSurnameFormGroup.value.email,
       isStudent:  this.nameSurnameFormGroup.value.isStudent === 'student' ? true : false,
       primarySkill: this.universityFormGroup.value.primarySkill,
-      account: {
-        university: this.universityFormGroup.value.university,
-        year: this.universityFormGroup.value.year,
-        faculty: this.universityFormGroup.value.faculty
-      }
+      account: acc
     };
     console.log(body);
-    console.log(this.nameSurnameFormGroup.value);
-    // this.taskService.postRegistrate(body).subscribe();
+    this.taskService.postRegistrate(body).subscribe();
   }
 
   changeRole(role) {
