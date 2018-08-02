@@ -1,0 +1,43 @@
+.add-question-content{
+  display: flex;
+  flex-direction: column;
+  margin: 6vh;
+}
+
+.types {
+  margin-top: 2%;
+}
+
+.first-form {
+  margin: 5%;
+}
+
+.mat-button {
+  margin-top: 2vh;
+  width: 100px;
+}
+
+.mat-form-field {
+  width: 70%;
+}
+
+.input-and-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 2%;
+}
+
+.mat-checkbox {
+  margin-left: 2vw;
+}
+
+.mat-error {
+  font-size: small;
+}

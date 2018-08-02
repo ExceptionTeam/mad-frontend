@@ -6,6 +6,7 @@ import { TestPassingPageComponent } from '../../test-passing-page/test-passing-p
 import { TestAllTestsStudentComponent } from '../../test-all-tests-student/test-all-tests-student.component';
 import { TestAssignPageComponent } from '../../test-assign-page/test-assign-page.component';
 import { TestAllAssignedTestsPageComponent } from 'src/app/test-all-assigned-tests-page/test-all-assigned-tests-page.component';
+import { TestCreateQuestionPageComponent } from '../../test-create-question-page/test-create-question-page.component';
 
 const taskRoutes: Routes = [
   {
@@ -33,26 +34,20 @@ const taskRoutes: Routes = [
         component: TestPassingPageComponent
       },
       {
-        path: 'student',
-        children: [
-          {
         path: 'tests-table',
         component: TestAllTestsStudentComponent
-          }
-        ]
       },
       {
         path: 'assign',
         component: TestAssignPageComponent
       },
       {
-        path: 'teacher',
-        children: [
-          {
-            path: 'assigned-tests',
-            component: TestAllAssignedTestsPageComponent
-          }
-        ]
+        path: 'assigned-tests',
+        component: TestAllAssignedTestsPageComponent
+      },
+      {
+        path: 'add-question',
+        component: TestCreateQuestionPageComponent
       }
     ]
   }];
