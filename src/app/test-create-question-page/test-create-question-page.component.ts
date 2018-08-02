@@ -7,13 +7,13 @@ const everythigIsOkkkk = (array) => {
   let countCheck = 0;
   let countAns = 0;
   const res = array.every(item => {
-    if (item.ans.length === 0 && item.rightAns) {
+    if (item.ans === '' && item.rightAns) {
       return false;
     }
     if (item.rightAns) {
       countCheck++;
     }
-    if (item.ans.length !== 0) {
+    if (item.ans !== '') {
       countAns++;
     }
     return true;
@@ -37,7 +37,6 @@ export class TestCreateQuestionPageComponent {
   sections: string[];
   value: number;
   showSecondPart: boolean;
-
 
   constructor(private fb: FormBuilder) {
     this.sections = [
@@ -103,7 +102,7 @@ export class TestCreateQuestionPageComponent {
   }
 
   ansWordValidator(control: AbstractControl) {
-    if (control.value.search(/[\s]+/) !== -1) {
+    if (/[\s]+/.test(control.value)) {
       return { validAns: true };
     }
     return null;
@@ -114,10 +113,10 @@ export class TestCreateQuestionPageComponent {
     this.value = 50;
   }
 
-  onclickBack() {
+  onclickBack(form) {
     this.showSecondPart = false;
     this.value = 0;
-
+    form.reset();
   }
 
   onSubmitWithVariants() {
@@ -132,5 +131,4 @@ export class TestCreateQuestionPageComponent {
   onSubmitLongAnswer() {
     console.log(this.longAnsForm.value);
   }
-
 }
