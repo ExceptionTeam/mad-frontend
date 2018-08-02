@@ -3,13 +3,20 @@
 <ng-container *ngIf="!showSecondPart">
   <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="first-form">
     <div class="add-question-content">
-      <mat-slide-toggle>Тренировочный вопрос</mat-slide-toggle>
+      <mat-slide-toggle formControlName="training">Тренировочный вопрос</mat-slide-toggle>
       <span class="types">Типы вопросов:</span>
       <mat-radio-group formControlName="type">
         <mat-radio-button value="variants">C вариантами ответов</mat-radio-button>
         <mat-radio-button value="word">Текстовый ответ(слово)</mat-radio-button>
         <mat-radio-button value="text">Текстовый ответ(не более 120 символов)</mat-radio-button>
       </mat-radio-group>
+      <mat-form-field>
+        <mat-select placeholder="Сложность" formControlName="difficulty">
+          <mat-option *ngFor="let diff of difficulty" [value]="diff">
+            {{diff}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <button mat-button type="button" (click)="onFirstSubmit()" [disabled]="!firstForm.valid">
         Далее
       </button>

@@ -63,6 +63,7 @@ export class TestCreateQuestionPageComponent implements OnInit {
   value: number;
   showSecondPart: boolean;
   filteredOptions: Observable<string[]>;
+  difficulty = ['1', '2', '3', '4'];
 
   constructor(private fb: FormBuilder) {
     this.sections = [
@@ -75,7 +76,9 @@ export class TestCreateQuestionPageComponent implements OnInit {
     this.showSecondPart = false;
     this.value = 0;
     this.firstForm = this.fb.group({
-      type: ['', Validators.required]
+      training: [false],
+      type: ['', Validators.required],
+      difficulty: ['', Validators.required],
     });
     this.variantForm = this.fb.group({
       question: ['', Validators.required],
@@ -128,6 +131,7 @@ export class TestCreateQuestionPageComponent implements OnInit {
   onFirstSubmit() {
     this.showSecondPart = true;
     this.value = 50;
+    console.log(this.firstForm.value);
   }
 
   onclickBack(form) {
