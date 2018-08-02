@@ -16,8 +16,8 @@ export class TaskAfterSendingPageComponent {
     private tasksService: TaskService) {
     const id = this.activatedRoute.snapshot.params.id;
     tasksService.getInfoTaskTry(id).subscribe(files => {
-      console.log(files);
       this.files = files;
+      console.log(this.files);
       this.files.forEach((item, index) => {
         this.passedTests[index] = 0;
         item.tests.forEach(value => {
@@ -31,11 +31,5 @@ export class TaskAfterSendingPageComponent {
 
   clickHref(event) {
     event.stopPropagation();
-    this.tasksService.downloadTaskStudent('5b4e060cd1da4c3a400e432a').subscribe(
-      res => {
-
-      },
-      err => console.log(err)
-    );
   }
 }
