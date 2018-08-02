@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LayoutNavigationComponent } from '../layout-navigation/layout-navigation.component';
-import { FieldsOfMenu } from './layout-landing-page.types';
 import { UserService } from '../user.service';
 
 @Component({
@@ -12,46 +11,10 @@ export class LayoutLandingPageComponent implements OnInit {
   @ViewChild(LayoutNavigationComponent) mainMenu: LayoutNavigationComponent;
   menu;
 
-  studentNavMenu: FieldsOfMenu[] = [
-    { name: 'Мои тесты', link: 'test/tests-table' },
-    { name: 'Мои задачи', link: 'task/table-student' },
-    { name: 'Статистика', link: '' },
-    { name: 'Материлы', link: '' },
-  ];
-
-  teacherNavMenu: FieldsOfMenu[] = [
-    { name: 'Вопросы', link: '' },
-    { name: 'Тесты', link: 'test/assigned-tests' },
-    { name: 'Задачи', link: 'task/table-teacher' },
-    { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Материалы', link: '' },
-  ];
-
-  adminNavMenu: FieldsOfMenu[] = [
-    { name: 'Вопросы', link: '' },
-    { name: 'Задачи', link: 'task/table-teacher' },
-    { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Ученики', link: 'test/statistics/students' },
-    { name: 'Учителя', link: 'test/statistics/teachers' },
-    { name: 'Тесты', link: 'test/statistics' },
-    { name: 'Лента активности', link: 'activity' },
-    { name: 'Материалы', link: '' },
-  ];
-
   ngOnInit() {
   }
 
   constructor(private userService: UserService) {
-    if (this.userService.role === 'TEACHER') {
-      this.menu = this.teacherNavMenu;
-    }
-    if (this.userService.role === 'ADMIN') {
-      this.menu = this.adminNavMenu;
-    }
-    if (this.userService.role === 'STUDENT') {
-      this.menu = this.studentNavMenu;
-    }
-    console.log(this.menu);
   }
 
   onMenuToggled() {

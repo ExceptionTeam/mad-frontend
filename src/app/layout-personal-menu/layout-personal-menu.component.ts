@@ -26,14 +26,17 @@ export class LayoutPersonalMenuComponent implements OnInit {
   ];
 
   constructor(public userService: UserService) {
-    if (userService.role === 'TEACHER') {
-      this.menu = this.teacherPersonalMenu;
+  }
+
+  getArray() {
+    if (this.userService.role === 'TEACHER') {
+      return this.teacherPersonalMenu;
     }
-    if (userService.role === 'ADMIN') {
-      this.menu = this.adminPersonalMenu;
+    if (this.userService.role === 'ADMIN') {
+      return this.adminPersonalMenu;
     }
-    if (userService.role === 'STUDENT') {
-      this.menu = this.studentPersonalMenu;
+    if (this.userService.role === 'STUDENT') {
+      return this.studentPersonalMenu;
     }
   }
 

@@ -5,8 +5,8 @@ export interface SignIn {
 
 export interface User {
   id: string;
-  name: string;
-  surname: string;
+  name?: string;
+  surname?: string;
   role: string;
-  email: string;
+  email?: string;
 }

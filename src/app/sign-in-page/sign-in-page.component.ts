@@ -25,20 +25,14 @@ export class SignInPageComponent {
   }
 
   onSubmit() {
-    let user;
     const data = {
       username: this.form.value.email,
       password: this.form.value.password
     };
     this.userService.signIn(data).subscribe((res) => {
-      console.log('yeaaah!');
-      user = res;
-      console.log('user=', user);
-      this.userService.id = res.id;
-      this.userService.role = res.role;
+      console.log('user=', res);
       this.router.navigate([`/home`]);
     }, err => {
-      console.log('error');
       this.error = true;
     });
     console.log(this.form.value.email);

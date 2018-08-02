@@ -1,7 +1,7 @@
 <mat-drawer-container>
   <mat-drawer mode="side">
     <mat-nav-list>
-      <mat-list-item [routerLink]="field.link" (click)="drawer.toggle()" *ngFor="let field of fields">
+      <mat-list-item [routerLink]="field.link" (click)="drawer.toggle()" *ngFor="let field of getArray()">
         <a matLine>{{ field.name }}</a>
       </mat-list-item>
     </mat-nav-list>
