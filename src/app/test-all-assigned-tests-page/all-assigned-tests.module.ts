@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TestAllTestsStudentComponent } from 'src/app/test-all-tests-student/test-all-tests-student.component';
+import { TestAllAssignedTestsPageComponent } from 'src/app/test-all-assigned-tests-page/test-all-assigned-tests-page.component';
 import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,11 +21,11 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [
-    TestAllTestsStudentComponent
+    TestAllAssignedTestsPageComponent
   ],
   exports: [],
   providers: [],
 })
 
-export class TestAllTestsStudentsModule {
+export class AllAssignedTestsModule {
 }

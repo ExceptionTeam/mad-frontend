@@ -7,9 +7,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TestSeveralWordAnswerComponent implements OnInit {
   @Input() studentAnswer: string;
+  @Input() question: string;
+  @Input() disabled: boolean;
   @Output() studentAnswerChange = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+    this.disabled = false;
+  }
 
   ngOnInit() {
   }

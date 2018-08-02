@@ -12,47 +12,53 @@ import { take, map } from 'rxjs/operators';
 })
 export class TestPassingPageComponent implements OnInit {
   questions: Question[];
+  role: string;
+  disabled: boolean;
   req: Question;
   timer: string;
   stopTime = 121;
+  buttonType: string;
 
   constructor() {
+    this.role = 'student';
+    if (this.role === 'student') {
+      this.disabled = false;
+      this.buttonType = 'завершить тест';
+      timer(0, 1000).pipe(
+        take(this.stopTime),
+        map(tick => {
+          this.timer = (`0${Math.floor((this.stopTime - tick) / 60)}`).slice(-2) + ':' +
+            (`0${(this.stopTime - tick - 1) % 60}`).slice(-2);
+          if (this.timer === '0:0') {
+            console.log('kek');
+          }
+        })
+      ).subscribe();
+    } else {
+      this.disabled = true;
+      this.buttonType = 'завершить просмотр';
+    }
     this.questions = [{
       type: 'oneAnswer',
       description: 'What is my name?',
       answers: ['lili', 'kek', 'lol', 'hkh'],
+      studentAnswer: ['lili']
     },
     {
       type: 'severalAnswer',
       description: 'What is my name?',
       answers: ['lili', 'kek', 'lili', 'hkh'],
+      studentAnswer: ['lili', 'kek']
     },
     {
       type: 'wordAnswer',
-      description: 'What is my name?',
+      description: 'What is my name?'
     },
     {
       type: 'severalWordAnswer',
-      description: 'What is my name and surname?',
+      description: 'What is my name and surname?'
     }];
     this.req = this.questions[0];
-    this.questions.map((item, i) => {
-      if (item.type === 'severalAnswer') {
-        item.studentCheckboxAnswers = new Array(item.answers.length);
-        item.studentCheckboxAnswers.fill(false);
-      }
-    });
-
-    timer(0, 1000).pipe(
-      take(this.stopTime),
-      map(tick => {
-        this.timer = (`0${Math.floor((this.stopTime - tick) / 60)}`).slice(-2) + ':' +
-          (`0${(this.stopTime - tick - 1) % 60}`).slice(-2);
-        if (this.timer === '0:0') {
-          console.log('kek');
-        }
-      })
-    ).subscribe();
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
