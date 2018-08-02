@@ -33,9 +33,7 @@ export class TaskAfterSendingPageComponent {
     event.stopPropagation();
     this.tasksService.downloadTaskStudent('5b4e060cd1da4c3a400e432a').subscribe(
       res => {
-        const file = new Blob([res], {type: 'text/plain charset=utf-8'});
-        const url = window.URL.createObjectURL(file);
-        window.open(url);
+
       },
       err => console.log(err)
     );

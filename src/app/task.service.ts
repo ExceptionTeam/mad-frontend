@@ -114,7 +114,7 @@ export class TaskService {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     // this.headers.append('Content-type', 'text/plain');
     // this.headers.append('Accept', 'text/plain ');
-    this.headers.append('Content-type', 'text/plain charset=utf-8');
+    // this.headers.append('Content-type', 'text/plain charset=utf-8');
     return this.http.get(`http://localhost:3000/student/task/download/${id}`, { headers: this.headers });
   }
 
