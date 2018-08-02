@@ -58,12 +58,16 @@
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
         </mat-form-field>
 
+        <mat-error *ngIf="variantForm.get('variants').hasError('validVariants')">
+          Введите хотя бы 2 варианта и хотя бы 1 правильный
+        </mat-error>
         <button mat-button type="button" (click)="onclickBack(variantForm)">
           Назад
         </button>
         <button mat-button type="button" (click)="onSubmitWithVariants()" [disabled]="!variantForm.valid">
           Добавить
         </button>
+
       </div>
     </form>
 

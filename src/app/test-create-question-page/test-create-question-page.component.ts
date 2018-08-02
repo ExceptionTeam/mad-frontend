@@ -27,7 +27,7 @@ const everythigIsOkkkk = (array) => {
 };
 
 const ansVariantsValidator = (control: AbstractControl) => {
-  if (!everythigIsOkkkk(control.value)) {
+  if (!everythigIsOkkkk(control.value) && control.dirty) {
     return {
       validVariants: true
     };
