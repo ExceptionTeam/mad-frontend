@@ -3,7 +3,7 @@
   <mat-expansion-panel *ngFor="let item of files; let i = index">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <a href={{item.srcFileId?.url}} (click)="clickHref($event)" download>
+        <a  (click)="clickHref($event)" download>
           {{item.srcFileId?.name}}
         </a>
       </mat-panel-title>

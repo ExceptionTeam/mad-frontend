@@ -110,6 +110,14 @@ export class TaskService {
     return this.http.get<TaskFullInfo>(`http://localhost:3000/admin/task/full-info/${id}`, { headers: this.headers });
   }
 
+  downloadTaskStudent(id) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    // this.headers.append('Content-type', 'text/plain');
+    // this.headers.append('Accept', 'text/plain ');
+    this.headers.append('Content-type', 'text/plain charset=utf-8');
+    return this.http.get(`http://localhost:3000/student/task/download/${id}`, { headers: this.headers });
+  }
+
   loadTasks(role: string) {
       this.getTeacherAdminAllTasks(
         this.paginationParams.pageIndex * this.paginationParams.pageSize,
