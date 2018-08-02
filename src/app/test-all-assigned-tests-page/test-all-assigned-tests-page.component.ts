@@ -1,35 +1,37 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
-import { Test } from '../Types/TestList.type';
+import { TestTeacher } from '../Types/TestsTeacher.type';
 import { MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'exc-test-all-tests-student',
-  templateUrl: './test-all-tests-student.component.html',
-  styleUrls: ['./test-all-tests-student.component.scss']
+  selector: 'exc-test-all-assigned-tests-page',
+  templateUrl: './test-all-assigned-tests-page.component.html',
+  styleUrls: ['./test-all-assigned-tests-page.component.scss']
 })
-export class TestAllTestsStudentComponent implements OnInit {
+export class TestAllAssignedTestsPageComponent implements OnInit {
   dataSource;
-  displayedColumns: string[] = ['name', 'deadline', 'teacher', 'button'];
+  displayedColumns: string[] = ['student' , 'name', 'deadline', 'mark', 'buttons'];
 
   constructor(private router: Router) {
-    this.dataSource = new MatTableDataSource<Test>([{
+    this.dataSource = new MatTableDataSource<TestTeacher>([{
       _id: '1',
       name: 'dftyuigf ftuyukiljh frtyyuu',
       deadline: 3456785456784,
-      teacher: 'Василенко'
+      student: 'Василенко'
     },
     {
       _id: '2',
+      mark: 7,
       name: 'dftyuigf ftuyukiljh frtyyuu',
-      teacher: 'Василенко'
+      student: 'Василенко'
     },
     {
       _id: '3',
+      mark: 7,
       name: 'dftyuigf ftuyukiljh frtyyuu',
       deadline: 3456785,
-      teacher: 'Василенко'
+      student: 'Василенко'
     }]);
   }
 
@@ -37,14 +39,6 @@ export class TestAllTestsStudentComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-  }
-
-  isDisabled(value) {
-    const date = new Date();
-    if (value - date.valueOf() < 0) {
-      return true;
-    }
-    return false;
   }
 
   clickButton(event) {

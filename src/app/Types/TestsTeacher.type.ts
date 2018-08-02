@@ -1,7 +1,8 @@
-export interface Test {
+export interface TestTeacher {
   _id: string;
   name: string;
+  mark?: number;
   deadline?: number;
   status?: boolean;
-  teacher?: string;
+  student?: string;
 }
