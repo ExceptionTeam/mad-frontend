@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { map, startWith } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
 
 const reg = /^[^,.'"?!@:;\/]+$/;
 
@@ -18,10 +20,33 @@ const everythigIsOkkkk = (array) => {
     }
     return true;
   });
-  if (countCheck === 0 || countAns === 0) {
+  if (countCheck === 0 || countAns === 0 || countAns === 1) {
     return false;
   }
   return res;
+};
+
+const ansVariantsValidator = (control: AbstractControl) => {
+  if (!everythigIsOkkkk(control.value)) {
+    return {
+      validVariants: true
+    };
+  }
+  return null;
+};
+
+const tagsValidator = (control: AbstractControl) => {
+  if (!reg.test(control.value)) {
+    return { validTags: true };
+  }
+  return null;
+};
+
+const ansWordValidator = (control: AbstractControl) => {
+  if (/[\s]+/.test(control.value)) {
+    return { validAns: true };
+  }
+  return null;
 };
 
 @Component({
@@ -29,7 +54,7 @@ const everythigIsOkkkk = (array) => {
   templateUrl: './test-create-question-page.component.html',
   styleUrls: ['./test-create-question-page.component.scss']
 })
-export class TestCreateQuestionPageComponent {
+export class TestCreateQuestionPageComponent implements OnInit {
   firstForm: FormGroup;
   variantForm: FormGroup;
   wordForm: FormGroup;
@@ -37,6 +62,7 @@ export class TestCreateQuestionPageComponent {
   sections: string[];
   value: number;
   showSecondPart: boolean;
+  filteredOptions: Observable<string[]>;
 
   constructor(private fb: FormBuilder) {
     this.sections = [
@@ -57,22 +83,36 @@ export class TestCreateQuestionPageComponent {
       variants: new FormArray([
         new FormGroup({ ans: new FormControl(''), rightAns: new FormControl(false) }),
         new FormGroup({ ans: new FormControl(''), rightAns: new FormControl(false) }),
-      ], this.ansVariantsValidator),
+      ], ansVariantsValidator),
 
       section: ['', Validators.required],
-      tags: ['', Validators.compose([this.tagsValidator, Validators.required])]
+      tags: ['', Validators.compose([tagsValidator, Validators.required])]
     });
     this.wordForm = this.fb.group({
       question: ['', Validators.required],
-      answer: ['', Validators.compose([this.ansWordValidator, Validators.required])],
+      answer: ['', Validators.compose([ansWordValidator, Validators.required])],
       section: ['', Validators.required],
-      tags: ['', Validators.compose([this.tagsValidator, Validators.required])]
+      tags: ['', Validators.compose([tagsValidator, Validators.required])]
     });
     this.longAnsForm = this.fb.group({
       question: ['', Validators.required],
       section: ['', Validators.required],
-      tags: ['', Validators.compose([this.tagsValidator, Validators.required])]
+      tags: ['', Validators.compose([tagsValidator, Validators.required])]
     });
+  }
+
+  ngOnInit() {
+    this.filteredOptions = this.wordForm.get('section').valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? this._filter(value) : this.sections)
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.sections.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   get variants(): FormArray {
@@ -83,29 +123,6 @@ export class TestCreateQuestionPageComponent {
     this.variants.push(new FormGroup(
       { ans: new FormControl(''), rightAns: new FormControl(false) }
     ));
-  }
-
-  ansVariantsValidator(control: AbstractControl) {
-    if (!everythigIsOkkkk(control.value)) {
-      return {
-        validVariants: true
-      };
-    }
-    return null;
-  }
-
-  tagsValidator(control: AbstractControl) {
-    if (!reg.test(control.value)) {
-      return { validTags: true };
-    }
-    return null;
-  }
-
-  ansWordValidator(control: AbstractControl) {
-    if (/[\s]+/.test(control.value)) {
-      return { validAns: true };
-    }
-    return null;
   }
 
   onFirstSubmit() {
@@ -121,7 +138,6 @@ export class TestCreateQuestionPageComponent {
 
   onSubmitWithVariants() {
     console.log(this.variantForm.value);
-    console.log('tags:', this.variantForm.get('tags').value.split(/[\s]+/));
   }
 
   onSubmitAnsWord() {
