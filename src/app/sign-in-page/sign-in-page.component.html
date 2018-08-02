@@ -4,7 +4,7 @@
       <div class="enter">Вход</div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="photo-post-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field class="full-width">
         <input matInput type="text" placeholder="Введите email" formControlName="email">
         <button mat-button *ngIf="form.value.email" matTooltip="Удалить" matSuffix mat-icon-button aria-label="Clear"

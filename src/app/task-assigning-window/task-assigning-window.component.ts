@@ -13,9 +13,10 @@ export class TaskAssigningWindowComponent implements OnInit {
   isGroupSelected: boolean;
   selectedId: string;
   minDate = new Date();
+
   constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>,
-     @Inject(MAT_DIALOG_DATA) public data: any,
-     private tasksService: TaskService) {
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private tasksService: TaskService) {
   }
 
   ngOnInit() {
@@ -45,11 +46,11 @@ export class TaskAssigningWindowComponent implements OnInit {
       teacherId: '5b520978359e36150c9335fb',
       deadline: value.inputDate.valueOf()
     } : {
-        taskId: this.data._id,
-        studentId: this.selectedId,
-        teacherId: '5b520978359e36150c9335fb',
-        deadline: value.inputDate.valueOf()
-      };
+      taskId: this.data._id,
+      studentId: this.selectedId,
+      teacherId: '5b520978359e36150c9335fb',
+      deadline: value.inputDate.valueOf()
+    };
     console.log(data);
     this.tasksService.postAssignTask(data).subscribe();
   }

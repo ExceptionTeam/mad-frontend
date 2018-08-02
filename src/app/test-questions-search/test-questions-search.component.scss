@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.search-button, .add-button {
+  height: 100%;
+  margin-left: 1%;
+}
+
+.div-show-more {
+  text-align: center;
+  color: gray;
+  font-style: normal;
+  margin-top: 1%;
+}
