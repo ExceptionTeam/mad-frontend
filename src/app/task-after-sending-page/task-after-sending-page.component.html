@@ -1,9 +1,9 @@
-<h1>{{taskName}}</h1>
+<p>мои опытки</p>
 <mat-accordion multi="true">
   <mat-expansion-panel *ngFor="let item of files; let i = index">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <a href={{item.srcFileId?.url}} (click)="clickHref($event)" download>
+        <a href="http://localhost:3000/student/task/download/{{item._id}}" (click)="clickHref($event)" download>
           {{item.srcFileId?.name}}
         </a>
       </mat-panel-title>
