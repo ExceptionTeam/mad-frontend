@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'exc-layout-header',
@@ -10,7 +11,8 @@ export class LayoutHeaderComponent {
   @Output() menuToggled = new EventEmitter<void>();
   title = 'Student\'s Exception';
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService,
+              public router: Router) {
   }
 
   onMenuToggled() {
@@ -20,5 +22,6 @@ export class LayoutHeaderComponent {
   onClickExit() {
     this.userService.signOut().subscribe();
     this.userService.role = '';
+    this.router.navigate([`/home`]);
   }
 }
