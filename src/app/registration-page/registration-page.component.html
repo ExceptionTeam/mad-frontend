@@ -11,7 +11,7 @@
       <mat-form-field>
         <input matInput placeholder="Адрес эл.почты" formControlName="email">
       </mat-form-field>
-      <mat-radio-group formControlName="role" class="full-width" (change)="changeRole($event);">
+      <mat-radio-group formControlName="isStudent" class="full-width" (change)="changeRole($event);">
         <mat-radio-button value="student">ученик</mat-radio-button>
         <mat-radio-button value="teacher">учитель</mat-radio-button>
       </mat-radio-group>
@@ -23,7 +23,7 @@
   <mat-step [stepControl]="universityFormGroup">
     <form class="step-form" [formGroup]="universityFormGroup" #universityForm="ngForm">
       <ng-template matStepLabel>Второй шаг</ng-template>
-      <ng-container *ngIf="nameSurnameForm.value.role==='student'">
+      <ng-container *ngIf="nameSurnameForm.value.isStudent==='student'">
         <mat-form-field>
           <input matInput placeholder="Факультет" formControlName="faculty">
         </mat-form-field>
