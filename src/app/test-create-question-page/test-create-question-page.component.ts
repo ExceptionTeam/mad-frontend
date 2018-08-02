@@ -76,6 +76,7 @@ export class TestCreateQuestionPageComponent implements OnInit {
     this.showSecondPart = false;
     this.value = 0;
     this.firstForm = this.fb.group({
+      training: [false],
       type: ['', Validators.required],
       difficulty: ['', Validators.required],
     });
