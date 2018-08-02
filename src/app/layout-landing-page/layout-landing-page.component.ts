@@ -1,14 +1,16 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LayoutNavigationComponent } from '../layout-navigation/layout-navigation.component';
 import { FieldsOfMenu } from './layout-landing-page.types';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-layout-landing-page',
   templateUrl: './layout-landing-page.component.html',
   styleUrls: ['./layout-landing-page.component.scss']
 })
-export class LayoutLandingPageComponent {
+export class LayoutLandingPageComponent implements OnInit {
   @ViewChild(LayoutNavigationComponent) mainMenu: LayoutNavigationComponent;
+  menu;
 
   studentNavMenu: FieldsOfMenu[] = [
     { name: 'Мои тесты', link: 'test/tests-table' },
@@ -35,6 +37,22 @@ export class LayoutLandingPageComponent {
     { name: 'Лента активности', link: 'activity' },
     { name: 'Материалы', link: '' },
   ];
+
+  ngOnInit() {
+  }
+
+  constructor(private userService: UserService) {
+    if (this.userService.role === 'TEACHER') {
+      this.menu = this.teacherNavMenu;
+    }
+    if (this.userService.role === 'ADMIN') {
+      this.menu = this.adminNavMenu;
+    }
+    if (this.userService.role === 'STUDENT') {
+      this.menu = this.studentNavMenu;
+    }
+    console.log(this.menu);
+  }
 
   onMenuToggled() {
     this.mainMenu.drawer.toggle();

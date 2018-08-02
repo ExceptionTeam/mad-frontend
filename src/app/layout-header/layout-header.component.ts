@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FieldsOfMenu } from '../layout-landing-page/layout-landing-page.types';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-layout-header',
@@ -10,7 +10,15 @@ export class LayoutHeaderComponent {
   @Output() menuToggled = new EventEmitter<void>();
   title = 'Student\'s Exception';
 
+  constructor(public userService: UserService) {
+  }
+
   onMenuToggled() {
     this.menuToggled.emit();
+  }
+
+  onClickExit() {
+    this.userService.signOut().subscribe();
+    this.userService.role = '';
   }
 }
