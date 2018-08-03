@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-confirm-role-page',
   templateUrl: './notifications-admin.component.html',
   styleUrls: ['./notifications-admin.component.scss']
 })
-export class NotificationsAdminComponent implements OnInit {
-  role = 'admin';
-  links;
-
+export class NotificationsAdminComponent {
   navLinksAdmin = [
     { path: '/personal-menu/notifications/confirm-role', label: 'Подтвердить роль' },
     { path: '/personal-menu/notifications/confirm-test', label: 'Запрос теста' },
@@ -20,16 +18,14 @@ export class NotificationsAdminComponent implements OnInit {
     { path: '/personal-menu/notifications/check-answer', label: 'Проверить тесты' }
   ];
 
+  constructor(private userService: UserService) {
+  }
 
-  constructor() {
-    if (this.role === 'admin') {
-      this.links = this.navLinksAdmin;
+  getFields() {
+    if (this.userService.role === 'ADMIN') {
+      return this.navLinksAdmin;
     } else {
-      this.links = this.navLinksTeacher;
+      return this.navLinksTeacher;
     }
   }
-
-  ngOnInit() {
-  }
-
 }

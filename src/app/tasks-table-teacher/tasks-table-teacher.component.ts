@@ -19,12 +19,11 @@ export class TasksTableTeacherComponent implements OnInit {
   @Input() role: string;
 
   constructor(public dialog: MatDialog,
-    private taskService: TaskService
-  ) {
+    private taskService: TaskService) {
   }
 
   ngOnInit() {
-    if (this.role === 'admin') {
+    if (this.role === 'ADMIN') {
       this.displayedColumns.splice(2, 0, 'status');
     }
     this.dataSource = new UserDataSource(this.taskService, this.role);

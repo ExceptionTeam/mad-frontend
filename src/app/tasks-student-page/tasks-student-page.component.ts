@@ -1,10 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator } from '@angular/material';
-import { Task } from '../allTasksStudent.service';
+import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { UserService } from '../user.service';
+import { StudentTask } from '../Types/StudentTasks.type';
 
 @Component({
   selector: 'exc-tasks-student-page',
@@ -12,15 +9,26 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./tasks-student-page.component.scss']
 })
 export class TasksStudentPageComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'weight', 'file', 'tests', 'teacher', 'mark'];
-  dataSource: UserDataSource | null;
+  dataSource: StudentTask[];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService,
+              private userService: UserService) {
+  }
+
+  getData() {
+    if (typeof this.dataSource === 'undefined') {
+      this.taskService.getStudentTasks(this.userService.id).subscribe(array => {
+        this.dataSource = array;
+      });
+     return this.dataSource;
+    }
+     return this.dataSource;
+  }
 
   countTrueSolutions(arr: boolean[]) {
     let count = 0;
-    arr.forEach(function(element) {
+    arr.forEach(function (element) {
       if (element === true) {
         count++;
       }
@@ -33,19 +41,5 @@ export class TasksStudentPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new UserDataSource(this.taskService);
   }
-}
-
-export class UserDataSource extends DataSource<any> {
-  constructor(private taskService: TaskService) {
-    super();
-    this.taskService.getStudentTasks('5b62d38eed1cb63224b16759');
-  }
-
-  connect(): Observable<Task[]> {
-    return this.taskService.studentTasks$.pipe(tap(console.log));
-  }
-
-  disconnect() {}
 }

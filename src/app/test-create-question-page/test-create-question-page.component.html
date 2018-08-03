@@ -67,7 +67,7 @@
         <mat-error *ngIf="variantForm.get('variants').hasError('validVariants')">
           Введите хотя бы 2 варианта и хотя бы 1 правильный
         </mat-error>
-        <button mat-button type="button" (click)="onclickBack(variantForm)">
+        <button mat-button type="button" (click)="onclickBack()">
           Назад
         </button>
         <button mat-button type="button" (click)="onSubmitWithVariants()" [disabled]="!variantForm.valid">
@@ -103,7 +103,7 @@
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
         </mat-form-field>
 
-        <button mat-button type="button" (click)="onclickBack(wordForm)">
+        <button mat-button type="button" (click)="onclickBack()">
           Назад
         </button>
         <button mat-button type="button" (click)="onSubmitAnsWord()" [disabled]="!wordForm.valid">
@@ -133,7 +133,7 @@
           <input matInput formControlName="tags" placeholder="Введите теги через пробел">
         </mat-form-field>
 
-        <button mat-button type="button" (click)="onclickBack(longAnsForm)">
+        <button mat-button type="button" (click)="onclickBack()">
           Назад
         </button>
         <button mat-button type="button" (click)="onSubmitLongAnswer()" [disabled]="!longAnsForm.valid">

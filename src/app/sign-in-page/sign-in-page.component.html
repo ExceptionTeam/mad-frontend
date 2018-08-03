@@ -27,6 +27,7 @@
       <a routerLink="/forgot-password">Забыли пароль?</a>
       <a routerLink="/registration"> Регистрация</a>
     </div>
+    <mat-error *ngIf="error">Проверьте введенные данные</mat-error>
     <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">
       Войти
     </button>

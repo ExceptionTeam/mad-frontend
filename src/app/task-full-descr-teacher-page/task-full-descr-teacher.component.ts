@@ -3,6 +3,7 @@ import { TaskFullInfo } from '../Types/TaskFullInfo.type';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { TaskService } from '../task.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-task-full-descr-teacher',
@@ -17,9 +18,10 @@ export class TaskFullDescrTeacherComponent {
   constructor(private activatedRoute: ActivatedRoute,
               public snackBar: MatSnackBar,
               private taskService: TaskService,
-              public router: Router) {
+              public router: Router,
+              private userService: UserService) {
     this.id = this.activatedRoute.snapshot.params.id;
-    if (this.role === 'teacher') {
+    if (this.userService.role === 'TEACHER') {
       this.taskService.getTaskFullInfoTeacher(this.id).subscribe(task => this.task = task);
     } else {
       this.taskService.getTaskFullInfoAdmin(this.id).subscribe(task => this.task = task);
@@ -51,7 +53,7 @@ export class TaskFullDescrTeacherComponent {
   }
 
   isAdmin() {
-    return this.role === 'admin';
+    return this.userService.role === 'ADMIN';
   }
 }
 

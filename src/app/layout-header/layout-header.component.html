@@ -1,14 +1,30 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="onMenuToggled()">
-    <mat-icon class="menu">menu</mat-icon>
-  </button>
+  <ng-container *ngIf="userService.role!==''">
+    <button mat-icon-button (click)="onMenuToggled()">
+      <mat-icon class="menu">menu</mat-icon>
+    </button>
+  </ng-container>
+  <div></div>
 
-    <h1 routerLink="/home" class="card-title">{{title | uppercase}}</h1>
+  <h1 routerLink="/home" class="card-title">{{title | uppercase}}</h1>
 
   <div>
-    <exc-layout-personal-menu></exc-layout-personal-menu>
-    <button mat-icon-button>
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
+    <ng-container *ngIf="userService.role!==''">
+      <exc-layout-personal-menu></exc-layout-personal-menu>
+      <button mat-icon-button (click)="onClickExit()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="userService.role===''">
+      <button mat-button routerLink="/registration">
+        Регистрация
+      </button>
+      <button mat-button routerLink="/sign-in">
+        Войти
+      </button>
+    </ng-container>
+
+
   </div>
 </mat-toolbar>
