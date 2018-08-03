@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { QuestionAdmin } from './Types/QuestionAdmin.type';
 
 const questionsAdmin: QuestionAdmin[] = [
-  {question: 'Что такое инкапсуляция: я ничего не знаю', tags: ['ООП', 'Инкапсуляция'], status: true},
+  {question: 'Что такое инкапсуляция: я ничего не знаю и знать не собираюсь, вот так вот', tags: ['ООП', 'Инкапсуляция'], status: true},
   {question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true},
   {question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true},
   {question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true},

@@ -1,4 +1,4 @@
-<div class="table-all-tasks">
+<div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="name">
@@ -30,12 +30,12 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-</div>
-<mat-paginator #pagination
+  <mat-paginator #pagination
                [length]="getPaginationParams().length"
                [pageIndex]="getPaginationParams().pageIndex"
                [pageSize]="getPaginationParams().pageSize"
                [pageSizeOptions]="[1, 2, 10, 25, 100]"
                (page)="changePaginationParams()"
                showFirstLastButtons>
-</mat-paginator>
+  </mat-paginator>
+</div>

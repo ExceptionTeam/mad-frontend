@@ -1,3 +1,8 @@
+.headertekst {
+  margin-top: 5px;
+  text-align: center;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -10,7 +15,8 @@
   width: 100%;
 }
 
-.search-button, .add-button {
+.search-button,
+.add-button {
   height: 100%;
   margin-left: 1%;
 }
