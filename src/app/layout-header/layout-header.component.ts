@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LayoutHeaderComponent {
   @Output() menuToggled = new EventEmitter<void>();
   title = 'Student\'s Exception';
+  role: string;
 
   constructor(public userService: UserService,
               public router: Router) {

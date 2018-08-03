@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 
 export class LayoutNavigationComponent implements OnInit {
   @ViewChild(MatDrawer) drawer: MatDrawer;
+  role: string;
 
   studentNavMenu: FieldsOfMenu[] = [
     { name: 'Мои тесты', link: 'test/tests-table' },

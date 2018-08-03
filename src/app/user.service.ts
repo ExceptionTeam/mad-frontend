@@ -16,14 +16,17 @@ export class UserService {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    this.getInfo().subscribe(
-      () => {
+
+    this.getInfo().subscribe(user => {
+        this.role = user.role;
+        this.id = user.id;
       },
       error => {
         this.role = '';
         this.id = '';
-      }
-    );
+
+      });
+    console.log('from service, ', this.role);
   }
 
   signIn(body): Observable<User> {
@@ -40,6 +43,14 @@ export class UserService {
     );
   }
 
+  getInfo() {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<User>(
+      'http://localhost:3000/info',
+      { headers: this.headers, withCredentials: true }
+    );
+  }
+
   signOut(): Observable<User> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<any>('http://localhost:3000/logout', { headers: this.headers, withCredentials: true });
@@ -52,20 +63,6 @@ export class UserService {
         headers: this.headers,
         withCredentials: true
       });
-  }
-
-  getInfo() {
-    this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<User>(
-      'http://localhost:3000/info',
-      { headers: this.headers, withCredentials: true }
-    ).pipe(
-      tap((user) => {
-        this.role = user.role;
-        this.id = user.id;
-        console.log('from service: ', this.role);
-      })
-    );
   }
 
   editPassword(body) {
