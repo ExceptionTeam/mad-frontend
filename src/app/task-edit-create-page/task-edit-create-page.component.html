@@ -1,8 +1,8 @@
 <div class="form-div">
   <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-    <p>{{ buttonName === "Добавить" ? "Добавление задачи" : "Редактирование задачи" }}</p>
+    <h1>{{ buttonName === "Добавить" ? "Добавление задачи" : "Редактирование задачи" }}</h1>
     <mat-form-field class="full-width">
-      <input matInput class="input" #message [ngModel]="taskInfo.name" name="name" maxlength="20" placeholder="Название" required>
+      <input matInput class="input" #message [ngModel]="taskInfo.name" name="name" maxlength="20" placeholder="Название" autocomplete="off" required>
       <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
     </mat-form-field>
 
@@ -12,7 +12,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <textarea class="tags-textarea" matInput placeholder="тэг1,тэг2,тэг3" rows="2" [ngModel]="taskInfo.tags" name="tags"></textarea>
+      <input class="tags-textarea" matInput title="тэг1,тэг2,тэг3" placeholder="Введите теги" [ngModel]="taskInfo.tags" name="tags"/>
     </mat-form-field>
 
     <mat-form-field>

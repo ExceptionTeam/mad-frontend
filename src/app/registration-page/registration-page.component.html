@@ -4,17 +4,17 @@
       <ng-template matStepLabel>Первый шаг</ng-template>
       <mat-card>
         <mat-form-field>
-          <input matInput placeholder="Имя" formControlName="name">
+          <input matInput placeholder="Имя" formControlName="name" autocomplete="off">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Фамилия" formControlName="surname">
+          <input matInput placeholder="Фамилия" formControlName="surname" autocomplete="off">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Адрес эл.почты" formControlName="email">
+          <input matInput placeholder="Адрес эл.почты" formControlName="email" autocomplete="off">
         </mat-form-field>
         <mat-radio-group formControlName="isStudent" class="full-width" (change)="changeRole($event);">
-          <mat-radio-button [value]="true">ученик</mat-radio-button>
-          <mat-radio-button [value]="false">учитель</mat-radio-button>
+          <mat-radio-button [value]="true">Ученик</mat-radio-button>
+          <mat-radio-button [value]="false">Учитель</mat-radio-button>
         </mat-radio-group>
         <div>
           <button mat-button type="button" matStepperNext>Дальше</button>
@@ -36,14 +36,14 @@
         </mat-form-field>
         <ng-container *ngIf="nameSurnameForm.value.isStudent">
           <mat-form-field>
-            <input matInput placeholder="Факультет" formControlName="faculty">
+            <input matInput placeholder="Факультет" formControlName="faculty" autocomplete="off">
           </mat-form-field>
           <mat-form-field>
-            <input type="text" pattern="\d*" maxlength="4" matInput placeholder="Год окончания" formControlName="year">
+            <input type="text" pattern="\d*" maxlength="4" matInput placeholder="Год окончания" formControlName="year" autocomplete="off">
           </mat-form-field>
         </ng-container>
         <mat-form-field>
-          <input matInput placeholder="Мои навыки" formControlName="primarySkill">
+          <input matInput placeholder="Мои навыки" formControlName="primarySkill" autocomplete="off">
         </mat-form-field>
         <div>
           <button mat-button type="button" matStepperPrevious>Назад</button>
@@ -64,7 +64,7 @@
           <p>факультет: {{universityForm.value.faculty}}</p>
           <p>год окончания: {{universityForm.value.year}}</p>
         </ng-container>
-        <p>primarySkill: {{universityForm.value.primarySkill}}</p>
+        <p>Мои навыки: {{universityForm.value.primarySkill}}</p>
       </mat-card-content>
       <div>
       <button mat-button matStepperPrevious>Назад</button>
