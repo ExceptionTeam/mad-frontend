@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { TaskService } from 'src/app/task.service';
+import { UserService } from 'src/app/user.service';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
 
 @Component({
@@ -15,8 +16,10 @@ export class TaskAssigningWindowComponent implements OnInit {
   minDate = new Date();
 
   constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any,
-              private tasksService: TaskService) {
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private tasksService: TaskService,
+    private userService: UserService
+  ) {
   }
 
   ngOnInit() {
@@ -40,18 +43,20 @@ export class TaskAssigningWindowComponent implements OnInit {
   }
 
   onSubmit(value) {
-    const data: AssignRequestData = this.isGroupSelected ? {
-      taskId: this.data._id,
-      groupId: this.selectedId,
-      teacherId: '5b520978359e36150c9335fb',
-      deadline: value.inputDate.valueOf()
-    } : {
-      taskId: this.data._id,
-      studentId: this.selectedId,
-      teacherId: '5b520978359e36150c9335fb',
-      deadline: value.inputDate.valueOf()
-    };
-    console.log(data);
-    this.tasksService.postAssignTask(data).subscribe();
+    this.userService.getInfo().subscribe(user => {
+      const data: AssignRequestData = this.isGroupSelected ? {
+        taskId: this.data._id,
+        groupId: this.selectedId,
+        teacherId: user.id,
+        deadline: value.inputDate.valueOf()
+      } : {
+          taskId: this.data._id,
+          studentId: this.selectedId,
+          teacherId: user.id,
+          deadline: value.inputDate.valueOf()
+        };
+      console.log(data);
+      this.tasksService.postAssignTask(data).subscribe();
+    });
   }
 }

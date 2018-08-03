@@ -38,7 +38,7 @@ export class LayoutNavigationComponent implements OnInit {
     { name: 'Материалы', link: '' },
   ];
 
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
   }
 
   getArray() {

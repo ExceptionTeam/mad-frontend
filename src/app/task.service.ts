@@ -63,8 +63,7 @@ export class TaskService {
 
   getStudentsAndGroups(id): Observable<any> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<any>('http://localhost:3000/teacher/students' + '?teacherId=' +
-      '5b520978359e36150c9335fb',
+    return this.http.get<any>('http://localhost:3000/teacher/students' + '?teacherId=' + id,
       { headers: this.headers, withCredentials: true });
   }
 

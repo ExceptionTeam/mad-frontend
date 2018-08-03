@@ -18,26 +18,32 @@ export class TasksStudentPageComponent implements OnInit {
 
   getData() {
     if (typeof this.dataSource === 'undefined') {
-      this.taskService.getStudentTasks(this.userService.id).subscribe(array => {
-        this.dataSource = array;
+      this.userService.getInfo().subscribe(user => {
+        this.taskService.getStudentTasks(user.id).subscribe(array => {
+          this.dataSource = array;
+        });
       });
-     return this.dataSource;
     }
-     return this.dataSource;
+    return this.dataSource;
   }
 
   countTrueSolutions(arr: boolean[]) {
     let count = 0;
-    arr.forEach(function (element) {
-      if (element === true) {
-        count++;
-      }
-    });
+    if (arr != null) {
+      arr.forEach(function (element) {
+        if (element === true) {
+          count++;
+        }
+      });
+    }
     return count;
   }
 
   countAllSolutions(arr: boolean[]) {
-    return arr.length;
+    if (arr != null) {
+      return arr.length;
+    }
+    return 0;
   }
 
   ngOnInit() {
