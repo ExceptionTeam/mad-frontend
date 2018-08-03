@@ -67,4 +67,13 @@ export class UserService {
       })
     );
   }
+
+  editPassword(body) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post('http://localhost:3000/change-password',
+      body, {
+        headers: this.headers,
+        withCredentials: true
+      });
+  }
 }
