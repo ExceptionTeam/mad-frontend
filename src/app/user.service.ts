@@ -37,7 +37,7 @@ export class UserService {
         this.role = user.role;
         this.id = user.id;
       })
-      );
+    );
   }
 
   signOut(): Observable<User> {
@@ -65,6 +65,6 @@ export class UserService {
         this.id = user.id;
         console.log('from service: ', this.role);
       })
-      );
+    );
   }
 }
