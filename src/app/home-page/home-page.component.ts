@@ -7,29 +7,29 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
   StudentsRating = [
-    { name: 'Лиля', surname: 'Оданец' },
-    { name: 'Леша', surname: 'Мухарский' },
-    { name: 'Аня', surname: 'Кисель' },
+    { name: 'Лилия', surname: 'Оданец' },
+    { name: 'Алексей', surname: 'Мухарский' },
+    { name: 'Анна', surname: 'Кисель' },
     { name: 'Артем', surname: 'Германенко' },
-    { name: 'Валера', surname: 'Стребко' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Валерий', surname: 'Стребко' },
+    { name: 'Владислав', surname: 'Малиновский' },
+    { name: 'Роман', surname: 'Бовкунович' },
+    { name: 'Александр', surname: 'Батышев' },
+    { name: 'Максим', surname: 'Мирончик' },
+    { name: 'Борис', surname: 'Серенков' },
   ];
 
   StudentsTests = [
-    { name: 'Лиля', surname: 'Оданец' },
-    { name: 'Леша', surname: 'Мухарский' },
-    { name: 'Аня', surname: 'Кисель' },
+    { name: 'Лилия', surname: 'Оданец' },
+    { name: 'Алексей', surname: 'Мухарский' },
+    { name: 'Анна', surname: 'Кисель' },
     { name: 'Артем', surname: 'Германенко' },
-    { name: 'Валера', surname: 'Стребко' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
-    { name: 'Влад', surname: 'Малиновский' },
+    { name: 'Валерий', surname: 'Стребко' },
+    { name: 'Владислав', surname: 'Малиновский' },
+    { name: 'Роман', surname: 'Бовкунович' },
+    { name: 'Александр', surname: 'Батышев' },
+    { name: 'Максим', surname: 'Мирончик' },
+    { name: 'Борис', surname: 'Серенков' },
   ];
 
   ratings = [{ title: 'Топ-10 по рейтингу', list: this.StudentsRating },

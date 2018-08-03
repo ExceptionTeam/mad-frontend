@@ -20,7 +20,7 @@ export class LayoutNavigationComponent implements OnInit {
   ];
 
   teacherNavMenu: FieldsOfMenu[] = [
-    { name: 'Вопросы', link: '' },
+    { name: 'Вопросы', link: 'test/questions-admin' },
     { name: 'Тесты', link: 'test/assigned-tests' },
     { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои группы', link: '/my-groups' },
@@ -28,7 +28,7 @@ export class LayoutNavigationComponent implements OnInit {
   ];
 
   adminNavMenu: FieldsOfMenu[] = [
-    { name: 'Вопросы', link: '' },
+    { name: 'Вопросы', link: 'test/questions-admin' },
     { name: 'Задачи', link: 'task/table-teacher' },
     { name: 'Мои группы', link: '/my-groups' },
     { name: 'Ученики', link: 'test/statistics/students' },

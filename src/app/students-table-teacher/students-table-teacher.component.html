@@ -1,3 +1,4 @@
+<h2 class="headertekst">Мои студенты</h2>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="nameSurname">
@@ -5,9 +6,9 @@
   </ng-container>
 
   <ng-container matColumnDef="icon">
-      <button mat-icon-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
+    <button mat-icon-button>
+      <mat-icon>favorite</mat-icon>
+    </button>
   </ng-container>
 
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

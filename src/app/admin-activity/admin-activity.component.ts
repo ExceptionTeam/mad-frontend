@@ -11,7 +11,7 @@ export class AdminActivityComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   paginationParams = {
     pageIndex: 0,
-    pageSize: 2
+    pageSize: 5
   };
   activities: Activity[] = [
     {
