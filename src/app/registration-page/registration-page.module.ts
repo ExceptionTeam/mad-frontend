@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatRadioModule,
     MatAutocompleteModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule
   ],
   declarations: [
     RegistrationPageComponent

@@ -10,6 +10,7 @@
 
   <div class="buttons">
     <div *ngFor="let item of files; let i = index" class="input-output-files-upload">
+      <div class="element"></div>
       <exc-file-uploading [id]="i" [type]="in" (fileChanged)="onFileChanged($event,i,in)">
       </exc-file-uploading>
       <exc-file-uploading [id]="i" [type]="out" (fileChanged)="onFileChanged($event,i,out)">
@@ -20,6 +21,6 @@
     </div>
     <button mat-icon-button type="button" (click)="onClick($event)">
     <mat-icon>add</mat-icon>
-</button>
+    </button>
   </div>
 </div>

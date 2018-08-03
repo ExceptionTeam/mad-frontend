@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'exc-registration-page',
@@ -14,12 +15,14 @@ export class RegistrationPageComponent {
   options: string[] = ['БГУ', 'БНТУ', 'БГУИР'];
   filteredOptions: Observable<string[]>;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder,
+    private userService: UserService
+  ) {
     this.nameSurnameFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      role: ['', Validators.required]
+      isStudent: [null, Validators.required]
     });
     this.universityFormGroup = this._formBuilder.group({
         university: ['', Validators.required],
@@ -35,19 +38,32 @@ export class RegistrationPageComponent {
   }
 
   private _filter(value: string): string[] {
-    console.log(value);
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   submitRegistration() {
-    console.log(this.universityFormGroup.value);
-    console.log(this.nameSurnameFormGroup.value);
+    const acc = this.nameSurnameFormGroup.value.isStudent ? {
+      university: this.universityFormGroup.value.university,
+      year: this.universityFormGroup.value.year,
+      faculty: this.universityFormGroup.value.faculty
+      } : {
+        university: this.universityFormGroup.value.university
+      };
+    const body = {
+      name: this.nameSurnameFormGroup.value.name,
+      surname: this.nameSurnameFormGroup.value.surname,
+      email: this.nameSurnameFormGroup.value.email,
+      isStudent:  this.nameSurnameFormGroup.value.isStudent,
+      primarySkill: this.universityFormGroup.value.primarySkill,
+      account: acc
+    };
+    this.userService.registrate(body).subscribe();
   }
 
   changeRole(role) {
     this.nameSurnameFormGroup.patchValue({
-      role: role.value
+      isStudent: role.value
     });
     this.resetSecForm();
   }
