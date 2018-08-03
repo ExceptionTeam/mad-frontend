@@ -1,5 +1,5 @@
 <mat-drawer-container>
-  <mat-drawer mode="side">
+  <mat-drawer mode="side" *ngIf="userService.role!==''">
     <mat-nav-list>
       <mat-list-item [routerLink]="field.link" (click)="drawer.toggle()" *ngFor="let field of getArray()">
         <a matLine>{{ field.name }}</a>
