@@ -16,7 +16,14 @@ export class UserService {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    this.getInfo().subscribe();
+    this.getInfo().subscribe(
+      () => {
+      },
+      error => {
+        this.role = '';
+        this.id = '';
+      }
+    );
   }
 
   signIn(body): Observable<User> {
@@ -42,7 +49,7 @@ export class UserService {
       tap((user) => {
         this.role = user.role;
         this.id = user.id;
-        console.log(this.role);
+        console.log('from service: ', this.role);
       })
     );
   }

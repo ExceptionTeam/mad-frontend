@@ -134,10 +134,9 @@ export class TestCreateQuestionPageComponent implements OnInit {
     console.log(this.firstForm.value);
   }
 
-  onclickBack(form) {
+  onclickBack() {
     this.showSecondPart = false;
     this.value = 0;
-    form.reset();
   }
 
   onSubmitWithVariants() {

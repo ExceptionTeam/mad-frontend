@@ -9,7 +9,6 @@ import { UserService } from '../user.service';
 })
 export class LayoutLandingPageComponent implements OnInit {
   @ViewChild(LayoutNavigationComponent) mainMenu: LayoutNavigationComponent;
-  menu;
 
   ngOnInit() {
   }

@@ -74,19 +74,6 @@ export class TaskService {
       { headers: this.headers, withCredentials: true });
   }
 
-  getTeacherAdminAllTasks(skip: number, top: number, query, url) {
-    this.headers.append('Access-Control-Allow-Methods', 'POST');
-    this.http
-      .post<TeacherTask>(`${url}?skip=${skip}&top=${top}`, query, {
-        headers: this.headers,
-        withCredentials: true
-      })
-      .subscribe(value => {
-        this.bSubject$.next(value.data);
-        this.paginationParams.length = value.pagination.filtered;
-      });
-  }
-
   getInfoTaskTry(id): Observable<TaskSubmition[]> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskSubmition[]>('http://localhost:3000/student/task/submissions' +
@@ -102,7 +89,7 @@ export class TaskService {
     return this.http.get<StudentTask[]>(`http://localhost:3000/student/task/tasks-list/${id}`, {
       headers: this.headers,
       withCredentials: true
-    }).subscribe(value => this.studentTasks$.next(value));
+    });
   }
 
   getStudentFullDescription(assId): Observable<TaskFullDStudent> {
@@ -120,11 +107,24 @@ export class TaskService {
       { headers: this.headers, withCredentials: true });
   }
 
+  getTeacherAdminAllTasks(skip: number, top: number, query, url) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    this.http
+      .post<TeacherTask>(`${url}?skip=${skip}&top=${top}`, query, {
+        headers: this.headers,
+        withCredentials: true
+      })
+      .subscribe(value => {
+        this.bSubject$.next(value.data);
+        this.paginationParams.length = value.pagination.filtered;
+      });
+  }
+
   loadTasks(role: string) {
     this.getTeacherAdminAllTasks(
       this.paginationParams.pageIndex * this.paginationParams.pageSize,
       this.paginationParams.pageSize,
-      this.searchParams.query, role === 'admin' ? adminTaskUrl : teacherTaskUrl
+      this.searchParams.query, role === 'ADMIN' ? adminTaskUrl : teacherTaskUrl
     );
   }
 
@@ -139,7 +139,7 @@ export class TaskService {
 
   activateTask(id): Observable<any> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
-    return this.http.post<any>(`http://localhost:3000/admin/task/activate/${id}`, {}, {
+    return this.http.post<any>(`http://localhost:3000/activate/${id}`, {}, {
       headers: this.headers,
       withCredentials: true
     });

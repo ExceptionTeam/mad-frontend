@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="onMenuToggled()">
-    <mat-icon class="menu">menu</mat-icon>
-  </button>
+  <ng-container *ngIf="userService.role!==''">
+    <button mat-icon-button (click)="onMenuToggled()">
+      <mat-icon class="menu">menu</mat-icon>
+    </button>
+  </ng-container>
+  <div></div>
 
   <h1 routerLink="/home" class="card-title">{{title | uppercase}}</h1>
 
