@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  padding-left: 40px;
 }
 
 .input-output-adding {
@@ -22,5 +21,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.element {
+  width: 40px;
 }
 
