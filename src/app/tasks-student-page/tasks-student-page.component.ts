@@ -14,9 +14,6 @@ export class TasksStudentPageComponent implements OnInit {
 
   constructor(private taskService: TaskService,
               private userService: UserService) {
-  }
-
-  getData() {
     if (typeof this.dataSource === 'undefined') {
       this.userService.getInfo().subscribe(user => {
         this.taskService.getStudentTasks(user.id).subscribe(array => {
@@ -24,7 +21,6 @@ export class TasksStudentPageComponent implements OnInit {
         });
       });
     }
-    return this.dataSource;
   }
 
   countTrueSolutions(arr: boolean[]) {
