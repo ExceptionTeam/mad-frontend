@@ -1,40 +1,20 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LayoutNavigationComponent } from '../layout-navigation/layout-navigation.component';
-import { FieldsOfMenu } from './layout-landing-page.types';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-layout-landing-page',
   templateUrl: './layout-landing-page.component.html',
   styleUrls: ['./layout-landing-page.component.scss']
 })
-export class LayoutLandingPageComponent {
+export class LayoutLandingPageComponent implements OnInit {
   @ViewChild(LayoutNavigationComponent) mainMenu: LayoutNavigationComponent;
 
-  studentNavMenu: FieldsOfMenu[] = [
-    { name: 'Мои тесты', link: 'test/student/tests-table' },
-    { name: 'Мои задачи', link: 'task/table-student' },
-    { name: 'Статистика', link: '' },
-    { name: 'Материлы', link: '' },
-  ];
+  ngOnInit() {
+  }
 
-  teacherNavMenu: FieldsOfMenu[] = [
-    { name: 'Вопросы', link: '' },
-    { name: 'Тесты', link: 'test/teacher/assigned-tests' },
-    { name: 'Задачи', link: 'task/table-teacher' },
-    { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Материалы', link: '' },
-  ];
-
-  adminNavMenu: FieldsOfMenu[] = [
-    { name: 'Вопросы', link: '' },
-    { name: 'Задачи', link: 'task/table-teacher' },
-    { name: 'Мои группы', link: '/my-groups' },
-    { name: 'Ученики', link: 'test/statistics-students' },
-    { name: 'Учителя', link: 'test/statistics-teachers' },
-    { name: 'Тесты', link: 'test/statistics-tests' },
-    { name: 'Лента активности', link: '' },
-    { name: 'Материалы', link: '' },
-  ];
+  constructor(private userService: UserService) {
+  }
 
   onMenuToggled() {
     this.mainMenu.drawer.toggle();

@@ -1,0 +1,146 @@
+<mat-progress-bar mode="determinate" [value]="value"></mat-progress-bar>
+
+<ng-container *ngIf="!showSecondPart">
+  <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="first-form">
+    <div class="add-question-content">
+      <mat-slide-toggle formControlName="training">Тренировочный вопрос</mat-slide-toggle>
+      <span class="types">Типы вопросов:</span>
+      <mat-radio-group formControlName="type">
+        <mat-radio-button value="variants">C вариантами ответов</mat-radio-button>
+        <mat-radio-button value="word">Текстовый ответ(слово)</mat-radio-button>
+        <mat-radio-button value="text">Текстовый ответ(не более 120 символов)</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field>
+        <mat-select placeholder="Сложность" formControlName="difficulty">
+          <mat-option *ngFor="let diff of difficulty" [value]="diff">
+            {{diff}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button type="button" (click)="onFirstSubmit()" [disabled]="!firstForm.valid">
+        Далее
+      </button>
+    </div>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="showSecondPart">
+
+  <ng-container *ngIf="firstForm.value.type==='variants'">
+    <form [formGroup]="variantForm" (ngSubmit)="onSubmitWithVariants()">
+      <div class="add-question-content">
+
+        <mat-form-field>
+          <textarea #input formControlName="question" matInput placeholder="Введите вопрос"></textarea>
+        </mat-form-field>
+
+        <div formArrayName="variants">
+          <div *ngFor="let variant of variants.controls; let index=index">
+            <div [formGroupName]="index" class="input-and-checkbox">
+              <mat-form-field>
+                <input matInput formControlName="ans" placeholder="Ответ {{index+1}}">
+              </mat-form-field>
+              <mat-checkbox formControlName="rightAns">
+                это правильный ответ
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+
+        <button mat-icon-button matTooltip="Больше вариантов" (click)="addVariant()">
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <mat-form-field>
+          <input type="text" placeholder="Раздел" matInput formControlName="section" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="tags" placeholder="Введите теги через пробел">
+        </mat-form-field>
+
+        <mat-error *ngIf="variantForm.get('variants').hasError('validVariants')">
+          Введите хотя бы 2 варианта и хотя бы 1 правильный
+        </mat-error>
+        <button mat-button type="button" (click)="onclickBack()">
+          Назад
+        </button>
+        <button mat-button type="button" (click)="onSubmitWithVariants()" [disabled]="!variantForm.valid">
+          Добавить
+        </button>
+
+      </div>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="firstForm.value.type==='word'">
+    <form [formGroup]="wordForm">
+      <div class="add-question-content">
+
+        <mat-form-field>
+          <textarea #input formControlName="question" matInput placeholder="Введите вопрос"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="answer" placeholder="Введите правильный ответ(слово/число)">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" placeholder="Раздел" matInput formControlName="section" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="tags" placeholder="Введите теги через пробел">
+        </mat-form-field>
+
+        <button mat-button type="button" (click)="onclickBack()">
+          Назад
+        </button>
+        <button mat-button type="button" (click)="onSubmitAnsWord()" [disabled]="!wordForm.valid">
+          Добавить
+        </button>
+      </div>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="firstForm.value.type==='text'">
+    <form [formGroup]="longAnsForm">
+      <div class="add-question-content">
+
+        <mat-form-field>
+          <textarea #input formControlName="question" matInput placeholder="Введите вопрос"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" placeholder="Раздел" matInput formControlName="section" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="tags" placeholder="Введите теги через пробел">
+        </mat-form-field>
+
+        <button mat-button type="button" (click)="onclickBack()">
+          Назад
+        </button>
+        <button mat-button type="button" (click)="onSubmitLongAnswer()" [disabled]="!longAnsForm.valid">
+          Добавить
+        </button>
+      </div>
+    </form>
+  </ng-container>
+
+</ng-container>

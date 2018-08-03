@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FieldsOfMenu } from '../layout-landing-page/layout-landing-page.types';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-layout-personal-menu',
@@ -7,6 +8,8 @@ import { FieldsOfMenu } from '../layout-landing-page/layout-landing-page.types';
   styleUrls: ['./layout-personal-menu.component.scss']
 })
 export class LayoutPersonalMenuComponent implements OnInit {
+  menu;
+
   studentPersonalMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '/personal-menu/notifications/tests' },
     { name: 'Смена пароля', link: '/personal-menu/edit-password' }
@@ -22,7 +25,19 @@ export class LayoutPersonalMenuComponent implements OnInit {
     { name: 'Смена пароля', link: 'personal-menu/edit-password' }
   ];
 
-  constructor() {
+  constructor(public userService: UserService) {
+  }
+
+  getArray() {
+    if (this.userService.role === 'TEACHER') {
+      return this.teacherPersonalMenu;
+    }
+    if (this.userService.role === 'ADMIN') {
+      return this.adminPersonalMenu;
+    }
+    if (this.userService.role === 'STUDENT') {
+      return this.studentPersonalMenu;
+    }
   }
 
   ngOnInit() {

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { UserService } from 'src/app/user.service';
 
@@ -27,11 +25,11 @@ export class RegistrationPageComponent {
       isStudent: [null, Validators.required]
     });
     this.universityFormGroup = this._formBuilder.group({
-      university: ['', Validators.required],
-      primarySkill: ['', Validators.required],
-      faculty: ['', Validators.required],
-      year: ['', Validators.required],
-    }
+        university: ['', Validators.required],
+        primarySkill: ['', Validators.required],
+        faculty: ['', Validators.required],
+        year: ['', Validators.required],
+      }
     );
     this.filteredOptions = this.universityFormGroup.get('university').valueChanges.pipe(
       startWith(''),

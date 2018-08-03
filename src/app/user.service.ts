@@ -16,6 +16,14 @@ export class UserService {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+    this.getInfo().subscribe(
+      () => {
+      },
+      error => {
+        this.role = '';
+        this.id = '';
+      }
+    );
   }
 
   signIn(body): Observable<User> {
@@ -29,7 +37,7 @@ export class UserService {
         this.role = user.role;
         this.id = user.id;
       })
-    );
+      );
   }
 
   signOut(): Observable<User> {
@@ -46,4 +54,17 @@ export class UserService {
       });
   }
 
+  getInfo() {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<User>(
+      'http://localhost:3000/info',
+      { headers: this.headers, withCredentials: true }
+    ).pipe(
+      tap((user) => {
+        this.role = user.role;
+        this.id = user.id;
+        console.log('from service: ', this.role);
+      })
+      );
+  }
 }
