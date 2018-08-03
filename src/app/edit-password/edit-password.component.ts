@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 const passwordMatch = (form: FormGroup) =>
   form.get('newPassword').value === form.get('repeatPassword').value
@@ -17,7 +19,9 @@ export class EditPasswordComponent implements OnInit {
   hideNew: boolean;
   hideRepeat: boolean;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              public router: Router) {
     this.hideOld = true;
     this.hideNew = true;
     this.hideRepeat = true;
@@ -32,6 +36,13 @@ export class EditPasswordComponent implements OnInit {
   }
 
   onSubmit() {
+    const body = {
+      oldPass: this.form.get('oldPassword').value,
+      newPass: this.form.get('newPassword').value
+    };
+    console.log('body, ', body);
+    this.userService.editPassword(body).subscribe();
+    this.router.navigate([`/home`]);
     console.log(this.form.value);
   }
 

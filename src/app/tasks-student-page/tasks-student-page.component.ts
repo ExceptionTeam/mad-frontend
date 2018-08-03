@@ -13,7 +13,7 @@ export class TasksStudentPageComponent implements OnInit {
   dataSource: StudentTask[];
 
   constructor(private taskService: TaskService,
-    private userService: UserService) {
+              private userService: UserService) {
   }
 
   getData() {
