@@ -14,16 +14,13 @@ export class TasksStudentPageComponent implements OnInit {
 
   constructor(private taskService: TaskService,
               private userService: UserService) {
-  }
-
-  getData() {
-    if (typeof this.dataSource === 'undefined') {
-      this.taskService.getStudentTasks(this.userService.id).subscribe(array => {
-        this.dataSource = array;
-      });
-     return this.dataSource;
-    }
-     return this.dataSource;
+    this.userService.getInfo().subscribe(
+      (user) => {
+        this.taskService.getStudentTasks(user.id).subscribe(array => {
+          this.dataSource = array;
+        });
+      },
+    );
   }
 
   countTrueSolutions(arr: boolean[]) {

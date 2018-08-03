@@ -40,6 +40,20 @@ export class UserService {
     );
   }
 
+  signOut(): Observable<User> {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<any>('http://localhost:3000/logout', { headers: this.headers, withCredentials: true });
+  }
+
+  registrate(body): Observable<object> {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post('http://localhost:3000/guest/register',
+      body, {
+        headers: this.headers,
+        withCredentials: true
+      });
+  }
+
   getInfo() {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<User>(
@@ -52,11 +66,5 @@ export class UserService {
         console.log('from service: ', this.role);
       })
     );
-  }
-
-  signOut(): Observable<User> {
-    this.headers.append('Access-Control-Allow-Methods', 'GET');
-    console.log('role!!! ', this.role);
-    return this.http.get<any>('http://localhost:3000/logout', { headers: this.headers, withCredentials: true });
   }
 }
