@@ -19,6 +19,7 @@ import { TaskSendingModule } from '../task-sending-page/task-sending.module';
 import { TaskEditCreateModule } from '../task-edit-create-page/task-edit-create-page.module';
 import { AdminActivityModule } from '../admin-activity/admin-activity.module';
 import { TestAssignModule } from '../test-assign-page/test-assign-page.module';
+import { TestQuestionsTableAdminModule } from '../test-questions-table-admin/test-questions-table-admin.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { RouterModule } from '@angular/router';
     TaskEditCreateModule,
     AdminActivityModule,
     TestAssignModule,
+    TestQuestionsTableAdminModule,
     RouterModule
   ],
   declarations: [

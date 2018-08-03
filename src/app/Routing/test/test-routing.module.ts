@@ -5,6 +5,7 @@ import { TestStatisticsUsersPageComponent } from '../../test-statistics-users-pa
 import { TestPassingPageComponent } from '../../test-passing-page/test-passing-page.component';
 import { TestAllTestsStudentComponent } from '../../test-all-tests-student/test-all-tests-student.component';
 import { TestAssignPageComponent } from '../../test-assign-page/test-assign-page.component';
+import { TestQuestionsSearchComponent } from '../../test-questions-search/test-questions-search.component';
 import { TestAllAssignedTestsPageComponent } from 'src/app/test-all-assigned-tests-page/test-all-assigned-tests-page.component';
 import { TestCreateQuestionPageComponent } from '../../test-create-question-page/test-create-question-page.component';
 
@@ -40,6 +41,10 @@ const taskRoutes: Routes = [
       {
         path: 'assign',
         component: TestAssignPageComponent
+      },
+      {
+        path: 'questions-admin',
+        component: TestQuestionsSearchComponent
       },
       {
         path: 'assigned-tests',
