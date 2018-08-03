@@ -4,7 +4,9 @@
       <mat-icon class="menu">menu</mat-icon>
     </button>
   </ng-container>
-  <div></div>
+  <ng-container *ngIf="userService.role===''">
+    <div></div>
+  </ng-container>
 
   <h1 routerLink="/home" class="card-title">{{title | uppercase}}</h1>
 
