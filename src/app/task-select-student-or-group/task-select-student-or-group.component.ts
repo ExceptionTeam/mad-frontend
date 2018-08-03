@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Group, Student } from './task-select-student-or-group.types';
 import { TaskService } from 'src/app/task.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'exc-task-select-student-or-group',
@@ -20,15 +21,18 @@ export class TaskSelectStudentOrGroupComponent {
   indStudents: Student[] = [];
   groups: Group[] = [];
 
-  constructor(private tasksService: TaskService) {
-    console.log(this.id);
-    this.tasksService.getStudentsAndGroups(this.id).subscribe(item => {
+  constructor(private tasksService: TaskService,
+    private userService: UserService
+  ) {
+    userService.getInfo().subscribe(user => {
+      this.tasksService.getStudentsAndGroups(user.id).subscribe(item => {
         this.indStudents = item.individualStudents;
         console.log(this.indStudents);
         this.groups = item.groups;
         console.log(this.groups);
       }
-    );
+      );
+    });
   }
 
   groupIsNotDisabled() {
