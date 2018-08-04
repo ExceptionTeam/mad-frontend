@@ -4,5 +4,7 @@
            maxlength="30"
            [ngModel]="studentAnswer"
            (change)="changeAnswer($event)"
-           [disabled]="disabled">
+           [disabled]="disabled"
+           autocomplete="off"
+           >
   </mat-form-field>

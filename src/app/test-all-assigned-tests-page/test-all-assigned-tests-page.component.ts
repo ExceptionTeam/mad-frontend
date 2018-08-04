@@ -16,22 +16,22 @@ export class TestAllAssignedTestsPageComponent implements OnInit {
   constructor(private router: Router) {
     this.dataSource = new MatTableDataSource<TestTeacher>([{
       _id: '1',
-      name: 'dftyuigf ftuyukiljh frtyyuu',
+      name: 'ООП',
       deadline: 3456785456784,
-      student: 'Василенко'
+      student: 'Иванов'
     },
     {
       _id: '2',
       mark: 7,
-      name: 'dftyuigf ftuyukiljh frtyyuu',
-      student: 'Василенко'
+      name: 'Массивы',
+      student: 'Круглов'
     },
     {
       _id: '3',
       mark: 7,
-      name: 'dftyuigf ftuyukiljh frtyyuu',
+      name: 'Сокеты',
       deadline: 3456785,
-      student: 'Василенко'
+      student: 'Андреев'
     }]);
   }
 

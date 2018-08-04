@@ -8,11 +8,11 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class TestStatisticsUsersPageComponent implements OnInit {
   dataSourse = new MatTableDataSource<Object>([
-    { name: 'dfs', surname: 'fesf', university: 'fefwe' },
-    { name: 'dfs', surname: 'fesf', university: 'fefwe' },
-    { name: 'dfs', surname: 'fesf', university: 'fefwe' },
-    { name: 'dfs', surname: 'fesf', university: 'fefwe' },
-    { name: 'dfs', surname: 'fesf', university: 'fefwe' },
+    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
+    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
+    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
+    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
+    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
   ]);
 
   constructor() {
