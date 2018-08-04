@@ -59,7 +59,5 @@ export class TestService {
       headers: this.headers,
       withCredentials: true
     });
-
   }
-
 }
