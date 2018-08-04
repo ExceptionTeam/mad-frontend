@@ -25,9 +25,15 @@ export class ForgotPasswordComponent {
   }
 
   onSubmit() {
-    // this.userService.resetPassword().subscribe();
+    const body = {
+      email: this.form.get('email').value
+    };
+    this.userService.forgotPassword(body).subscribe(() => {
+        this.everythingIsOk = true;
+      },
+      () => {
+        this.everythingIsOk = false;
+      });
     this.showTextMessage = true;
-    this.everythingIsOk = true; // ответ с сервера
-    console.log(this.form.value.email);
   }
 }

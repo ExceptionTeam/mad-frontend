@@ -11,17 +11,25 @@ export class UserService {
   private headers;
   role: string;
   id: string;
+  name: string;
+  surname: string;
 
   constructor(private http: HttpClient) {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
     this.getInfo().subscribe(
-      () => {
+      (user) => {
+        this.id = user.id;
+        this.role = user.role;
+        this.name = user.name;
+        this.surname = user.surname;
       },
       error => {
         this.role = '';
         this.id = '';
+        this.name = '';
+        this.surname = '';
       }
     );
   }
@@ -63,7 +71,7 @@ export class UserService {
       tap((user) => {
         this.role = user.role;
         this.id = user.id;
-        console.log('from service: ', this.role);
+        console.log('user: ', user);
       })
     );
   }
@@ -74,6 +82,15 @@ export class UserService {
       body, {
         headers: this.headers,
         withCredentials: true
+      });
+  }
+
+  forgotPassword(body) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post('http://localhost:3000/reset-password',
+      body, {
+        headers: this.headers,
+       // withCredentials: true
       });
   }
 }
