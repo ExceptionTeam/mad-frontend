@@ -26,7 +26,6 @@ export class UserService {
         this.id = '';
 
       });
-    console.log('from service, ', this.role);
   }
 
   signIn(body): Observable<User> {

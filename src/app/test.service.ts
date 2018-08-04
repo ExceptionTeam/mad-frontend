@@ -42,7 +42,7 @@ export class TestService {
     return this.http.get<ConfirmTestInfo[]>(`http://localhost:3000/teacher/test/pending-requests/${id}`, {
       headers: this.headers,
       withCredentials: true
-    });
+    }).pipe(map(data => data.map( request => ({ ...request, display: true, onclickDone: null}))));
   }
 
 }

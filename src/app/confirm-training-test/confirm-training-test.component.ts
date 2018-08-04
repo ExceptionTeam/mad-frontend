@@ -19,12 +19,9 @@ export class ConfirmTrainingTestComponent {
               private userService: UserService) {
     this.userService.getInfo().subscribe(user => {
       this.testService.teacherGetRequests(user.id).subscribe(data => {
-          this.requests = data.map(request => ({ ...request, display: true, onclickDone: null }));
+          this.requests = data;
           console.log('requests: ', this.requests);
           this.onDisplay = this.getRequests(0, 2);
-        },
-        error => {
-          console.log('error, ', error);
         });
     });
   }
