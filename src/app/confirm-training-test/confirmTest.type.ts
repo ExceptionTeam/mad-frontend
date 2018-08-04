@@ -6,4 +6,6 @@ export interface ConfirmTestInfo {
   sectionId: SectionId;
   userId: UserId;
   status: string;
+  display?: boolean;
+  onclickDone?: boolean;
 }
