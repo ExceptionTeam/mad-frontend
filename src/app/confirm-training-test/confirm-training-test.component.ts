@@ -19,10 +19,10 @@ export class ConfirmTrainingTestComponent {
               private userService: UserService) {
     this.userService.getInfo().subscribe(user => {
       this.testService.teacherGetRequests(user.id).subscribe(data => {
-          this.requests = data;
-          console.log('requests: ', this.requests);
-          this.onDisplay = this.getRequests(0, 2);
-        });
+        this.requests = data;
+        console.log('requests: ', this.requests);
+        this.onDisplay = this.getRequests(0, 2);
+      });
     });
   }
 
@@ -37,11 +37,15 @@ export class ConfirmTrainingTestComponent {
 
   onclickConfirm(request, done) {
     request.display = false;
+    request.onclickDone = done;
     if (done) {
-      request.onclickDone = true;
+      this.testService.confirmTest(request._id, this.userService.id).subscribe(() => {
+        },
+        (error) => {
+          console.log(error);
+        });
     } else {
-      request.onclickDone = false;
+      this.testService.rejectTest(request._id).subscribe();
     }
-     // this.testService.teacherGetRequests(request.id).subscribe();
   }
 }

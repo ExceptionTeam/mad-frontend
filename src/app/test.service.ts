@@ -42,7 +42,24 @@ export class TestService {
     return this.http.get<ConfirmTestInfo[]>(`http://localhost:3000/teacher/test/pending-requests/${id}`, {
       headers: this.headers,
       withCredentials: true
-    }).pipe(map(data => data.map( request => ({ ...request, display: true, onclickDone: null}))));
+    }).pipe(map(data => data.map(request => ({ ...request, display: true, onclickDone: null }))));
+  }
+
+  confirmTest(reqId, teacherId) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<void>(`http://localhost:3000/teacher/test/approve/${reqId}/${teacherId}`, {}, {
+      headers: this.headers,
+      withCredentials: true
+    });
+  }
+
+  rejectTest(reqId) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<void>(`http://localhost:3000/teacher/test/reject/${reqId}`, {}, {
+      headers: this.headers,
+      withCredentials: true
+    });
+
   }
 
 }
