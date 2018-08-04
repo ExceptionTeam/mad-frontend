@@ -18,6 +18,7 @@ export class EditPasswordComponent implements OnInit {
   hideOld: boolean;
   hideNew: boolean;
   hideRepeat: boolean;
+  success = null;
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
@@ -41,9 +42,15 @@ export class EditPasswordComponent implements OnInit {
       newPass: this.form.get('newPassword').value
     };
     console.log('body, ', body);
-    this.userService.editPassword(body).subscribe();
-    this.router.navigate([`/home`]);
-    console.log(this.form.value);
+    this.userService.editPassword(body).subscribe(() => {
+      this.success = true;
+    }, () => {
+      this.success = false;
+      console.log('error');
+    });
+    if (this.success) {
+      this.router.navigate([`/home`]);
+    }
   }
 
   isWrongRepeat() {
