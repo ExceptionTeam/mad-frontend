@@ -6,7 +6,7 @@
         <mat-option (click)="groupIsNotDisabled()">-- None --</mat-option>
         <mat-optgroup label="Индивидуальные студенты">
           <mat-option *ngFor="let student of indStudents" (click)="groupIsDisabled(student._id)" [value]="student._id">
-            {{student.name}}
+            {{student.surname}} {{student.name}}
           </mat-option>
         </mat-optgroup>
         <mat-optgroup *ngFor="let group of groups" [label]="group.name">
