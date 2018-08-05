@@ -48,6 +48,14 @@ export class UserService {
     );
   }
 
+  getInfo() {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<User>(
+      'http://localhost:3000/info',
+      { headers: this.headers, withCredentials: true }
+    );
+  }
+
   signOut(): Observable<User> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<any>('http://localhost:3000/logout', { headers: this.headers, withCredentials: true });
@@ -60,20 +68,6 @@ export class UserService {
         headers: this.headers,
         withCredentials: true
       });
-  }
-
-  getInfo() {
-    this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<User>(
-      'http://localhost:3000/info',
-      { headers: this.headers, withCredentials: true }
-    ).pipe(
-      tap((user) => {
-        this.role = user.role;
-        this.id = user.id;
-        console.log('user: ', user);
-      })
-    );
   }
 
   editPassword(body) {

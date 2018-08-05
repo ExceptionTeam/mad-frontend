@@ -2,17 +2,20 @@
   <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <h1>{{ buttonName === "Добавить" ? "Добавление задачи" : "Редактирование задачи" }}</h1>
     <mat-form-field class="full-width">
-      <input matInput class="input" #message [ngModel]="taskInfo.name" name="name" maxlength="20" placeholder="Название" autocomplete="off" required>
+      <input matInput class="input" #message [ngModel]="taskInfo.name" name="name" maxlength="20" placeholder="Название"
+             autocomplete="off" required>
       <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <textarea class="description-textarea" matInput placeholder="Описание" rows="10" [ngModel]="taskInfo.description" name="description"
-        required></textarea>
+      <textarea class="description-textarea" matInput placeholder="Описание" rows="10" [ngModel]="taskInfo.description"
+                name="description"
+                required></textarea>
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input class="tags-textarea" matInput title="тэг1,тэг2,тэг3" placeholder="Введите теги" [ngModel]="taskInfo.tags" name="tags"/>
+      <input class="tags-textarea" matInput title="тэг1,тэг2,тэг3" placeholder="Введите теги" [ngModel]="taskInfo.tags"
+             name="tags" required/>
     </mat-form-field>
 
     <mat-form-field>
@@ -24,8 +27,10 @@
     </mat-form-field>
     <p>Входные/выходные файлы для тестирования задачи:</p>
 
-    <exc-input-output-files (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)" [editInputFiles]="taskInfo.inputFilesId"
-      [editOutputFiles]="taskInfo.outputFilesId" (validFiles)="changeValidState($event)"></exc-input-output-files>
+    <exc-input-output-files (fileChanged)="changeFiles($event)" (editFilesChanged)="changeEditFiles($event)"
+                            [editInputFiles]="taskInfo.inputFilesId"
+                            [editOutputFiles]="taskInfo.outputFilesId"
+                            (validFiles)="changeValidState($event)"></exc-input-output-files>
     <button type="submit" [disabled]="!form.valid || !validFiles" mat-button>{{buttonName}}</button>
   </form>
 </div>

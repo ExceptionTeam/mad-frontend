@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Group, Student } from './task-select-student-or-group.types';
+import {Student, Group} from '../Types/MyStudentsTeacher.type';
 import { TaskService } from 'src/app/task.service';
 import { UserService } from 'src/app/user.service';
 
