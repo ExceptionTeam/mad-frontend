@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
+import { TestService } from '../test.service';
 
 @Component({
   selector: 'exc-test-statistics-users-page',
@@ -15,8 +17,21 @@ export class TestStatisticsUsersPageComponent implements OnInit {
     { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
   ]);
 
-  constructor() {
+  constructor(private router: Router,
+              private testService: TestService) {
   }
+
+  onSearch(query: string) {
+    this.testService.searchParams.query = query.toLowerCase();
+    this.testService.searchParams.paging.pageIndex = 0;
+
+    if (this.router.url.includes('students')) {
+      this.testService.loadUsers('student');
+    } else {
+      this.testService.loadUsers('teacher');
+    }
+  }
+
 
   ngOnInit() {
   }

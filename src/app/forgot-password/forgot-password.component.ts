@@ -31,7 +31,8 @@ export class ForgotPasswordComponent {
     this.userService.forgotPassword(body).subscribe(() => {
         this.everythingIsOk = true;
       },
-      () => {
+      (error) => {
+      console.log(error);
         this.everythingIsOk = false;
       });
     this.showTextMessage = true;

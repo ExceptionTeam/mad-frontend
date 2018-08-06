@@ -11,5 +11,8 @@
     <button type="submit" mat-button (click)="closeModalWindow()" [disabled]="!form.valid || !isSelectedLists">
       Назначить
     </button>
+    <span *ngIf="assigned">
+      Задача назначена
+    </span>
   </div>
 </form>

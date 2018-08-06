@@ -14,7 +14,6 @@ export class MyGroupsTeacherPageComponent {
 
   constructor(private tasksService: TaskService, private userService: UserService) {
     userService.getInfo().subscribe(user => {
-        console.log(user.id);
         this.tasksService.getStudentsAndGroups(user.id).subscribe(item => {
             this.indStudents = item.individualStudents;
             this.groups = item.groups;

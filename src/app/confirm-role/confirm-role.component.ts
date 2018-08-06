@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-confirm-role',
@@ -35,9 +36,17 @@ export class ConfirmRoleComponent {
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
   }
 
-  constructor() {
-    this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
-    this.onDisplay = this.getRequests(0, 10);
+  constructor(private userService: UserService) {
+
+    this.userService.getInfo().subscribe(user => {
+      this.userService.confirmRole(0, 10).subscribe(data => {
+        this.requests = data;
+        console.log('requests: ', this.requests);
+        this.onDisplay = this.getRequests(0, 2);
+      });
+    });
+    // this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
+    // this.onDisplay = this.getRequests(0, 10);
   }
 
   onclickConfirm(request) {

@@ -16,7 +16,7 @@
     </ng-container>
     <mat-divider></mat-divider>
   </mat-list-item>
-  <mat-paginator [length]="requests.length"
+  <mat-paginator [length]="requests?.length"
                  [pageSize]="10"
                  [pageIndex]="0"
                  (page)="onPaginateChange()">
