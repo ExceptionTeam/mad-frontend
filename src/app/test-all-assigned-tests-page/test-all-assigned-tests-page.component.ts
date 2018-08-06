@@ -2,12 +2,13 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 import { TestTeacher } from '../Types/TestsTeacher.type';
 import { MatTableDataSource } from '@angular/material';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TestService } from '../test.service';
 import { UserService } from '../user.service';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { DataSource } from '@angular/cdk/collections';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'exc-test-all-assigned-tests-page',
@@ -22,8 +23,9 @@ export class TestAllAssignedTestsPageComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   constructor(private router: Router,
-  private testService: TestService,
-  private userService: UserService
+    private testService: TestService,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.pageIndex = 1;
     this.pageSize = 2;
@@ -54,8 +56,13 @@ export class TestAllAssignedTestsPageComponent implements OnInit {
     return this.testService.paginationParams;
   }
 
-  clickButton(event) {
-    console.log(event);
+  onClick(event, id, assId) {
+    const nav: NavigationExtras = {
+      queryParams: {
+        studId: id
+      }
+    };
+    this.router.navigate([`test/passing/${assId}`], nav);
   }
 }
 

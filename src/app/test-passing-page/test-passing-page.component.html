@@ -2,7 +2,6 @@
   <p class="timer" *ngIf="timer">Осталось: {{timer}}</p>
   <mat-card>
     <mat-card-content>
-
       <section *ngIf="req?.category==='MULTIPLE_ANSWERS'">
         <exc-test-several-answer [question]="req.question" [answers]="req.answerOptions" [(studentAnswer)]="req.studentAnswer" [disabled]="disabled">
         </exc-test-several-answer>

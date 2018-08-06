@@ -1,4 +1,4 @@
 export interface Answer {
-  answ?: string[] | string;
+  answ?: string[];
   questionId: string;
 }

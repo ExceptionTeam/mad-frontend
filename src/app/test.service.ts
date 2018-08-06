@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Answer } from 'src/app/Types/Answer.type';
 import { TestInfoStudent, Test } from 'src/app/Types/TestInfoStudent.type';
-import { TestTeacher } from 'src/app/Types/TestsTeacher.type';
+import { TestTeacher, AssignTest } from 'src/app/Types/TestsTeacher.type';
 import { TestSubmission } from 'src/app/Types/TestSubmission.type';
 import { ConfirmTestInfo } from './confirm-training-test/confirmTest.type';
 import { map } from 'rxjs/internal/operators';
@@ -75,15 +75,28 @@ export class TestService {
 
   loadAllAssignTestsTeacher(id, skip, top) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<TestTeacher[]>(`http://localhost:3000/teacher/test/all-assignments/${id}?skip=${skip * top}&top=${top}`,
+    return this.http.get<AssignTest>(`http://localhost:3000/teacher/test/all-assignments/${id}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
-        value.map((item) => {
+        console.log(value);
+        /*value.map((item) => {
           item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
             (`0${(item.timeToPass) % 60}`).slice(-2);
-        });
-        this.bSubjectTeacher$.next(value);
-        this.paginationParams.length = value.length;
+        });*/
+        this.bSubjectTeacher$.next(value.assignments);
+        this.paginationParams.length = value.assignAmount;
       });
+  }
+
+  loadAllSubmissionsTeacher(assId) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<TestPassedInfo>(`http://localhost:3000/teacher/test/my-std-submissions/${assId}`,
+      { headers: this.headers, withCredentials: true });
+  }
+
+  loadStudentSubmissionTeacher(assId, studId) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<TestPassedInfo>(`http://localhost:3000/teacher/test/sub-of-std/${assId}/${studId}`,
+      { headers: this.headers, withCredentials: true });
   }
 
   loadAllAssignedTests(teacherId) {
@@ -94,7 +107,7 @@ export class TestService {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     console.log('ass ' + assignId);
     return this.http.get<TestSubmission>(`http://localhost:3000/student/test/submission/${assignId}/${studId}`,
-    { headers: this.headers, withCredentials: true });
+      { headers: this.headers, withCredentials: true });
   }
 
   teacherGetRequests(id) {
