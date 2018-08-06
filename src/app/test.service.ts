@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { QuestionAdmin } from './Types/QuestionAdmin.type';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Answer } from 'src/app/Types/Answer.type';
-import { TestInfoStudent, Test } from 'src/app/Types/TestInfoStudent.type';
+import { Test, TestInfoStudent } from 'src/app/Types/TestInfoStudent.type';
 import { TestTeacher } from 'src/app/Types/TestsTeacher.type';
 import { TestSubmission } from 'src/app/Types/TestSubmission.type';
 import { ConfirmTestInfo } from './confirm-training-test/confirmTest.type';
 import { map } from 'rxjs/internal/operators';
 import { UserService } from './user.service';
 import { AllUsers, User } from './test-statistics-users-page/User.type';
+import { CheckData } from './check-answer-page/question.type';
 
 const questionsAdmin: QuestionAdmin[] = [
   { question: 'Что такое инкапсуляция: я ничего не знаю и знать не собираюсь, вот так вот', tags: ['ООП', 'Инкапсуляция'], status: true },
@@ -68,13 +69,13 @@ export class TestService {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TestInfoStudent>(`http://localhost:3000/student/test/assignments/${studId}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
-        value.ids.map((item) => {
-          item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
-            (`0${(item.timeToPass) % 60}`).slice(-2);
-        });
-        this.bSubject$.next(value.ids);
-        this.paginationParams.length = value.amount;
+      value.ids.map((item) => {
+        item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
+          (`0${(item.timeToPass) % 60}`).slice(-2);
       });
+      this.bSubject$.next(value.ids);
+      this.paginationParams.length = value.amount;
+    });
   }
 
   loadAllTests(studId) {
@@ -85,13 +86,13 @@ export class TestService {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TestTeacher[]>(`http://localhost:3000/teacher/test/all-assignments/${id}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
-        value.map((item) => {
-          item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
-            (`0${(item.timeToPass) % 60}`).slice(-2);
-        });
-        this.bSubjectTeacher$.next(value);
-        this.paginationParams.length = value.length;
+      value.map((item) => {
+        item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
+          (`0${(item.timeToPass) % 60}`).slice(-2);
       });
+      this.bSubjectTeacher$.next(value);
+      this.paginationParams.length = value.length;
+    });
   }
 
   loadAllAssignedTests(teacherId) {
@@ -102,7 +103,7 @@ export class TestService {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     console.log('ass ' + assignId);
     return this.http.get<TestSubmission>(`http://localhost:3000/student/test/submission/${assignId}/${studId}`,
-    { headers: this.headers, withCredentials: true });
+      { headers: this.headers, withCredentials: true });
   }
 
   teacherGetRequests(id) {
@@ -152,26 +153,20 @@ export class TestService {
     );
   }
 
-
-  /*getTeacherAdminAllTasks(skip: number, top: number, query, url) {
-    this.headers.append('Access-Control-Allow-Methods', 'POST');
-    this.http
-      .post<TeacherTask>(`${url}?skip=${skip}&top=${top}`, query, {
-        headers: this.headers,
-        withCredentials: true
-      })
-      .subscribe(value => {
-        this.bSubject$.next(value.data);
-        this.paginationParams.length = value.pagination.filtered;
-      });
+  getCheckingQuestions(teacherId, skip, top) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<CheckData>(`http://localhost:3000/teacher/test/questions-check/${teacherId}?skip=${skip}&top=${top}`, {
+      headers: this.headers,
+      withCredentials: true
+    });
   }
 
-  loadTasks(role: string) {
-    this.getUsers(
-      this.paginationParams.pageIndex * this.paginationParams.pageSize,
-      this.paginationParams.pageSize,
-      this.searchParams.query,
-    );
-  }*/
+  confirmAnswer(checkId, isRightAnswer) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<void>(`http://localhost:3000/teacher/test/check-res/${checkId}/${isRightAnswer}`, {
+      headers: this.headers,
+      withCredentials: true
+    });
 
+  }
 }
