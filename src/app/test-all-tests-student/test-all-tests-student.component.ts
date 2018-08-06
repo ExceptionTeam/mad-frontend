@@ -15,15 +15,14 @@ import { DataSource } from '@angular/cdk/collections';
   styleUrls: ['./test-all-tests-student.component.scss']
 })
 export class TestAllTestsStudentComponent implements OnInit {
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource: TestsDataSourse | null;
   amount: number;
   displayedColumns: string[] = ['name', 'deadline', 'timeToPass', 'teacher', 'button'];
   length: number;
   pageIndex: number;
   pageSize: number;
-
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private router: Router,
     private userService: UserService,
