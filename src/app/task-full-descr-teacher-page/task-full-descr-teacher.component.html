@@ -27,7 +27,8 @@
         <button *ngIf="task?.active" mat-icon-button (click)="deleteTask()" [disabled]="!task?.editable">
           <mat-icon matTooltip="Удалить">delete</mat-icon>
         </button>
-        <button *ngIf="!task?.active" mat-icon-button routerLink="/task/table-teacher" (click)="activateTask()" [disabled]="!task?.editable">
+        <button *ngIf="!task?.active" mat-icon-button routerLink="/task/table-teacher" (click)="activateTask()"
+                [disabled]="!task?.editable">
           <mat-icon matTooltip="Восстановить">restore_from_trash</mat-icon>
         </button>
       </div>
@@ -45,15 +46,17 @@
   <div class="files">
     <div class="input">
       <p>Входные файлы: </p>
-      <a class="open-file" *ngFor="let file of task?.inputFilesId; let i = index" [attr.data-index]="i" [href]="file.url" target="_blank"
-        download>
+      <a class="open-file" *ngFor="let file of task?.inputFilesId; let i = index" [attr.data-index]="i"
+         [href]="file.url" target="_blank"
+         download>
         {{file.name}}
       </a>
     </div>
     <div class="output">
       <p>Выходные файлы:</p>
-      <a class="open-file" *ngFor="let file of task?.outputFilesId; let i = index" [attr.data-index]="i" [href]="file.url" target="_blank"
-        download>
+      <a class="open-file" *ngFor="let file of task?.outputFilesId; let i = index" [attr.data-index]="i"
+         [href]="file.url" target="_blank"
+         download>
         {{file.name}}
       </a>
     </div>

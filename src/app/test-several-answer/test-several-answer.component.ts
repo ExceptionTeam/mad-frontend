@@ -17,7 +17,7 @@ export class TestSeveralAnswerComponent {
   }
 
   changeValue(event, index) {
-    this.studentAnswer[index] = this.answers[index];
+    this.studentAnswer[index] = index;
     this.studentCheckboxAnswersChanged.emit(this.studentAnswer);
   }
 

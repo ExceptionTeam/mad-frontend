@@ -3,20 +3,23 @@
     <span mat-line class="title">{{request.userId.name}} {{request.userId.surname}}</span>
     <p mat-line>Раздел: {{request.sectionId.name}} </p>
     <ng-container *ngIf="request.display">
-      <button mat-icon-button (click)="onclickConfirm(request)">
+      <button mat-icon-button (click)="onclickConfirm(request, true)">
         <mat-icon matListIcon class="done">done</mat-icon>
       </button>
-      <button mat-icon-button (click)="onclickConfirm(request)">
+      <button mat-icon-button (click)="onclickConfirm(request, false)">
         <mat-icon class="clear">clear</mat-icon>
       </button>
     </ng-container>
-    <ng-container *ngIf="!request.display">
-      Готово
+    <ng-container *ngIf="!request.display && request.onclickDone">
+      Одобрено
+    </ng-container>
+    <ng-container *ngIf="!request.display && request.onclickDone===false">
+      Отклонено
     </ng-container>
     <mat-divider></mat-divider>
   </mat-list-item>
-  <mat-paginator [length]="requestsTest.length"
-                 [pageSize]="10"
+  <mat-paginator [length]="requests?.length"
+                 [pageSize]="2"
                  [pageIndex]="0"
                  (page)="onPaginateChange()">
   </mat-paginator>

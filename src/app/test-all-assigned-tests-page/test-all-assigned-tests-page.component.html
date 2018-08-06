@@ -1,42 +1,63 @@
-<h2 class="headertekst">Назначенные тесты</h2>
+<h2 class="headertext">Назначенные тесты</h2>
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Название теста </th>
-      <td mat-cell *matCellDef="let element">{{element.name}}</td>
-    </ng-container>
+  <mat-accordion displayMode="flat" multi class="mat-table">
+    <section matSort class="mat-elevation-z2 mat-header-row">
+      <span class="mat-header-cell" mat-sort-header="vesselId">Студент/Группа</span>
+      <span class="mat-header-cell" mat-sort-header="vesselName">Тест</span>
+      <span class="mat-header-cell" mat-sort-header="vesselStatus">Оценка</span>
+      <span class="mat-header-cell" mat-sort-header="ircs">Дедлайн</span>
+      <span class="mat-header-cell" mat-sort-header="ircs"></span>
+    </section>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="studGroups">
+        <td mat-cell *matCellDef="let element">
+          <mat-expansion-panel [disabled]="!element.groupId" hideToggle>
+            <mat-expansion-panel-header class="mat-row" >
+              <ng-container *ngIf="element.groupId">
+                <span class="mat-cell">
+                  <mat-icon>keyboard_arrow_down</mat-icon>
+                  {{element.groupId.name}}
+                </span>
+              </ng-container>
 
-    <ng-container matColumnDef="deadline">
-      <th mat-header-cell *matHeaderCellDef> Дедлайн </th>
-      <td mat-cell *matCellDef="let element">
-        {{element.deadline ? (element.deadline| date : "dd.MM.yyyy, hh:mm" ): "тренировочный"}}
-      </td>
-    </ng-container>
+              <ng-container  *ngIf="element.studentId">
+                 <span class="mat-cell">{{element.studentId.surname}} {{element.studentId.name}}</span>
+              </ng-container>
+              <span class="mat-cell">{{element.name}}</span>
+              <span class="mat-cell">{{element.mark ? element.mark : !element.groupId ?"не пройден": ""}}</span>
+              <span class="mat-cell">{{element.deadline| date: "dd:mm:yyyy, mm:ss"}}</span>
+              <span class="mat-cell"><button mat-button>Просмотр</button></span>
+            </mat-expansion-panel-header>
+            <!-- <ng-container *ngIf="element.group.info">
+              <ng-container *ngFor="let elem of element.group.info">
+                <mat-expansion-panel [disabled]="true">
+                  <mat-expansion-panel-header class="group">
+                    <span class="mat-cell">{{elem.studentId.surname}} {{elem.studentId.name}}</span>
+                    <span class="mat-cell">{{elem.name}}</span>
+                    <span class="mat-cell">{{elem.mark ? elem.mark : "не пройден"}}</span>
+                    <span class="mat-cell">{{elem.deadline| date: "dd:mm:yyyy, mm:ss"}}</span>
+                    <span class="mat-cell"><button>Просмотр</button></span>
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+              </ng-container>
+            </ng-container> -->
 
-    <ng-container matColumnDef="student">
-      <th mat-header-cell *matHeaderCellDef> Ученик </th>
-      <td mat-cell *matCellDef="let element"> {{element.student}} </td>
-    </ng-container>
 
-    <ng-container matColumnDef="mark">
-      <th mat-header-cell *matHeaderCellDef> Оценка </th>
-      <td mat-cell *matCellDef="let element"> {{element.mark ? element.mark : "не пройден"}} </td>
-    </ng-container>
+          </mat-expansion-panel>
+        </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row;columns: displayedColumnsStudGroups;"></tr>
+    </table>
+  </mat-accordion>
 
-    <ng-container matColumnDef="buttons">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-button *ngIf="element.mark" routerLink="/test/passing/{{element._id}}" (click)="clickButton($event)">
-          Просмотр
-        </button>
-      </td>
-    </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator
+  [length]="getPaginationParams().length"
+  [pageIndex]="getPaginationParams().pageIndex"
+  [pageSize]="getPaginationParams().pageSize"
+  [pageSizeOptions]="[2, 10, 20]"
+  (page)="changePaginationParams()" showFirstLastButtons></mat-paginator>
 
 </div>

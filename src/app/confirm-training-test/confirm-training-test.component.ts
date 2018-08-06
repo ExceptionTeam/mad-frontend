@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
+import { TestService } from '../test.service';
+import { UserService } from '../user.service';
+import { ConfirmTestInfo } from './confirmTest.type';
 
 @Component({
   selector: 'exc-confirm-training-test',
@@ -8,44 +11,19 @@ import { MatPaginator } from '@angular/material';
 })
 export class ConfirmTrainingTestComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  requestsTest = [
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: { _id: '12', name: 'Многопоточность' },
-      status: 'PENDING'
-    },
-    {
-      _id: '2',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: { _id: '12', name: 'Многопоточность' },
-      status: 'PENDING'
-    },
-    {
-      _id: '3',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: { _id: '12', name: 'Многопоточность' },
-      status: 'PENDING'
-    },
-    {
-      _id: '4',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: { _id: '12', name: 'Многопоточность' },
-      status: 'PENDING'
-    },
-    {
-      _id: '5',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: { _id: '12', name: 'Многопоточность' },
-      status: 'PENDING'
-    }
-  ];
-  onDisplay;
-  requests;
+  onDisplay: ConfirmTestInfo[];
+  requests: ConfirmTestInfo[];
+  onclickDone = null;
 
-  constructor() {
-    this.requests = this.requestsTest.map(request => ({ ...request, display: true }));
-    this.onDisplay = this.getRequests(0, 10);
+  constructor(private testService: TestService,
+              private userService: UserService) {
+    this.userService.getInfo().subscribe(user => {
+      this.testService.teacherGetRequests(user.id).subscribe(data => {
+        this.requests = data;
+        console.log('requests: ', this.requests);
+        this.onDisplay = this.getRequests(0, 2);
+      });
+    });
   }
 
   getRequests(skip: number, top: number) {
@@ -57,7 +35,17 @@ export class ConfirmTrainingTestComponent {
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
   }
 
-  onclickConfirm(request) {
+  onclickConfirm(request, done) {
     request.display = false;
+    request.onclickDone = done;
+    if (done) {
+      this.testService.confirmTest(request._id, this.userService.id).subscribe(() => {
+        },
+        (error) => {
+          console.log(error);
+        });
+    } else {
+      this.testService.rejectTest(request._id).subscribe();
+    }
   }
 }
