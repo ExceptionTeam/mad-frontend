@@ -16,7 +16,7 @@ export interface Test {
   type: string;
 }
 
-export class TestInfoStudent {
+export interface TestInfoStudent {
   ids: Test[];
   amount: number;
 }
