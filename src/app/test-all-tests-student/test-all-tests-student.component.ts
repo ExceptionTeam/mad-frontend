@@ -1,8 +1,13 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
-import { Test } from '../Types/TestList.type';
 import { MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { TestService } from '../test.service';
+import { TestInfoStudent, Test } from '../Types/TestInfoStudent.type';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'exc-test-all-tests-student',
@@ -10,44 +15,60 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./test-all-tests-student.component.scss']
 })
 export class TestAllTestsStudentComponent implements OnInit {
-  dataSource;
-  displayedColumns: string[] = ['name', 'deadline', 'teacher', 'button'];
-
-  constructor(private router: Router) {
-    this.dataSource = new MatTableDataSource<Test>([{
-      _id: '1',
-      name: 'Основы ООП',
-      deadline: 3456785456784,
-      teacher: 'Мушко'
-    },
-    {
-      _id: '2',
-      name: 'Введение в Java',
-      teacher: 'Василенко'
-    },
-    {
-      _id: '3',
-      name: 'Сокеты',
-      deadline: 3456785,
-      teacher: 'Попов'
-    }]);
-  }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  dataSource: TestsDataSourse | null;
+  amount: number;
+  displayedColumns: string[] = ['name', 'deadline', 'timeToPass', 'teacher', 'button'];
+  length: number;
+  pageIndex: number;
+  pageSize: number;
+
+  constructor(private router: Router,
+    private userService: UserService,
+    private testService: TestService) {
+    this.pageIndex = 1;
+    this.pageSize = 2;
+  }
+
+  public setPaginationParams(pageIndex, pageSize, length) {
+    this.length = length;
+    this.pageIndex = pageIndex;
+    this.pageSize = pageSize;
+  }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource = new TestsDataSourse(this.userService, this.testService);
   }
 
-  isDisabled(value) {
-    const date = new Date();
-    if (value - date.valueOf() < 0) {
-      return true;
+  changePaginationParams(event) {
+    this.testService.paginationParams.pageIndex = this.paginator.pageIndex;
+    this.testService.paginationParams.pageSize = this.paginator.pageSize;
+    this.userService.getInfo().subscribe(role => {
+      this.testService.loadAllTests(role.id);
     }
-    return false;
+    );
   }
 
-  clickButton(event) {
-    console.log(event);
+  public getPaginationParams() {
+    return this.testService.paginationParams;
   }
+
+}
+
+export class TestsDataSourse extends DataSource<any> {
+  constructor(private userService: UserService,
+    private testService: TestService) {
+    super();
+    this.userService.getInfo().subscribe(role => {
+      this.testService.loadAllTests(role.id);
+    }
+    );
+  }
+
+  connect(): Observable<Test[]> {
+    return this.testService.bSubject$.pipe(tap(console.log));
+  }
+
+  disconnect() { }
 }

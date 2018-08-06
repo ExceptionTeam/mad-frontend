@@ -1,6 +1,10 @@
 export interface Question {
+  _id: string;
   type: string;
-  description: string;
-  answers?: string[];
-  studentAnswer?: string[];
+  category: string;
+  difficulty: string;
+  answerOptions: string[];
+  question: string;
+  tags: string;
+  studentAnswer: string[];
 }
