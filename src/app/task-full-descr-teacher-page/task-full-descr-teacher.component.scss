@@ -3,6 +3,15 @@
   word-wrap: break-word;
 }
 
+ p.pre {
+  word-wrap: break-word;
+  white-space: pre-line;
+  overflow-y: auto;
+  width: 600px;
+  height: 300px;
+  text-align:left;
+}
+
 .name-of-the-task {
   font-size: x-large;
 }

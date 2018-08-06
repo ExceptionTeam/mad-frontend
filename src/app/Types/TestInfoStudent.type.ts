@@ -1,4 +1,4 @@
-export class Test {
+export interface Test {
   _id: string;
   assignDate: number;
   deadline: number;

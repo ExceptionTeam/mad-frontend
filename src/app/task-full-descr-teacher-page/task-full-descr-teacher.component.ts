@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 export class TaskFullDescrTeacherComponent {
   task: Partial<TaskFullInfo>;
   id: string;
-  role = 'admin';
+  role: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               public snackBar: MatSnackBar,
@@ -21,11 +21,18 @@ export class TaskFullDescrTeacherComponent {
               public router: Router,
               private userService: UserService) {
     this.id = this.activatedRoute.snapshot.params.id;
-    if (this.userService.role === 'TEACHER') {
-      this.taskService.getTaskFullInfoTeacher(this.id).subscribe(task => this.task = task);
-    } else {
-      this.taskService.getTaskFullInfoAdmin(this.id).subscribe(task => this.task = task);
-    }
+    this.userService.getInfo().subscribe(
+      (user) => {
+        this.role = user.role;
+        if (this.role === 'TEACHER') {
+          this.taskService.getTaskFullInfoTeacher(this.id).subscribe(task => this.task = task);
+        } else {
+          this.taskService.getTaskFullInfoAdmin(this.id).subscribe(task => this.task = task);
+        }
+      },
+      error => {
+        this.role = '';
+      });
   }
 
   deleteTask() {
@@ -53,7 +60,7 @@ export class TaskFullDescrTeacherComponent {
   }
 
   isAdmin() {
-    return this.userService.role === 'ADMIN';
+    return this.role === 'ADMIN';
   }
 }
 

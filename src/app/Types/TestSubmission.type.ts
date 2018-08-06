@@ -1,3 +1,3 @@
-export class TestSubmission {
+export interface TestSubmission {
   _id: string;
 }

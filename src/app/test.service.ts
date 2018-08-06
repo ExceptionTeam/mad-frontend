@@ -7,9 +7,11 @@ import { Answer } from 'src/app/Types/Answer.type';
 import { TestInfoStudent, Test } from 'src/app/Types/TestInfoStudent.type';
 import { TestTeacher } from 'src/app/Types/TestsTeacher.type';
 import { TestSubmission } from 'src/app/Types/TestSubmission.type';
+import { ConfirmTestInfo } from './confirm-training-test/confirmTest.type';
+import { map } from 'rxjs/internal/operators';
 
 const questionsAdmin: QuestionAdmin[] = [
-  { question: 'Что такое инкапсуляция: я ничего не знаю', tags: ['ООП', 'Инкапсуляция'], status: true },
+  { question: 'Что такое инкапсуляция: я ничего не знаю и знать не собираюсь, вот так вот', tags: ['ООП', 'Инкапсуляция'], status: true },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
@@ -93,5 +95,29 @@ export class TestService {
     console.log('ass ' + assignId);
     return this.http.get<TestSubmission>(`http://localhost:3000/student/test/submission/${assignId}/${studId}`,
     { headers: this.headers, withCredentials: true });
+  }
+
+  teacherGetRequests(id) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<ConfirmTestInfo[]>(`http://localhost:3000/teacher/test/pending-requests/${id}`, {
+      headers: this.headers,
+      withCredentials: true
+    }).pipe(map(data => data.map(request => ({ ...request, display: true, onclickDone: null }))));
+  }
+
+  confirmTest(reqId, teacherId) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<void>(`http://localhost:3000/teacher/test/approve/${reqId}/${teacherId}`, {}, {
+      headers: this.headers,
+      withCredentials: true
+    });
+  }
+
+  rejectTest(reqId) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<void>(`http://localhost:3000/teacher/test/reject/${reqId}`, {}, {
+      headers: this.headers,
+      withCredentials: true
+    });
   }
 }

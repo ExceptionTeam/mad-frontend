@@ -1,6 +1,6 @@
 import { Question } from 'src/app/Types/Question.type';
 
-export class TestPassedInfo {
+export interface TestPassedInfo {
   _id: string;
   assignmentId: string;
   userId: string;

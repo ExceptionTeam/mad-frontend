@@ -10,49 +10,45 @@ export class TestStatisticsTestsPageComponent implements OnInit {
   displayedColumns: string[] = ['student', 'result', 'teacher', 'date'];
   dataSource = new MatTableDataSource<object>([
     {
-      studentName: 'gfodlshf',
-      studentSurname: 'gfodlshf',
-      result: 3,
-      teacherName: 'ghjkl;',
+      studentName: 'Влад',
+      studentSurname: 'Малиновский',
+      result: 8,
+      teacherName: 'Мушко',
       date: 35678548
     },
     {
-      studentName: 'gfodlshf',
-      studentSurname: 'gfodlshf',
-      result: 3,
-      teacherName: 'ghjkl;',
+      studentName: 'Влад',
+      studentSurname: 'Малиновский',
+      result: 8,
+      teacherName: 'Мушко',
       date: 35678548
     },
     {
-      studentName: 'gfodlshf',
-      studentSurname: 'gfodlshf',
-      student: 'gfodlshf',
-      result: 3,
-      teacherName: 'ghjkl;',
+      studentName: 'Влад',
+      studentSurname: 'Малиновский',
+      result: 8,
+      teacherName: 'Мушко',
       date: 35678548
     },
     {
-      studentName: 'gfodlshf',
-      studentSurname: 'gfodlshf',
-      student: 'gfodlshf',
-      result: 3,
-      teacherName: 'ghjkl;',
+      studentName: 'Влад',
+      studentSurname: 'Малиновский',
+      result: 8,
+      teacherName: 'Мушко',
       date: 35678548
     },
     {
-      studentName: 'gfodlshf',
-      studentSurname: 'gfodlshf',
-      student: 'gfodlshf',
-      result: 3,
-      teacherName: 'ghjkl;',
+      studentName: 'Влад',
+      studentSurname: 'Малиновский',
+      result: 8,
+      teacherName: 'Мушко',
       date: 35678548
     },
     {
-      studentName: 'gfodlshf',
-      studentSurname: 'gfodlshf',
-      student: 'gfodlshf',
-      result: 3,
-      teacherName: 'ghjkl;',
+      studentName: 'Влад',
+      studentSurname: 'Малиновский',
+      result: 8,
+      teacherName: 'Мушко',
       date: 35678548
     }
   ]);
