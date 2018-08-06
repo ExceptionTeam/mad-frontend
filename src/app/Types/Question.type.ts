@@ -1,3 +1,5 @@
+import { Answer } from 'src/app/Types/Answer.type';
+
 export interface Question {
   _id: string;
   type: string;
@@ -6,5 +8,6 @@ export interface Question {
   answerOptions: string[];
   question: string;
   tags: string;
+  answer: Answer[];
   studentAnswer: string[];
 }

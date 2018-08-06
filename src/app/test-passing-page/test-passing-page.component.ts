@@ -30,10 +30,10 @@ export class TestPassingPageComponent implements OnInit {
   ) {
     userService.getInfo().subscribe(user => {
       if (user.role === 'STUDENT') {
-        console.log(this.activatedRoute.snapshot.params.id),
-          console.log(user.id);
+        console.log(user.id);
         testService.loadTest(this.activatedRoute.snapshot.params.id, user.id).subscribe(
           info => {
+            console.log(info);
             this.test = info;
             this.test.questionsId.map(value => value.studentAnswer = []);
             this.req = info.questionsId[0];
@@ -53,6 +53,13 @@ export class TestPassingPageComponent implements OnInit {
       } else {
         this.disabled = true;
         this.buttonType = 'завершить просмотр';
+        this.testService.loadStudentSubmissionTeacher(this.activatedRoute.snapshot.params.id,
+          this.activatedRoute.snapshot.queryParams.studId).subscribe(
+          item => {
+            this.test = item[0];
+            this.test.questionsId.forEach((question, i) => question.studentAnswer = this.test.answers[i].answ);
+            this.req = this.test.questionsId[0];
+          });
       }
     });
   }
@@ -81,9 +88,7 @@ export class TestPassingPageComponent implements OnInit {
           checking: 'true'
         });
     });
-    console.log(this.body);
     this.testService.sendAnswersTest(this.test._id, this.body).subscribe(answ => {
-      console.log(answ);
       this.router.navigate([`/test/tests-table`]);
     }
     );
