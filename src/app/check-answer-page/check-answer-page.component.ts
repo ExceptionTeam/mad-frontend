@@ -14,14 +14,6 @@ export class CheckAnswerPageComponent {
   onDisplay: CheckQuestion[];
   length: number;
 
-  onPaginateChange() {
-    this.testService.getCheckingQuestions(this.userService.id, this.paginator.pageIndex * this.paginator.pageSize,
-      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize).subscribe(data => {
-      this.onDisplay = data.requests;
-      this.length = data.amount;
-    });
-  }
-
   constructor(private testService: TestService,
               private userService: UserService) {
     this.userService.getInfo().subscribe(user => {
@@ -30,6 +22,14 @@ export class CheckAnswerPageComponent {
         this.onDisplay = data.requests;
         this.length = data.amount;
       });
+    });
+  }
+
+  onPaginateChange() {
+    this.testService.getCheckingQuestions(this.userService.id, this.paginator.pageIndex * this.paginator.pageSize,
+      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize).subscribe(data => {
+      this.onDisplay = data.requests;
+      this.length = data.amount;
     });
   }
 

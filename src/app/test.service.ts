@@ -14,13 +14,13 @@ import { AllUsers, User } from './test-statistics-users-page/User.type';
 import { CheckData } from './check-answer-page/question.type';
 
 const questionsAdmin: QuestionAdmin[] = [
-  { question: 'Что такое инкапсуляция: я ничего не знаю и знать не собираюсь, вот так вот', tags: ['ООП', 'Инкапсуляция'], status: true },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция', 'Программирование', 'Помогите'], status: true },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], status: true }
+  { question: 'Что такое инкапсуляция?', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION' },
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_PRIMARY_QUESTION' },
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION'},
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_PRIMARY_QUESTION' },
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция', 'Программирование', 'Помогите'], type: 'TYPE_TRAINING_QUESTION' },
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION' },
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION' }
 ];
 
 @Injectable({
@@ -28,6 +28,7 @@ const questionsAdmin: QuestionAdmin[] = [
 })
 export class TestService {
   public users$: BehaviorSubject<User[]> = new BehaviorSubject([]);
+  public questions$: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private headers;
   paginationParams = {
     pageIndex: 0,
@@ -46,11 +47,6 @@ export class TestService {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-  }
-
-  loadQuestions(): Observable<QuestionAdmin[]> {
-    const startIndex = this.paginationParams.pageIndex * this.paginationParams.pageSize;
-    return of(questionsAdmin.slice(startIndex, startIndex + this.paginationParams.pageSize));
   }
 
   loadTest(assId, studId): Observable<TestPassedInfo> {
@@ -167,6 +163,18 @@ export class TestService {
       headers: this.headers,
       withCredentials: true
     });
+  }
 
+  loadQuestions(): Observable<QuestionAdmin[]> {
+     const startIndex = this.paginationParams.pageIndex * this.paginationParams.pageSize;
+    return of(questionsAdmin.slice(startIndex, startIndex + this.paginationParams.pageSize));
+  }
+
+  getQuestions() {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<QuestionAdmin[]>(`http://localhost:3000/teacher/test/tag-questions`, {tags: ''}, {
+      headers: this.headers,
+      withCredentials: true
+    });
   }
 }
