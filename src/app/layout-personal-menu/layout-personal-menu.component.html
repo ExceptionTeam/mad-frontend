@@ -4,7 +4,8 @@
   </button>
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item [routerLink]="field.link" *ngFor="let field of getPersArray()">
+  <button mat-menu-item disabled="true">{{this.userService.name}} {{this.userService.surname}}</button>
+  <button mat-menu-item *ngFor="let field of getArray()" [routerLink]="field.link">
     {{ field.name }}
   </button>
 </mat-menu>

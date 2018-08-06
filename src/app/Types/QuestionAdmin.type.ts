@@ -1,5 +1,7 @@
 export interface QuestionAdmin {
-  question: string;
+  section?: string[];
   tags: String[];
-  status: boolean;
+  type: string;
+  active?: boolean;
+  question: string;
 }

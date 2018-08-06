@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./layout-personal-menu.component.scss']
 })
 export class LayoutPersonalMenuComponent implements OnInit {
-  role: string;
+  menu;
 
   studentPersonalMenu: FieldsOfMenu[] = [
     { name: 'Мои оповещения', link: '/personal-menu/notifications/tests' },
@@ -28,7 +28,7 @@ export class LayoutPersonalMenuComponent implements OnInit {
   constructor(public userService: UserService) {
   }
 
-  getPersArray() {
+  getArray() {
     if (this.userService.role === 'TEACHER') {
       return this.teacherPersonalMenu;
     }

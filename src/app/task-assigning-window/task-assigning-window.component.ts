@@ -14,6 +14,7 @@ export class TaskAssigningWindowComponent implements OnInit {
   isGroupSelected: boolean;
   selectedId: string;
   minDate = new Date();
+  assigned: boolean;
 
   constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -56,7 +57,9 @@ export class TaskAssigningWindowComponent implements OnInit {
           deadline: value.inputDate.valueOf()
         };
       console.log(data);
-      this.tasksService.postAssignTask(data).subscribe();
+      this.tasksService.postAssignTask(data).subscribe(() => {
+        this.assigned = true;
+      });
     });
   }
 }

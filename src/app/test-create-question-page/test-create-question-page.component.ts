@@ -90,6 +90,7 @@ export class TestCreateQuestionPageComponent implements OnInit {
     this.variantForm = this.fb.group({
       question: ['', Validators.required],
 
+
       variants: new FormArray([
         new FormGroup({ ans: new FormControl(''), rightAns: new FormControl(false) }),
         new FormGroup({ ans: new FormControl(''), rightAns: new FormControl(false) }),
