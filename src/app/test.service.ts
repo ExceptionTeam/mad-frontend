@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { QuestionAdmin } from './Types/QuestionAdmin.type';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { QuestionAdmin } from './Types/QuestionAdmin.type';
+import { QuestionAdding } from './Types/QuestionAdding.type';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Answer } from 'src/app/Types/Answer.type';
 import { TestInfoStudent, Test } from 'src/app/Types/TestInfoStudent.type';
@@ -24,11 +25,23 @@ const questionsAdmin: QuestionAdmin[] = [
   providedIn: 'root'
 })
 export class TestService {
-  private headers;
   paginationParams = {
     pageIndex: 0,
     pageSize: 5,
     length: questionsAdmin.length
+  };
+  private headers;
+  public que: QuestionAdding = {
+  section: [],
+  tags: [],
+  type: '',
+  active: true,
+  category: '',
+  question: '',
+  questionAuthorId: '',
+  answerOptions: [],
+  correctOptions: [],
+  difficulty: 1
   };
   public bSubject$: BehaviorSubject<Test[]> = new BehaviorSubject([]);
   public bSubjectTeacher$: BehaviorSubject<TestTeacher[]> = new BehaviorSubject([]);
@@ -37,6 +50,13 @@ export class TestService {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  }
+
+  postAddQuestion (): Observable<QuestionAdding> {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    console.log(this.que );
+    return this.http.post<QuestionAdding>('http://localhost:3000/teacher/test/new-question/',
+     this.que, { headers: this.headers, withCredentials: true });
   }
 
   loadQuestions(): Observable<QuestionAdmin[]> {

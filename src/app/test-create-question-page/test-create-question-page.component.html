@@ -2,9 +2,9 @@
 
 <ng-container *ngIf="!showSecondPart">
   <mat-card>
-    <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="first-form">
+    <form [formGroup]="firstForm" #form="ngForm" (ngSubmit)="onFirstSubmit()" class="first-form">
       <div class="add-question-content">
-        <mat-slide-toggle formControlName="training">Тренировочный вопрос</mat-slide-toggle>
+        <mat-slide-toggle  ngDefaultControl [(ngModel)]="isChecked" formControlName="training">Тренировочный вопрос</mat-slide-toggle>
         <span class="types">Типы вопросов:</span>
         <mat-radio-group formControlName="type">
           <mat-radio-button value="variants">C вариантами ответов</mat-radio-button>
@@ -12,7 +12,7 @@
           <mat-radio-button value="text">Текстовый ответ(не более 120 символов)</mat-radio-button>
         </mat-radio-group>
         <mat-form-field>
-          <mat-select placeholder="Сложность" formControlName="difficulty">
+          <mat-select placeholder="Сложность" formControlName="difficulty" [(value)]="selected">
             <mat-option *ngFor="let diff of difficulty" [value]="diff">
               {{diff}}
             </mat-option>
@@ -29,7 +29,7 @@
 <ng-container *ngIf="showSecondPart">
   <mat-card>
     <ng-container *ngIf="firstForm.value.type==='variants'">
-      <form [formGroup]="variantForm" (ngSubmit)="onSubmitWithVariants()">
+      <form [formGroup]="variantForm" #form="ngForm" (ngSubmit)="onSubmitWithVariants(form.value)">
         <div class="add-question-content">
 
           <mat-form-field>
@@ -49,7 +49,7 @@
             </div>
           </div>
 
-          <button mat-icon-button matTooltip="Больше вариантов" (click)="addVariant()">
+          <button mat-icon-button type="button" matTooltip="Больше вариантов" (click)="addVariant()">
             <mat-icon>add</mat-icon>
           </button>
 
@@ -72,7 +72,7 @@
           <button mat-button type="button" (click)="onclickBack()">
             Назад
           </button>
-          <button mat-button type="button" (click)="onSubmitWithVariants()" [disabled]="!variantForm.valid">
+          <button mat-button type="button" (click)="onSubmitWithVariants(form.value)" [disabled]="!variantForm.valid">
             Добавить
           </button>
 
@@ -81,7 +81,7 @@
     </ng-container>
 
     <ng-container *ngIf="firstForm.value.type==='word'">
-      <form [formGroup]="wordForm">
+      <form [formGroup]="wordForm" #form="ngForm" (ngSubmit)="onSubmitAnsWord(form.value)">
         <div class="add-question-content">
 
           <mat-form-field>
@@ -108,7 +108,7 @@
           <button mat-button type="button" (click)="onclickBack()">
             Назад
           </button>
-          <button mat-button type="button" (click)="onSubmitAnsWord()" [disabled]="!wordForm.valid">
+          <button mat-button type="button" (click)="onSubmitAnsWord(form.value)" [disabled]="!wordForm.valid">
             Добавить
           </button>
         </div>
@@ -116,7 +116,7 @@
     </ng-container>
 
     <ng-container *ngIf="firstForm.value.type==='text'">
-      <form [formGroup]="longAnsForm">
+      <form [formGroup]="longAnsForm" #form="ngForm" (ngSubmit)="onSubmitLongAnswer(form.value)">
         <div class="add-question-content">
 
           <mat-form-field>
@@ -138,7 +138,7 @@
           <button mat-button type="button" (click)="onclickBack()">
             Назад
           </button>
-          <button mat-button type="button" (click)="onSubmitLongAnswer()" [disabled]="!longAnsForm.valid">
+          <button mat-button type="button" (click)="onSubmitLongAnswer(form.value)" [disabled]="!longAnsForm.valid">
             Добавить
           </button>
         </div>

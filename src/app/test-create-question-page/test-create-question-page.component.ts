@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { map, startWith } from 'rxjs/internal/operators';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 import { Observable } from 'rxjs';
+import { TestService } from '../test.service';
 
 const reg = /^[^,.'"?!@:;\/]+$/;
 
@@ -64,8 +67,11 @@ export class TestCreateQuestionPageComponent implements OnInit {
   showSecondPart: boolean;
   filteredOptions: Observable<string[]>;
   difficulty = ['1', '2', '3', '4'];
+  private id;
+  public isChecked = false;
+  public selected;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private testService: TestService, private userService: UserService, private router: Router ) {
     this.sections = [
       'многопоточность', 'еще раздел',
       'многопоточность', 'еще раздел',
@@ -73,6 +79,7 @@ export class TestCreateQuestionPageComponent implements OnInit {
       'многопоточность', 'еще раздел',
       'многопоточность', 'еще раздел'
     ];
+    this.userService.getInfo().subscribe(data => { this.id = data.id; });
     this.showSecondPart = false;
     this.value = 0;
     this.firstForm = this.fb.group({
@@ -131,7 +138,12 @@ export class TestCreateQuestionPageComponent implements OnInit {
   onFirstSubmit() {
     this.showSecondPart = true;
     this.value = 50;
-    console.log(this.firstForm.value);
+    if (this.isChecked !== true) {
+    this.testService.que.type = 'PRIMARY';
+    } else {
+      this.testService.que.type = 'TRAINING';
+    }
+    this.testService.que.difficulty = this.selected;
   }
 
   onclickBack() {
@@ -139,15 +151,46 @@ export class TestCreateQuestionPageComponent implements OnInit {
     this.value = 0;
   }
 
-  onSubmitWithVariants() {
-    console.log(this.variantForm.value);
+  onSubmitWithVariants(value) {
+    let count = 0;
+    this.testService.que.answerOptions = [];
+    this.testService.que.correctOptions = [];
+    this.testService.que.questionAuthorId = this.id;
+    this.testService.que.question = value.question;
+    this.testService.que.tags = value.tags.trim().split(' ');
+    this.testService.que.section = value.section.trim().split(' ');
+    value.variants.forEach(element => {
+      this.testService.que.answerOptions.push(element.ans);
+      if (element.rightAns) {
+        count++;
+        this.testService.que.correctOptions.push(element.ans);
+      }
+    });
+    if (count === 1) {
+    this.testService.que.category = 'SINGLE_ANSWER';
+    } else {
+      this.testService.que.category = 'MULTIPLE_ANSWERS';
+    }
+
+    this.testService.postAddQuestion().subscribe( data => this.router.navigate([`/test/questions-admin`]) );
   }
 
-  onSubmitAnsWord() {
-    console.log(this.wordForm.value);
+  onSubmitAnsWord(value) {
+    this.testService.que.questionAuthorId = this.id;
+    this.testService.que.category = 'WORD_ANSWER';
+    this.testService.que.question = value.question;
+    this.testService.que.tags = value.tags.trim().split(' ');
+    this.testService.que.section = value.section.trim().split(' ');
+    this.testService.que.correctOptions = value.answer.trim().split(' ');
+    this.testService.postAddQuestion().subscribe( data => this.router.navigate([`/test/questions-admin`]) );
   }
 
-  onSubmitLongAnswer() {
-    console.log(this.longAnsForm.value);
+  onSubmitLongAnswer(value) {
+    this.testService.que.questionAuthorId = this.id;
+    this.testService.que.category = 'SENTENCE_ANSWER';
+    this.testService.que.question = value.question;
+    this.testService.que.tags = value.tags.trim().split(' ');
+    this.testService.que.section = value.section.trim().split(' ');
+    this.testService.postAddQuestion().subscribe( data => this.router.navigate([`/test/questions-admin`]) );
   }
 }
