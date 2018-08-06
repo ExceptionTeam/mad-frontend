@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { QuestionAdmin } from './Types/QuestionAdmin.type';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { QuestionAdmin } from './Types/QuestionAdmin.type';
+import { QuestionAdding } from './Types/QuestionAdding.type';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Answer } from 'src/app/Types/Answer.type';
 import { Test, TestInfoStudent } from 'src/app/Types/TestInfoStudent.type';
-import { TestTeacher } from 'src/app/Types/TestsTeacher.type';
+import { AssignTest, TestTeacher } from 'src/app/Types/TestsTeacher.type';
 import { TestSubmission } from 'src/app/Types/TestSubmission.type';
 import { ConfirmTestInfo } from './confirm-training-test/confirmTest.type';
 import { map } from 'rxjs/internal/operators';
@@ -16,7 +17,7 @@ import { CheckData } from './check-answer-page/question.type';
 const questionsAdmin: QuestionAdmin[] = [
   { question: 'Что такое инкапсуляция?', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION' },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_PRIMARY_QUESTION' },
-  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION'},
+  { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION' },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_PRIMARY_QUESTION' },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция', 'Программирование', 'Помогите'], type: 'TYPE_TRAINING_QUESTION' },
   { question: 'Что такое инкапсуляция', tags: ['ООП', 'Инкапсуляция'], type: 'TYPE_TRAINING_QUESTION' },
@@ -35,6 +36,18 @@ export class TestService {
     pageSize: 5,
     length: questionsAdmin.length
   };
+  public que: QuestionAdding = {
+    section: [],
+    tags: [],
+    type: '',
+    active: true,
+    category: '',
+    question: '',
+    questionAuthorId: '',
+    answerOptions: [],
+    correctOptions: [],
+    difficulty: 1
+  };
   searchParams = {
     query: '',
     paging: this.paginationParams
@@ -47,6 +60,13 @@ export class TestService {
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  }
+
+  postAddQuestion(): Observable<QuestionAdding> {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    console.log(this.que);
+    return this.http.post<QuestionAdding>('http://localhost:3000/teacher/test/new-question/',
+      this.que, { headers: this.headers, withCredentials: true });
   }
 
   loadTest(assId, studId): Observable<TestPassedInfo> {
@@ -80,15 +100,28 @@ export class TestService {
 
   loadAllAssignTestsTeacher(id, skip, top) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<TestTeacher[]>(`http://localhost:3000/teacher/test/all-assignments/${id}?skip=${skip * top}&top=${top}`,
+    return this.http.get<AssignTest>(`http://localhost:3000/teacher/test/all-assignments/${id}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
-      value.map((item) => {
+      console.log(value);
+      /*value.map((item) => {
         item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
           (`0${(item.timeToPass) % 60}`).slice(-2);
-      });
-      this.bSubjectTeacher$.next(value);
-      this.paginationParams.length = value.length;
+      });*/
+      this.bSubjectTeacher$.next(value.assignments);
+      this.paginationParams.length = value.assignAmount;
     });
+  }
+
+  loadAllSubmissionsTeacher(assId) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<TestPassedInfo>(`http://localhost:3000/teacher/test/my-std-submissions/${assId}`,
+      { headers: this.headers, withCredentials: true });
+  }
+
+  loadStudentSubmissionTeacher(assId, studId) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<TestPassedInfo>(`http://localhost:3000/teacher/test/sub-of-std/${assId}/${studId}`,
+      { headers: this.headers, withCredentials: true });
   }
 
   loadAllAssignedTests(teacherId) {
@@ -166,13 +199,13 @@ export class TestService {
   }
 
   loadQuestions(): Observable<QuestionAdmin[]> {
-     const startIndex = this.paginationParams.pageIndex * this.paginationParams.pageSize;
+    const startIndex = this.paginationParams.pageIndex * this.paginationParams.pageSize;
     return of(questionsAdmin.slice(startIndex, startIndex + this.paginationParams.pageSize));
   }
 
   getQuestions() {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
-    return this.http.post<QuestionAdmin[]>(`http://localhost:3000/teacher/test/tag-questions`, {tags: ''}, {
+    return this.http.post<QuestionAdmin[]>(`http://localhost:3000/teacher/test/tag-questions`, { tags: '' }, {
       headers: this.headers,
       withCredentials: true
     });
