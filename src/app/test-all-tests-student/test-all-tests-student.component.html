@@ -13,17 +13,20 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="timeToPass">
+      <th mat-header-cell *matHeaderCellDef> Время </th>
+      <td mat-cell *matCellDef="let element"> {{element.timeToPassStr}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="teacher">
       <th mat-header-cell *matHeaderCellDef> Учитель </th>
-      <td mat-cell *matCellDef="let element"> {{element.teacher}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.teacherId.name}} {{element.teacherId.surname}} </td>
     </ng-container>
 
     <ng-container matColumnDef="button">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button *ngIf="element.deadline" routerLink="/test/passing/{{element._id}}"
-                           [disabled]="isDisabled(element.deadline)"
-                           (click)="clickButton($event)">
+        <button mat-button routerLink="/test/passing/{{element._id}}">
           Пройти тест
         </button>
       </td>
@@ -33,6 +36,10 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
+  <mat-paginator
+  [length]="getPaginationParams().length"
+  [pageIndex]="getPaginationParams().pageIndex"
+  [pageSize]="getPaginationParams().pageSize"
+  [pageSizeOptions]="[1, 2, 3, 10, 20]"
+  (page)="changePaginationParams()" showFirstLastButtons></mat-paginator>
 </div>

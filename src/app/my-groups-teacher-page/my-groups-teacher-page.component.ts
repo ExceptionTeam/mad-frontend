@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { TaskService } from 'src/app/task.service';
 import { UserService } from 'src/app/user.service';
+import { UserId } from 'src/app/Types/UserId.type';
 
 @Component({
   selector: 'exc-my-groups-teacher-page',
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./my-groups-teacher-page.component.scss']
 })
 export class MyGroupsTeacherPageComponent {
-  indStudents: Student[] = [];
+  indStudents: UserId[] = [];
   groups: Group[] = [];
 
   constructor(private tasksService: TaskService, private userService: UserService) {

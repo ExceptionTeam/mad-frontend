@@ -12,7 +12,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-panel-description *ngFor="let student of indStudents">
-      <p>{{student.name}}</p>
+      <p>{{student.name}} {{student.surname}}</p>
     </mat-panel-description>
   </mat-expansion-panel>
   <mat-expansion-panel *ngFor="let group of groups">
