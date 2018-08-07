@@ -1,7 +1,7 @@
 <mat-list>
   <mat-list-item *ngFor="let request of onDisplay">
     <span mat-line class="title">{{request.studentId.name}} {{request.studentId.surname}}</span>
-    <p mat-line class="wrap"><span class="title">Вопрос:</span> {{request.questionId.question}} </p>
+    <p mat-line class="wrap"><span class="title">Вопрос:</span> {{request.questionId?.question}} </p>
 
     <p mat-line class="wrap">
       <span class="title">Ответ:</span> {{request.answer}}
@@ -20,7 +20,7 @@
     <ng-container *ngIf="!request.display && request.onclickDone===false">
       Отклонено
     </ng-container>
-    <span mat-line class="title">{{request.submissionId.completeDate | date : "MM.dd.yy, hh:mm"}}</span>
+    <span mat-line class="title">{{request.submissionId?.completeDate | date : "MM.dd.yy, hh:mm"}}</span>
     <mat-divider></mat-divider>
   </mat-list-item>
   <mat-paginator [length]="length"

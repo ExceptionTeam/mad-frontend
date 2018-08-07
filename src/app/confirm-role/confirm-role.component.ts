@@ -9,21 +9,6 @@ import { UserService } from '../user.service';
 })
 export class ConfirmRoleComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  requestsRole = [
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' }
-  ];
   onDisplay;
   requests;
 
@@ -32,24 +17,29 @@ export class ConfirmRoleComponent {
   }
 
   onPaginateChange() {
-    this.onDisplay = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
-      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
+    this.userService.getConfirmRole(this.paginator.pageIndex * this.paginator.pageSize,
+      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize).subscribe(data => {
+      this.onDisplay = data;
+    });
   }
 
   constructor(private userService: UserService) {
-
-    this.userService.getInfo().subscribe(user => {
-      this.userService.confirmRole(0, 10).subscribe(data => {
-        this.requests = data;
-        console.log('requests: ', this.requests);
-        this.onDisplay = this.getRequests(0, 2);
-      });
+    this.userService.getConfirmRole(0, 2).subscribe(data => {
+      this.onDisplay = data;
     });
-    // this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
-    // this.onDisplay = this.getRequests(0, 10);
   }
 
-  onclickConfirm(request) {
+  onclickConfirm(request, done) {
     request.display = false;
+    request.onclickDone = done;
+    if (done) {
+      this.userService.confirmRole(request._id).subscribe(() => {
+        },
+        (error) => {
+          console.log(error);
+        });
+    } else {
+      this.userService.rejectRole(request._id).subscribe();
+    }
   }
 }

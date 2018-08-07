@@ -49,7 +49,7 @@ export class LayoutNavigationComponent implements OnInit {
     if (this.userService.role === 'ADMIN') {
       return this.adminNavMenu;
     }
-    if (this.userService.role === 'STUDENT') {
+    if (this.userService.role === 'STUDENT' || this.userService.role === 'PENDING') {
       return this.studentNavMenu;
     }
   }
