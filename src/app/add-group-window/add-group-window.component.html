@@ -3,6 +3,9 @@
     <mat-form-field class="example-full-width">
       <input class="" matInput formControlName="name" placeholder="Название группы">
     </mat-form-field>
+    <mat-error *ngIf="error">
+      Группа с таким названием уже есть
+    </mat-error>
     <button mat-button type="submit" [disabled]="!formName.valid" >
       Создать
     </button>
