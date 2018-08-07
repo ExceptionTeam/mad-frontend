@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { QuestionAdmin } from './Types/QuestionAdmin.type';
 import { QuestionAdding } from './Types/QuestionAdding.type';
+import { TestAssign } from './Types/TestAssign.type';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Answer } from 'src/app/Types/Answer.type';
 import { Test, TestInfoStudent } from 'src/app/Types/TestInfoStudent.type';
@@ -64,9 +65,19 @@ export class TestService {
 
   postAddQuestion(): Observable<QuestionAdding> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
-    console.log(this.que);
     return this.http.post<QuestionAdding>('http://localhost:3000/teacher/test/new-question/',
-      this.que, { headers: this.headers, withCredentials: true });
+     this.que, { headers: this.headers, withCredentials: true });
+  }
+
+  postAssignTest (body): Observable<TestAssign> {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<TestAssign>('http://localhost:3000/teacher/test/new-assignment/', body,
+     { headers: this.headers, withCredentials: true });
+  }
+
+  loadQuestions(): Observable<QuestionAdmin[]> {
+    const startIndex = this.paginationParams.pageIndex * this.paginationParams.pageSize;
+    return of(questionsAdmin.slice(startIndex, startIndex + this.paginationParams.pageSize));
   }
 
   loadTest(assId, studId): Observable<TestPassedInfo> {
@@ -196,11 +207,6 @@ export class TestService {
       headers: this.headers,
       withCredentials: true
     });
-  }
-
-  loadQuestions(): Observable<QuestionAdmin[]> {
-    const startIndex = this.paginationParams.pageIndex * this.paginationParams.pageSize;
-    return of(questionsAdmin.slice(startIndex, startIndex + this.paginationParams.pageSize));
   }
 
   getQuestions() {
