@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { map, startWith } from 'rxjs/internal/operators';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Observable } from 'rxjs';
 import { TestService } from '../test.service';
+import { QuestionAdding } from '../Types/QuestionAdding.type';
 
 const reg = /^[^,.'"?!@:;\/]+$/;
 
@@ -67,7 +68,6 @@ export class TestCreateQuestionPageComponent implements OnInit {
   showSecondPart: boolean;
   filteredOptions: Observable<string[]>;
   difficulty = ['1', '2', '3', '4'];
-  private id;
   public isChecked = false;
   public selected;
 
@@ -79,7 +79,6 @@ export class TestCreateQuestionPageComponent implements OnInit {
       'многопоточность', 'еще раздел',
       'многопоточность', 'еще раздел'
     ];
-    this.userService.getInfo().subscribe(data => { this.id = data.id; });
     this.showSecondPart = false;
     this.value = 0;
     this.firstForm = this.fb.group({
@@ -139,12 +138,6 @@ export class TestCreateQuestionPageComponent implements OnInit {
   onFirstSubmit() {
     this.showSecondPart = true;
     this.value = 50;
-    if (this.isChecked !== true) {
-    this.testService.que.type = 'PRIMARY';
-    } else {
-      this.testService.que.type = 'TRAINING';
-    }
-    this.testService.que.difficulty = this.selected;
   }
 
   onclickBack() {
@@ -153,45 +146,66 @@ export class TestCreateQuestionPageComponent implements OnInit {
   }
 
   onSubmitWithVariants(value) {
+    const all = [];
+    const correct = [];
     let count = 0;
-    this.testService.que.answerOptions = [];
-    this.testService.que.correctOptions = [];
-    this.testService.que.questionAuthorId = this.id;
-    this.testService.que.question = value.question;
-    this.testService.que.tags = value.tags.trim().split(' ');
-    this.testService.que.section = value.section.trim().split(' ');
-    value.variants.forEach(element => {
-      this.testService.que.answerOptions.push(element.ans);
+        value.variants.forEach(element => {
+          if (element.ans !== '') {
+     all.push(element.ans);
+          }
       if (element.rightAns) {
         count++;
-        this.testService.que.correctOptions.push(element.ans);
+       correct.push(value.variants.indexOf(element));
       }
     });
-    if (count === 1) {
-    this.testService.que.category = 'SINGLE_ANSWER';
-    } else {
-      this.testService.que.category = 'MULTIPLE_ANSWERS';
-    }
 
-    this.testService.postAddQuestion().subscribe( data => this.router.navigate([`/test/questions-admin`]) );
+    this.userService.getInfo().subscribe(user => {
+      const question: QuestionAdding =  {
+        type: this.isChecked ? 'TRAINING' : 'PRIMARY',
+        difficulty: Number(this.selected),
+        questionAuthorId: user.id,
+        question: value.question,
+        tags: value.tags.trim().split(' '),
+        section: value.section.trim().split(' '),
+        active: true,
+        category: (count > 1 ) ? 'MULTIPLE_ANSWERS' : 'SINGLE_ANSWER',
+        answerOptions: all,
+        correctOptions: correct
+      };
+      this.testService.postAddQuestion(question).subscribe( data => this.router.navigate([`/test/questions-admin`]));
+    });
   }
 
   onSubmitAnsWord(value) {
-    this.testService.que.questionAuthorId = this.id;
-    this.testService.que.category = 'WORD_ANSWER';
-    this.testService.que.question = value.question;
-    this.testService.que.tags = value.tags.trim().split(' ');
-    this.testService.que.section = value.section.trim().split(' ');
-    this.testService.que.correctOptions = value.answer.trim().split(' ');
-    this.testService.postAddQuestion().subscribe( data => this.router.navigate([`/test/questions-admin`]) );
+    this.userService.getInfo().subscribe(user => {
+      const question: QuestionAdding =  {
+        category: 'WORD_ANSWER',
+        type: this.isChecked ? 'TRAINING' : 'PRIMARY',
+        difficulty: Number(this.selected),
+        questionAuthorId: user.id,
+        question: value.question,
+        tags: value.tags.trim().split(' '),
+        section: value.section.trim().split(' '),
+        correctOptions: value.answer,
+        active: true
+      };
+      this.testService.postAddQuestion(question).subscribe( data => this.router.navigate([`/test/questions-admin`]));
+    });
   }
 
   onSubmitLongAnswer(value) {
-    this.testService.que.questionAuthorId = this.id;
-    this.testService.que.category = 'SENTENCE_ANSWER';
-    this.testService.que.question = value.question;
-    this.testService.que.tags = value.tags.trim().split(' ');
-    this.testService.que.section = value.section.trim().split(' ');
-    this.testService.postAddQuestion().subscribe( data => this.router.navigate([`/test/questions-admin`]) );
+    this.userService.getInfo().subscribe(user => {
+      const question: QuestionAdding =  {
+        category: 'SENTENCE_ANSWER',
+        type: this.isChecked ? 'TRAINING' : 'PRIMARY',
+        difficulty: Number(this.selected),
+        questionAuthorId: user.id,
+        question: value.question,
+        tags: value.tags.trim().split(' '),
+        section: value.section.trim().split(' '),
+        active: true
+      };
+      this.testService.postAddQuestion(question).subscribe( data => this.router.navigate([`/test/questions-admin`]));
+    });
   }
 }
