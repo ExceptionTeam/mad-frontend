@@ -60,8 +60,13 @@ export class TestPassingPageComponent implements OnInit {
           this.activatedRoute.snapshot.queryParams.studId).subscribe(
           item => {
             this.test = item[0];
-            // console.log('item: ', item);
-            this.test.questionsId.forEach((question, i) => question.studentAnswer = this.test.answers[i].answ);
+            this.test.questionsId.forEach((question, i) => {
+              if (this.test.answers[i].answ) {
+                question.studentAnswer = this.test.answers[i].answ;
+              } else {
+                question.studentAnswer = [];
+              }
+            });
             console.log(this.test);
             this.req = this.test.questionsId[0];
           });
@@ -91,19 +96,23 @@ export class TestPassingPageComponent implements OnInit {
         });
     });
     this.testService.sendAnswersTest(this.test._id, this.body).subscribe(answ => {
-        this.router.navigate([`/test/tests-table`]);
-      }
+      this.router.navigate([`/test/tests-table`]);
+    }
     );
   }
 
   onClick() {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      width: '350px',
-      data: this.test
-   });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    if (this.buttonType === 'Завершить тест') {
+      const dialogRef = this.dialog.open(DialogComponent, {
+        width: '350px',
+        data: this.test
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    } else {
+      this.router.navigate([`/test/assigned-tests`]);
+    }
   }
 
 }
