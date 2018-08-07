@@ -40,15 +40,12 @@
                 </mat-expansion-panel>
             </ng-container>
 
-
           </mat-expansion-panel>
         </td>
       </ng-container>
       <tr mat-row *matRowDef="let row;columns: displayedColumnsStudGroups;"></tr>
     </table>
   </mat-accordion>
-
-
 
   <mat-paginator
   [length]="getPaginationParams().length"
