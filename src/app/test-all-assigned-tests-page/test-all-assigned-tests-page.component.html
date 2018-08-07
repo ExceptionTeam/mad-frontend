@@ -26,7 +26,7 @@
               </ng-container>
               <span class="mat-cell">{{element.name}}</span>
               <span class="mat-cell">{{element.mark ? element.mark : !element.groupId ?"не пройден": ""}}</span>
-              <span class="mat-cell">{{element.deadline| date: "dd:mm:yyyy, mm:ss"}}</span>
+              <span class="mat-cell">{{element.deadline| date: "dd.MM.yyyy, mm:ss"}}</span>
               <span class="mat-cell" (click)="onClick($event, element.studentId._id, element._id)"><button mat-button>Просмотр</button></span>
             </mat-expansion-panel-header>
             <ng-container *ngIf="element.groupId">

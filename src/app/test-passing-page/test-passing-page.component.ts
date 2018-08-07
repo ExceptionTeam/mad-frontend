@@ -1,15 +1,23 @@
+<<<<<<< HEAD
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs';
+=======
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material';
+>>>>>>> master
 import { timer } from 'rxjs';
-import { take, map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { TestService } from '../test.service';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Question } from '../Types/Question.type';
+<<<<<<< HEAD
 import { Answer } from '../Types/Answer.type';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+=======
+>>>>>>> master
 
 @Component({
   selector: 'exc-test-passing-page',
@@ -17,6 +25,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./test-passing-page.component.scss']
 })
 export class TestPassingPageComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   test: TestPassedInfo;
   disabled: boolean;
   req: Question;
@@ -51,22 +60,22 @@ export class TestPassingPageComponent implements OnInit {
           },
           err => console.log(err));
         this.disabled = false;
-        this.buttonType = 'завершить тест';
+        this.buttonType = 'Завершить тест';
       } else {
         this.disabled = true;
-        this.buttonType = 'завершить просмотр';
+        this.buttonType = 'Завершить просмотр';
         this.testService.loadStudentSubmissionTeacher(this.activatedRoute.snapshot.params.id,
           this.activatedRoute.snapshot.queryParams.studId).subscribe(
           item => {
             this.test = item[0];
+            // console.log('item: ', item);
             this.test.questionsId.forEach((question, i) => question.studentAnswer = this.test.answers[i].answ);
+            console.log(this.test);
             this.req = this.test.questionsId[0];
           });
       }
     });
   }
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   onPaginateChange() {
     if (this.test) {
@@ -84,14 +93,21 @@ export class TestPassingPageComponent implements OnInit {
         answ: item.studentAnswer,
         questionId: item._id
       } : {
+<<<<<<< HEAD
           answ: item.studentAnswer,
           questionId: item._id,
           checking: true,
         });
+=======
+        answ: item.studentAnswer,
+        questionId: item._id,
+        checking: 'true'
+      });
+>>>>>>> master
     });
     this.testService.sendAnswersTest(this.test._id, this.body).subscribe(answ => {
-      this.router.navigate([`/test/tests-table`]);
-    }
+        this.router.navigate([`/test/tests-table`]);
+      }
     );
   }
 

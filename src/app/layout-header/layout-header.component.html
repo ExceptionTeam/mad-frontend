@@ -12,6 +12,7 @@
 
   <div>
     <ng-container *ngIf="userService.role!==''">
+      <span class="span-name">{{this.userService.surname}} {{this.userService.name}}</span>
       <exc-layout-personal-menu></exc-layout-personal-menu>
       <button mat-icon-button (click)="onClickExit()">
         <mat-icon>exit_to_app</mat-icon>
