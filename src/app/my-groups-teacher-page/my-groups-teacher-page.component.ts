@@ -22,8 +22,6 @@ export class MyGroupsTeacherPageComponent {
         this.groupService.getStudentsAndGroups(user.id).subscribe(item => {
             this.indStudents = item.individualStudents;
             this.groups = item.groups;
-            console.log(this.indStudents);
-            console.log(this.groups);
           }
         );
       }
@@ -45,8 +43,13 @@ export class MyGroupsTeacherPageComponent {
     event.stopPropagation();
   }
 
-  deleteClick(event) {
+  deleteClick(event, group) {
     event.stopPropagation();
+    this.groupService.deleteGroup(group._id).subscribe();
+    this.groupService.getStudentsAndGroups(this.userService.id).subscribe(item => {
+        this.indStudents = item.individualStudents;
+        this.groups = item.groups;
+      }
+    );
   }
-
 }

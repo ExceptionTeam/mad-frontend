@@ -15,15 +15,21 @@ export class GroupsService {
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
   }
 
+  getStudentsAndGroups(id): Observable<any> {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<any>('http://localhost:3000/teacher/students' + '?teacherId=' + id,
+      { headers: this.headers, withCredentials: true });
+  }
+
   createGroup(body) {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     return this.http.post<TaskFullInfo>(`http://localhost:3000/teacher/add-group`, body,
       { headers: this.headers, withCredentials: true });
   }
 
-  getStudentsAndGroups(id): Observable<any> {
-    this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<any>('http://localhost:3000/teacher/students' + '?teacherId=' + id,
+  deleteGroup(id) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.get<TaskFullInfo>(`http://localhost:3000/teacher/delete-group/${id}`,
       { headers: this.headers, withCredentials: true });
   }
 }
