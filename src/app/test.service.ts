@@ -37,18 +37,6 @@ export class TestService {
     pageSize: 5,
     length: questionsAdmin.length
   };
-  public que: QuestionAdding = {
-    section: [],
-    tags: [],
-    type: '',
-    active: true,
-    category: '',
-    question: '',
-    questionAuthorId: '',
-    answerOptions: [],
-    correctOptions: [],
-    difficulty: 1
-  };
   searchParams = {
     query: '',
     paging: this.paginationParams
@@ -63,10 +51,10 @@ export class TestService {
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
   }
 
-  postAddQuestion(): Observable<QuestionAdding> {
+  postAddQuestion(body): Observable<QuestionAdding> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     return this.http.post<QuestionAdding>('http://localhost:3000/teacher/test/new-question/',
-     this.que, { headers: this.headers, withCredentials: true });
+     body, { headers: this.headers, withCredentials: true });
   }
 
   postAssignTest (body): Observable<TestAssign> {

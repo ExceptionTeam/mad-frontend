@@ -12,7 +12,7 @@
         <mat-optgroup *ngFor="let group of groups" [label]="group.name">
           <mat-option *ngFor="let student of group.groupStudents" (click)="groupIsDisabled(student._id)"
                       [value]="student._id">
-            {{student.name}}
+            {{student.surname}} {{student.name}}
           </mat-option>
         </mat-optgroup>
       </mat-select>
