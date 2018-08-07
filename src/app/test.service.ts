@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { QuestionAdmin } from './Types/QuestionAdmin.type';
 import { QuestionAdding } from './Types/QuestionAdding.type';
+import { TestAssign } from './Types/TestAssign.type';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Answer } from 'src/app/Types/Answer.type';
@@ -54,9 +55,14 @@ export class TestService {
 
   postAddQuestion (): Observable<QuestionAdding> {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
-    console.log(this.que );
     return this.http.post<QuestionAdding>('http://localhost:3000/teacher/test/new-question/',
      this.que, { headers: this.headers, withCredentials: true });
+  }
+
+  postAssignTest (body): Observable<TestAssign> {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<TestAssign>('http://localhost:3000/teacher/test/new-assignment/', body,
+     { headers: this.headers, withCredentials: true });
   }
 
   loadQuestions(): Observable<QuestionAdmin[]> {
