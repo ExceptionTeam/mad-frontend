@@ -12,7 +12,7 @@ import { TestService } from 'src/app/test.service';
 })
 export class TestQuestionsTableAdminComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['question', 'tags', 'edit', 'delete', 'status'];
+  displayedColumns: string[] = ['question', 'tags', 'edit', 'delete'];
   dataSource: UserDataSource | null;
 
   constructor(private testService: TestService) {}

@@ -33,13 +33,6 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef>Статус (активный/неактивный)</th>
-      <td class="column" mat-cell *matCellDef="let element">
-        <mat-checkbox></mat-checkbox>
-      </td>
-    </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
