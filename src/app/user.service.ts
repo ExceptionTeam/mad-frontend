@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './sign-in-page/user.type';
 import { Observable } from 'rxjs';
-import { map, publishLast, refCount, tap } from 'rxjs/internal/operators';
+import { map, tap } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -90,12 +90,30 @@ export class UserService {
       });
   }
 
-  confirmRole(skip, top) {
+  getConfirmRole(skip, top) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<any>(`http://localhost:3000/admin/pending-teachers?skip=${skip}&top=${top}`,
       {
         headers: this.headers,
         withCredentials: true
       }).pipe(map(data => data.map(request => ({ ...request, display: true, onclickDone: null }))));
+  }
+
+  confirmRole(id) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<any>(`http://localhost:3000/admin/approve-teacher/${id}`, {},
+      {
+        headers: this.headers,
+        withCredentials: true
+      });
+  }
+
+  rejectRole(id) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<any>(`http://localhost:3000/admin/reject-teacher/${id}`, {},
+      {
+        headers: this.headers,
+        withCredentials: true
+      });
   }
 }
