@@ -186,7 +186,7 @@ export class TestCreateQuestionPageComponent implements OnInit {
         question: value.question,
         tags: value.tags.trim().split(' '),
         section: value.section.trim().split(' '),
-        correctOptions: value.answer,
+        correctOptions: value.answer.trim().split(' '),
         active: true
       };
       this.testService.postAddQuestion(question).subscribe( data => this.router.navigate([`/test/questions-admin`]));
