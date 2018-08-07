@@ -6,3 +6,8 @@
 table {
   width: 100%;
 }
+
+a.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
