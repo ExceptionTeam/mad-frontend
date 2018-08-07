@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material';
-import { QuestionAdmin } from '../Types/QuestionAdmin.type';
+import { QuestionAdmin, Question } from '../Types/QuestionAdmin.type';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { TestService } from 'src/app/test.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { TestService } from 'src/app/test.service';
 })
 export class TestQuestionsTableAdminComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['question', 'tags', 'edit', 'delete', 'status'];
+  displayedColumns: string[] = ['question', 'tags', 'active', 'type', 'difficulty'];
   dataSource: UserDataSource | null;
 
   constructor(private testService: TestService) {}
@@ -30,6 +31,21 @@ export class TestQuestionsTableAdminComponent implements OnInit {
   public getPaginationParams() {
     return this.testService.paginationParams;
   }
+
+  getPrettyStatus (value) {
+    if (value === true) {
+      return 'Активный'; } else {
+        return 'Неактивный';
+      }
+  }
+
+  getPrettyType (value) {
+    if (value === 'PRIMARY') {
+      return 'Основной';
+    } else {
+      return 'Тренировочный';
+    }
+  }
 }
 
 export class UserDataSource extends DataSource<any> {
@@ -38,8 +54,8 @@ export class UserDataSource extends DataSource<any> {
     this.testService.loadQuestions();
   }
 
-  connect(): Observable<QuestionAdmin[]> {
-    return this.testService.loadQuestions();
+  connect(): Observable<Question[]> {
+    return this.testService.allQuestions$.pipe(tap(console.log));
   }
 
   disconnect() {}
