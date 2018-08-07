@@ -54,22 +54,25 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Регистрация завершена</ng-template>
-    <mat-card class="step-form">
+    <mat-card class="step-form info-width">
       <mat-card-content>
-        <p> статус: {{nameSurnameForm.value.isStudent ? "ученик" : "учитель"}}</p>
-        <p>имя, фамилия: {{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
-        <p>mail: {{nameSurnameForm.value.email}}</p>
-        <p>вуз/место работы: {{universityForm.value.university}}</p>
-        <ng-container *ngIf="nameSurnameForm.value.isStudent">
-          <p>факультет: {{universityForm.value.faculty}}</p>
-          <p>год окончания: {{universityForm.value.year}}</p>
-        </ng-container>
-        <p>Мои навыки: {{universityForm.value.primarySkill}}</p>
+        <div>
+          <p>Cтатус:&nbsp;&nbsp;{{nameSurnameForm.value.isStudent ? "Ученик" : "Учитель"}}</p>
+          <p>Имя, фамилия: &nbsp;&nbsp;{{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
+          <p>Email:&nbsp;&nbsp; {{nameSurnameForm.value.email}}</p>
+          <p>Вуз/место работы: &nbsp;&nbsp;{{universityForm.value.university}}</p>
+          <ng-container *ngIf="nameSurnameForm.value.isStudent">
+            <p>Факультет:&nbsp;&nbsp; {{universityForm.value.faculty}}</p>
+            <p>Год окончания: &nbsp;&nbsp;{{universityForm.value.year}}</p>
+          </ng-container>
+          <p>Мои навыки:&nbsp;&nbsp; {{universityForm.value.primarySkill}}</p>
+        </div>
+
       </mat-card-content>
       <div>
-      <button mat-button matStepperPrevious>Назад</button>
-      <button mat-button (click)="stepper.reset();">Отмена</button>
-      <button mat-button (click)="submitRegistration();"  routerLink="/sign-in">Зарегистрироваться</button>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button (click)="stepper.reset();">Отмена</button>
+        <button mat-button (click)="submitRegistration();" routerLink="/sign-in">Зарегистрироваться</button>
       </div>
     </mat-card>
   </mat-step>

@@ -10,6 +10,7 @@ export interface Test {
     name: string;
     surname: string;
   };
+  mark?: number;
   testSize: number;
   timeToPass: number;
   timeToPassStr?: string;
