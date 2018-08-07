@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs';
 import { timer } from 'rxjs';
@@ -9,6 +9,7 @@ import { TestService } from '../test.service';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Question } from '../Types/Question.type';
 import { Answer } from '../Types/Answer.type';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'exc-test-passing-page',
@@ -26,7 +27,8 @@ export class TestPassingPageComponent implements OnInit {
   constructor(private router: Router,
     private userService: UserService,
     private testService: TestService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog
   ) {
     userService.getInfo().subscribe(user => {
       if (user.role === 'STUDENT') {
@@ -42,8 +44,8 @@ export class TestPassingPageComponent implements OnInit {
               map(tick => {
                 this.timer = (`0${Math.floor((this.test.timeToPass - tick) / 60)}`).slice(-2) + ':' +
                   (`0${(this.test.timeToPass - tick - 1) % 60}`).slice(-2);
-                if (this.timer === '0:0') {
-                  this.router.navigate([`/test/tests-table`]);
+                if (this.timer === '00:00') {
+                  this.sendInfo();
                 }
               })).subscribe();
           },
@@ -73,10 +75,9 @@ export class TestPassingPageComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
-  onClick() {
+  sendInfo() {
     this.test.questionsId.forEach((item, i) => {
       console.log(item.category);
       this.body.push((item.category === 'MULTIPLE_ANSWERS' || item.category === 'SINGLE_ANSWER') ? {
@@ -85,10 +86,60 @@ export class TestPassingPageComponent implements OnInit {
       } : {
           answ: item.studentAnswer,
           questionId: item._id,
-          checking: 'true'
+          checking: true,
         });
     });
     this.testService.sendAnswersTest(this.test._id, this.body).subscribe(answ => {
+      this.router.navigate([`/test/tests-table`]);
+    }
+    );
+  }
+
+  onClick() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '350px',
+      data: this.test
+   });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+}
+
+@Component({
+  selector: 'exc-dialog-content-example-dialog',
+  templateUrl: 'dialog.html',
+})
+
+export class DialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public test,
+    public testService: TestService,
+    private router: Router
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSend() {
+    const body = [];
+    console.log(this.test);
+    this.test.questionsId.forEach((item, i) => {
+      body.push((item.category === 'MULTIPLE_ANSWERS' || item.category === 'SINGLE_ANSWER') ? {
+        answ: item.studentAnswer,
+        questionId: item._id
+      } : {
+          answ: item.studentAnswer,
+          questionId: item._id,
+          checking: true,
+        });
+    });
+    this.testService.sendAnswersTest(this.test._id, body).subscribe(answ => {
+      this.dialogRef.close();
       this.router.navigate([`/test/tests-table`]);
     }
     );
