@@ -1,27 +1,30 @@
 <mat-list>
   <mat-list-item *ngFor="let request of onDisplay">
-    <span mat-line class="title">{{request.userId.name}} {{request.userId.surname}}</span>
-    <p mat-line class="wrap"><span class="title">Вопрос:</span> {{request.sectionId.question}} </p>
+    <span mat-line class="title">{{request.studentId.name}} {{request.studentId.surname}}</span>
+    <p mat-line class="wrap"><span class="title">Вопрос:</span> {{request.questionId?.question}} </p>
 
     <p mat-line class="wrap">
-      <span class="title">Ответ:</span> {{request.sectionId.answer}}
+      <span class="title">Ответ:</span> {{request.answer}}
     </p>
     <ng-container *ngIf="request.display">
-      <button mat-icon-button (click)="onclickConfirm(request)">
+      <button mat-icon-button (click)="onclickConfirm(request, true)">
         <mat-icon matListIcon class="done">done</mat-icon>
       </button>
-      <button mat-icon-button (click)="onclickConfirm(request)">
+      <button mat-icon-button (click)="onclickConfirm(request, false)">
         <mat-icon class="clear">clear</mat-icon>
       </button>
     </ng-container>
-    <ng-container *ngIf="!request.display">
-      Готово
+    <ng-container *ngIf="!request.display && request.onclickDone">
+      Одобрено
     </ng-container>
-    <span mat-line class="title">{{request.date | date : "MM.dd.yy, hh:mm"}}</span>
+    <ng-container *ngIf="!request.display && request.onclickDone===false">
+      Отклонено
+    </ng-container>
+    <span mat-line class="title">{{request.submissionId?.completeDate | date : "MM.dd.yy, hh:mm"}}</span>
     <mat-divider></mat-divider>
   </mat-list-item>
-  <mat-paginator [length]="checkAnswer.length"
-                 [pageSize]="10"
+  <mat-paginator [length]="length"
+                 [pageSize]="2"
                  [pageIndex]="0"
                  (page)="onPaginateChange()">
   </mat-paginator>

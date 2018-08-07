@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
-import { Observable } from 'rxjs';
+import { MatPaginator } from '@angular/material';
 import { timer } from 'rxjs';
-import { take, map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { TestService } from '../test.service';
 import { TestPassedInfo } from 'src/app/Types/TestPassedInfo.type';
 import { Question } from '../Types/Question.type';
-import { Answer } from '../Types/Answer.type';
 
 @Component({
   selector: 'exc-test-passing-page',
@@ -16,6 +14,7 @@ import { Answer } from '../Types/Answer.type';
   styleUrls: ['./test-passing-page.component.scss']
 })
 export class TestPassingPageComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   test: TestPassedInfo;
   disabled: boolean;
   req: Question;
@@ -24,16 +23,16 @@ export class TestPassingPageComponent implements OnInit {
   body = [];
 
   constructor(private router: Router,
-    private userService: UserService,
-    private testService: TestService,
-    private activatedRoute: ActivatedRoute
+              private userService: UserService,
+              private testService: TestService,
+              private activatedRoute: ActivatedRoute
   ) {
     userService.getInfo().subscribe(user => {
       if (user.role === 'STUDENT') {
-        console.log(this.activatedRoute.snapshot.params.id),
-          console.log(user.id);
+        console.log(user.id);
         testService.loadTest(this.activatedRoute.snapshot.params.id, user.id).subscribe(
           info => {
+            console.log(info);
             this.test = info;
             this.test.questionsId.map(value => value.studentAnswer = []);
             this.req = info.questionsId[0];
@@ -49,15 +48,22 @@ export class TestPassingPageComponent implements OnInit {
           },
           err => console.log(err));
         this.disabled = false;
-        this.buttonType = 'завершить тест';
+        this.buttonType = 'Завершить тест';
       } else {
         this.disabled = true;
-        this.buttonType = 'завершить просмотр';
+        this.buttonType = 'Завершить просмотр';
+        this.testService.loadStudentSubmissionTeacher(this.activatedRoute.snapshot.params.id,
+          this.activatedRoute.snapshot.queryParams.studId).subscribe(
+          item => {
+            this.test = item[0];
+            // console.log('item: ', item);
+            this.test.questionsId.forEach((question, i) => question.studentAnswer = this.test.answers[i].answ);
+            console.log(this.test);
+            this.req = this.test.questionsId[0];
+          });
       }
     });
   }
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   onPaginateChange() {
     if (this.test) {
@@ -66,7 +72,6 @@ export class TestPassingPageComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   onClick() {
@@ -76,16 +81,14 @@ export class TestPassingPageComponent implements OnInit {
         answ: item.studentAnswer,
         questionId: item._id
       } : {
-          answ: item.studentAnswer,
-          questionId: item._id,
-          checking: 'true'
-        });
+        answ: item.studentAnswer,
+        questionId: item._id,
+        checking: 'true'
+      });
     });
-    console.log(this.body);
     this.testService.sendAnswersTest(this.test._id, this.body).subscribe(answ => {
-      console.log(answ);
-      this.router.navigate([`/test/tests-table`]);
-    }
+        this.router.navigate([`/test/tests-table`]);
+      }
     );
   }
 }

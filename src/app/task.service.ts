@@ -17,7 +17,6 @@ const adminTaskUrl = 'http://localhost:3000/admin/task/abbreviated-info';
 export class TaskService {
   private headers;
   public bSubject$: BehaviorSubject<Task[]> = new BehaviorSubject([]);
-  public studentTasks$: BehaviorSubject<StudentTask[]> = new BehaviorSubject([]);
 
   paginationParams = {
     pageIndex: 0,

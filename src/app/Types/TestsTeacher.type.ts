@@ -16,3 +16,9 @@ export interface TestTeacher {
   assignDate: string;
   groupId?: UserId;
 }
+
+
+export interface AssignTest {
+  assignAmount: number;
+  assignments: TestTeacher[];
+}

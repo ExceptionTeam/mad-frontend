@@ -29,22 +29,16 @@
               </ng-container>
               <span class="mat-cell">{{element.name}}</span>
               <span class="mat-cell">{{element.mark ? element.mark : !element.groupId ?"не пройден": ""}}</span>
-              <span class="mat-cell">{{element.deadline| date: "dd:mm:yyyy, mm:ss"}}</span>
-              <span class="mat-cell"><button mat-button>Просмотр</button></span>
+              <span class="mat-cell">{{element.deadline| date: "dd.MM.yyyy, mm:ss"}}</span>
+              <span class="mat-cell" (click)="onClick($event, element.studentId._id, element._id)"><button mat-button>Просмотр</button></span>
             </mat-expansion-panel-header>
-            <!-- <ng-container *ngIf="element.group.info">
-              <ng-container *ngFor="let elem of element.group.info">
+            <ng-container *ngIf="element.groupId">
                 <mat-expansion-panel [disabled]="true">
                   <mat-expansion-panel-header class="group">
-                    <span class="mat-cell">{{elem.studentId.surname}} {{elem.studentId.name}}</span>
-                    <span class="mat-cell">{{elem.name}}</span>
-                    <span class="mat-cell">{{elem.mark ? elem.mark : "не пройден"}}</span>
-                    <span class="mat-cell">{{elem.deadline| date: "dd:mm:yyyy, mm:ss"}}</span>
                     <span class="mat-cell"><button>Просмотр</button></span>
                   </mat-expansion-panel-header>
                 </mat-expansion-panel>
-              </ng-container>
-            </ng-container> -->
+            </ng-container>
 
 
           </mat-expansion-panel>

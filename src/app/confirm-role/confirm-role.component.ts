@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'exc-confirm-role',
@@ -8,21 +9,6 @@ import { MatPaginator } from '@angular/material';
 })
 export class ConfirmRoleComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  requestsRole = [
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' },
-    { name: 'Жанна Витальевна', surname: 'Василенко', email: 'zh.vasilenko@exadel.com', placeOfWork: 'БГУ' }
-  ];
   onDisplay;
   requests;
 
@@ -31,16 +17,29 @@ export class ConfirmRoleComponent {
   }
 
   onPaginateChange() {
-    this.onDisplay = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
-      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
+    this.userService.getConfirmRole(this.paginator.pageIndex * this.paginator.pageSize,
+      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize).subscribe(data => {
+      this.onDisplay = data;
+    });
   }
 
-  constructor() {
-    this.requests = this.requestsRole.map(request => ({ ...request, display: true }));
-    this.onDisplay = this.getRequests(0, 10);
+  constructor(private userService: UserService) {
+    this.userService.getConfirmRole(0, 2).subscribe(data => {
+      this.onDisplay = data;
+    });
   }
 
-  onclickConfirm(request) {
+  onclickConfirm(request, done) {
     request.display = false;
+    request.onclickDone = done;
+    if (done) {
+      this.userService.confirmRole(request._id).subscribe(() => {
+        },
+        (error) => {
+          console.log(error);
+        });
+    } else {
+      this.userService.rejectRole(request._id).subscribe();
+    }
   }
 }

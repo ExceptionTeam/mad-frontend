@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
+import { UserService } from '../user.service';
+import { TestService } from '../test.service';
+import { CheckQuestion } from './question.type';
 
 @Component({
   selector: 'exc-check-answer-page',
@@ -8,116 +11,35 @@ import { MatPaginator } from '@angular/material';
 })
 export class CheckAnswerPageComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  checkAnswer = [
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: {
-        _id: '12',
-        name: 'Многопоточность',
-        question: 'Дайте определение понятию “процесс”.',
-        answer: 'Процесс (process) - это объект, который создается операционной системой, когда пользователь ' +
-        'запускает приложение. Процессу выделяется отдельное адресное пространство, причем это пространство физически недоступно ' +
-        'для других процессов.' +
-        ' Процесс может работать с файлами или с каналами связи локальной или глобальной сети. Когда вы запускаете текстовый процессор' +
-        ' или программу калькулятора, вы создаете новый процесс.\n'
-      },
-      date: 1532955203513
-    },
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: {
-        _id: '12',
-        name: 'Многопоточность',
-        question: 'Дайте определение понятию “процесс”.',
-        answer: 'Процесс (process) - это объект, который создается операционной системой, когда пользователь ' +
-        'запускает приложение. Процессу выделяется отдельное адресное пространство, причем это пространство физически недоступно ' +
-        'для других процессов.' +
-        ' Процесс может работать с файлами или с каналами связи локальной или глобальной сети. Когда вы запускаете текстовый процессор' +
-        ' или программу калькулятора, вы создаете новый процесс.\n'
-      },
-      date: 1532955203513
-    },
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: {
-        _id: '12',
-        name: 'Многопоточность',
-        question: 'Дайте определение понятию “процесс”.',
-        answer: 'Процесс (process) - это объект, который создается операционной системой, когда пользователь ' +
-        'запускает приложение. Процессу выделяется отдельное адресное пространство, причем это пространство физически недоступно ' +
-        'для других процессов.' +
-        ' Процесс может работать с файлами или с каналами связи локальной или глобальной сети. Когда вы запускаете текстовый процессор' +
-        ' или программу калькулятора, вы создаете новый процесс.\n'
-      },
-      date: 1532955203513
-    },
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: {
-        _id: '12',
-        name: 'Многопоточность',
-        question: 'Дайте определение понятию “процесс”.',
-        answer: 'Процесс (process) - это объект, который создается операционной системой, когда пользователь ' +
-        'запускает приложение. Процессу выделяется отдельное адресное пространство, причем это пространство физически недоступно ' +
-        'для других процессов.' +
-        ' Процесс может работать с файлами или с каналами связи локальной или глобальной сети. Когда вы запускаете текстовый процессор' +
-        ' или программу калькулятора, вы создаете новый процесс.\n'
-      },
-      date: 1532955203513
-    },
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: {
-        _id: '12',
-        name: 'Многопоточность',
-        question: 'Дайте определение понятию “процесс”.',
-        answer: 'Процесс (process) - это объект, который создается операционной системой, когда пользователь ' +
-        'запускает приложение. Процессу выделяется отдельное адресное пространство, причем это пространство физически недоступно ' +
-        'для других процессов.' +
-        ' Процесс может работать с файлами или с каналами связи локальной или глобальной сети. Когда вы запускаете текстовый процессор' +
-        ' или программу калькулятора, вы создаете новый процесс.\n'
-      },
-      date: 1532955203513
-    },
-    {
-      _id: '1',
-      userId: { _id: '12', name: 'Аня', surname: 'Кисель' },
-      sectionId: {
-        _id: '12',
-        name: 'Многопоточность',
-        question: 'Дайте определение понятию “процесс”.',
-        answer: 'Процесс (process) - это объект, который создается операционной системой, когда пользователь ' +
-        'запускает приложение. Процессу выделяется отдельное адресное пространство, причем это пространство физически недоступно ' +
-        'для других процессов.' +
-        ' Процесс может работать с файлами или с каналами связи локальной или глобальной сети. Когда вы запускаете текстовый процессор' +
-        ' или программу калькулятора, вы создаете новый процесс.\n'
-      },
-      date: 1532955203513
-    },
-  ];
-  onDisplay;
-  requests;
+  onDisplay: CheckQuestion[];
+  length: number;
 
-  getRequests(skip: number, top: number) {
-    return this.requests.slice(skip, top);
+  constructor(private testService: TestService,
+              private userService: UserService) {
+    this.userService.getInfo().subscribe(user => {
+      this.testService.getCheckingQuestions(user.id, 0, 2).subscribe(data => {
+        console.log('questions, ', data);
+        this.onDisplay = data.requests;
+        this.length = data.amount;
+      });
+    });
   }
 
   onPaginateChange() {
-    this.onDisplay = this.getRequests(this.paginator.pageIndex * this.paginator.pageSize,
-      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize);
+    this.testService.getCheckingQuestions(this.userService.id, this.paginator.pageIndex * this.paginator.pageSize,
+      this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize).subscribe(data => {
+      this.onDisplay = data.requests;
+      this.length = data.amount;
+    });
   }
 
-  constructor() {
-    this.requests = this.checkAnswer.map(request => ({ ...request, display: true }));
-    this.onDisplay = this.getRequests(0, 10);
-  }
-
-  onclickConfirm(request) {
+  onclickConfirm(request, done) {
     request.display = false;
+    request.onclickDone = done;
+    if (done) {
+      this.testService.confirmAnswer(request._id, true).subscribe();
+    } else {
+      this.testService.confirmAnswer(request._id, false).subscribe();
+    }
   }
 }

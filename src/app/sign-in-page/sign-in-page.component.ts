@@ -30,7 +30,6 @@ export class SignInPageComponent {
       password: this.form.value.password
     };
     this.userService.signIn(data).subscribe((res) => {
-      console.log('user=', res);
       this.router.navigate([`/home`]);
     }, err => {
       this.error = true;
