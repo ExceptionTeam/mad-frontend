@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Group, Student } from 'src/app/Types/MyStudentsTeacher.type';
+import { Group } from 'src/app/Types/MyStudentsTeacher.type';
 import { TaskService } from 'src/app/task.service';
 import { UserService } from 'src/app/user.service';
 import { UserId } from 'src/app/Types/UserId.type';
+import { AddGroupWindowComponent } from '../add-group-window/add-group-window.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'exc-my-groups-teacher-page',
@@ -13,7 +15,9 @@ export class MyGroupsTeacherPageComponent {
   indStudents: UserId[] = [];
   groups: Group[] = [];
 
-  constructor(private tasksService: TaskService, private userService: UserService) {
+  constructor(private tasksService: TaskService,
+              private userService: UserService,
+              public dialog: MatDialog) {
     userService.getInfo().subscribe(user => {
         this.tasksService.getStudentsAndGroups(user.id).subscribe(item => {
             this.indStudents = item.individualStudents;
@@ -24,6 +28,10 @@ export class MyGroupsTeacherPageComponent {
         );
       }
     );
+  }
+
+  addGroup() {
+    this.dialog.open(AddGroupWindowComponent, {});
   }
 
   editClick(event) {

@@ -10,7 +10,6 @@ import { RegistrationAuthorizationModule } from './registration-authorization/re
 import { EditPasswordModule } from './edit-password/edit-password.module';
 import { PersonalMenuModule } from './Routing/personal-menu/personal-menu.module';
 import { TestModule } from './Routing/test/test.module';
-
 @NgModule({
   declarations: [
     AppComponent,
