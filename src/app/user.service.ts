@@ -129,4 +129,14 @@ export class UserService {
       withCredentials: true
     });
   }
+
+  getSkills() {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<string[]>(`http://localhost:3000/guest/primary-skills`, {},
+      {
+        headers: this.headers,
+        withCredentials: true
+      });
+
+  }
 }

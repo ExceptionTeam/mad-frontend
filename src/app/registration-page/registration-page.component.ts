@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { UserService } from 'src/app/user.service';
-import { University } from '../Types/University.type';
 
 @Component({
   selector: 'exc-registration-page',
@@ -15,9 +14,10 @@ export class RegistrationPageComponent {
   universityFormGroup: FormGroup;
   options: string[] = [];
   filteredOptions: Observable<string[]>;
+  skills: string[];
 
   constructor(private _formBuilder: FormBuilder,
-    private userService: UserService
+              private userService: UserService
   ) {
     this.nameSurnameFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
@@ -39,7 +39,14 @@ export class RegistrationPageComponent {
     const body = {
       filterConfig: ''
     };
-    this.userService.getUniversity(body).subscribe(item => item.forEach(temp => this.options.push(temp.name)));
+    this.userService.getUniversity(body).subscribe(item => {
+      console.log('vyz', item);
+      item.forEach(temp => this.options.push(temp.name));
+    });
+    this.userService.getSkills().subscribe(data => {
+      this.skills = data;
+      console.log('skills ', this.skills);
+    });
   }
 
   private _filter(value: string): string[] {
@@ -52,14 +59,14 @@ export class RegistrationPageComponent {
       university: this.universityFormGroup.value.university,
       year: this.universityFormGroup.value.year,
       faculty: this.universityFormGroup.value.faculty
-      } : {
-        university: this.universityFormGroup.value.university
-      };
+    } : {
+      university: this.universityFormGroup.value.university
+    };
     const body = {
       name: this.nameSurnameFormGroup.value.name,
       surname: this.nameSurnameFormGroup.value.surname,
       email: this.nameSurnameFormGroup.value.email,
-      isStudent:  this.nameSurnameFormGroup.value.isStudent,
+      isStudent: this.nameSurnameFormGroup.value.isStudent,
       primarySkill: this.universityFormGroup.value.primarySkill,
       account: acc
     };

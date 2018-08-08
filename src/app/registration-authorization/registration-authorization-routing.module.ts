@@ -7,15 +7,18 @@ import { ForgotPasswordComponent } from '../forgot-password/forgot-password.comp
 const routes: Routes = [
   {
     path: 'registration',
-    component: RegistrationPageComponent
+    component: RegistrationPageComponent,
+    // canActivate: [SignInGuard]
   },
   {
     path: 'sign-in',
-    component: SignInPageComponent
+    component: SignInPageComponent,
+    // canActivate: [SignInGuard]
   },
   {
     path: 'forgot-password',
-    component: ForgotPasswordComponent
+    component: ForgotPasswordComponent,
+    // canActivate: [SignInGuard]
   }
 ];
 
