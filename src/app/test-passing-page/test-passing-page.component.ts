@@ -139,13 +139,14 @@ export class DialogComponent {
     const body = [];
     console.log(this.test);
     this.test.questionsId.forEach((item, i) => {
-      body.push((item.category === 'MULTIPLE_ANSWERS' || item.category === 'SINGLE_ANSWER') ? {
+      body.push((item.category === 'SENTENCE_ANSWER') ? {
         answ: item.studentAnswer,
-        questionId: item._id
+        questionId: item._id,
+        checking: 'true',
       } : {
           answ: item.studentAnswer,
           questionId: item._id,
-          checking: 'true',
+
         });
     });
     this.testService.sendAnswersTest(this.test._id, body).subscribe(answ => {
