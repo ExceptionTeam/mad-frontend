@@ -26,6 +26,7 @@ export class TaskSendingPageComponent {
     const id = this.activatedRoute.snapshot.params.id;
     this.taskService.getStudentFullDescription(id).subscribe(task => {
       this.task = task;
+      console.log(task);
       this.task.deadline = new Date(this.task.deadline);
     });
   }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './sign-in-page/user.type';
+import { University } from './Types/University.type';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/internal/operators';
 
@@ -118,5 +119,14 @@ export class UserService {
         headers: this.headers,
         withCredentials: true
       });
+  }
+
+  getUniversity(body) {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.post<University[]>(`http://localhost:3000/guest/university`, body,
+    {
+      headers: this.headers,
+      withCredentials: true
+    });
   }
 }

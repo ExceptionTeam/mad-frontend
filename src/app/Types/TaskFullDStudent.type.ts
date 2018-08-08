@@ -10,6 +10,7 @@ export interface TeacherId {
 }
 
 export interface TaskFullDStudent {
+  _id: string;
   assId: string;
   taskId: TaskId;
   deadline: Date;

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { UserService } from 'src/app/user.service';
+import { University } from '../Types/University.type';
 
 @Component({
   selector: 'exc-registration-page',
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/user.service';
 export class RegistrationPageComponent {
   nameSurnameFormGroup: FormGroup;
   universityFormGroup: FormGroup;
-  options: string[] = ['БГУ', 'БНТУ', 'БГУИР'];
+  options: string[] = [];
   filteredOptions: Observable<string[]>;
 
   constructor(private _formBuilder: FormBuilder,
@@ -35,6 +36,10 @@ export class RegistrationPageComponent {
       startWith(''),
       map(value => typeof value === 'string' ? this._filter(value) : this.options)
     );
+    const body = {
+      filterConfig: ''
+    };
+    this.userService.getUniversity(body).subscribe(item => item.forEach(temp => this.options.push(temp.name)));
   }
 
   private _filter(value: string): string[] {
