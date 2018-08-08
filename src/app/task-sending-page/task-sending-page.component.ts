@@ -31,12 +31,13 @@ export class TaskSendingPageComponent {
   }
 
   onClick(event) {
-    console.log(this.file);
+    // console.log(this.file);
     const id = this.activatedRoute.snapshot.params.id;
     console.log('id: ', id);
     const formData = new FormData();
-    formData.append('solutionFile', this.file);
-    formData.append('id', id);
+    formData.append('srcFile', this.file);
+    // formData.append('id', id);
+    this.taskService.submitTask(formData, id).subscribe();
     // this.tasksService.postSendTaskStudent(formData).subscribe();
   }
 

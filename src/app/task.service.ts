@@ -136,4 +136,13 @@ export class TaskService {
       withCredentials: true
     });
   }
+
+  submitTask(body, assId) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<any>(`http://localhost:3000/student/task/submit/${assId}`, body, {
+      headers: this.headers,
+      withCredentials: true
+    });
+
+  }
 }
