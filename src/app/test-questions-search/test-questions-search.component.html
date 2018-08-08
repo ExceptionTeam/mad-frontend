@@ -1,7 +1,7 @@
 <h2 class="headertext">Все вопросы</h2>
 <div class="container">
     <mat-form-field>
-      <input matInput placeholder="Введите  теги" autocomplete="off">
+      <input matInput placeholder="Введите  теги" (keyup)="onSearch($event.target.value)" autocomplete="off">
     </mat-form-field>
     <button mat-icon-button class="add-button" routerLink="/test/add-question">
       <mat-icon matTooltip="Добавить вопрос">add</mat-icon>
