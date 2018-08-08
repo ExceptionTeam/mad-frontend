@@ -6,7 +6,7 @@ import { TaskAfterSendingPageComponent } from './task-after-sending-page.compone
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
-// import {RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTableModule,
     MatIconModule,
     MatExpansionModule,
-    // RouterModule
+    RouterModule
   ],
   declarations: [
     TaskPassedTestsComponent,

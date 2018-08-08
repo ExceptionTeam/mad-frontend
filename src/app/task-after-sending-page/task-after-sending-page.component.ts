@@ -12,18 +12,25 @@ export class TaskAfterSendingPageComponent {
   taskName = 'Название Задачи';
   files: TaskSubmition[] = [];
   passedTests: number[] = [];
+  errorCompile: boolean;
+
   constructor(private activatedRoute: ActivatedRoute,
     private tasksService: TaskService) {
+    this.errorCompile = false;
     const id = this.activatedRoute.snapshot.params.id;
     tasksService.getInfoTaskTry(id).subscribe(files => {
       this.files = files;
       this.files.forEach((item, index) => {
-        this.passedTests[index] = 0;
-        item.tests.forEach(value => {
-          if (value === true) {
-            this.passedTests[index] += 1;
-          }
-        });
+        if (this.passedTests && this.passedTests.length === 0) {
+          this.passedTests[index] = 0;
+          item.tests.forEach(value => {
+            if (value === true) {
+              this.passedTests[index] += 1;
+            }
+          });
+        } else {
+          this.errorCompile = true;
+        }
       });
     });
   }

@@ -1,7 +1,11 @@
-<form class="form" #form="ngForm">
+<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <mat-card>
   <mat-form-field class="input-tags">
     <input matInput ngModel name="inputTags" placeholder="Введите теги" required exc-test-tags-valid autocomplete="off"/>
   </mat-form-field>
+  <p>
+  <mat-slide-toggle  ngDefaultControl [(ngModel)]="isChecked" name="training">Тренировочный тест</mat-slide-toggle>
+  </p>
   <mat-form-field>
     <input matInput ngModel name="inputName" placeholder="Название теста" autocomplete="off"/>
   </mat-form-field>
@@ -14,19 +18,20 @@
   </div>
   <div>
     <mat-form-field>
-      <input matInput ngModel name="inputCount" placeholder="Кол-во вопросов" autocomplete="off" required/>
+      <input matInput ngModel name="inputCount" placeholder="Кол-во вопросов" autocomplete="off" required exc-test-number-valid/>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput ngModel name="inputTime" placeholder="Время на тест (мин.)" autocomplete="off" required/>
+      <input matInput ngModel name="inputTime" placeholder="Время на тест (минуты)" autocomplete="off" required exc-test-number-valid/>
     </mat-form-field>
   </div>
   <exc-task-select-student-or-group (isSelEvent)="changeValidState($event)" (idOfSelected)="assignmentOfSelectedId($event)"
     (isGroupSelected)="isItGroup($event)"></exc-task-select-student-or-group>
   <div>
-    <button type="submit" mat-button [disabled]="!form.valid || !isSelectedLists">
+    <button type="button" mat-button (click)="onSubmit(form.value)" [disabled]="!form.valid || !isSelectedLists">
       Назначить
     </button>
   </div>
+</mat-card>
 </form>

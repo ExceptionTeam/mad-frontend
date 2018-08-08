@@ -1,4 +1,7 @@
 <h2 class="headertext">Назначенные тесты</h2>
+<p>
+<button mat-button routerLink="/test/assign" >Назначить тест</button>
+</p>
 <div class="mat-elevation-z8">
 
   <mat-accordion displayMode="flat" multi class="mat-table">
@@ -17,7 +20,7 @@
               <ng-container *ngIf="element.groupId">
                 <span class="mat-cell">
                   <mat-icon>keyboard_arrow_down</mat-icon>
-                  {{element.groupId.name}}
+                  <span>{{element.groupId.name}}</span>
                 </span>
               </ng-container>
 
@@ -27,7 +30,7 @@
               <span class="mat-cell">{{element.name}}</span>
               <span class="mat-cell">{{element.mark ? element.mark : !element.groupId ?"не пройден": ""}}</span>
               <span class="mat-cell">{{element.deadline| date: "dd.MM.yyyy, mm:ss"}}</span>
-              <span class="mat-cell" (click)="onClick($event, element.studentId._id, element._id)"><button mat-button>Просмотр</button></span>
+              <span class="mat-cell" (click)="onClick($event, element.studentId._id, element._id)"><button mat-button>{{ (element.status !== "PASSED" || element.groupId) ? "" : "Просмотр"}}</button></span>
             </mat-expansion-panel-header>
             <ng-container *ngIf="element.groupId">
                 <mat-expansion-panel [disabled]="true">
@@ -37,15 +40,12 @@
                 </mat-expansion-panel>
             </ng-container>
 
-
           </mat-expansion-panel>
         </td>
       </ng-container>
       <tr mat-row *matRowDef="let row;columns: displayedColumnsStudGroups;"></tr>
     </table>
   </mat-accordion>
-
-
 
   <mat-paginator
   [length]="getPaginationParams().length"

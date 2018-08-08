@@ -6,7 +6,7 @@ export interface QuestionAdding {
   category: String;
   question: String;
   questionAuthorId: String;
-  answerOptions: String[];
-  correctOptions: String[];
+  answerOptions?: String[];
+  correctOptions?: String[];
   difficulty: number;
   }

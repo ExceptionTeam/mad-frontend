@@ -24,10 +24,11 @@
     </mat-card-content>
 
   </mat-card>
-    <mat-paginator [length]="req?.answerOptions?.length"
+    <mat-paginator [length]="test?.questionsId?.length"
                    [pageSize]="1"
                    [hidePageSize]="true"
                    (page)="onPaginateChange()">
     </mat-paginator>
-    <button mat-button (click)="onClick()">{{buttonType}}</button>
+    <button mat-button (click)="onClick()" >{{buttonType}}</button>
+
 </div>

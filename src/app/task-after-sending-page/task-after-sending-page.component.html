@@ -1,6 +1,6 @@
-<p>мои попытки</p>
+<h2 class="headertext">мои попытки</h2>
 <mat-accordion multi="true">
-  <mat-expansion-panel *ngFor="let item of files; let i = index">
+  <mat-expansion-panel *ngFor="let item of files; let i = index" [disabled]="!errorCompile">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <a href="http://localhost:3000/student/task/download/{{item._id}}" (click)="clickHref($event)" download>
@@ -8,13 +8,13 @@
         </a>
       </mat-panel-title>
       <mat-panel-description>
-        {{passedTests[i]}} / {{item.tests?.length}}
+        {{ errorCompile ? " " : passedTests[i] + "/" + item.tests?.length }}
       </mat-panel-description>
       <mat-panel-description>
-        оценка: {{item.mark}}
+        {{ !errorCompile ? "оценка: " + item.mark : "ошибка компиляции" }}
       </mat-panel-description>
       <mat-panel-description>
-        {{item.submitTime | date : "MM.dd.yy, hh:mm" }}
+        {{ errorCompile ? " " : item.submitTime | date : "MM.dd.yy, hh:mm" }}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <exc-task-passed-tests [dataSource]="item.tests"></exc-task-passed-tests>

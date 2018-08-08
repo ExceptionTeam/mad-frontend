@@ -17,10 +17,16 @@
 }
 
 .mat-card {
-  max-width: 70vw;
-  text-align: center;
+  max-width: 50vw;
+  align-items: center;
 }
 
 p {
  text-align: left;
+ font-size: 1.5em;
+}
+
+::ng-deep .info-width {
+  width: 50vh !important;
+  max-width: 300px;
 }
