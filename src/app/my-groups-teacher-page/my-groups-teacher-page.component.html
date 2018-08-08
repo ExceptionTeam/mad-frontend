@@ -1,24 +1,13 @@
-<button mat-button class="add-group" (click)="addGroup()">Добавить группу</button>
+<!--<button mat-button class="add-group" (click)="addGroup()">Добавить группу</button>-->
 <mat-accordion multi="true">
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <p>Индивидуальные студенты</p>
       </mat-panel-title>
-      <mat-panel-title>
-        <button mat-icon-button (click)="editClick($event)">
-          <mat-icon>add</mat-icon>
-        </button>
-        <button mat-icon-button (click)="editClick($event)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-panel-description *ngFor="let student of indStudents">
       <p class="name">{{student.name}} {{student.surname}}</p>
-      <button mat-icon-button>
-        <mat-icon>delete</mat-icon>
-      </button>
     </mat-panel-description>
   </mat-expansion-panel>
   <mat-expansion-panel *ngFor="let group of groups">
@@ -27,12 +16,6 @@
         <p>{{group.name}}</p>
       </mat-panel-title>
       <mat-panel-title>
-        <button mat-icon-button (click)="editClick($event)">
-          <mat-icon>add</mat-icon>
-        </button>
-        <button mat-icon-button (click)="editClick($event)">
-          <mat-icon>edit</mat-icon>
-        </button>
         <button mat-icon-button (click)="deleteClick($event, group)">
           <mat-icon>delete</mat-icon>
         </button>

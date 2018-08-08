@@ -2,17 +2,17 @@
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Имя, фамилия </th>
+      <th mat-header-cell *matHeaderCellDef> Имя, Фамилия </th>
       <td mat-cell *matCellDef="let element">
-        <a href=#>{{element.name}} {{element.surname}}</a>
+        <a>{{element.surname}} {{element.name}}</a>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="university">
-      <th mat-header-cell *matHeaderCellDef> университет </th>
+      <th mat-header-cell *matHeaderCellDef> Университет </th>
       <td mat-cell *matCellDef="let element">
-        <ng-container *ngIf="element.account?.university==undefined">
-          не заполнено
+        <ng-container *ngIf="!element.account?.university">
+          Не заполнено
         </ng-container>
         {{element.account?.university}} </td>
     </ng-container>
@@ -25,6 +25,6 @@
     [length]="getPaginationParams().length"
     [pageIndex]="getPaginationParams().pageIndex"
     [pageSize]="getPaginationParams().pageSize"
-    [pageSizeOptions]="[1, 2, 10, 25, 100]"
+    [pageSizeOptions]="[5, 10, 25, 100]"
     (page)="changePaginationParams()" showFirstLastButtons></mat-paginator>
 </div>

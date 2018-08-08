@@ -96,7 +96,10 @@ export class UserService {
       {
         headers: this.headers,
         withCredentials: true
-      }).pipe(map(data => data.map(request => ({ ...request, display: true, onclickDone: null }))));
+      }).pipe(map(data => {
+      const teachers = data.teachers.map(request => ({ ...request, display: true, onclickDone: null }));
+      return { ...data, teachers };
+    }));
   }
 
   confirmRole(id) {

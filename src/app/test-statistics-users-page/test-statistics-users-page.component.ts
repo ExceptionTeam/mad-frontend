@@ -9,16 +9,17 @@ import { TestService } from '../test.service';
   styleUrls: ['./test-statistics-users-page.component.scss']
 })
 export class TestStatisticsUsersPageComponent implements OnInit {
-  dataSourse = new MatTableDataSource<Object>([
-    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
-    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
-    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
-    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
-    { name: 'Влад', surname: 'Малиновский', university: 'fefwe' },
-  ]);
+  dataSourse = new MatTableDataSource<Object>();
+  title: string;
 
   constructor(private router: Router,
               private testService: TestService) {
+    if (this.router.url.includes('students')) {
+      this.title = 'Все ученики';
+    } else {
+      this.title = 'Все учителя';
+    }
+
   }
 
   onSearch(query: string) {
@@ -31,7 +32,6 @@ export class TestStatisticsUsersPageComponent implements OnInit {
       this.testService.loadUsers('teacher');
     }
   }
-
 
   ngOnInit() {
   }
