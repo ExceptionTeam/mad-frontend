@@ -15,28 +15,24 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>Редактировать</th>
+    <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef>Статус</th>
       <td class="column" mat-cell *matCellDef="let element">
-        <button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
+        {{getPrettyStatus(element.active)}}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef>Удалить</th>
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Тип вопроса</th>
       <td class="column" mat-cell *matCellDef="let element">
-        <button mat-icon-button>
-          <mat-icon>delete</mat-icon>
-        </button>
+        {{getPrettyType(element.type)}}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef>Статус (активный/неактивный)</th>
+    <ng-container matColumnDef="difficulty">
+      <th mat-header-cell *matHeaderCellDef>Сложность</th>
       <td class="column" mat-cell *matCellDef="let element">
-        <mat-checkbox></mat-checkbox>
+        {{element.difficulty}}
       </td>
     </ng-container>
 
