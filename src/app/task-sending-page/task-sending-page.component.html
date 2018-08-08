@@ -3,7 +3,7 @@
   <exc-file-uploading [deadline]="task?.deadline" (fileChanged)="onFileChanged($event)">
   </exc-file-uploading>
   <div class="send-button">
-    <button mat-flat-button [disabled]="!file" type="submit" (click)="onClick($event)" routerLink="/task/sended-task">
+    <button mat-flat-button [disabled]="!file" type="submit" (click)="onClick($event)" routerLink="/task/attempts/{{task?._id}}">
       Отправить решение
     </button>
   </div>
