@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
-import { QuestionAdmin, Question } from '../Types/QuestionAdmin.type';
+import { Question } from '../Types/QuestionAdmin.type';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
