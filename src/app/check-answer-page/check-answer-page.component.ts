@@ -17,7 +17,7 @@ export class CheckAnswerPageComponent {
   constructor(private testService: TestService,
               private userService: UserService) {
     this.userService.getInfo().subscribe(user => {
-      this.testService.getCheckingQuestions(user.id, 0, 2).subscribe(data => {
+      this.testService.getCheckingQuestions(user.id, 0, 5).subscribe(data => {
         console.log('questions, ', data);
         this.onDisplay = data.requests;
         this.length = data.amount;
@@ -28,6 +28,7 @@ export class CheckAnswerPageComponent {
   onPaginateChange() {
     this.testService.getCheckingQuestions(this.userService.id, this.paginator.pageIndex * this.paginator.pageSize,
       this.paginator.pageIndex * this.paginator.pageSize + this.paginator.pageSize).subscribe(data => {
+        console.log(data);
       this.onDisplay = data.requests;
       this.length = data.amount;
     });
