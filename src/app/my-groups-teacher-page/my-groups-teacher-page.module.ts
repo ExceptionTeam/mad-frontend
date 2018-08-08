@@ -7,6 +7,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MyGroupsRoutingModule } from './my-groups-routing.module';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddGroupWindowComponent } from '../add-group-window/add-group-window.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -16,13 +20,18 @@ import { MyGroupsRoutingModule } from './my-groups-routing.module';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-    MyGroupsRoutingModule
+    MyGroupsRoutingModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   declarations: [
-    MyGroupsTeacherPageComponent
+    MyGroupsTeacherPageComponent,
+    AddGroupWindowComponent
   ],
-  exports: [],
+  exports: [AddGroupWindowComponent],
   providers: [],
+  entryComponents: [AddGroupWindowComponent]
 })
 
 export class MyGroupsTeacherPageModule {

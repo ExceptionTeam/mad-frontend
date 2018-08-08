@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { DateAdapter, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { TaskService } from 'src/app/task.service';
 import { UserService } from 'src/app/user.service';
 import { AssignRequestData } from 'src/app/Types/AssignRequestData.type';
@@ -16,11 +16,12 @@ export class TaskAssigningWindowComponent implements OnInit {
   minDate = new Date();
   assigned: boolean;
 
-  constructor(private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private tasksService: TaskService,
-    private userService: UserService
-  ) {
+  constructor(private adapter: DateAdapter<any>,
+              private matDialogRef: MatDialogRef<TaskAssigningWindowComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private tasksService: TaskService,
+              private userService: UserService) {
+    this.adapter.setLocale('fr');
   }
 
   ngOnInit() {
@@ -51,11 +52,11 @@ export class TaskAssigningWindowComponent implements OnInit {
         teacherId: user.id,
         deadline: value.inputDate.valueOf()
       } : {
-          taskId: this.data._id,
-          studentId: this.selectedId,
-          teacherId: user.id,
-          deadline: value.inputDate.valueOf()
-        };
+        taskId: this.data._id,
+        studentId: this.selectedId,
+        teacherId: user.id,
+        deadline: value.inputDate.valueOf()
+      };
       console.log(data);
       this.tasksService.postAssignTask(data).subscribe(() => {
         this.assigned = true;

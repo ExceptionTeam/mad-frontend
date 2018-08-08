@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 import { TestTeacher } from '../Types/TestsTeacher.type';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { TestService } from '../test.service';
 import { UserService } from '../user.service';
 import { Observable } from 'rxjs';
@@ -23,8 +23,7 @@ export class TestAllAssignedTestsPageComponent implements OnInit {
 
   constructor(private router: Router,
               private testService: TestService,
-              private userService: UserService,
-              private activatedRoute: ActivatedRoute
+              private userService: UserService
   ) {
     this.pageIndex = 1;
     this.pageSize = 2;

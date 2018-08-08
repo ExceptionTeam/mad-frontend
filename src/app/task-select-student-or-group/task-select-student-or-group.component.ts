@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {Student, Group} from '../Types/MyStudentsTeacher.type';
+import { Group, Student } from '../Types/MyStudentsTeacher.type';
 import { TaskService } from 'src/app/task.service';
 import { UserService } from 'src/app/user.service';
+import { GroupsService } from '../groups.service';
 
 @Component({
   selector: 'exc-task-select-student-or-group',
@@ -22,15 +23,16 @@ export class TaskSelectStudentOrGroupComponent {
   groups: Group[] = [];
 
   constructor(private tasksService: TaskService,
-    private userService: UserService
+              private userService: UserService,
+              private groupService: GroupsService
   ) {
     userService.getInfo().subscribe(user => {
-      this.tasksService.getStudentsAndGroups(user.id).subscribe(item => {
-        this.indStudents = item.individualStudents;
-        console.log(this.indStudents);
-        this.groups = item.groups;
-        console.log(this.groups);
-      }
+      this.groupService.getStudentsAndGroups(user.id).subscribe(item => {
+          this.indStudents = item.individualStudents;
+          console.log(this.indStudents);
+          this.groups = item.groups;
+          console.log(this.groups);
+        }
       );
     });
   }

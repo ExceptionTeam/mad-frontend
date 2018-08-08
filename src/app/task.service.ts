@@ -60,12 +60,6 @@ export class TaskService {
       body, { headers: this.headers, withCredentials: true });
   }
 
-  getStudentsAndGroups(id): Observable<any> {
-    this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<any>('http://localhost:3000/teacher/students' + '?teacherId=' + id,
-      { headers: this.headers, withCredentials: true });
-  }
-
   getTaskFullInfoTeacher(id): Observable<TaskFullInfo> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TaskFullInfo>(`http://localhost:3000/teacher/task/full-info/${id}`,
@@ -141,5 +135,14 @@ export class TaskService {
       headers: this.headers,
       withCredentials: true
     });
+  }
+
+  submitTask(body, assId) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post<any>(`http://localhost:3000/student/task/submit/${assId}`, body, {
+      headers: this.headers,
+      withCredentials: true
+    });
+
   }
 }

@@ -36,8 +36,8 @@ export class TaskFullDescrTeacherComponent {
   }
 
   deleteTask() {
-    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 5000 }];
-    const argsArrayNotDeleted = ['Задача не удалена', '', { duration: 5000 }];
+    const argsArrayDeleted = ['Задача удалена', 'Отмена', { duration: 10000 }];
+    const argsArrayNotDeleted = ['Задача не удалена', '', { duration: 10000 }];
 
     this.taskService.deleteTask(this.id).subscribe(isDeleted => {
       console.log('isDeleted: ', isDeleted);
