@@ -14,7 +14,7 @@ export class RegistrationPageComponent {
   universityFormGroup: FormGroup;
   options: string[] = [];
   filteredOptions: Observable<string[]>;
-  skills: string[];
+  skills: any[];
 
   constructor(private _formBuilder: FormBuilder,
               private userService: UserService
