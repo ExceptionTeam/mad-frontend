@@ -13,8 +13,8 @@ export class HomePageComponent {
     { name: 'Артем', surname: 'Германенко' },
     { name: 'Валерий', surname: 'Стребко' },
     { name: 'Владислав', surname: 'Малиновский' },
-    { name: 'Роман', surname: 'Бовкунович' },
-    { name: 'Александр', surname: 'Батышев' },
+    { name: 'Алексей', surname: 'Козленков' },
+    { name: 'Алексей', surname: 'Батышев' },
     { name: 'Максим', surname: 'Мирончик' },
     { name: 'Борис', surname: 'Серенков' },
   ];
@@ -25,10 +25,10 @@ export class HomePageComponent {
     { name: 'Анна', surname: 'Кисель' },
     { name: 'Артем', surname: 'Германенко' },
     { name: 'Валерий', surname: 'Стребко' },
+    { name: 'Алексей', surname: 'Козленков' },
     { name: 'Владислав', surname: 'Малиновский' },
     { name: 'Роман', surname: 'Бовкунович' },
     { name: 'Александр', surname: 'Батышев' },
-    { name: 'Максим', surname: 'Мирончик' },
     { name: 'Борис', surname: 'Серенков' },
   ];
 
