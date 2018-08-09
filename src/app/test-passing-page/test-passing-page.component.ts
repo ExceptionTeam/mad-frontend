@@ -41,10 +41,10 @@ export class TestPassingPageComponent implements OnInit {
             this.test.questionsId.map(value => value.studentAnswer = []);
             this.req = info.questionsId[0];
             timer(0, 1000).pipe(
-              take(this.test.timeToPass),
+              take(this.test.timeToPass / 1000),
               map(tick => {
-                this.timer = (`0${Math.floor((this.test.timeToPass - tick) / 60)}`).slice(-2) + ':' +
-                  (`0${(this.test.timeToPass - tick - 1) % 60}`).slice(-2);
+                this.timer = (`0${Math.floor((this.test.timeToPass / 1000 - tick) / 60)}`).slice(-2) + ':' +
+                  (`0${(this.test.timeToPass / 1000 - tick - 1) % 60}`).slice(-2);
                 if (this.timer === '00:00') {
                   this.sendInfo();
                 }
@@ -86,13 +86,14 @@ export class TestPassingPageComponent implements OnInit {
   sendInfo() {
     this.test.questionsId.forEach((item, i) => {
       console.log(item.category);
-      this.body.push((item.category === 'MULTIPLE_ANSWERS' || item.category === 'SINGLE_ANSWER') ? {
+      this.body.push((item.category === 'SENTENCE_ANSWER') ? {
         answ: item.studentAnswer,
-        questionId: item._id
+        questionId: item._id,
+        checking: 'true',
       } : {
           answ: item.studentAnswer,
           questionId: item._id,
-          checking: true,
+
         });
     });
     this.testService.sendAnswersTest(this.test._id, this.body).subscribe(answ => {

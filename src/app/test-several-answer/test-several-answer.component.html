@@ -1,7 +1,7 @@
 <p>{{question}}</p>
 <div class="checkboxAnswers">
   <ng-container *ngFor="let answer of answers; let i=index">
-    <mat-checkbox [ngModel]="studentAnswer[i]"
+    <mat-checkbox [ngModel]="checkboxes[i]"
                   (change)="changeValue($event, i)"
                   [disabled]="disabled">
       {{answer}}

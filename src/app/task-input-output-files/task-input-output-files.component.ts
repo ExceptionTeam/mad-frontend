@@ -43,6 +43,10 @@ export class TaskInputOutputFilesComponent {
       inputFilesId: this.editInputFiles,
       outputFilesId: this.editOutputFiles
     });
+    if (this.editInputFiles.length === 0) {
+      this.validFile = false;
+      this.validFiles.emit(this.validFile);
+    }
   }
 
   onFileChanged(file, index, types) {
@@ -59,7 +63,7 @@ export class TaskInputOutputFilesComponent {
     console.log(this.files);
     if (this.files.length - this.files.filter(function (x) {
       return x.input !== null && x.output !== null;
-    }).length <= 0) {
+    }).length <= 0 ) {
       this.validFile = true;
     } else {
       this.validFile = false;
