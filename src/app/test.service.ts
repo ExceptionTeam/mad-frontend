@@ -94,6 +94,7 @@ export class TestService {
     return this.http.get<TestInfoStudent>(`http://localhost:3000/student/test/assignments/${studId}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
         value.ids.map((item) => {
+          item.timeToPass = item.timeToPass / 1000;
           item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
             (`0${(item.timeToPass) % 60}`).slice(-2);
         });

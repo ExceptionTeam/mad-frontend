@@ -55,7 +55,7 @@
     <div class="output">
       <p>Выходные файлы:</p>
       <a class="open-file" *ngFor="let file of task?.outputFilesId; let i = index" [attr.data-index]="i"
-         [href]="file.url" target="_blank"
+         href="http://localhost:3000/student/task/download/{{file._id}}" target="_blank"
          download>
         {{file.name}}
       </a>
