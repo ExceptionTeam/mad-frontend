@@ -34,8 +34,14 @@
             </mat-expansion-panel-header>
             <ng-container *ngIf="element.groupId">
                 <mat-expansion-panel [disabled]="true">
-                  <mat-expansion-panel-header class="group">
-                    <span class="mat-cell"><button>Просмотр</button></span>
+                  <mat-expansion-panel-header class="group" *ngFor = "let stud of element.students">
+                    <span class="mat-cell">{{stud.surname}} {{stud.name}}</span>
+                    <span class="mat-cell groupButton"(click)="onClick($event, stud._id, element._id)">
+                      <button mat-button>Просмотр</button>
+                    </span>
+                    <span class="mat-cell">{{element.mark}}</span>
+                    <span class="mat-cell"></span>
+                    <span class="mat-cell"></span>
                   </mat-expansion-panel-header>
                 </mat-expansion-panel>
             </ng-container>

@@ -28,7 +28,7 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element" class="mark">
         <ng-container *ngIf="element.status==='PASSED'" >
-          {{element?.mark}}
+          {{element?.mark ? element.mark : "ожидает проверки"}}
         </ng-container>
         <button mat-button routerLink="/test/passing/{{element._id}}" *ngIf="element.status==='PENDING'">
           Пройти тест

@@ -15,6 +15,7 @@ export interface TestTeacher {
   type: string;
   assignDate: string;
   groupId?: UserId;
+  students: UserId[];
 }
 
 

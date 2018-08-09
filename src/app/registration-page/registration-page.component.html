@@ -58,7 +58,7 @@
       <mat-card-content>
         <div>
           <p>Cтатус:&nbsp;&nbsp;{{nameSurnameForm.value.isStudent ? "Ученик" : "Учитель"}}</p>
-          <p>Имя, фамилия: &nbsp;&nbsp;{{nameSurnameForm.value.name}} {{nameSurnameForm.value.surname}}</p>
+          <p>Имя: &nbsp;&nbsp;{{nameSurnameForm.value.name}}</p>
           <p>Email:&nbsp;&nbsp; {{nameSurnameForm.value.email}}</p>
           <p>Вуз/место работы: &nbsp;&nbsp;{{universityForm.value.university}}</p>
           <ng-container *ngIf="nameSurnameForm.value.isStudent">

@@ -13,6 +13,8 @@ import { ConfirmTestInfo } from './confirm-training-test/confirmTest.type';
 import { map } from 'rxjs/internal/operators';
 import { AllUsers, User } from './test-statistics-users-page/User.type';
 import { CheckData } from './check-answer-page/question.type';
+import { UserId } from './Types/UserId.type';
+import { Group } from './Types/Group.type';
 
 const adminTaskUrl = 'http://localhost:3000/all/questions';
 
@@ -91,31 +93,46 @@ export class TestService {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<TestInfoStudent>(`http://localhost:3000/student/test/assignments/${studId}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
-      value.ids.map((item) => {
-        item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
-          (`0${(item.timeToPass) % 60}`).slice(-2);
+        value.ids.map((item) => {
+          item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
+            (`0${(item.timeToPass) % 60}`).slice(-2);
+        });
+        this.bSubject$.next(value.ids);
+        this.paginationParams.length = value.amount;
       });
-      this.bSubject$.next(value.ids);
-      this.paginationParams.length = value.amount;
-    });
   }
 
   loadAllTests(studId) {
     this.loadAllTestsStudent(studId, this.paginationParams.pageIndex, this.paginationParams.pageSize);
   }
 
+  getGroupStudents(grId): Observable<Group[]> {
+    this.headers.append('Access-Control-Allow-Methods', 'GET');
+    return this.http.get<Group[]>(`http://localhost:3000/teacher/group/members/${grId}`,
+      {
+        headers: this.headers,
+        withCredentials: true
+      });
+  }
+
   loadAllAssignTestsTeacher(id, skip, top) {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<AssignTest>(`http://localhost:3000/teacher/test/all-assignments/${id}?skip=${skip * top}&top=${top}`,
       { headers: this.headers, withCredentials: true }).subscribe(value => {
-      console.log(value);
-      /*value.map((item) => {
-        item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
-          (`0${(item.timeToPass) % 60}`).slice(-2);
-      });*/
-      this.bSubjectTeacher$.next(value.assignments);
-      this.paginationParams.length = value.assignAmount;
-    });
+        console.log(value);
+        /*value.map((item) => {
+          item.timeToPassStr = (`0${Math.floor((item.timeToPass) / 60)}`).slice(-2) + ':' +
+            (`0${(item.timeToPass) % 60}`).slice(-2);
+        });*/
+        this.bSubjectTeacher$.next(value.assignments);
+        this.paginationParams.length = value.assignAmount;
+        value.assignments.forEach(item => {
+          if (item.groupId) {
+            item.students = [];
+            this.getGroupStudents(item.groupId._id).subscribe( it => it.forEach( stud => item.students.push(stud.studentId)));
+          }
+        });
+      });
   }
 
   loadAllSubmissionsTeacher(assId) {
@@ -172,10 +189,10 @@ export class TestService {
         headers: this.headers,
         withCredentials: true
       }).subscribe(value => {
-      console.log('value ', value);
-      this.users$.next(value.data);
-      this.paginationParams.length = value.pagination.filtered;
-    });
+        console.log('value ', value);
+        this.users$.next(value.data);
+        this.paginationParams.length = value.pagination.filtered;
+      });
   }
 
   loadUsers(role) {
